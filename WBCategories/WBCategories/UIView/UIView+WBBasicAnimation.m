@@ -73,21 +73,9 @@ static const void *UtilityKey = &UtilityKey;
 
 
 - (void)wb_trans180DegreeAnimation {
-//    [UIView animateWithDuration:0.3 animations:^{
-//        self.layer.transform = CATransform3DMakeRotation(M_PI, 0, 1, 0);
-//    }];
-    
-        CABasicAnimation *animation = [CABasicAnimation
-                                       animationWithKeyPath: @"transform" ];
-        animation.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
-    
-        //围绕Z轴旋转，垂直与屏幕
-        animation.toValue = [NSValue valueWithCATransform3D:
-    
-                             CATransform3DMakeRotation(M_PI, 0.0, 0.0, 1.f) ];
-        animation.duration = 0.4;
-    
-        [self.layer addAnimation:animation forKey:nil];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.layer.transform = CATransform3DMakeRotation(M_PI, 0, 1, 0);
+    }];
 }
 
 @end

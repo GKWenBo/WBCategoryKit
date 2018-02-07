@@ -114,6 +114,17 @@ static const void *kCoreAnimationCompletionKey = &kCoreAnimationCompletionKey;
     [self.layer addAnimation:groupAnimation forKey:@"position scale"];
 }
 
+- (void)wb_rotateXWithAngle:(CGFloat)angle {
+    CABasicAnimation *animation = [CABasicAnimation
+                                   animationWithKeyPath: @"transform" ];
+    animation.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
+    //围绕x轴旋转，垂直与屏幕
+    animation.toValue = [NSValue valueWithCATransform3D:
+                         CATransform3DMakeRotation(M_PI, 0.0, 0.0, 1.f) ];
+    animation.duration = 0.4;
+    [self.layer addAnimation:animation forKey:nil];
+}
+
 #pragma mark ------ < Getter And Setter > ------
 - (void)setCompleteBlock:(void (^)(void))completeBlock {
     objc_setAssociatedObject(self, &kCoreAnimationCompletionKey, completeBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
