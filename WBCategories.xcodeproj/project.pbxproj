@@ -24,6 +24,7 @@
 		84E35FE4202992E700E4683F /* UIView+WBBasicAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E35FE3202992E600E4683F /* UIView+WBBasicAnimation.m */; };
 		84E35FE62029930800E4683F /* UIView+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E35FE52029930800E4683F /* UIView+WBAdditional.m */; };
 		84E35FEA2029948B00E4683F /* UIView+WBCoreAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E35FE92029948B00E4683F /* UIView+WBCoreAnimation.m */; };
+		84FD26C0202C56C100FC5FFF /* UISearchBar+WBAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FD26BF202C56C100FC5FFF /* UISearchBar+WBAddition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,8 @@
 		84E35FE72029935A00E4683F /* UIView+WBAdditional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WBAdditional.h"; sourceTree = "<group>"; };
 		84E35FE82029948B00E4683F /* UIView+WBCoreAnimation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+WBCoreAnimation.h"; sourceTree = "<group>"; };
 		84E35FE92029948B00E4683F /* UIView+WBCoreAnimation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+WBCoreAnimation.m"; sourceTree = "<group>"; };
+		84FD26BE202C56C100FC5FFF /* UISearchBar+WBAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISearchBar+WBAddition.h"; sourceTree = "<group>"; };
+		84FD26BF202C56C100FC5FFF /* UISearchBar+WBAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISearchBar+WBAddition.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,8 @@
 		84E35FA92029889200E4683F /* WBCategories */ = {
 			isa = PBXGroup;
 			children = (
+				84FD26C1202C56F300FC5FFF /* Macro */,
+				84FD26BD202C56C100FC5FFF /* UISearchBar */,
 				84E35FCF20298AA000E4683F /* UIView */,
 				84E35FCB20298A3700E4683F /* UINavigationController */,
 				84E35FC72029898C00E4683F /* NSObject */,
@@ -156,6 +161,22 @@
 				84E35FE92029948B00E4683F /* UIView+WBCoreAnimation.m */,
 			);
 			path = UIView;
+			sourceTree = "<group>";
+		};
+		84FD26BD202C56C100FC5FFF /* UISearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				84FD26BE202C56C100FC5FFF /* UISearchBar+WBAddition.h */,
+				84FD26BF202C56C100FC5FFF /* UISearchBar+WBAddition.m */,
+			);
+			path = UISearchBar;
+			sourceTree = "<group>";
+		};
+		84FD26C1202C56F300FC5FFF /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Macro;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84E35FD220298AF000E4683F /* UIView+HGCorner.m in Sources */,
+				84FD26C0202C56C100FC5FFF /* UISearchBar+WBAddition.m in Sources */,
 				84E35FD820298B4100E4683F /* UIView+WBFrame.m in Sources */,
 				84E35FC6202988FF00E4683F /* UIViewController+WBRemoveTabbarButton.m in Sources */,
 				84E35FDB20298BCD00E4683F /* UIView+WBExtension.m in Sources */,
