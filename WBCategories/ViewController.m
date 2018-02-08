@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "UIView+WBBasicAnimation.h"
+#import "WBClearWarningMacro.h"
 
 @interface ViewController ()
 {

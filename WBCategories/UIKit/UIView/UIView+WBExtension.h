@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param action 事件
  */
 - (void)wb_addTapGestureTarget:(id)target
-              action:(SEL)action;
+                        action:(SEL)action;
 
 #pragma mark -- Border
 #pragma mark
