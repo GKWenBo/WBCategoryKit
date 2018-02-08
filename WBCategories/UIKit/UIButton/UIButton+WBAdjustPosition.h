@@ -18,15 +18,6 @@
 - (void)wb_verticalCenterImageAndTitle:(CGFloat)spacing;
 - (void)wb_verticalCenterImageAndTitle;
 
-
-/**
- *  按钮图片垂直居中显示(法2)
- *  @param spacing 间隔
- *
- */
-- (void)wb_middleAlignButtonWithSpacing:(CGFloat)spacing;
-
-
 /**
  *  左右居中，文字在左，图片在右
  *

@@ -11,22 +11,22 @@
 
 @implementation UIButton (WBEnlargeTouchAreas)
 
-- (UIEdgeInsets)touchAreaInsets
+- (UIEdgeInsets)wb_touchAreaInsets
 {
-    return [objc_getAssociatedObject(self, @selector(touchAreaInsets)) UIEdgeInsetsValue];
+    return [objc_getAssociatedObject(self, @selector(wb_touchAreaInsets)) UIEdgeInsetsValue];
 }
 /**
  *  @brief  设置按钮额外热区
  */
-- (void)setTouchAreaInsets:(UIEdgeInsets)touchAreaInsets
+- (void)setWb_touchAreaInsets:(UIEdgeInsets)touchAreaInsets
 {
     NSValue *value = [NSValue valueWithUIEdgeInsets:touchAreaInsets];
-    objc_setAssociatedObject(self, @selector(touchAreaInsets), value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(wb_touchAreaInsets), value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
 {
-    UIEdgeInsets touchAreaInsets = self.touchAreaInsets;
+    UIEdgeInsets touchAreaInsets = self.wb_touchAreaInsets;
     CGRect bounds = self.bounds;
     bounds = CGRectMake(bounds.origin.x - touchAreaInsets.left,
                         bounds.origin.y - touchAreaInsets.top,
