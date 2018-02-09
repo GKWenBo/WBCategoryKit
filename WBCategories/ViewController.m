@@ -7,8 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "UIView+WBBasicAnimation.h"
-#import "WBClearWarningMacro.h"
 #import "UIDevice+WBUUID.h"
 
 @interface ViewController ()
@@ -23,11 +21,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    redView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 200, 200)];
-    redView.center = self.view.center;
-    redView.backgroundColor = [UIColor redColor];
-    [self.view addSubview:redView];
-    
     NSLog(@"%@",[[UIDevice currentDevice] wb_uuid]);
 }
 
@@ -36,10 +29,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [redView wb_trans180DegreeAnimation];
-}
-
 
 @end

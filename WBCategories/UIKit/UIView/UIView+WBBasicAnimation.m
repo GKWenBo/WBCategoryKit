@@ -71,10 +71,10 @@ static const void *UtilityKey = &UtilityKey;
     [self wb_fadeOutAndRemoveFromSuperViewWithDuration:0.2f];
 }
 
-
-- (void)wb_trans180DegreeAnimation {
-    [UIView animateWithDuration:0.3 animations:^{
-        self.layer.transform = CATransform3DMakeRotation(M_PI, 0, 1, 0);
+- (void)wb_transZWithDegree:(CGFloat)degree
+                   duration:(NSTimeInterval)durationn {
+    [UIView animateWithDuration:durationn animations:^{
+        self.layer.transform = CATransform3DMakeRotation(degree, 0, 1, 0);
     }];
 }
 

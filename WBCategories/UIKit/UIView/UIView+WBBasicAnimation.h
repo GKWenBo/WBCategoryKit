@@ -40,9 +40,10 @@
 - (void)wb_fadeOutAndRemoveFromSuperView;
 
 /**
- *  翻转动画 180°
+ *  Z轴翻转动画 180°
  *
  */
-- (void)wb_trans180DegreeAnimation;
+- (void)wb_transZWithDegree:(CGFloat)degree
+                   duration:(NSTimeInterval)duration;
 
 @end

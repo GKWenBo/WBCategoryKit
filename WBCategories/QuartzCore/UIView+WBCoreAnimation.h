@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, WBRotateDiretion) {
+    WBRotateXDiretion,  /** << X轴 > */
+    WBRotateYDiretion,  /** << Y轴 > */
+    WBRotateZDiretion   /** << Z轴 > */
+};
+
 @interface UIView (WBCoreAnimation)
 
 #pragma mark ------ < Protpery > ------
@@ -73,16 +79,16 @@
       completedBlock:(void(^)(void))completedBlock;
 
 /**
- Rotate around x、y、z axis.
+ Rotate around x axis.
 
  @param angle angle
- @param direction  The first is the angle in radians the other 3 parameters are the axis (x, y, z). So for example if you want to rotate 180 degrees around the z axis just call the function like this:CATransform3DMakeRotation(M_PI, 0.0, 0.0, 1.0)
+ @param diretion The first is the angle in radians the other 3 parameters are the axis (x, y, z). So for example if you want to rotate 180 degrees around the z axis just call the function like this:CATransform3DMakeRotation(M_PI, 0.0, 0.0, 1.0)
  @param duration time
  */
-- (void)wb_rotateWithAngle:(CGFloat)angle
-                 direction:(CGFloat)direction
-                  duration:(NSTimeInterval)duration
-;
+- (void)wb_rotateXWithAngle:(CGFloat)angle
+                   diretion:(WBRotateDiretion)diretion
+                   duration:(NSTimeInterval)duration;
+
 
 
 @end

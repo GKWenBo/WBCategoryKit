@@ -114,14 +114,29 @@ static const void *kCoreAnimationCompletionKey = &kCoreAnimationCompletionKey;
     [self.layer addAnimation:groupAnimation forKey:@"position scale"];
 }
 
-- (void)wb_rotateXWithAngle:(CGFloat)angle {
+- (void)wb_rotateXWithAngle:(CGFloat)angle
+                   diretion:(WBRotateDiretion)diretion
+                   duration:(NSTimeInterval)duration {
     CABasicAnimation *animation = [CABasicAnimation
                                    animationWithKeyPath: @"transform" ];
     animation.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
-    //围绕x轴旋转，垂直与屏幕
-    animation.toValue = [NSValue valueWithCATransform3D:
-                         CATransform3DMakeRotation(M_PI, 0.0, 0.0, 1.f) ];
-    animation.duration = 0.4;
+    switch (diretion) {
+        case WBRotateXDiretion:
+            animation.toValue = [NSValue valueWithCATransform3D:
+                                 CATransform3DMakeRotation(angle, 1.0, 0.0, 0.0)];
+            break;
+        case WBRotateYDiretion:
+            animation.toValue = [NSValue valueWithCATransform3D:
+                                 CATransform3DMakeRotation(angle, 0.0, 1.0, 0.0)];
+            break;
+        case WBRotateZDiretion:
+            animation.toValue = [NSValue valueWithCATransform3D:
+                                 CATransform3DMakeRotation(angle, 0.0, 0.0, 1.0)];
+            break;
+        default:
+            break;
+    }
+    animation.duration = duration;
     [self.layer addAnimation:animation forKey:nil];
 }
 

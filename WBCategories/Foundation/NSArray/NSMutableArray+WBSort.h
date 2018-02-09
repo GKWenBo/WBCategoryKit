@@ -28,9 +28,10 @@
 /**
  快速排序
 
- @param low <#low description#>
- @param high <#high description#>
+ @param low low description
+ @param high high description
  */
-- (void)wb_quickSortWithLowIndex:(NSInteger)low highIndex:(NSInteger)high;
+- (void)wb_quickSortWithLowIndex:(NSInteger)low
+                       highIndex:(NSInteger)high;
 
 @end
