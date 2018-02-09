@@ -17,5 +17,4 @@
  */
 + (UIVisualEffectView *)wb_effectViewWithFrame:(CGRect)frame;
 
-
 @end

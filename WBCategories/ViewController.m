@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "UIView+WBBasicAnimation.h"
 #import "WBClearWarningMacro.h"
+#import "UIDevice+WBUUID.h"
 
 @interface ViewController ()
 {
@@ -26,6 +27,8 @@
     redView.center = self.view.center;
     redView.backgroundColor = [UIColor redColor];
     [self.view addSubview:redView];
+    
+    NSLog(@"%@",[[UIDevice currentDevice] wb_uuid]);
 }
 
 

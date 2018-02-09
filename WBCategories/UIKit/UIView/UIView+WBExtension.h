@@ -58,7 +58,6 @@ NS_ASSUME_NONNULL_BEGIN
                   borderWidth:(CGFloat)borderWidth;
 
 #pragma mark -- CornerRadius
-#pragma mark
 /**
  *  设置圆角
  *
@@ -87,12 +86,10 @@ NS_ASSUME_NONNULL_BEGIN
                                      cornerRadius:(CGFloat)cornerRadius;
 
 #pragma mark --------  父视图  --------
-#pragma mark
 /**  父视图  */
 - (NSArray *)superviews;
 
 #pragma mark --------  添加视图到Window上  --------
-#pragma mark
 - (void)wb_addToWindow;
 
 @end

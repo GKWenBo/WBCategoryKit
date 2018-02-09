@@ -91,18 +91,7 @@
 
 }
 
-- (UIViewController *)viewController {
-    for (UIView *view = self; view; view = view.superview) {
-        UIResponder *nextResponder = [view nextResponder];
-        if ([nextResponder isKindOfClass:[UIViewController class]]) {
-            return (UIViewController *)nextResponder;
-        }
-    }
-    return nil;
-}
-
 - (void)wb_setLayerShadow:(UIColor *)color offset:(CGSize)offset radius:(CGFloat)radius {
-    
     self.layer.shadowColor  = color.CGColor;
     self.layer.shadowOffset = offset;
     self.layer.shadowRadius = radius;

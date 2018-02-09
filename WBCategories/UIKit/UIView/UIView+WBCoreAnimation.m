@@ -127,11 +127,11 @@ static const void *kCoreAnimationCompletionKey = &kCoreAnimationCompletionKey;
 
 #pragma mark ------ < Getter And Setter > ------
 - (void)setCompleteBlock:(void (^)(void))completeBlock {
-    objc_setAssociatedObject(self, &kCoreAnimationCompletionKey, completeBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    objc_setAssociatedObject(self, kCoreAnimationCompletionKey, completeBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 - (void (^)(void))completeBlock {
-    return objc_getAssociatedObject(self, &kCoreAnimationCompletionKey);
+    return objc_getAssociatedObject(self, kCoreAnimationCompletionKey);
 }
 
 #pragma mark ------ < CAAnimationDelegate > ------

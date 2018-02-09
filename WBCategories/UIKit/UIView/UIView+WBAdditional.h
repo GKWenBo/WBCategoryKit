@@ -59,22 +59,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param offset 偏移量
  *  @param radius 圆角
  */
-- (void)wb_setLayerShadow:(nullable UIColor*)color offset:(CGSize)offset radius:(CGFloat)radius;
+- (void)wb_setLayerShadow:(nullable UIColor*)color
+                   offset:(CGSize)offset
+                   radius:(CGFloat)radius;
 
 /**
  *  移除所有子视图
  *
  */
 - (void)wb_removeAllSubviews;
-
-
-/**
- *  当前视图控制器
- *
- *  @return 控制器或nil
- */
-@property (nonatomic,readonly,nullable) UIViewController * viewController;
-
 
 #pragma mark --------  位置  --------
 #pragma mark
@@ -86,7 +79,8 @@ NS_ASSUME_NONNULL_BEGIN
  If view is nil, this method instead converts to window base coordinates.
  @return The point converted to the coordinate system of view.
  */
-- (CGPoint)wb_convertPoint:(CGPoint)point toViewOrWindow:(nullable UIView *)view;
+- (CGPoint)wb_convertPoint:(CGPoint)point
+            toViewOrWindow:(nullable UIView *)view;
 
 /**
  Converts a point from the coordinate system of a given view or window to that of the receiver.
@@ -96,7 +90,8 @@ NS_ASSUME_NONNULL_BEGIN
  If view is nil, this method instead converts from window base coordinates.
  @return The point converted to the local coordinate system (bounds) of the receiver.
  */
-- (CGPoint)wb_convertPoint:(CGPoint)point fromViewOrWindow:(nullable UIView *)view;
+- (CGPoint)wb_convertPoint:(CGPoint)point
+          fromViewOrWindow:(nullable UIView *)view;
 
 /**
  Converts a rectangle from the receiver's coordinate system to that of another view or window.
@@ -105,7 +100,8 @@ NS_ASSUME_NONNULL_BEGIN
  @param view The view or window that is the target of the conversion operation. If view is nil, this method instead converts to window base coordinates.
  @return The converted rectangle.
  */
-- (CGRect)wb_convertRect:(CGRect)rect toViewOrWindow:(nullable UIView *)view;
+- (CGRect)wb_convertRect:(CGRect)rect
+          toViewOrWindow:(nullable UIView *)view;
 
 /**
  Converts a rectangle from the coordinate system of another view or window to that of the receiver.
@@ -115,7 +111,8 @@ NS_ASSUME_NONNULL_BEGIN
  If view is nil, this method instead converts from window base coordinates.
  @return The converted rectangle.
  */
-- (CGRect)wb_convertRect:(CGRect)rect fromViewOrWindow:(nullable UIView *)view;
+- (CGRect)wb_convertRect:(CGRect)rect
+        fromViewOrWindow:(nullable UIView *)view;
 
 #pragma mark --------  绘制虚线  --------
 #pragma mark
@@ -127,7 +124,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param spacing 间隔
  *  @param color 虚线颜色
  */
-+ (UIView *)wb_createDashedLineWithFrame:(CGRect)lineFrame lineLength:(int)length lineSpacing:(int)spacing lineColor:(UIColor *)color;
++ (UIView *)wb_createDashedLineWithFrame:(CGRect)lineFrame
+                              lineLength:(int)length
+                             lineSpacing:(int)spacing
+                               lineColor:(UIColor *)color;
 
 
 @end
