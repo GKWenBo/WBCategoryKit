@@ -10,9 +10,8 @@
 
 @interface UIWindow (WBHierarchy)
 
-
 /**
- Get winow topmost controller.
+ Get winow top most controller.
 
  @return Returns the current Top Most ViewController in hierarchy.
  */
@@ -21,8 +20,23 @@
 /**
  Get current controller.
 
- @return UReturns the topViewController in stack of topMostController.
+ @return the topViewController in stack of topMostController.
  */
 - (UIViewController *)wb_currentController;
+
+/**
+ Get top most controller in viewcontrollr.
+
+ @param inViewController inViewController description
+ @return the top most controller
+ */
++ (UIViewController *)wb_getTopViewController:(UIViewController *)inViewController;
+
+/**
+ Get current dispay controller in screen.
+
+ @return UIViewController
+ */
++ (UIViewController *)wb_getCurrentDisplayController;
 
 @end

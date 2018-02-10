@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "UIDevice+WBUUID.h"
+#import "UIWindow+WBHierarchy.h"
 
 @interface ViewController ()
 {

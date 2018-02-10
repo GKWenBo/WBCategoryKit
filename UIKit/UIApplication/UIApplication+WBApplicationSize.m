@@ -16,7 +16,7 @@
     unsigned long long cacheSize =  [self wb_sizeOfFolder:[self wb_cachePath]];
     
     unsigned long long total = docSize + libSize + cacheSize;
-    
+
     NSString *folderSizeStr = [NSByteCountFormatter stringFromByteCount:total countStyle:NSByteCountFormatterCountStyleFile];
     return folderSizeStr;
 }
