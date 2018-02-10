@@ -26,6 +26,8 @@
 		8401D6DD202D9810007A1AC8 /* UIView+WBConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 8401D6DC202D9810007A1AC8 /* UIView+WBConstraints.m */; };
 		8401D6E0202D999F007A1AC8 /* UIView+WBFind.m in Sources */ = {isa = PBXBuildFile; fileRef = 8401D6DF202D999F007A1AC8 /* UIView+WBFind.m */; };
 		8401D6E3202DA0CA007A1AC8 /* UIView+WBBlockGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 8401D6E2202DA0CA007A1AC8 /* UIView+WBBlockGesture.m */; };
+		841D7D96202E91A500D70A07 /* UIViewController+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = 841D7D95202E91A500D70A07 /* UIViewController+WBAdditional.m */; };
+		841D7D9A202E959900D70A07 /* UIImagePickerController+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = 841D7D99202E959900D70A07 /* UIImagePickerController+WBAdditional.m */; };
 		84E35FAC2029889200E4683F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E35FAB2029889200E4683F /* AppDelegate.m */; };
 		84E35FAF2029889200E4683F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E35FAE2029889200E4683F /* ViewController.m */; };
 		84E35FB22029889200E4683F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E35FB02029889200E4683F /* Main.storyboard */; };
@@ -124,6 +126,10 @@
 		8401D6DF202D999F007A1AC8 /* UIView+WBFind.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+WBFind.m"; sourceTree = "<group>"; };
 		8401D6E1202DA0CA007A1AC8 /* UIView+WBBlockGesture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+WBBlockGesture.h"; sourceTree = "<group>"; };
 		8401D6E2202DA0CA007A1AC8 /* UIView+WBBlockGesture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+WBBlockGesture.m"; sourceTree = "<group>"; };
+		841D7D94202E91A500D70A07 /* UIViewController+WBAdditional.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WBAdditional.h"; sourceTree = "<group>"; };
+		841D7D95202E91A500D70A07 /* UIViewController+WBAdditional.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WBAdditional.m"; sourceTree = "<group>"; };
+		841D7D98202E959900D70A07 /* UIImagePickerController+WBAdditional.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImagePickerController+WBAdditional.h"; sourceTree = "<group>"; };
+		841D7D99202E959900D70A07 /* UIImagePickerController+WBAdditional.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImagePickerController+WBAdditional.m"; sourceTree = "<group>"; };
 		84E35FA72029889200E4683F /* WBCategories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WBCategories.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E35FAA2029889200E4683F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84E35FAB2029889200E4683F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -322,6 +328,15 @@
 			path = "UINavigationItem+Margin";
 			sourceTree = "<group>";
 		};
+		841D7D97202E957C00D70A07 /* UIImagePickerController */ = {
+			isa = PBXGroup;
+			children = (
+				841D7D98202E959900D70A07 /* UIImagePickerController+WBAdditional.h */,
+				841D7D99202E959900D70A07 /* UIImagePickerController+WBAdditional.m */,
+			);
+			path = UIImagePickerController;
+			sourceTree = "<group>";
+		};
 		84E35F9E2029889200E4683F = {
 			isa = PBXGroup;
 			children = (
@@ -457,6 +472,7 @@
 		C2534832202C9495004C0E7E /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				841D7D97202E957C00D70A07 /* UIImagePickerController */,
 				8401D6B5202D7B76007A1AC8 /* UINavigationItem */,
 				8401D6A8202D5866007A1AC8 /* UIControl */,
 				8401D6A4202D50D7007A1AC8 /* UIImageView */,
@@ -608,10 +624,12 @@
 		C2534864202C9495004C0E7E /* UIViewController */ = {
 			isa = PBXGroup;
 			children = (
-				C2534865202C9495004C0E7E /* UIViewController+WBRemoveTabbarButton.m */,
-				C2534866202C9495004C0E7E /* UIViewController+WBTransition.m */,
 				C2534867202C9495004C0E7E /* UIViewController+WBTransition.h */,
+				C2534866202C9495004C0E7E /* UIViewController+WBTransition.m */,
 				C2534868202C9495004C0E7E /* UIViewController+WBRemoveTabbarButton.h */,
+				C2534865202C9495004C0E7E /* UIViewController+WBRemoveTabbarButton.m */,
+				841D7D94202E91A500D70A07 /* UIViewController+WBAdditional.h */,
+				841D7D95202E91A500D70A07 /* UIViewController+WBAdditional.m */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -822,6 +840,7 @@
 				84E35FAF2029889200E4683F /* ViewController.m in Sources */,
 				C2534872202C9495004C0E7E /* NSString+WBJavaScript.m in Sources */,
 				8401D6A0202D48AF007A1AC8 /* WBUUID.m in Sources */,
+				841D7D96202E91A500D70A07 /* UIViewController+WBAdditional.m in Sources */,
 				C2534885202C9495004C0E7E /* UIColor+WBAdditional.m in Sources */,
 				C2534877202C9495004C0E7E /* NSObject+WBRuntime.m in Sources */,
 				84E35FBA2029889200E4683F /* main.m in Sources */,
@@ -859,6 +878,7 @@
 				8401D6B1202D7298007A1AC8 /* UIControl+WBAcitonBlock.m in Sources */,
 				C25348B3202CAECA004C0E7E /* UIButton+WBCountDown.m in Sources */,
 				8401D6E3202DA0CA007A1AC8 /* UIView+WBBlockGesture.m in Sources */,
+				841D7D9A202E959900D70A07 /* UIImagePickerController+WBAdditional.m in Sources */,
 				C253488B202C9495004C0E7E /* UIView+WBFrame.m in Sources */,
 				C2534873202C9495004C0E7E /* NSString+WBPredicate.m in Sources */,
 				C2534882202C9495004C0E7E /* UIButton+WBEnlargeTouchAreas.m in Sources */,
