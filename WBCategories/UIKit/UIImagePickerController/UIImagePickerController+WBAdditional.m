@@ -14,22 +14,22 @@
 
 #pragma mark ------ < 系统相机相关 > ------
 #pragma mark
-- (UIImagePickerController *)wb_imagePickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType {
++ (UIImagePickerController *)wb_imagePickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType {
     UIImagePickerController *controller = [[UIImagePickerController alloc]init];
     [controller setSourceType:sourceType];
     [controller setMediaTypes:@[(NSString *)kUTTypeImage]];
     return controller;
 }
 
-- (BOOL)wb_isAvailablePhotoLibrary {
++ (BOOL)wb_isAvailablePhotoLibrary {
     return [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary];
 }
 
-- (BOOL)wb_isAvailableCamera {
++ (BOOL)wb_isAvailableCamera {
     return [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
 }
 
-- (BOOL)wb_isSupportTakingPhotos {
++ (BOOL)wb_isSupportTakingPhotos {
     NSString *mediaType = AVMediaTypeVideo;
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
     if(authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied){
@@ -39,12 +39,12 @@
     }
 }
 
-- (BOOL)wb_isSupportPickPhotosFromPhotoLibrary {
++ (BOOL)wb_isSupportPickPhotosFromPhotoLibrary {
     return [self wb_isSupportsMedia:(__bridge NSString *)kUTTypeImage
                          sourceType:UIImagePickerControllerSourceTypePhotoLibrary];
 }
 
-- (BOOL)wb_isSupportsMedia:(NSString *)mediaType
++ (BOOL)wb_isSupportsMedia:(NSString *)mediaType
                 sourceType:(UIImagePickerControllerSourceType)sourceType {
     __block BOOL result = NO;
     if ([mediaType length] == 0) {
