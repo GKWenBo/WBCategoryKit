@@ -53,4 +53,9 @@
     return name;
 }
 
+- (NSString *)wb_getBoundleName {
+    NSString *appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"];
+    return appName;
+}
+
 @end

@@ -28,6 +28,8 @@
 		8401D6E3202DA0CA007A1AC8 /* UIView+WBBlockGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 8401D6E2202DA0CA007A1AC8 /* UIView+WBBlockGesture.m */; };
 		841D7D96202E91A500D70A07 /* UIViewController+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = 841D7D95202E91A500D70A07 /* UIViewController+WBAdditional.m */; };
 		841D7D9A202E959900D70A07 /* UIImagePickerController+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = 841D7D99202E959900D70A07 /* UIImagePickerController+WBAdditional.m */; };
+		841D7D9D202E9BBF00D70A07 /* NSString+WBCreateFileName.m in Sources */ = {isa = PBXBuildFile; fileRef = 841D7D9C202E9BBF00D70A07 /* NSString+WBCreateFileName.m */; };
+		841D7DA1202E9DB200D70A07 /* NSUserDefaults+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = 841D7DA0202E9DB200D70A07 /* NSUserDefaults+WBAdditional.m */; };
 		84E35FAC2029889200E4683F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E35FAB2029889200E4683F /* AppDelegate.m */; };
 		84E35FAF2029889200E4683F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E35FAE2029889200E4683F /* ViewController.m */; };
 		84E35FB22029889200E4683F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E35FB02029889200E4683F /* Main.storyboard */; };
@@ -130,6 +132,10 @@
 		841D7D95202E91A500D70A07 /* UIViewController+WBAdditional.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WBAdditional.m"; sourceTree = "<group>"; };
 		841D7D98202E959900D70A07 /* UIImagePickerController+WBAdditional.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImagePickerController+WBAdditional.h"; sourceTree = "<group>"; };
 		841D7D99202E959900D70A07 /* UIImagePickerController+WBAdditional.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImagePickerController+WBAdditional.m"; sourceTree = "<group>"; };
+		841D7D9B202E9BBF00D70A07 /* NSString+WBCreateFileName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+WBCreateFileName.h"; sourceTree = "<group>"; };
+		841D7D9C202E9BBF00D70A07 /* NSString+WBCreateFileName.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+WBCreateFileName.m"; sourceTree = "<group>"; };
+		841D7D9F202E9DB200D70A07 /* NSUserDefaults+WBAdditional.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+WBAdditional.h"; sourceTree = "<group>"; };
+		841D7DA0202E9DB200D70A07 /* NSUserDefaults+WBAdditional.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+WBAdditional.m"; sourceTree = "<group>"; };
 		84E35FA72029889200E4683F /* WBCategories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WBCategories.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E35FAA2029889200E4683F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84E35FAB2029889200E4683F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -337,6 +343,15 @@
 			path = UIImagePickerController;
 			sourceTree = "<group>";
 		};
+		841D7D9E202E9D8E00D70A07 /* NSUserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				841D7D9F202E9DB200D70A07 /* NSUserDefaults+WBAdditional.h */,
+				841D7DA0202E9DB200D70A07 /* NSUserDefaults+WBAdditional.m */,
+			);
+			path = NSUserDefaults;
+			sourceTree = "<group>";
+		};
 		84E35F9E2029889200E4683F = {
 			isa = PBXGroup;
 			children = (
@@ -398,6 +413,7 @@
 		C2534810202C9495004C0E7E /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				841D7D9E202E9D8E00D70A07 /* NSUserDefaults */,
 				C2534811202C9495004C0E7E /* NSDictionary */,
 				C2534815202C9495004C0E7E /* NSString */,
 				C253481E202C9495004C0E7E /* NSArray */,
@@ -427,6 +443,8 @@
 				C2534818202C9495004C0E7E /* NSString+WBDeviceInfo.m */,
 				C2534819202C9495004C0E7E /* NSString+WBPredicate.h */,
 				C253481D202C9495004C0E7E /* NSString+WBPredicate.m */,
+				841D7D9B202E9BBF00D70A07 /* NSString+WBCreateFileName.h */,
+				841D7D9C202E9BBF00D70A07 /* NSString+WBCreateFileName.m */,
 			);
 			path = NSString;
 			sourceTree = "<group>";
@@ -861,6 +879,7 @@
 				C2534887202C9495004C0E7E /* UIView+WBBasicAnimation.m in Sources */,
 				C253486F202C9495004C0E7E /* NSDictionary+WBAdditional.m in Sources */,
 				C253488F202C9495004C0E7E /* UICollectionView+WBReload.m in Sources */,
+				841D7D9D202E9BBF00D70A07 /* NSString+WBCreateFileName.m in Sources */,
 				C2534875202C9495004C0E7E /* NSMutableArray+WBSort.m in Sources */,
 				84E35FAC2029889200E4683F /* AppDelegate.m in Sources */,
 				C253489A202C96A6004C0E7E /* UIApplication+WBNetworkActivityIndicator.m in Sources */,
@@ -871,6 +890,7 @@
 				C2534890202C9495004C0E7E /* UIViewController+WBRemoveTabbarButton.m in Sources */,
 				C2534889202C9495004C0E7E /* UIView+HGCorner.m in Sources */,
 				8401D6E0202D999F007A1AC8 /* UIView+WBFind.m in Sources */,
+				841D7DA1202E9DB200D70A07 /* NSUserDefaults+WBAdditional.m in Sources */,
 				8401D6AE202D5F1A007A1AC8 /* UIControl+WBBlock.m in Sources */,
 				C25348B6202CB003004C0E7E /* UIButton+WBImagePosition.m in Sources */,
 				C2534876202C9495004C0E7E /* NSObject+WBJSON.m in Sources */,

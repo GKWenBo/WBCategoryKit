@@ -25,25 +25,45 @@
 + (NSString *)wb_getCurrentOperatorName;
 
 /**
- *  获得App当前版本号
- *
- *  @return App当前版本号
+ Get CFBundleShortVersionString.
+
+ @return NSString
  */
 + (NSString *)wb_getAppCurrentVersion;
 
 /**
- Returns a new UUID NSString
- e.g. "D1178E50-2A4D-4F1F-9BD3-F6AAB00E06B1"
+ Get random UUID string.
+
+ @return NSString
  */
 + (NSString *)wb_stringWithUUID;
 
-/** << 获取应用版本 > */
+/**
+ Get app verion -> CFBundleVersion
+
+ @return NSString
+ */
 + (NSString *)wb_getApplicationVersion;
 
-/** << 获取应用名 > */
+/**
+ Get CFBundleDisplayName string.
+
+ @return NSString
+ */
 + (NSString *)wb_getApplicationDisplayName;
 
-/** << 获取应用Identifier > */
+/**
+ Get CFBundleIdentifier string.
+
+ @return NSString
+ */
 + (NSString *)wb_getIdentifier;
+
+/**
+ Get CFBundleName
+
+ @return NSString
+ */
+- (NSString *)wb_getBoundleName;
 
 @end

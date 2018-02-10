@@ -61,6 +61,7 @@
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     return [emailTest evaluateWithObject:self];
 }
+
 - (BOOL)wb_isValidMobile {
     
     NSString * MOBIL = @"^1(3[0-9]|5[0-35-9]|8[025-9])\\d{8}$";
@@ -200,7 +201,6 @@
 }
 
 + (BOOL)wb_isValidWXNumber:(NSString * )wxNumber {
-    
     NSString * regex = @"^[a-zA-Z]{1}[-_a-zA-Z0-9]{5,19}+$";
     NSPredicate * predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
     return [predicate evaluateWithObject:wxNumber];
