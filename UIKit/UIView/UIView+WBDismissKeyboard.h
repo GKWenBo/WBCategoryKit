@@ -10,4 +10,9 @@
 
 @interface UIView (WBDismissKeyboard)
 
+/**
+ Dismiss keybaord.
+ */
+- (void)wb_dismissKeyBoard;
+
 @end

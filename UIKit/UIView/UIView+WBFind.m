@@ -20,6 +20,17 @@
     }
     return nil;
 }
+/**  < 法2 >  */
+//- (UIViewController *)viewController {
+//    UIResponder *responder = [self nextResponder];
+//    while (responder) {
+//        if ([responder isKindOfClass:[UIViewController class]]) {
+//            return (UIViewController *)responder;
+//        }
+//        responder = [responder nextResponder];
+//    }
+//    return nil;
+//}
 
 - (id)wb_findSubViewWithSubViewClass:(Class)clazz {
     for (id subview in self.subviews) {

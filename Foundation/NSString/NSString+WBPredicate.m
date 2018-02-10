@@ -15,6 +15,7 @@
     NSCharacterSet *set = [NSCharacterSet whitespaceCharacterSet];
     return [self stringByTrimmingCharactersInSet:set];
 }
+
 - (NSString *)wb_removeWhiteSpacesFromString
 {
     NSString *trimmedString = [self stringByTrimmingCharactersInSet:
