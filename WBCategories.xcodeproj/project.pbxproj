@@ -80,6 +80,11 @@
 		841D7EA3202ED8FD00D70A07 /* NSString+WBPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = 841D7E51202ED8FD00D70A07 /* NSString+WBPredicate.m */; };
 		841D7EA4202ED8FD00D70A07 /* NSUserDefaults+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = 841D7E54202ED8FD00D70A07 /* NSUserDefaults+WBAdditional.m */; };
 		841D7EA5202ED8FD00D70A07 /* UIView+WBCoreAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 841D7E57202ED8FD00D70A07 /* UIView+WBCoreAnimation.m */; };
+		84BE3E522030333800AC7B7B /* UIWebView+WBMetaParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE3E512030333800AC7B7B /* UIWebView+WBMetaParser.m */; };
+		84BE3E55203033E400AC7B7B /* UIWebView+WBSwipeGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE3E54203033E400AC7B7B /* UIWebView+WBSwipeGesture.m */; };
+		84BE3E58203035DA00AC7B7B /* UIWebView+WBKeyValueStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE3E57203035DA00AC7B7B /* UIWebView+WBKeyValueStorage.m */; };
+		84BE3E5B203036B800AC7B7B /* UIWebView+WBJavaScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE3E5A203036B800AC7B7B /* UIWebView+WBJavaScript.m */; };
+		84BE3E5E20303AE000AC7B7B /* UIColor+WBWeb.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE3E5D20303AE000AC7B7B /* UIColor+WBWeb.m */; };
 		84E35FAC2029889200E4683F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E35FAB2029889200E4683F /* AppDelegate.m */; };
 		84E35FAF2029889200E4683F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E35FAE2029889200E4683F /* ViewController.m */; };
 		84E35FB22029889200E4683F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E35FB02029889200E4683F /* Main.storyboard */; };
@@ -242,6 +247,16 @@
 		841D7E5A202ED8FD00D70A07 /* WBFontMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBFontMacro.h; sourceTree = "<group>"; };
 		841D7E5B202ED8FD00D70A07 /* WBMacroDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBMacroDefinition.h; sourceTree = "<group>"; };
 		841D7E5C202ED8FD00D70A07 /* WBSingletonMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSingletonMacro.h; sourceTree = "<group>"; };
+		84BE3E502030333800AC7B7B /* UIWebView+WBMetaParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIWebView+WBMetaParser.h"; sourceTree = "<group>"; };
+		84BE3E512030333800AC7B7B /* UIWebView+WBMetaParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+WBMetaParser.m"; sourceTree = "<group>"; };
+		84BE3E53203033E400AC7B7B /* UIWebView+WBSwipeGesture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIWebView+WBSwipeGesture.h"; sourceTree = "<group>"; };
+		84BE3E54203033E400AC7B7B /* UIWebView+WBSwipeGesture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+WBSwipeGesture.m"; sourceTree = "<group>"; };
+		84BE3E56203035DA00AC7B7B /* UIWebView+WBKeyValueStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIWebView+WBKeyValueStorage.h"; sourceTree = "<group>"; };
+		84BE3E57203035DA00AC7B7B /* UIWebView+WBKeyValueStorage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+WBKeyValueStorage.m"; sourceTree = "<group>"; };
+		84BE3E59203036B800AC7B7B /* UIWebView+WBJavaScript.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIWebView+WBJavaScript.h"; sourceTree = "<group>"; };
+		84BE3E5A203036B800AC7B7B /* UIWebView+WBJavaScript.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+WBJavaScript.m"; sourceTree = "<group>"; };
+		84BE3E5C20303AE000AC7B7B /* UIColor+WBWeb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+WBWeb.h"; sourceTree = "<group>"; };
+		84BE3E5D20303AE000AC7B7B /* UIColor+WBWeb.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+WBWeb.m"; sourceTree = "<group>"; };
 		84E35FA72029889200E4683F /* WBCategories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WBCategories.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E35FAA2029889200E4683F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84E35FAB2029889200E4683F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -280,6 +295,7 @@
 		841D7DA5202ED8FC00D70A07 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				84BE3E4F2030331600AC7B7B /* UIWebView */,
 				841D7DA6202ED8FC00D70A07 /* UIApplication */,
 				841D7DAD202ED8FC00D70A07 /* UIBarButtonItem */,
 				841D7DB2202ED8FC00D70A07 /* UIButton */,
@@ -369,6 +385,8 @@
 				841D7DC8202ED8FC00D70A07 /* UIColor+WBAdditional.m */,
 				841D7DC9202ED8FC00D70A07 /* UIColor+WBCommonColor.h */,
 				841D7DCA202ED8FC00D70A07 /* UIColor+WBCommonColor.m */,
+				84BE3E5C20303AE000AC7B7B /* UIColor+WBWeb.h */,
+				84BE3E5D20303AE000AC7B7B /* UIColor+WBWeb.m */,
 			);
 			path = UIColor;
 			sourceTree = "<group>";
@@ -688,6 +706,21 @@
 			path = Macro;
 			sourceTree = SOURCE_ROOT;
 		};
+		84BE3E4F2030331600AC7B7B /* UIWebView */ = {
+			isa = PBXGroup;
+			children = (
+				84BE3E502030333800AC7B7B /* UIWebView+WBMetaParser.h */,
+				84BE3E512030333800AC7B7B /* UIWebView+WBMetaParser.m */,
+				84BE3E53203033E400AC7B7B /* UIWebView+WBSwipeGesture.h */,
+				84BE3E54203033E400AC7B7B /* UIWebView+WBSwipeGesture.m */,
+				84BE3E56203035DA00AC7B7B /* UIWebView+WBKeyValueStorage.h */,
+				84BE3E57203035DA00AC7B7B /* UIWebView+WBKeyValueStorage.m */,
+				84BE3E59203036B800AC7B7B /* UIWebView+WBJavaScript.h */,
+				84BE3E5A203036B800AC7B7B /* UIWebView+WBJavaScript.m */,
+			);
+			path = UIWebView;
+			sourceTree = "<group>";
+		};
 		84E35F9E2029889200E4683F = {
 			isa = PBXGroup;
 			children = (
@@ -884,7 +917,9 @@
 				841D7E64202ED8FD00D70A07 /* UIButton+WBBlock.m in Sources */,
 				841D7E61202ED8FD00D70A07 /* UIBarButtonItem+WBBadge.m in Sources */,
 				841D7E95202ED8FD00D70A07 /* UIWindow+WBHierarchy.m in Sources */,
+				84BE3E58203035DA00AC7B7B /* UIWebView+WBKeyValueStorage.m in Sources */,
 				841D7E60202ED8FD00D70A07 /* UIBarButtonItem+WBActionBlock.m in Sources */,
+				84BE3E5E20303AE000AC7B7B /* UIColor+WBWeb.m in Sources */,
 				841D7E62202ED8FD00D70A07 /* UIButton+WBAdditional.m in Sources */,
 				841D7E5F202ED8FD00D70A07 /* UIApplication+WBNetworkActivityIndicator.m in Sources */,
 				841D7E70202ED8FD00D70A07 /* UIDevice+WBUUID.m in Sources */,
@@ -895,6 +930,7 @@
 				84E35FAF2029889200E4683F /* ViewController.m in Sources */,
 				841D7E7A202ED8FD00D70A07 /* UINavigationBarContentView+Margin.m in Sources */,
 				84E35FBA2029889200E4683F /* main.m in Sources */,
+				84BE3E5B203036B800AC7B7B /* UIWebView+WBJavaScript.m in Sources */,
 				841D7E6E202ED8FD00D70A07 /* UIControl+WBBlock.m in Sources */,
 				841D7EA4202ED8FD00D70A07 /* NSUserDefaults+WBAdditional.m in Sources */,
 				841D7E67202ED8FD00D70A07 /* UIButton+WBImagePosition.m in Sources */,
@@ -906,6 +942,7 @@
 				841D7E89202ED8FD00D70A07 /* UIView+WBBlurEffect.m in Sources */,
 				841D7E98202ED8FD00D70A07 /* NSDate+WBAddtional.m in Sources */,
 				841D7E91202ED8FD00D70A07 /* UIView+WBShake.m in Sources */,
+				84BE3E55203033E400AC7B7B /* UIWebView+WBSwipeGesture.m in Sources */,
 				841D7E7F202ED8FD00D70A07 /* UIScreen+WBFrame.m in Sources */,
 				841D7E71202ED8FD00D70A07 /* WBUUID.m in Sources */,
 				841D7E6F202ED8FD00D70A07 /* UIControl+WBSound.m in Sources */,
@@ -934,6 +971,7 @@
 				841D7E8D202ED8FD00D70A07 /* UIView+WBExtension.m in Sources */,
 				841D7E9C202ED8FD00D70A07 /* NSDictionary+WBAdditional.m in Sources */,
 				841D7E7B202ED8FD00D70A07 /* UINavigationBarContentViewLayout+Margin.m in Sources */,
+				84BE3E522030333800AC7B7B /* UIWebView+WBMetaParser.m in Sources */,
 				841D7E5D202ED8FD00D70A07 /* UIApplication+WBApplicationSize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
