@@ -58,7 +58,6 @@
         [self resignFirstResponder];
         return YES;
     }
-    
     for (UIView *view in self.subviews) {
         if ([view wb_findAndResignFirstResponder]) {
             return YES;
