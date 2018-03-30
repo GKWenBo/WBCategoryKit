@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    NSLog(@"%@",kAPP_API_URL);
+    NSLog(@"%@",kAPP_API_BASEURL);
     NSLog(@"%@",NSStringFromUIEdgeInsets(kWBVIEWSAFEAREAINSETS(self.view)));
 }
 

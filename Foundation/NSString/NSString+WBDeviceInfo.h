@@ -64,6 +64,13 @@
 
  @return NSString
  */
-- (NSString *)wb_getBoundleName;
++ (NSString *)wb_getBoundleName;
+
+/**
+ Get the device uuid.
+
+ @return uuid string.
+ */
++ (NSString *)wb_getUUID;
 
 @end

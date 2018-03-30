@@ -7,6 +7,7 @@
 //
 
 #import "NSString+WBDeviceInfo.h"
+#import <UIKit/UIKit.h>
 
 @implementation NSString (WBDeviceInfo)
 + (void)wb_check {
@@ -53,9 +54,13 @@
     return name;
 }
 
-- (NSString *)wb_getBoundleName {
++ (NSString *)wb_getBoundleName {
     NSString *appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"];
     return appName;
+}
+
++ (NSString *)wb_getUUID {
+    return [[UIDevice currentDevice].identifierForVendor UUIDString];
 }
 
 @end
