@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "UIDevice+WBUUID.h"
 #import "UIWindow+WBHierarchy.h"
+#import "WBMacroDefinition.h"
 
 @interface ViewController ()
 {
@@ -21,8 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    NSLog(@"%@",[[UIDevice currentDevice] wb_uuid]);
+    NSLog(@"%@",kAPP_API_URL);
+    NSLog(@"%@",NSStringFromUIEdgeInsets(kWBVIEWSAFEAREAINSETS(self.view)));
 }
 
 

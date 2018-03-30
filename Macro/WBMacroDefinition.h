@@ -9,6 +9,24 @@
 #ifndef WB_MacroDefinition_h
 #define WB_MacroDefinition_h
 
+//---------------------- API接口切换宏 0.测试 1.正式 ----------------------------
+#define kWB_FORMAL_ENVIRONMENT_SWITCH (0)
+
+#if kWB_FORMAL_ENVIRONMENT_SWITCH
+////正式API
+#define kAPP_API_BASEURL @"正式"
+#else
+//测试API
+#define kAPP_API_BASEURL @"测试"
+#endif
+
+/**  < 自定义高效率log >  */
+#ifdef DEBUG
+#   define NSLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#   define NSLog(...)
+#endif
+
 //---------------------- ABOUT SCREEN & SIZE 屏幕&尺寸 ----------------------------
 /**
  iPad Air {{0, 0}, {768, 1024}}
@@ -31,6 +49,7 @@
 #endif
 
 #define SCREEN_BOUNDS [UIScreen mainScreen].bounds
+
 //------------------------------ 适配宏定义 ----------------------------
 /**  < Adaptive  >  */
 #define  kWB_AdjustsScrollViewInsets_NO(scrollView,vc)\
@@ -65,6 +84,7 @@ _Pragma("clang diagnostic pop")\
 /**  < 屏幕适配 ipone6/6s 控件宽高 字体大小都可以用这个宏 >  */
 #define kWB_AUTOLAYOUTSIZE(size) ((size) * (SCREEN_WIDTH / 375))
 
+#define kWBVIEWSAFEAREAINSETS(view) ({UIEdgeInsets i; if(@available(iOS 11.0, *)) {i = view.safeAreaInsets;} else {i = UIEdgeInsetsZero;} i;})
 
 //----------------------------------- 设备&系统判断 ---------------------------------------------
 /**  < 判断当前的iPhone设备 >  */
@@ -126,31 +146,21 @@ _Pragma("clang diagnostic pop")\
 /**  < iOS 11 底部安全域距离 >  */
 #define kWB_BOTTOM_SAFEAREA_HEIGHT (kWB_IS_IPHONE_X ? (34) : (0))
 
-/**  < 自定义高效率log >  */
-#ifdef DEBUG
-#   define NSLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
-#else
-#   define NSLog(...)
-#endif
-
+//-------------------颜色相关-------------------
 /**  < 随机色 >  */
 #define kWB_RANDOM_COLOR [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
-
 /**  < 透明色 >  */
 #define kWB_CLEAR_COLOR [UIColor clearColor]
-
 /**  < RGB颜色 >  */
 #define kWB_RGB_COLOR(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
-
 /**  < RGBA颜色 >  */
 #define kWB_RGBA_COLOR(r, g, b ,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
-
 /**  < HEX Color >  */
 #define kWB_COLORFROMHEXRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
+//-------------------系统单例-------------------
 /**  < 通知中心 >  */
 #define kWB_NOTIFICATIONCENTER [NSNotificationCenter defaultCenter]
-
 /**  < 系统偏好设置 >  */
 #define kWB_NSUSERDEFAULTS [NSUserDefaults standardUserDefaults]
 
@@ -160,18 +170,16 @@ _Pragma("clang diagnostic pop")\
 
 /**  < 程序管理代理 >  */
 #define kWB_APPLICATIONDELEGATE ((AppDelegate *)[UIApplication sharedApplication].delegate)
-
 /**  < 主窗口 >  */
 #define kWB_KEYWINDOW [UIApplication sharedApplication].keyWindow
 /**  < 添加视图到主窗口 >  */
 #define kWB_ADDVIEWTOKEYWINDOW(view) [kWB_KEYWINDOW addSubview:view]
-
 /**  < 协议窗口 >  */
 #define kWB_APPDELEGATEWINDOW [[UIApplication sharedApplication].delegate window]
 
+//-------------------加载图片-------------------
 /**  < 通过文件路径获取图片 文件夹 >  */
 #define kWB_IMAGEWITHFILE(imageFile) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForAuxiliaryExecutable:imageFile]]
-
 /**  < 通过图片名获取图片 Assets >  */
 #define kWB_IMAGEWITHNAME(imageName) [UIImage imageNamed:imageName]
 
@@ -183,9 +191,9 @@ _Pragma("clang diagnostic pop")\
 /**  < 获取当前语言 >  */
 #define kWB_CURRENTLANGUAGE [[NSLocale preferredLanguages] firstObject]
 
+//-------------------沙盒路径获取-------------------
 /**  < 获取沙盒 Document >  */
 #define kWB_DOCUMENT_PATH [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
-
 /**  < 获取沙盒 Cache >  */
 #define kWB_CACHE_PATH [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
 
