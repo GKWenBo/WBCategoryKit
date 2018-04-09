@@ -168,6 +168,9 @@ _Pragma("clang diagnostic pop")\
 #define kWB_WEAKSELF(type) __weak typeof(type) weak##type = type;
 #define kWB_STRONGSELF(type) __strong typeof(type) type = weak##type;
 
+#define kWBWeakObjc(o) autoreleasepool{} __weak typeof(o) o##Weak = o;
+#define kWBStrongObjc(o) autoreleasepool{} __strong typeof(o) o = o##Weak;
+
 /**  < 程序管理代理 >  */
 #define kWB_APPLICATIONDELEGATE ((AppDelegate *)[UIApplication sharedApplication].delegate)
 /**  < 主窗口 >  */
