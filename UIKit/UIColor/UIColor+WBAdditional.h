@@ -82,7 +82,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark --------  渐变色  --------
 #pragma mark
-+ (UIColor*)wb_gradientFromColor:(UIColor*)c1 toColor:(UIColor*)c2 withHeight:(int)height;
++ (UIColor*)wb_gradientFromColor:(UIColor *)c1
+                         toColor:(UIColor *)c2
+                      withHeight:(int)height;
 
 @end
 NS_ASSUME_NONNULL_END

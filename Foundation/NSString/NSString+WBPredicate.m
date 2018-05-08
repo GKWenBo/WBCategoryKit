@@ -252,4 +252,23 @@
     else
         return NO;
 }
+
+- (BOOL)wb_compare:(NSString *)str
+        withResult:(NSComparisonResult)result {
+    if ([self compare:str] == result) {
+        return YES;
+    }else {
+        return NO;
+    }
+}
+
+- (BOOL)wb_compare:(NSString *)str
+        withResult:(NSComparisonResult)result
+           options:(NSStringCompareOptions)options {
+    if ([self compare:str options:options] == result) {
+        return YES;
+    }else {
+        return NO;
+    }
+}
 @end

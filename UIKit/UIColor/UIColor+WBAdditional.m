@@ -145,7 +145,9 @@
 
 #pragma mark --------  渐变色  --------
 #pragma mark
-+ (UIColor*)wb_gradientFromColor:(UIColor*)c1 toColor:(UIColor*)c2 withHeight:(int)height {
++ (UIColor *)wb_gradientFromColor:(UIColor *)c1
+                          toColor:(UIColor *)c2
+                       withHeight:(int)height {
     CGSize size = CGSizeMake(1, height);
     UIGraphicsBeginImageContextWithOptions(size, NO, 0);
     CGContextRef context = UIGraphicsGetCurrentContext();

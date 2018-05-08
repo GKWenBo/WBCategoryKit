@@ -112,8 +112,40 @@
  *  判断邮编是否正确
  *
  *  @param str 邮编
- *  @return YES OR NO
+ *  @return YES/NO
  */
 + (BOOL)wb_checkPostCode:(NSString *)str;
+
+/**
+ 字符串比较
+
+ @param str 要比较的字符串
+ @param result 比较类型
+ @return YES/NO
+ */
+- (BOOL)wb_compare:(NSString *)str
+        withResult:(NSComparisonResult)result;
+
+/**
+ 字符串比较
+
+ @param str 要比较的字符串
+ @param result 比较类型
+ @param options 条件
+ 
+ NSCaseInsensitiveSearch = 1,    //不区分大小写比较
+ NSLiteralSearch = 2,    //逐字节比较 区分大小写
+ NSBackwardsSearch = 4,    //从字符串末尾开始搜索
+ NSAnchoredSearch = 8,    //搜索限制范围的字符串
+ NSNumericSearch = 64,    //按照字符串里的数字为依据，算出顺序。例如 Foo2.txt < Foo7.txt < Foo25.txt
+ NSDiacriticInsensitiveSearchNS_ENUM_AVAILABLE(10_5, 2_0) = 128,//忽略 "-" 符号的比较
+ NSWidthInsensitiveSearchNS_ENUM_AVAILABLE(10_5, 2_0) = 256,//忽略字符串的长度，比较出结果
+ NSForcedOrderingSearchNS_ENUM_AVAILABLE(10_5, 2_0) = 512,//忽略不区分大小写比较的选项，并强制返回 NSOrderedAscending 或者 NSOrderedDescending
+ NSRegularExpressionSearchNS_ENUM_AVAILABLE(10_7, 3_2) = 1024   //只能应用于 rangeOfString:..., stringByReplacingOccurrencesOfString:...和 replaceOccurrencesOfString:... 方法。使用通用兼容的比较方法，如果设置此项，可以去掉 NSCaseInsensitiveSearch 和 NSAnchoredSearch
+ @return YES/NO
+ */
+- (BOOL)wb_compare:(NSString *)str
+        withResult:(NSComparisonResult)result
+           options:(NSStringCompareOptions)options;
 
 @end
