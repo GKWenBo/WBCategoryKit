@@ -91,6 +91,11 @@
 		84E35FB42029889200E4683F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84E35FB32029889200E4683F /* Assets.xcassets */; };
 		84E35FB72029889200E4683F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E35FB52029889200E4683F /* LaunchScreen.storyboard */; };
 		84E35FBA2029889200E4683F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E35FB92029889200E4683F /* main.m */; };
+		C2C5D6A720A155C500DA8C54 /* NSArray+WBSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5D6A620A155C500DA8C54 /* NSArray+WBSafe.m */; };
+		C2C5D6AA20A1746500DA8C54 /* NSMutableArray+WBSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5D6A920A1746500DA8C54 /* NSMutableArray+WBSafe.m */; };
+		C2C5D6AD20A17C3900DA8C54 /* NSDictionary+WBSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5D6AC20A17C3900DA8C54 /* NSDictionary+WBSafe.m */; };
+		C2C5D6B020A180E200DA8C54 /* NSMutableDictionary+WBSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5D6AF20A180E200DA8C54 /* NSMutableDictionary+WBSafe.m */; };
+		C2C5D6B320A1849400DA8C54 /* NSMutableString+WBSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5D6B220A1849400DA8C54 /* NSMutableString+WBSafe.m */; };
 		EC710CE97B7D940C77F25DB8 /* libPods-WBCategories.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5BA29418AFB0FD4A2DB97B8 /* libPods-WBCategories.a */; };
 /* End PBXBuildFile section */
 
@@ -267,6 +272,16 @@
 		84E35FB62029889200E4683F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84E35FB82029889200E4683F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84E35FB92029889200E4683F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C2C5D6A520A155C500DA8C54 /* NSArray+WBSafe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+WBSafe.h"; sourceTree = "<group>"; };
+		C2C5D6A620A155C500DA8C54 /* NSArray+WBSafe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+WBSafe.m"; sourceTree = "<group>"; };
+		C2C5D6A820A1746500DA8C54 /* NSMutableArray+WBSafe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+WBSafe.h"; sourceTree = "<group>"; };
+		C2C5D6A920A1746500DA8C54 /* NSMutableArray+WBSafe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+WBSafe.m"; sourceTree = "<group>"; };
+		C2C5D6AB20A17C3900DA8C54 /* NSDictionary+WBSafe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+WBSafe.h"; sourceTree = "<group>"; };
+		C2C5D6AC20A17C3900DA8C54 /* NSDictionary+WBSafe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+WBSafe.m"; sourceTree = "<group>"; };
+		C2C5D6AE20A180E200DA8C54 /* NSMutableDictionary+WBSafe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+WBSafe.h"; sourceTree = "<group>"; };
+		C2C5D6AF20A180E200DA8C54 /* NSMutableDictionary+WBSafe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+WBSafe.m"; sourceTree = "<group>"; };
+		C2C5D6B120A1849400DA8C54 /* NSMutableString+WBSafe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+WBSafe.h"; sourceTree = "<group>"; };
+		C2C5D6B220A1849400DA8C54 /* NSMutableString+WBSafe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+WBSafe.m"; sourceTree = "<group>"; };
 		CFB7BF25A8BDC4ABEBC4DA61 /* Pods-WBCategories.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBCategories.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WBCategories/Pods-WBCategories.debug.xcconfig"; sourceTree = "<group>"; };
 		E5BA29418AFB0FD4A2DB97B8 /* libPods-WBCategories.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WBCategories.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -620,6 +635,10 @@
 				841D7E32202ED8FD00D70A07 /* NSArray+WBAdditional.m */,
 				841D7E33202ED8FD00D70A07 /* NSMutableArray+WBSort.h */,
 				841D7E34202ED8FD00D70A07 /* NSMutableArray+WBSort.m */,
+				C2C5D6A520A155C500DA8C54 /* NSArray+WBSafe.h */,
+				C2C5D6A620A155C500DA8C54 /* NSArray+WBSafe.m */,
+				C2C5D6A820A1746500DA8C54 /* NSMutableArray+WBSafe.h */,
+				C2C5D6A920A1746500DA8C54 /* NSMutableArray+WBSafe.m */,
 			);
 			path = NSArray;
 			sourceTree = "<group>";
@@ -645,6 +664,10 @@
 			children = (
 				841D7E40202ED8FD00D70A07 /* NSDictionary+WBAdditional.h */,
 				841D7E41202ED8FD00D70A07 /* NSDictionary+WBAdditional.m */,
+				C2C5D6AB20A17C3900DA8C54 /* NSDictionary+WBSafe.h */,
+				C2C5D6AC20A17C3900DA8C54 /* NSDictionary+WBSafe.m */,
+				C2C5D6AE20A180E200DA8C54 /* NSMutableDictionary+WBSafe.h */,
+				C2C5D6AF20A180E200DA8C54 /* NSMutableDictionary+WBSafe.m */,
 			);
 			path = NSDictionary;
 			sourceTree = "<group>";
@@ -673,6 +696,8 @@
 				841D7E4F202ED8FD00D70A07 /* NSString+WBJavaScript.m */,
 				841D7E50202ED8FD00D70A07 /* NSString+WBPredicate.h */,
 				841D7E51202ED8FD00D70A07 /* NSString+WBPredicate.m */,
+				C2C5D6B120A1849400DA8C54 /* NSMutableString+WBSafe.h */,
+				C2C5D6B220A1849400DA8C54 /* NSMutableString+WBSafe.m */,
 			);
 			path = NSString;
 			sourceTree = "<group>";
@@ -893,6 +918,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				841D7E8A202ED8FD00D70A07 /* UIView+WBConstraints.m in Sources */,
+				C2C5D6AA20A1746500DA8C54 /* NSMutableArray+WBSafe.m in Sources */,
 				841D7E6D202ED8FD00D70A07 /* UIControl+WBAcitonBlock.m in Sources */,
 				841D7E78202ED8FD00D70A07 /* UINavigationController+WBFullScreen.m in Sources */,
 				841D7E6C202ED8FD00D70A07 /* UIColor+WBCommonColor.m in Sources */,
@@ -917,7 +943,9 @@
 				841D7E64202ED8FD00D70A07 /* UIButton+WBBlock.m in Sources */,
 				841D7E61202ED8FD00D70A07 /* UIBarButtonItem+WBBadge.m in Sources */,
 				841D7E95202ED8FD00D70A07 /* UIWindow+WBHierarchy.m in Sources */,
+				C2C5D6AD20A17C3900DA8C54 /* NSDictionary+WBSafe.m in Sources */,
 				84BE3E58203035DA00AC7B7B /* UIWebView+WBKeyValueStorage.m in Sources */,
+				C2C5D6B320A1849400DA8C54 /* NSMutableString+WBSafe.m in Sources */,
 				841D7E60202ED8FD00D70A07 /* UIBarButtonItem+WBActionBlock.m in Sources */,
 				84BE3E5E20303AE000AC7B7B /* UIColor+WBWeb.m in Sources */,
 				841D7E62202ED8FD00D70A07 /* UIButton+WBAdditional.m in Sources */,
@@ -962,10 +990,12 @@
 				841D7E79202ED8FD00D70A07 /* Swizzle.m in Sources */,
 				841D7E63202ED8FD00D70A07 /* UIButton+WBAdjustPosition.m in Sources */,
 				841D7E81202ED8FD00D70A07 /* UISearchBar+WBAddition.m in Sources */,
+				C2C5D6B020A180E200DA8C54 /* NSMutableDictionary+WBSafe.m in Sources */,
 				841D7E99202ED8FD00D70A07 /* NSDate+WBDisplayTime.m in Sources */,
 				841D7EA2202ED8FD00D70A07 /* NSString+WBJavaScript.m in Sources */,
 				841D7E97202ED8FD00D70A07 /* NSMutableArray+WBSort.m in Sources */,
 				841D7E9B202ED8FD00D70A07 /* NSDate+YYAdd.m in Sources */,
+				C2C5D6A720A155C500DA8C54 /* NSArray+WBSafe.m in Sources */,
 				841D7E76202ED8FD00D70A07 /* UIImagePickerController+WBAdditional.m in Sources */,
 				841D7E8B202ED8FD00D70A07 /* UIView+WBDismissKeyboard.m in Sources */,
 				841D7E8D202ED8FD00D70A07 /* UIView+WBExtension.m in Sources */,

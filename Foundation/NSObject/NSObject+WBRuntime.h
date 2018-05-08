@@ -15,16 +15,22 @@
  
  @param oriSel 原有的方法
  @param swiSel swizzle的方法
+ @param selfClass 要swizzle的Class
  */
-+ (void)swizzleClassMethodWithOriginSel:(SEL)oriSel swizzledSel:(SEL)swiSel;
++ (void)swizzleClassMethodWithOriginSel:(SEL)oriSel
+                            swizzledSel:(SEL)swiSel
+                              selfClass:(Class)selfClass;
 
 /**
  swizzle 实例方法
  
  @param oriSel 原有的方法
  @param swiSel swizzle的方法
+ @param selfClass 要swizzle的Class
  */
-+ (void)swizzleInstanceMethodWithOriginSel:(SEL)oriSel swizzledSel:(SEL)swiSel;
++ (void)swizzleInstanceMethodWithOriginSel:(SEL)oriSel
+                               swizzledSel:(SEL)swiSel
+                                 selfClass:(Class)selfClass;
 
 /**
  判断方法是否在子类里override了
@@ -33,7 +39,8 @@
  @param sel 传入要判断的Selector
  @return 返回判断是否被重载的结果
  */
-- (BOOL)isMethodOverride:(Class)cls selector:(SEL)sel;
+- (BOOL)isMethodOverride:(Class)cls
+                selector:(SEL)sel;
 
 /**
  判断当前类是否在主bundle里

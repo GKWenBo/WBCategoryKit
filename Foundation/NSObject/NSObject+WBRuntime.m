@@ -14,20 +14,22 @@ void ProtectCrashProtected(id self, SEL sel) {
 
 @implementation NSObject (WBRuntime)
 
-+ (void)swizzleClassMethodWithOriginSel:(SEL)oriSel swizzledSel:(SEL)swiSel {
-    Class cls = object_getClass(self);
++ (void)swizzleClassMethodWithOriginSel:(SEL)oriSel
+                            swizzledSel:(SEL)swiSel
+                              selfClass:(Class)selfClass {
+    Method originAddObserverMethod = class_getClassMethod(selfClass, oriSel);
+    Method swizzledAddObserverMethod = class_getClassMethod(selfClass, swiSel);
     
-    Method originAddObserverMethod = class_getClassMethod(cls, oriSel);
-    Method swizzledAddObserverMethod = class_getClassMethod(cls, swiSel);
-    
-    [self swizzleMethodWithOriginSel:oriSel oriMethod:originAddObserverMethod swizzledSel:swiSel swizzledMethod:swizzledAddObserverMethod class:cls];
+    [self swizzleMethodWithOriginSel:oriSel oriMethod:originAddObserverMethod swizzledSel:swiSel swizzledMethod:swizzledAddObserverMethod class:selfClass];
 }
 
-+ (void)swizzleInstanceMethodWithOriginSel:(SEL)oriSel swizzledSel:(SEL)swiSel {
-    Method originAddObserverMethod = class_getInstanceMethod(self, oriSel);
-    Method swizzledAddObserverMethod = class_getInstanceMethod(self, swiSel);
++ (void)swizzleInstanceMethodWithOriginSel:(SEL)oriSel
+                               swizzledSel:(SEL)swiSel
+                                 selfClass:(Class)selfClass {
+    Method originAddObserverMethod = class_getInstanceMethod(selfClass, oriSel);
+    Method swizzledAddObserverMethod = class_getInstanceMethod(selfClass, swiSel);
     
-    [self swizzleMethodWithOriginSel:oriSel oriMethod:originAddObserverMethod swizzledSel:swiSel swizzledMethod:swizzledAddObserverMethod class:self];
+    [self swizzleMethodWithOriginSel:oriSel oriMethod:originAddObserverMethod swizzledSel:swiSel swizzledMethod:swizzledAddObserverMethod class:selfClass];
 }
 
 + (void)swizzleMethodWithOriginSel:(SEL)oriSel

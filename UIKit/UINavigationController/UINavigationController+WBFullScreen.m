@@ -30,7 +30,8 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         [self swizzleInstanceMethodWithOriginSel:@selector(viewDidLoad)
-                                     swizzledSel:@selector(sx_viewDidLoad)];
+                                     swizzledSel:@selector(sx_viewDidLoad)
+                                       selfClass:object_getClass(self)];
     });
 }
 
