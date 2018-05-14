@@ -96,6 +96,7 @@
 		C2C5D6AD20A17C3900DA8C54 /* NSDictionary+WBSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5D6AC20A17C3900DA8C54 /* NSDictionary+WBSafe.m */; };
 		C2C5D6B020A180E200DA8C54 /* NSMutableDictionary+WBSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5D6AF20A180E200DA8C54 /* NSMutableDictionary+WBSafe.m */; };
 		C2C5D6B320A1849400DA8C54 /* NSMutableString+WBSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5D6B220A1849400DA8C54 /* NSMutableString+WBSafe.m */; };
+		C2F37BF120A92E5200577E00 /* UIControl+WBIgnoreMutiple.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F37BF020A92E5200577E00 /* UIControl+WBIgnoreMutiple.m */; };
 		EC710CE97B7D940C77F25DB8 /* libPods-WBCategories.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5BA29418AFB0FD4A2DB97B8 /* libPods-WBCategories.a */; };
 /* End PBXBuildFile section */
 
@@ -282,6 +283,8 @@
 		C2C5D6AF20A180E200DA8C54 /* NSMutableDictionary+WBSafe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+WBSafe.m"; sourceTree = "<group>"; };
 		C2C5D6B120A1849400DA8C54 /* NSMutableString+WBSafe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+WBSafe.h"; sourceTree = "<group>"; };
 		C2C5D6B220A1849400DA8C54 /* NSMutableString+WBSafe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+WBSafe.m"; sourceTree = "<group>"; };
+		C2F37BEF20A92E5100577E00 /* UIControl+WBIgnoreMutiple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+WBIgnoreMutiple.h"; sourceTree = "<group>"; };
+		C2F37BF020A92E5200577E00 /* UIControl+WBIgnoreMutiple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+WBIgnoreMutiple.m"; sourceTree = "<group>"; };
 		CFB7BF25A8BDC4ABEBC4DA61 /* Pods-WBCategories.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBCategories.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WBCategories/Pods-WBCategories.debug.xcconfig"; sourceTree = "<group>"; };
 		E5BA29418AFB0FD4A2DB97B8 /* libPods-WBCategories.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WBCategories.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -415,6 +418,8 @@
 				841D7DCF202ED8FC00D70A07 /* UIControl+WBBlock.m */,
 				841D7DD0202ED8FC00D70A07 /* UIControl+WBSound.h */,
 				841D7DD1202ED8FC00D70A07 /* UIControl+WBSound.m */,
+				C2F37BEF20A92E5100577E00 /* UIControl+WBIgnoreMutiple.h */,
+				C2F37BF020A92E5200577E00 /* UIControl+WBIgnoreMutiple.m */,
 			);
 			path = UIControl;
 			sourceTree = "<group>";
@@ -964,6 +969,7 @@
 				841D7E67202ED8FD00D70A07 /* UIButton+WBImagePosition.m in Sources */,
 				841D7E8C202ED8FD00D70A07 /* UIView+WBDraggable.m in Sources */,
 				841D7EA3202ED8FD00D70A07 /* NSString+WBPredicate.m in Sources */,
+				C2F37BF120A92E5200577E00 /* UIControl+WBIgnoreMutiple.m in Sources */,
 				841D7EA0202ED8FD00D70A07 /* NSString+WBCreateFileName.m in Sources */,
 				841D7E65202ED8FD00D70A07 /* UIButton+WBCountDown.m in Sources */,
 				841D7E73202ED8FD00D70A07 /* UIImage+WBAdditional.m in Sources */,
