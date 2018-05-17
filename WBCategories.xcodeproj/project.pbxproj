@@ -96,6 +96,7 @@
 		C2C5D6AD20A17C3900DA8C54 /* NSDictionary+WBSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5D6AC20A17C3900DA8C54 /* NSDictionary+WBSafe.m */; };
 		C2C5D6B020A180E200DA8C54 /* NSMutableDictionary+WBSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5D6AF20A180E200DA8C54 /* NSMutableDictionary+WBSafe.m */; };
 		C2C5D6B320A1849400DA8C54 /* NSMutableString+WBSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5D6B220A1849400DA8C54 /* NSMutableString+WBSafe.m */; };
+		C2D1C36520AD774E00D1EB39 /* WBDateFormatterPool.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D1C36420AD774E00D1EB39 /* WBDateFormatterPool.m */; };
 		C2F37BF120A92E5200577E00 /* UIControl+WBIgnoreMutiple.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F37BF020A92E5200577E00 /* UIControl+WBIgnoreMutiple.m */; };
 		EC710CE97B7D940C77F25DB8 /* libPods-WBCategories.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5BA29418AFB0FD4A2DB97B8 /* libPods-WBCategories.a */; };
 /* End PBXBuildFile section */
@@ -283,6 +284,8 @@
 		C2C5D6AF20A180E200DA8C54 /* NSMutableDictionary+WBSafe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+WBSafe.m"; sourceTree = "<group>"; };
 		C2C5D6B120A1849400DA8C54 /* NSMutableString+WBSafe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+WBSafe.h"; sourceTree = "<group>"; };
 		C2C5D6B220A1849400DA8C54 /* NSMutableString+WBSafe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+WBSafe.m"; sourceTree = "<group>"; };
+		C2D1C36320AD774E00D1EB39 /* WBDateFormatterPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBDateFormatterPool.h; sourceTree = "<group>"; };
+		C2D1C36420AD774E00D1EB39 /* WBDateFormatterPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBDateFormatterPool.m; sourceTree = "<group>"; };
 		C2F37BEF20A92E5100577E00 /* UIControl+WBIgnoreMutiple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+WBIgnoreMutiple.h"; sourceTree = "<group>"; };
 		C2F37BF020A92E5200577E00 /* UIControl+WBIgnoreMutiple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+WBIgnoreMutiple.m"; sourceTree = "<group>"; };
 		CFB7BF25A8BDC4ABEBC4DA61 /* Pods-WBCategories.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBCategories.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WBCategories/Pods-WBCategories.debug.xcconfig"; sourceTree = "<group>"; };
@@ -651,6 +654,8 @@
 		841D7E35202ED8FD00D70A07 /* NSDate */ = {
 			isa = PBXGroup;
 			children = (
+				C2D1C36320AD774E00D1EB39 /* WBDateFormatterPool.h */,
+				C2D1C36420AD774E00D1EB39 /* WBDateFormatterPool.m */,
 				841D7E36202ED8FD00D70A07 /* NSDate+WBAddtional.h */,
 				841D7E37202ED8FD00D70A07 /* NSDate+WBAddtional.m */,
 				841D7E38202ED8FD00D70A07 /* NSDate+WBDisplayTime.h */,
@@ -808,8 +813,6 @@
 				84E35FA32029889200E4683F /* Sources */,
 				84E35FA42029889200E4683F /* Frameworks */,
 				84E35FA52029889200E4683F /* Resources */,
-				149B1F0EE3664387CF2C5771 /* [CP] Embed Pods Frameworks */,
-				73DE5A841D2E223899B0410A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -867,36 +870,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		149B1F0EE3664387CF2C5771 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WBCategories/Pods-WBCategories-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		73DE5A841D2E223899B0410A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WBCategories/Pods-WBCategories-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		EC6A4A52E123BC15E823E10E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -943,6 +916,7 @@
 				841D7E66202ED8FD00D70A07 /* UIButton+WBEnlargeTouchAreas.m in Sources */,
 				841D7E9A202ED8FD00D70A07 /* NSDate+WBTimePredicate.m in Sources */,
 				841D7E82202ED8FD00D70A07 /* UITableView+WBiOS7Style.m in Sources */,
+				C2D1C36520AD774E00D1EB39 /* WBDateFormatterPool.m in Sources */,
 				841D7E7C202ED8FD00D70A07 /* UINavigationItem+Margin.m in Sources */,
 				841D7E86202ED8FD00D70A07 /* UIView+WBAdditional.m in Sources */,
 				841D7E64202ED8FD00D70A07 /* UIButton+WBBlock.m in Sources */,
