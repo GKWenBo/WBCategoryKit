@@ -29,8 +29,10 @@
  *  @param formatter 时间格式
  *  @return 时间字符串
  */
-+ (NSString *)wb_getStringWithTimestamp:(NSTimeInterval)timestamp formatter:(NSString*)formatter;
-+ (NSString *)wb_getStringByTimestamp:(NSTimeInterval)timeStamp format:(NSString *)format;
++ (NSString *)wb_getStringWithTimestamp:(NSTimeInterval)timestamp
+                              formatter:(NSString*)formatter;
++ (NSString *)wb_getStringByTimestamp:(NSTimeInterval)timeStamp
+                               format:(NSString *)format;
 
 /**
  *  根据时间戳（如@"1447400310"）返回一个字符串（如2015-11-12）
@@ -40,7 +42,7 @@
  *  @return 2015-11-12
  */
 + (NSString *)wb_timestampToTimeStrWithTimestampStr:(NSString *)timestampStr
-                                   dateFormatter:(NSString *)dateFormatter;
+                                      dateFormatter:(NSString *)dateFormatter;
 
 /**
  *  通过时间戳得出显示时间（NSCalendar方式）
@@ -89,7 +91,8 @@
  *  @param format 格式
  *  @return NSDate
  */
-+ (NSDate *)wb_dateFromString:(NSString *)dateString withFormat:(NSString *)format;
++ (NSDate *)wb_dateFromString:(NSString *)dateString
+                   withFormat:(NSString *)format;
 
 /**
  *  从时间字符串的得到时间
@@ -123,4 +126,5 @@
  *  @return 时间戳字符串
  */
 + (NSString *)wb_toTimeStamp;
+
 @end

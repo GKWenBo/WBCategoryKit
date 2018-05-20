@@ -42,13 +42,24 @@ NS_ASSUME_NONNULL_BEGIN
                  completed:(SDExternalCompletionBlock)completedBlock;
 
 /**
- Set imageView image with animaton type kCATransitionFade.
+ Set imageView image with animaton type kCATransitionFade. default duration is 6.0f.
 
  @param url image url string.
  @param placeholder placeholder string.
  */
 - (void)wb_setImageWithFadeAnimation:(NSString *)url
                     placeholderImage:(NSString *)placeholder;
+
+/**
+ Set imageView image with animaton type kCATransitionFade.
+ 
+ @param url image url string.
+ @param placeholder placeholder string.
+ @param duration animated time.
+ */
+- (void)wb_setImageWithFadeAnimation:(NSString *)url
+                    placeholderImage:(NSString *)placeholder
+                            duration:(CGFloat)duration;
 
 /**
  * Set the imageView `image` with an `url` string, placeholder and custom options.

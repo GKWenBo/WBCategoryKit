@@ -8,23 +8,21 @@
 
 #import "NSDate+WBDisplayTime.h"
 #import "NSDate+WBAddtional.h"
+#import "WBDateFormatterPool.h"
 
 @implementation NSDate (WBDisplayTime)
+
 + (NSString *)wb_compareCurrentTime:(NSTimeInterval) compareDate {
-    NSDate *confromTimesp        = [NSDate dateWithTimeIntervalSince1970:compareDate/1000];
-    
+    NSDate *confromTimesp        = [NSDate dateWithTimeIntervalSince1970:compareDate / 1000];
     NSTimeInterval  timeInterval = [confromTimesp timeIntervalSinceNow];
     timeInterval = -timeInterval;
     long temp = 0;
     NSString *result;
-    
     NSCalendar *calendar     = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSInteger unitFlags      = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday |
     NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
-    NSDateComponents*referenceComponents=[calendar components:unitFlags fromDate:confromTimesp];
-
+    NSDateComponents *referenceComponents = [calendar components:unitFlags fromDate:confromTimesp];
     NSInteger referenceHour  =referenceComponents.hour;
-    
     if (timeInterval < 60) {
         result = [NSString stringWithFormat:@"刚刚"];
     }
@@ -55,7 +53,6 @@
         temp = temp/12;
         result = [NSString stringWithFormat:@"%ld年前",temp];
     }
-    
     return  result;
 }
 
@@ -64,15 +61,22 @@
                             ToCurrentTime:(NSString *)currentTime
                         currentTimeFormat:(NSString *)format2 {
     //上次时间
-    NSDateFormatter *dateFormatter1 = [[NSDateFormatter alloc]init];
-    dateFormatter1.dateFormat = format1;
+//    NSDateFormatter *dateFormatter1 = [[NSDateFormatter alloc]init];
+//    dateFormatter1.dateFormat = format1;
+    NSDateFormatter *dateFormatter1 = [[WBDateFormatterPool shareInstance] wb_dateFormatterWithFormat:format1
+                                                                                     localeIdentifier:nil
+                                                                                         timeZoneName:nil];
     NSDate *lastDate = [dateFormatter1 dateFromString:lastTime];
     //当前时间
-    NSDateFormatter *dateFormatter2 = [[NSDateFormatter alloc]init];
-    dateFormatter2.dateFormat = format2;
+//    NSDateFormatter *dateFormatter2 = [[NSDateFormatter alloc]init];
+//    dateFormatter2.dateFormat = format2;
+    NSDateFormatter *dateFormatter2 = [[WBDateFormatterPool shareInstance] wb_dateFormatterWithFormat:format2
+                                                                                     localeIdentifier:nil
+                                                                                         timeZoneName:nil];
     NSDate *currentDate = [dateFormatter2 dateFromString:currentTime];
     return [self timeIntervalFromLastTime:lastDate ToCurrentTime:currentDate];
 }
+
 + (NSString *)timeIntervalFromLastTime:(NSDate *)lastTime ToCurrentTime:(NSDate *)currentTime{
     NSTimeZone *timeZone = [NSTimeZone systemTimeZone];
     //上次时间
@@ -98,33 +102,32 @@
     }else if (day < 30){
         return [NSString stringWithFormat: @"%ld天前",(long)day];
     }else if (month < 12){
-        NSDateFormatter * df =[[NSDateFormatter alloc]init];
-        df.dateFormat = @"M月d日";
+//        NSDateFormatter * df =[[NSDateFormatter alloc]init];
+//        df.dateFormat = @"M月d日";
+        NSDateFormatter * df = [[WBDateFormatterPool shareInstance] wb_dateFormatterWithFormat:@"M月d日"
+                                                                              localeIdentifier:nil
+                                                                                  timeZoneName:nil];
         NSString * time = [df stringFromDate:lastDate];
         return time;
     }else if (yers >= 1){
-        NSDateFormatter * df =[[NSDateFormatter alloc]init];
-        df.dateFormat = @"yyyy年M月d日";
+//        NSDateFormatter * df =[[NSDateFormatter alloc]init];
+//        df.dateFormat = @"yyyy年M月d日";
+        NSDateFormatter * df = [[WBDateFormatterPool shareInstance] wb_dateFormatterWithFormat:@"yyyy年M月d日"
+                                                                              localeIdentifier:nil
+                                                                                  timeZoneName:nil];
         NSString * time = [df stringFromDate:lastDate];
         return time;
     }
     return @"";
 }
-+ (NSString *)wb_intervalSinceNow:(NSString *) theDate {
-    
-    NSDateFormatter *date = [[NSDateFormatter alloc] init];
-    [date setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+
++ (NSString *)wb_intervalSinceNow:(NSString *)theDate {
     NSDate *d = [NSDate dateWithTimeIntervalSince1970:[theDate longLongValue]];
-    
-    NSTimeInterval late=[d timeIntervalSince1970];
-    
-    
+    NSTimeInterval late = [d timeIntervalSince1970];
     NSDate* dat = [NSDate date];
     NSTimeInterval now = [dat timeIntervalSince1970];
     NSString *timeString = @"";
-    
     NSTimeInterval cha = now - late;
-    
     if (cha/3600 < 1)
     {
         timeString = [NSString stringWithFormat:@"%f", cha/60];
@@ -149,26 +152,21 @@
         timeString = [NSString stringWithFormat:@"%f", cha/86400];
         timeString = [timeString substringToIndex:timeString.length-7];
         timeString = [NSString stringWithFormat:@"%@天前", timeString];
-        
     }
     return timeString;
 }
+
 + (NSString *)wb_prettyDateWithReference:(NSString *)theDate {
     NSDate *reference = [NSDate dateWithTimeIntervalSince1970:[theDate longLongValue]];
-    
     NSString *suffix = @"前";
-    
     NSDate *nowUTC = [NSDate date];
-    
     float different = [reference timeIntervalSinceDate:nowUTC];
     if (different < 0) {
         different = -different;
         //        suffix = @"from now";
     }
-    
     // days = different / (24 * 60 * 60), take the floor value
     float dayDifferent = floor(different / 86400);
-    
     int days   = (int)dayDifferent;
     int weeks  = (int)ceil(dayDifferent / 7);
     int months = (int)ceil(dayDifferent / 30);
@@ -220,13 +218,15 @@
     
     return self.description;
 }
+
 + (NSString *)wb_getDynamicDateStringByTimestampStyleOne:(NSTimeInterval)timestamp {
-    NSDateFormatter *format=[[NSDateFormatter alloc] init];
-    [format setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+//    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+//    [format setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDateFormatter *format = [[WBDateFormatterPool shareInstance] wb_dateFormatterWithFormat:@"yyyy-MM-dd HH:mm:ss"
+                                                                             localeIdentifier:nil
+                                                                                 timeZoneName:nil];
     NSDate *d = [NSDate dateWithTimeIntervalSince1970:timestamp];
-    
     NSString *dateStr = [format stringFromDate:d];// 2012-05-17 11:23:23
-    
     double timezoneFix = [NSTimeZone localTimeZone].secondsFromGMT;
     switch ((int)(([[NSDate date] timeIntervalSince1970] + timezoneFix)/(24*3600)) -
             (int)(([d timeIntervalSince1970] + timezoneFix)/(24*3600)))
@@ -244,13 +244,16 @@
     }
     return dateStr;
 }
+
 + (NSString *)wb_getDynamicDateStringByTimestampStyleTwo:(NSTimeInterval)timestamp {
-    NSDateFormatter *format=[[NSDateFormatter alloc] init];
-    [format setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+//    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+//    [format setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDateFormatter *format = [[WBDateFormatterPool shareInstance] wb_dateFormatterWithFormat:@"yyyy-MM-dd HH:mm:ss HH:mm:ss"
+                                                                             localeIdentifier:nil
+                                                                                 timeZoneName:nil];
     NSDate *d = [NSDate dateWithTimeIntervalSince1970:timestamp];
     
     NSString *dateStr = [format stringFromDate:d];// 2012-05-17 11:23:23
-    
     double timezoneFix = [NSTimeZone localTimeZone].secondsFromGMT;
     switch ((int)(([[NSDate date] timeIntervalSince1970] + timezoneFix)/(24*3600)) -
             (int)(([d timeIntervalSince1970] + timezoneFix)/(24*3600)))
@@ -268,11 +271,14 @@
     }
     return dateStr;
 }
+
 + (NSInteger)wb_getAgeByTimestamp:(NSTimeInterval)timestamp {
     NSString *birth = [NSDate wb_getStringByTimestamp:timestamp format:DayFormatLine];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    
-    [dateFormatter setDateFormat:DayFormatLine];
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+//    [dateFormatter setDateFormat:DayFormatLine];
+    NSDateFormatter *dateFormatter = [[WBDateFormatterPool shareInstance] wb_dateFormatterWithFormat:DayFormatLine
+                                                                                    localeIdentifier:nil
+                                                                                        timeZoneName:nil];
     //生日
     NSDate *birthDay = [dateFormatter dateFromString:birth];
     //當前時間
@@ -281,7 +287,6 @@
     NSLog(@"currentDate %@ birthDay %@",currentDateStr,birth);
     NSTimeInterval time=[currentDate timeIntervalSinceDate:birthDay];
     int age = ((int)time)/(3600*24*365);
-    
     return age;
 }
 @end
