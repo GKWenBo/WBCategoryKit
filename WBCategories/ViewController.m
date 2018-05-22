@@ -10,7 +10,7 @@
 #import "UIDevice+WBUUID.h"
 #import "UIWindow+WBHierarchy.h"
 #import "WBMacroDefinition.h"
-#import "NSString+WBPredicate.h"
+#import "NSString+WBDeviceInfo.h"
 
 #import <libextobjc/EXTScope.h>
 
@@ -44,7 +44,7 @@
 ////    // 测试字符串
 //    NSMutableString *tableString = [[NSMutableString alloc] initWithFormat:@"防止项目数组字典越界崩溃"];
 //    NSLog(@"%@",[tableString substringFromIndex:100]);
-    
+    NSLog(@"%@",[NSString wb_getBoundleName]);
 }
 
 

@@ -10,7 +10,7 @@
 
 @interface UIImagePickerController (WBAdditional)
 
-#pragma mark ------ < 系统相机相关 > ------
+#pragma mark < Public Method >
 + (UIImagePickerController *)wb_imagePickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType;
 
 /**
@@ -32,7 +32,7 @@
  
  @return YES/NO
  */
-+ (BOOL)wb_isSupportTakingPhotos;
++ (BOOL)wb_isCameraAuthorized;
 
 /**
  是否支持图库权限
@@ -50,5 +50,12 @@
  */
 + (BOOL)wb_isSupportsMedia:(NSString *)mediaType
                 sourceType:(UIImagePickerControllerSourceType)sourceType;
+
+/**
+ 是否有图库权限
+
+ @return YES/NO
+ */
++ (BOOL)wb_isPhotoLibraryAuthorized;
 
 @end

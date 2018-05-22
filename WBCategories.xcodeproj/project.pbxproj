@@ -91,6 +91,7 @@
 		84E35FB42029889200E4683F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84E35FB32029889200E4683F /* Assets.xcassets */; };
 		84E35FB72029889200E4683F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E35FB52029889200E4683F /* LaunchScreen.storyboard */; };
 		84E35FBA2029889200E4683F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E35FB92029889200E4683F /* main.m */; };
+		C286B19320B3C6A2009DBDB9 /* UIAlertController+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = C286B19220B3C6A2009DBDB9 /* UIAlertController+WBAdditional.m */; };
 		C2C5D6A720A155C500DA8C54 /* NSArray+WBSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5D6A620A155C500DA8C54 /* NSArray+WBSafe.m */; };
 		C2C5D6AA20A1746500DA8C54 /* NSMutableArray+WBSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5D6A920A1746500DA8C54 /* NSMutableArray+WBSafe.m */; };
 		C2C5D6AD20A17C3900DA8C54 /* NSDictionary+WBSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5D6AC20A17C3900DA8C54 /* NSDictionary+WBSafe.m */; };
@@ -274,6 +275,8 @@
 		84E35FB62029889200E4683F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84E35FB82029889200E4683F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84E35FB92029889200E4683F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C286B19120B3C6A2009DBDB9 /* UIAlertController+WBAdditional.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+WBAdditional.h"; sourceTree = "<group>"; };
+		C286B19220B3C6A2009DBDB9 /* UIAlertController+WBAdditional.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+WBAdditional.m"; sourceTree = "<group>"; };
 		C2C5D6A520A155C500DA8C54 /* NSArray+WBSafe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+WBSafe.h"; sourceTree = "<group>"; };
 		C2C5D6A620A155C500DA8C54 /* NSArray+WBSafe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+WBSafe.m"; sourceTree = "<group>"; };
 		C2C5D6A820A1746500DA8C54 /* NSMutableArray+WBSafe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+WBSafe.h"; sourceTree = "<group>"; };
@@ -316,6 +319,7 @@
 		841D7DA5202ED8FC00D70A07 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				C286B19020B3C68E009DBDB9 /* UIAlertController */,
 				84BE3E4F2030331600AC7B7B /* UIWebView */,
 				841D7DA6202ED8FC00D70A07 /* UIApplication */,
 				841D7DAD202ED8FC00D70A07 /* UIBarButtonItem */,
@@ -794,6 +798,15 @@
 			path = WBCategories;
 			sourceTree = "<group>";
 		};
+		C286B19020B3C68E009DBDB9 /* UIAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				C286B19120B3C6A2009DBDB9 /* UIAlertController+WBAdditional.h */,
+				C286B19220B3C6A2009DBDB9 /* UIAlertController+WBAdditional.m */,
+			);
+			path = UIAlertController;
+			sourceTree = "<group>";
+		};
 		F854FB4B86213C37CD5ED6BD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -911,6 +924,7 @@
 				841D7E83202ED8FD00D70A07 /* UITableViewCell+FindUITableView.m in Sources */,
 				841D7E6B202ED8FD00D70A07 /* UIColor+WBAdditional.m in Sources */,
 				841D7E8F202ED8FD00D70A07 /* UIView+WBFrame.m in Sources */,
+				C286B19320B3C6A2009DBDB9 /* UIAlertController+WBAdditional.m in Sources */,
 				841D7E68202ED8FD00D70A07 /* UIButton+WBMiddleAlign.m in Sources */,
 				841D7E74202ED8FD00D70A07 /* UIImage+WBEffect.m in Sources */,
 				841D7E66202ED8FD00D70A07 /* UIButton+WBEnlargeTouchAreas.m in Sources */,

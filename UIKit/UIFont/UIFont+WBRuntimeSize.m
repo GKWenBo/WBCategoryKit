@@ -21,7 +21,7 @@
 
 + (UIFont *)wb_adjustFont:(CGFloat)fontSize {
     UIFont * newFont = nil;
-    newFont = [UIFont wb_adjustFont:fontSize * [UIScreen mainScreen].bounds.size.width /Screen_Width];
+    newFont = [UIFont wb_adjustFont:fontSize * [UIScreen mainScreen].bounds.size.width / Screen_Width];
     return newFont;
     
 }
