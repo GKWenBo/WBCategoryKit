@@ -19,7 +19,7 @@ typedef void(^AlertClickedBlock)(NSInteger clickedIndex);
  @param title 标题
  @param message 提示信息
  @param clickedBlock 点击action下标回调
- @param cancleActionString 取消标题
+ @param cancelActionString 取消标题
  @param otherActionString 其他按钮标题，example：@“相机”，@“照片”,nil
  */
 + (void)showAlertWithTitle:(NSString *)title

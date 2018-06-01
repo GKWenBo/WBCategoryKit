@@ -168,7 +168,7 @@ _Pragma("clang diagnostic pop")\
 #define kWB_WEAKSELF(type) __weak typeof(type) weak##type = type;
 #define kWB_STRONGSELF(type) __strong typeof(type) type = weak##type;
 
-/** < 成对使用 >  */
+//-------------------解决循环引用-------------------
 #define kWBWeakObjc(o) autoreleasepool{} __weak typeof(o) o##Weak = o;
 #define kWBStrongObjc(o) autoreleasepool{} __strong typeof(o) o = o##Weak;
 
@@ -232,6 +232,26 @@ _Pragma("clang diagnostic pop")\
 #define kWB_DOCUMENT_PATH [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
 /**  < 获取沙盒 Cache >  */
 #define kWB_CACHE_PATH [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
+
+//-------------------同步锁-------------------
+#define kWB_LOCK(lock) dispatch_semaphore_wait(lock, DISPATCH_TIME_FOREVER);
+#define kWB_UNLOCK(lock) dispatch_semaphore_signal(lock);
+
+//-------------------多线程-------------------
+/** < 主线程安全执行 >  */
+#ifndef dispatch_main_async_safe
+#define dispatch_main_async_safe(block) dispatch_queue_async_safe(dispatch_get_main_queue(), block)
+#endif
+
+/** < 子线程安全执行 >  */
+#ifndef dispatch_queue_async_safe
+#define dispatch_queue_async_safe(queue, block)\
+if (dispatch_queue_get_label(DISPATCH_CURRENT_QUEUE_LABEL) == dispatch_queue_get_label(queue)) {\
+block();\
+} else {\
+dispatch_async(queue, block);\
+}
+#endif
 
 #endif /* WB_MacroDefinition_h */
 
