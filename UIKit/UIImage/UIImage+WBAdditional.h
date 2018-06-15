@@ -218,17 +218,7 @@ CGRect YYCGRectFitWithContentMode(CGRect rect, CGSize size, UIViewContentMode mo
                                       borderColor:(nullable UIColor *)borderColor
                                    borderLineJoin:(CGLineJoin)borderLineJoin;
 
-#pragma mark --------  图片压缩  --------
-#pragma mark
-/**
- 压缩图片到指定文件大小
 
- @param image 要压缩的图片
- @param size 指定的大小
- @return 图片data
- */
-+ (NSData *)wb_compressOriginalImage:(UIImage *)image
-                 toMaxDataSizeKBytes:(CGFloat)size;
 
 @end
 NS_ASSUME_NONNULL_END

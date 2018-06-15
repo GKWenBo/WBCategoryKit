@@ -91,6 +91,7 @@
 		84E35FB42029889200E4683F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84E35FB32029889200E4683F /* Assets.xcassets */; };
 		84E35FB72029889200E4683F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E35FB52029889200E4683F /* LaunchScreen.storyboard */; };
 		84E35FBA2029889200E4683F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E35FB92029889200E4683F /* main.m */; };
+		C22FC87620D3A4D600222487 /* UIImage+WBCompress.m in Sources */ = {isa = PBXBuildFile; fileRef = C22FC87520D3A4D600222487 /* UIImage+WBCompress.m */; };
 		C286B19320B3C6A2009DBDB9 /* UIAlertController+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = C286B19220B3C6A2009DBDB9 /* UIAlertController+WBAdditional.m */; };
 		C2C5D6A720A155C500DA8C54 /* NSArray+WBSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5D6A620A155C500DA8C54 /* NSArray+WBSafe.m */; };
 		C2C5D6AA20A1746500DA8C54 /* NSMutableArray+WBSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5D6A920A1746500DA8C54 /* NSMutableArray+WBSafe.m */; };
@@ -275,6 +276,8 @@
 		84E35FB62029889200E4683F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84E35FB82029889200E4683F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84E35FB92029889200E4683F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C22FC87420D3A4D600222487 /* UIImage+WBCompress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+WBCompress.h"; sourceTree = "<group>"; };
+		C22FC87520D3A4D600222487 /* UIImage+WBCompress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WBCompress.m"; sourceTree = "<group>"; };
 		C286B19120B3C6A2009DBDB9 /* UIAlertController+WBAdditional.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+WBAdditional.h"; sourceTree = "<group>"; };
 		C286B19220B3C6A2009DBDB9 /* UIAlertController+WBAdditional.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+WBAdditional.m"; sourceTree = "<group>"; };
 		C2C5D6A520A155C500DA8C54 /* NSArray+WBSafe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+WBSafe.h"; sourceTree = "<group>"; };
@@ -460,6 +463,8 @@
 				841D7DDE202ED8FC00D70A07 /* UIImage+WBEffect.m */,
 				841D7DDF202ED8FC00D70A07 /* UIImage+WBRotate.h */,
 				841D7DE0202ED8FD00D70A07 /* UIImage+WBRotate.m */,
+				C22FC87420D3A4D600222487 /* UIImage+WBCompress.h */,
+				C22FC87520D3A4D600222487 /* UIImage+WBCompress.m */,
 			);
 			path = UIImage;
 			sourceTree = "<group>";
@@ -938,6 +943,7 @@
 				841D7E95202ED8FD00D70A07 /* UIWindow+WBHierarchy.m in Sources */,
 				C2C5D6AD20A17C3900DA8C54 /* NSDictionary+WBSafe.m in Sources */,
 				84BE3E58203035DA00AC7B7B /* UIWebView+WBKeyValueStorage.m in Sources */,
+				C22FC87620D3A4D600222487 /* UIImage+WBCompress.m in Sources */,
 				C2C5D6B320A1849400DA8C54 /* NSMutableString+WBSafe.m in Sources */,
 				841D7E60202ED8FD00D70A07 /* UIBarButtonItem+WBActionBlock.m in Sources */,
 				84BE3E5E20303AE000AC7B7B /* UIColor+WBWeb.m in Sources */,

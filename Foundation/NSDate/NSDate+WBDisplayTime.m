@@ -272,21 +272,4 @@
     return dateStr;
 }
 
-+ (NSInteger)wb_getAgeByTimestamp:(NSTimeInterval)timestamp {
-    NSString *birth = [NSDate wb_getStringByTimestamp:timestamp format:DayFormatLine];
-//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-//    [dateFormatter setDateFormat:DayFormatLine];
-    NSDateFormatter *dateFormatter = [[WBDateFormatterPool shareInstance] wb_dateFormatterWithFormat:DayFormatLine
-                                                                                    localeIdentifier:nil
-                                                                                        timeZoneName:nil];
-    //生日
-    NSDate *birthDay = [dateFormatter dateFromString:birth];
-    //當前時間
-    NSString *currentDateStr = [dateFormatter stringFromDate:[NSDate date]];
-    NSDate *currentDate = [dateFormatter dateFromString:currentDateStr];
-    NSLog(@"currentDate %@ birthDay %@",currentDateStr,birth);
-    NSTimeInterval time=[currentDate timeIntervalSinceDate:birthDay];
-    int age = ((int)time)/(3600*24*365);
-    return age;
-}
 @end

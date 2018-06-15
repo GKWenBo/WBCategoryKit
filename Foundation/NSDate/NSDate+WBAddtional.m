@@ -53,12 +53,8 @@
     NSTimeInterval time = [timestampStr doubleValue];
     NSDate *detaildate = [NSDate dateWithTimeIntervalSince1970:time];
     //实例化一个NSDateFormatter对象
-//    NSDateFormatter *format = [[NSDateFormatter alloc] init];
-//    //设置时区（北京东八区）
-//    NSTimeZone *timeZone=[NSTimeZone timeZoneWithName:@"Asia/Beijing"];
-//    [format setTimeZone:timeZone];
+    //设置时区（北京东八区）
     //设定时间格式,这里可以设置成自己需要的格式
-//    [format setDateFormat:dateFormatter];
     NSDateFormatter *format = [[WBDateFormatterPool shareInstance] wb_dateFormatterWithFormat:dateFormatter
                                                                              localeIdentifier:nil
                                                                                  timeZoneName:@"Asia/Beijing"];
@@ -68,8 +64,6 @@
 
 + (NSString *)wb_dateStringFromYKMDateString:(NSString *)dateString {
     NSDate * date = [self wb_dateFromYKMString:dateString];
-//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//    [dateFormatter setDateFormat:CustomDateFormat];
     NSDateFormatter *dateFormatter = [[WBDateFormatterPool shareInstance] wb_dateFormatterWithFormat:CustomDateFormat
                                                                                     localeIdentifier:nil
                                                                                         timeZoneName:nil];
@@ -79,8 +73,6 @@
 
 + (NSString *)wb_dateStringFromDate:(NSDate *)date
                              format:(NSString *)format {
-//    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init];
-//    [dateFormatter setDateFormat:format];
     NSDateFormatter * dateFormatter = [[WBDateFormatterPool shareInstance] wb_dateFormatterWithFormat:format
                                                                                      localeIdentifier:nil
                                                                                          timeZoneName:nil];
@@ -112,8 +104,6 @@
 #pragma mark -- Date
 #pragma mark
 + (NSDate *)wb_dateFromString:(NSString *)dateString withFormat:(NSString *)format {
-//    NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
-//    [inputFormatter setDateFormat:format];
     NSDateFormatter *inputFormatter = [[WBDateFormatterPool shareInstance] wb_dateFormatterWithFormat:format
                                                                                      localeIdentifier:nil
                                                                                          timeZoneName:nil];
@@ -122,17 +112,20 @@
 }
 
 + (NSDate *)wb_dateFromString:(NSString *)dateString {
-    return [self wb_dateFromString:dateString withFormat:CustomDateFormat];
+    return [self wb_dateFromString:dateString
+                        withFormat:CustomDateFormat];
 }
 
 + (NSDate *)wb_dateFromYKMString:(NSString *)dateString {
-    return [self wb_dateFromString:dateString withFormat:YkmDateFormat];
+    return [self wb_dateFromString:dateString
+                        withFormat:YkmDateFormat];
 }
 
 #pragma mark -- Timestamp
 #pragma mark
 + (NSTimeInterval)wb_timeIntervalSince1970FromString:(NSString *)dateString {
-    NSDate * date = [self wb_dateFromString:dateString withFormat:CustomDateFormat];
+    NSDate * date = [self wb_dateFromString:dateString
+                                 withFormat:CustomDateFormat];
     if (date) {
         NSTimeInterval time = [date timeIntervalSince1970] * 1000;
         return time;

@@ -48,11 +48,5 @@
 + (NSString *)wb_getDynamicDateStringByTimestampStyleOne:(NSTimeInterval)timestamp;
 + (NSString *)wb_getDynamicDateStringByTimestampStyleTwo:(NSTimeInterval)timestamp;
 
-/**
- *  通过时间戳获取年龄字符串
- *
- *  @param timestamp 生日时间戳
- *  @return 年龄字符串
- */
-+ (NSInteger)wb_getAgeByTimestamp:(NSTimeInterval)timestamp;
+
 @end
