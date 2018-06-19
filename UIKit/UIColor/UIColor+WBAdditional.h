@@ -12,11 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIColor (WBAdditional)
 
 #pragma mark --------  随机色  --------
-#pragma mark
 + (UIColor *)wb_randomColor;
 
 #pragma mark --------  RGB/RGBA  --------
-#pragma mark
 /**
  *  RGBA颜色
  *
@@ -35,7 +33,6 @@ NS_ASSUME_NONNULL_BEGIN
                            blue:(CGFloat)blue;
 
 #pragma mark --------  Hex Color  --------
-#pragma mark
 /**
  *  从十六进制字符串获取颜色
  *
@@ -81,7 +78,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)wb_getHexString;
 
 #pragma mark --------  渐变色  --------
-#pragma mark
 + (UIColor*)wb_gradientFromColor:(UIColor *)c1
                          toColor:(UIColor *)c2
                       withHeight:(int)height;

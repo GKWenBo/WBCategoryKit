@@ -15,6 +15,7 @@
 {
     return [objc_getAssociatedObject(self, @selector(wb_touchAreaInsets)) UIEdgeInsetsValue];
 }
+
 /**
  *  @brief  设置按钮额外热区
  */
@@ -34,6 +35,5 @@
                         bounds.size.height + touchAreaInsets.top + touchAreaInsets.bottom);
     return CGRectContainsPoint(bounds, point);
 }
-
 
 @end

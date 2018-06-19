@@ -10,7 +10,6 @@
 
 @implementation NSString (WBPredicate)
 #pragma mark -- 字符串处理
-#pragma mark
 - (NSString *)wb_trim {
     NSCharacterSet *set = [NSCharacterSet whitespaceCharacterSet];
     return [self stringByTrimmingCharactersInSet:set];
@@ -24,7 +23,6 @@
 }
 
 #pragma mark -- 字符串判断
-#pragma mark
 - (BOOL)wb_isBlank {
     return ([[self wb_removeWhiteSpacesFromString] isEqualToString:@""]) ? YES : NO;
 }
@@ -55,7 +53,6 @@
 }
 
 #pragma mark -- 字符串验证
-#pragma mark
 - (BOOL)wb_isValidEmail
 {
     NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";

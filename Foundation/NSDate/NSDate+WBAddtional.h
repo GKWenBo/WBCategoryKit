@@ -13,7 +13,6 @@
 @interface NSDate (WBAddtional)
 
 #pragma mark -- DateString
-#pragma mark
 /**
  *  获取当前时间
  *
@@ -83,7 +82,7 @@
  */
 + (NSString *)wb_hourDateStringFromDate:(NSDate *)date;
 #pragma mark -- Date
-#pragma mark
+
 /**
  *  从时间字符串得到时间
  *
@@ -111,8 +110,6 @@
 + (NSDate *)wb_dateFromYKMString:(NSString *)dateString;
 
 #pragma mark -- Timestamp
-#pragma mark
-
 /**
  *  将字符串转化成离1970的毫秒数
  *

@@ -90,14 +90,14 @@
 }
 
 + (NSString *)wb_getDateStringWithTimestamp:(NSTimeInterval)timestamp {
-    NSDate *confromTimesp    = [NSDate dateWithTimeIntervalSince1970:timestamp/1000];
+    NSDate *confromTimesp    = [NSDate dateWithTimeIntervalSince1970:timestamp / 1000];
     NSCalendar *calendar     = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSInteger unitFlags      = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday |
     NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
     NSDateComponents*referenceComponents=[calendar components:unitFlags fromDate:confromTimesp];
-    NSInteger referenceYear  =referenceComponents.year;
-    NSInteger referenceMonth =referenceComponents.month;
-    NSInteger referenceDay   =referenceComponents.day;
+    NSInteger referenceYear  = referenceComponents.year;
+    NSInteger referenceMonth = referenceComponents.month;
+    NSInteger referenceDay   = referenceComponents.day;
     return [NSString stringWithFormat:@"%ld年%ld月%ld日",referenceYear,(long)referenceMonth,(long)referenceDay];
 }
 

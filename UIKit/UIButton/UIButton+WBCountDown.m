@@ -11,13 +11,6 @@
 @implementation UIButton (WBCountDown)
 
 #pragma mark --------  按钮倒计时  --------
-/**
- *  设置按钮倒计时
- *
- *  @param timeout 倒计时时间
- *  @param tittle 按钮标题
- *  @param waitTittle 等待标题
- */
 - (void)wb_startTime:(NSInteger )timeout
                title:(NSString *)tittle
           waitTittle:(NSString *)waitTittle {
@@ -50,12 +43,7 @@
     });
     dispatch_resume(_timer);
 }
-/**
- *  设置按钮倒计时
- *
- *  @param time 倒计时时间
- *  @param button 对象按钮
- */
+
 + (void)wb_showCountDownTime:(NSUInteger)time
                     inButton:(UIButton *)button {
     __block int timeout = (int)time;

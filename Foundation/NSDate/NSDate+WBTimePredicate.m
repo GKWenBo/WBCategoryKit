@@ -268,9 +268,8 @@
     }
 }
 
-+ (BOOL)wb_isSameYearAsDate:(NSDate *)aDate andSecDate:(NSDate *) bDate {
-//    NSDateFormatter *ds = [[NSDateFormatter alloc] init];
-//    [ds setDateFormat:@"yyyy"];
++ (BOOL)wb_isSameYearAsDate:(NSDate *)aDate
+                 andSecDate:(NSDate *) bDate {
     NSDateFormatter *ds = [[WBDateFormatterPool shareInstance] wb_dateFormatterWithFormat:@"yyyy"
                                                                          localeIdentifier:nil
                                                                              timeZoneName:nil];
@@ -284,8 +283,6 @@
 }
 
 + (BOOL)wb_isThisYear:(NSDate *)aDate {
-//    NSDateFormatter *ds = [[NSDateFormatter alloc] init];
-//    [ds setDateFormat:@"yyyy"];
     NSDateFormatter *ds = [[WBDateFormatterPool shareInstance] wb_dateFormatterWithFormat:@"yyyy"
                                                                          localeIdentifier:nil
                                                                              timeZoneName:nil];
@@ -327,8 +324,6 @@
 }
 
 + (BOOL)wb_isLastYear:(NSDate *)aDate {
-//    NSDateFormatter *ds = [[NSDateFormatter alloc] init];
-//    [ds setDateFormat:@"yyyy"];
     NSDateFormatter *ds = [[WBDateFormatterPool shareInstance] wb_dateFormatterWithFormat:@"yyyy"
                                                                          localeIdentifier:nil
                                                                              timeZoneName:nil];
@@ -364,9 +359,6 @@
 + (NSDate *)wb_computeDateWithDays:(NSInteger)days
                       beginDateStr:(NSString *)beginDateStr;
 {
-//    NSDateFormatter *dateFormatter = [NSDateFormatter new];
-//    NSString * subDate = [beginDateStr substringToIndex:10];
-//    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     NSDateFormatter *dateFormatter = [[WBDateFormatterPool shareInstance] wb_dateFormatterWithFormat:@"yyyy-MM-dd"
                                                                                     localeIdentifier:nil
                                                                                         timeZoneName:nil];

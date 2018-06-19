@@ -10,7 +10,6 @@
 #import <UIKit/UIKit.h>
 @interface NSString (WBAddtional)
 #pragma mark --------  计算文字大小  --------
-#pragma mark
 /**
  *  计算文字size
  *
@@ -47,7 +46,6 @@
                       width:(CGFloat)width;
 
 #pragma mark --------  隐藏部分文字  --------
-#pragma mark
 /**
  *  隐藏部分文字
  *
@@ -66,7 +64,6 @@
 + (NSString *)wb_disposeIDCardNumber:(NSString *)IDCardNumber;
 
 #pragma mark --------  Transform  --------
-#pragma mark
 /**
  *  金额转大写
  *
@@ -92,14 +89,12 @@
 - (id)wb_jsonValueDecoded;
 
 #pragma mark --------  Common Method  --------
-#pragma mark
 /**
  Returns NSMakeRange(0, self.length).
  */
 - (NSRange)wb_rangeOfAll;
 
 #pragma mark ------ < File Path > ------
-#pragma mark
 /**
  *  获取Document文件夹
  *  @return Document路径

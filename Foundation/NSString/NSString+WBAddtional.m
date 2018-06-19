@@ -10,14 +10,6 @@
 #import "NSString+WBPredicate.h"
 @implementation NSString (WBAddtional)
 #pragma mark --------  计算文字大小  --------
-#pragma mark
-/**
- *  计算文字size
- *
- *  @param size 限制size
- *  @param font 字体
- *  @return 文字size
- */
 - (CGSize)wb_sizeForFont:(UIFont *)font
                     size:(CGSize)size
                     mode:(NSLineBreakMode)lineBreakMode {
@@ -43,17 +35,20 @@
     }
     return result;
 }
+
 - (CGFloat)wb_widthForFont:(UIFont *)font {
-    
-    return [self wb_sizeForFont:font size:CGSizeMake(HUGE, HUGE) mode:NSLineBreakByWordWrapping].width;
+    return [self wb_sizeForFont:font
+                           size:CGSizeMake(HUGE, HUGE)
+                           mode:NSLineBreakByWordWrapping].width;
 }
+
 - (CGFloat)wb_heightForFont:(UIFont *)font
                       width:(CGFloat)width {
     
     return [self wb_sizeForFont:font size:CGSizeMake(width, HUGE) mode:NSLineBreakByWordWrapping].height;
 }
+
 #pragma mark --------  隐藏部分文字  --------
-#pragma mark
 + (NSString *)wb_hidePartCharacterWithNumberStr:(NSString *)number
                                    headerLength:(NSInteger)headerLength
                                    footerLength:(NSInteger)footerLength {
@@ -74,6 +69,7 @@
         return number;
     }
 }
+
 + (NSString *)wb_disposeIDCardNumber:(NSString *)IDCardNumber {
     //星号字符串
     NSString *xinghaoStr = @"";
@@ -88,7 +84,6 @@
 }
 
 #pragma mark --------  Transform  --------
-#pragma mark
 + (NSString *)wb_digitUppercaseWithMoney:(NSString *)money {
     NSMutableString *moneyStr=[[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"%.2f",[money doubleValue]]];
     NSArray *MyScale=@[@"分", @"角", @"元", @"拾", @"佰", @"仟", @"万", @"拾", @"佰", @"仟", @"亿", @"拾", @"佰", @"仟", @"兆", @"拾", @"佰", @"仟" ];
@@ -129,20 +124,22 @@
     }
     return M;
 }
+
 - (NSNumber *)wb_numberValue {
     
     return [self wb_numberWithString:self];
 }
+
 - (NSData *)wb_dataValue{
     return [self dataUsingEncoding:NSUTF8StringEncoding];
 }
+
 - (id)wb_jsonValueDecoded {
     NSData * data = [self wb_dataValue];
     return [self jsonValueDecodedWithData:data];
 }
 
 #pragma mark --------  Common Method  --------
-#pragma mark
 /**
  Returns NSMakeRange(0, self.length).
  */
@@ -151,7 +148,6 @@
 }
 
 #pragma mark --------  Private Method  --------
-#pragma mark
 - (NSNumber *)wb_numberWithString:(NSString *)string  {
     NSString *str = [[string wb_trim] lowercaseString];
     if (!str || !str.length) {
@@ -204,7 +200,6 @@
 }
 
 #pragma mark ------ < File Path > ------
-#pragma mark
 /**
  *  获取Document文件夹
  *  @return Document路径

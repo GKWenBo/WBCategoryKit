@@ -69,7 +69,6 @@
 		841D7E98202ED8FD00D70A07 /* NSDate+WBAddtional.m in Sources */ = {isa = PBXBuildFile; fileRef = 841D7E37202ED8FD00D70A07 /* NSDate+WBAddtional.m */; };
 		841D7E99202ED8FD00D70A07 /* NSDate+WBDisplayTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 841D7E39202ED8FD00D70A07 /* NSDate+WBDisplayTime.m */; };
 		841D7E9A202ED8FD00D70A07 /* NSDate+WBTimePredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = 841D7E3B202ED8FD00D70A07 /* NSDate+WBTimePredicate.m */; };
-		841D7E9B202ED8FD00D70A07 /* NSDate+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 841D7E3D202ED8FD00D70A07 /* NSDate+YYAdd.m */; };
 		841D7E9C202ED8FD00D70A07 /* NSDictionary+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = 841D7E41202ED8FD00D70A07 /* NSDictionary+WBAdditional.m */; };
 		841D7E9D202ED8FD00D70A07 /* NSObject+WBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 841D7E44202ED8FD00D70A07 /* NSObject+WBJSON.m */; };
 		841D7E9E202ED8FD00D70A07 /* NSObject+WBRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 841D7E46202ED8FD00D70A07 /* NSObject+WBRuntime.m */; };
@@ -229,8 +228,6 @@
 		841D7E39202ED8FD00D70A07 /* NSDate+WBDisplayTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+WBDisplayTime.m"; sourceTree = "<group>"; };
 		841D7E3A202ED8FD00D70A07 /* NSDate+WBTimePredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+WBTimePredicate.h"; sourceTree = "<group>"; };
 		841D7E3B202ED8FD00D70A07 /* NSDate+WBTimePredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+WBTimePredicate.m"; sourceTree = "<group>"; };
-		841D7E3C202ED8FD00D70A07 /* NSDate+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+YYAdd.h"; sourceTree = "<group>"; };
-		841D7E3D202ED8FD00D70A07 /* NSDate+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+YYAdd.m"; sourceTree = "<group>"; };
 		841D7E3E202ED8FD00D70A07 /* WBDateHeaderFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBDateHeaderFile.h; sourceTree = "<group>"; };
 		841D7E40202ED8FD00D70A07 /* NSDictionary+WBAdditional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+WBAdditional.h"; sourceTree = "<group>"; };
 		841D7E41202ED8FD00D70A07 /* NSDictionary+WBAdditional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+WBAdditional.m"; sourceTree = "<group>"; };
@@ -671,8 +668,6 @@
 				841D7E39202ED8FD00D70A07 /* NSDate+WBDisplayTime.m */,
 				841D7E3A202ED8FD00D70A07 /* NSDate+WBTimePredicate.h */,
 				841D7E3B202ED8FD00D70A07 /* NSDate+WBTimePredicate.m */,
-				841D7E3C202ED8FD00D70A07 /* NSDate+YYAdd.h */,
-				841D7E3D202ED8FD00D70A07 /* NSDate+YYAdd.m */,
 				841D7E3E202ED8FD00D70A07 /* WBDateHeaderFile.h */,
 			);
 			path = NSDate;
@@ -994,7 +989,6 @@
 				841D7E99202ED8FD00D70A07 /* NSDate+WBDisplayTime.m in Sources */,
 				841D7EA2202ED8FD00D70A07 /* NSString+WBJavaScript.m in Sources */,
 				841D7E97202ED8FD00D70A07 /* NSMutableArray+WBSort.m in Sources */,
-				841D7E9B202ED8FD00D70A07 /* NSDate+YYAdd.m in Sources */,
 				C2C5D6A720A155C500DA8C54 /* NSArray+WBSafe.m in Sources */,
 				841D7E76202ED8FD00D70A07 /* UIImagePickerController+WBAdditional.m in Sources */,
 				841D7E8B202ED8FD00D70A07 /* UIView+WBDismissKeyboard.m in Sources */,

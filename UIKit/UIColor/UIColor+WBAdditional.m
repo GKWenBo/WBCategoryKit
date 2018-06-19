@@ -47,14 +47,6 @@
     return [self wb_rgbaColorWithRed:red green:green blue:blue alpha:1.f];
 }
 #pragma mark --------  Hex Color  --------
-#pragma mark
-/**
- *  从十六进制字符串获取颜色
- *
- *  @param color 支持@“#123456”、 @“0X123456”、 @“123456”三种格式
- *  @param alpha 颜色透明度
- *  @return 十六进制颜色
- */
 + (UIColor *)wb_colorWithHexString:(NSString *)color
                              alpha:(CGFloat)alpha {
     //删除字符串中的空格
@@ -100,9 +92,10 @@
     [[NSScanner scannerWithString:bString] scanHexInt:&b];
     return [UIColor colorWithRed:((float)r / 255.0f) green:((float)g / 255.0f) blue:((float)b / 255.0f) alpha:alpha];
 }
+
 + (UIColor *)wb_colorWithHexString:(NSString *)color {
-    
-    return [self wb_colorWithHexString:color alpha:1.f];
+    return [self wb_colorWithHexString:color
+                                 alpha:1.f];
 }
 
 + (UIColor *)wb_colorWithRGB:(uint32_t)rgbValue {
@@ -144,7 +137,6 @@
 }
 
 #pragma mark --------  渐变色  --------
-#pragma mark
 + (UIColor *)wb_gradientFromColor:(UIColor *)c1
                           toColor:(UIColor *)c2
                        withHeight:(int)height {

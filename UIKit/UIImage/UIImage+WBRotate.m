@@ -15,7 +15,6 @@ static inline CGFloat DegreesToRadians(CGFloat degrees) {
 
 @implementation UIImage (WBRotate)
 #pragma mark --------  Rotate --------
-#pragma mark
 + (UIImage *)wb_fixOrientation:(UIImage *)aImage {
     // No-op if the orientation is already correct
     if (aImage.imageOrientation == UIImageOrientationUp)
@@ -140,7 +139,6 @@ static inline CGFloat DegreesToRadians(CGFloat degrees) {
     return [self wb_flipHorizontal:YES vertical:NO];
 }
 #pragma mark --------  Private Method  --------
-#pragma mark
 - (UIImage *)wb_flipHorizontal:(BOOL)horizontal
                       vertical:(BOOL)vertical {
     if (!self.CGImage) return nil;

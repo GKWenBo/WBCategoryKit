@@ -20,7 +20,7 @@ typedef NS_ENUM(NSInteger, WBRotateDiretion) {
 /**
  Animation complete callback.
  */
-@property(nonatomic,copy)void(^completeBlock)(void);
+@property (nonatomic, copy) void(^completeBlock)(void);
 
 #pragma mark ------ < Animation > ------
 /**

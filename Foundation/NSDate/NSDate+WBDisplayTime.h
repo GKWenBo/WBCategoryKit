@@ -11,11 +11,14 @@
 @interface NSDate (WBDisplayTime)
 
 /**
- *  通过时间戳计算时间差
- *
- *  @param compareDate 时间戳
+ 通过时间戳计算时间差
+
+ @param compareDate 时间戳
+ @return 刚刚、几分钟前、.....
  */
-+ (NSString *)wb_compareCurrentTime:(NSTimeInterval) compareDate;
++ (NSString *)wb_compareCurrentTime:(NSTimeInterval)compareDate;
+
+
 
 /**
  *  计算上次日期距离现在多久
@@ -48,5 +51,13 @@
 + (NSString *)wb_getDynamicDateStringByTimestampStyleOne:(NSTimeInterval)timestamp;
 + (NSString *)wb_getDynamicDateStringByTimestampStyleTwo:(NSTimeInterval)timestamp;
 
+
+/**
+ 通过时间字符串计算时间差
+
+ @param timeString 时间字符串，example：2018-06-19 16:24:10
+ @return 几年/月/周...前.
+ */
++ (NSString *)compareCurrentTimeWithTimeString:(NSString *)timeString;
 
 @end

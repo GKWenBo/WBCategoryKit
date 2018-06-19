@@ -15,7 +15,7 @@
 /**
  禁止右滑返回属性
  */
-@property (nonatomic, assign)BOOL sx_disableInteractivePop;
+@property (nonatomic, assign) BOOL sx_disableInteractivePop;
 
 @end
 

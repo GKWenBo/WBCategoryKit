@@ -11,7 +11,6 @@
 @interface UIButton (WBEnlargeTouchAreas)
 
 #pragma mark --------  扩大点击区域  --------
-#pragma mark
 @property (nonatomic, assign) UIEdgeInsets wb_touchAreaInsets;
 
 @end

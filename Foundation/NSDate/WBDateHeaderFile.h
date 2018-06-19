@@ -9,7 +9,6 @@
 #ifndef WB_DateHeaderFile_h
 #define WB_DateHeaderFile_h
 
-
 /*
  G: 公元时代，例如AD公元
  

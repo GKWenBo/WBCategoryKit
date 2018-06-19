@@ -19,8 +19,6 @@
     UIView *redView;
 }
 
-@property (nonatomic, copy) void(^TestBlock)(NSString *test);
-
 
 @end
 
@@ -52,5 +50,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 @end

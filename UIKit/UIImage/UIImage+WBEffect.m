@@ -15,9 +15,10 @@
 
 @implementation UIImage (WBEffect)
 + (UIImage *)wb_imageWithColor:(UIColor *)color {
-    
-    return [self wb_imageWithColor:color size:CGSizeMake(1, 1)];
+    return [self wb_imageWithColor:color
+                              size:CGSizeMake(1, 1)];
 }
+
 + (nullable UIImage *)wb_imageWithColor:(UIColor *)color
                                    size:(CGSize)size {
     if (!color || size.width <= 0 || size.height <= 0) return nil;
@@ -30,6 +31,7 @@
     UIGraphicsEndImageContext();
     return image;
 }
+
 - (nullable UIImage *)wb_imageByTintColor:(UIColor *)color {
     UIGraphicsBeginImageContextWithOptions(self.size, NO, self.scale);
     CGRect rect = CGRectMake(0, 0, self.size.width, self.size.height);
@@ -40,21 +42,47 @@
     UIGraphicsEndImageContext();
     return newImage;
 }
+
 - (nullable UIImage *)wb_imageByGrayscale {
-    return [self imageByBlurRadius:0 tintColor:nil tintMode:0 saturation:0 maskImage:nil];
+    return [self imageByBlurRadius:0
+                         tintColor:nil
+                          tintMode:0
+                        saturation:0
+                         maskImage:nil];
 }
+
 - (nullable UIImage *)wb_imageByBlurSoft {
-    return [self imageByBlurRadius:60 tintColor:[UIColor colorWithWhite:0.84 alpha:0.36] tintMode:kCGBlendModeNormal saturation:1.8 maskImage:nil];
+    return [self imageByBlurRadius:60
+                         tintColor:[UIColor colorWithWhite:0.84 alpha:0.36]
+                          tintMode:kCGBlendModeNormal
+                        saturation:1.8
+                         maskImage:nil];
 }
+
 - (nullable UIImage *)wb_imageByBlurLight {
-    return [self imageByBlurRadius:60 tintColor:[UIColor colorWithWhite:1.0 alpha:0.3] tintMode:kCGBlendModeNormal saturation:1.8 maskImage:nil];
+    return [self imageByBlurRadius:60
+                         tintColor:[UIColor colorWithWhite:1.0 alpha:0.3]
+                          tintMode:kCGBlendModeNormal
+                        saturation:1.8
+                         maskImage:nil];
 }
+
 - (nullable UIImage *)wb_imageByBlurExtraLight {
-    return [self imageByBlurRadius:40 tintColor:[UIColor colorWithWhite:0.97 alpha:0.82] tintMode:kCGBlendModeNormal saturation:1.8 maskImage:nil];
+    return [self imageByBlurRadius:40
+                         tintColor:[UIColor colorWithWhite:0.97 alpha:0.82]
+                          tintMode:kCGBlendModeNormal
+                        saturation:1.8
+                         maskImage:nil];
 }
+
 - (nullable UIImage *)wb_imageByBlurDark {
-    return [self imageByBlurRadius:40 tintColor:[UIColor colorWithWhite:0.11 alpha:0.73] tintMode:kCGBlendModeNormal saturation:1.8 maskImage:nil];
+    return [self imageByBlurRadius:40
+                         tintColor:[UIColor colorWithWhite:0.11 alpha:0.73]
+                          tintMode:kCGBlendModeNormal
+                        saturation:1.8
+                         maskImage:nil];
 }
+
 - (nullable UIImage *)wb_imageByBlurWithTint:(UIColor *)tintColor {
     const CGFloat EffectColorAlpha = 0.6;
     UIColor *effectColor = tintColor;
@@ -70,9 +98,12 @@
             effectColor = [UIColor colorWithRed:r green:g blue:b alpha:EffectColorAlpha];
         }
     }
-    return [self imageByBlurRadius:20 tintColor:effectColor tintMode:kCGBlendModeNormal saturation:-1.0 maskImage:nil];
+    return [self imageByBlurRadius:20
+                         tintColor:effectColor
+                          tintMode:kCGBlendModeNormal
+                        saturation:-1.0
+                         maskImage:nil];
 }
-
 
 - (UIImage *)imageByBlurRadius:(CGFloat)blurRadius
                      tintColor:(UIColor *)tintColor
@@ -232,6 +263,7 @@
 static void _yy_cleanupBuffer(void *userData, void *buf_data) {
     free(buf_data);
 }
+
 // Helper function to add tint and mask.
 - (UIImage *)_yy_mergeImageRef:(CGImageRef)effectCGImage
                      tintColor:(UIColor *)tintColor
@@ -285,6 +317,7 @@ static void _yy_cleanupBuffer(void *userData, void *buf_data) {
     CGImageRelease(cgImage);
     return resultImage;
 }
+
 + (UIImage *)wb_blurWithOriginalImage:(UIImage *)image
                              blurName:(NSString *)name
                                radius:(NSInteger)radius{
@@ -306,6 +339,7 @@ static void _yy_cleanupBuffer(void *userData, void *buf_data) {
         return nil;
     }
 }
+
 + (UIImage *)wb_colorControlsWithOriginalImage:(UIImage *)image
                                     saturation:(CGFloat)saturation
                                     brightness:(CGFloat)brightness
@@ -325,6 +359,7 @@ static void _yy_cleanupBuffer(void *userData, void *buf_data) {
     CGImageRelease(cgImage);
     return resultImage;
 }
+
 - (UIImage *)wb_blurredImage:(CGFloat)blurAmount {
     if (blurAmount < 0.0 || blurAmount > 1.0) {
         blurAmount = 0.5;
@@ -395,4 +430,5 @@ static void _yy_cleanupBuffer(void *userData, void *buf_data) {
     
     return returnImage;
 }
+
 @end

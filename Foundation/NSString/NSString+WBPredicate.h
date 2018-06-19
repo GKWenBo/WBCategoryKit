@@ -10,7 +10,6 @@
 
 @interface NSString (WBPredicate)
 #pragma mark -- 字符串处理
-#pragma mark
 /**
  *  remove white spaces
  *
@@ -23,7 +22,6 @@
 - (NSString *)wb_removeWhiteSpacesFromString;
 
 #pragma mark -- 字符串判断
-#pragma mark
 /**
  *  判断字符串是否为空
  *
@@ -50,7 +48,6 @@
 - (BOOL)wb_containsString:(NSString *)string;
 
 #pragma mark -- 字符串验证
-#pragma mark
 /**
  *  验证邮箱是否正确
  *

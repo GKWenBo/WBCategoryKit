@@ -11,8 +11,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIImage (WBAdditional)
 
 #pragma mark --------  Create Image <PDF、Path、NSData 、GIF、View>  --------
-#pragma mark
-
 /**
  Create an image from a PDF file data or path.
  
@@ -76,7 +74,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIImage *)wb_shotWithView:(UIView *)view
                        scope:(CGRect)scope;
 
-
 /**
  拉伸图片指定区域
 
@@ -102,8 +99,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIImage *)wb_getVideoImage:(NSURL *)videoURL;
 
 #pragma mark --------  Modify Image  --------
-#pragma mark
-
 CGRect YYCGRectFitWithContentMode(CGRect rect, CGSize size, UIViewContentMode mode);
 /**
  Draws the entire image in the specified rectangle, content changed with
@@ -144,7 +139,7 @@ CGRect YYCGRectFitWithContentMode(CGRect rect, CGSize size, UIViewContentMode mo
  @return The new image with the given size.
  */
 - (nullable UIImage *)wb_imageByResizeToSize:(CGSize)size
-                              contentMode:(UIViewContentMode)contentMode;
+                                 contentMode:(UIViewContentMode)contentMode;
 /**
  Returns a new image which is cropped from this image.
  
@@ -165,7 +160,6 @@ CGRect YYCGRectFitWithContentMode(CGRect rect, CGSize size, UIViewContentMode mo
                  forTargetSize:(CGSize)targetSize;
 
 #pragma mark --------  Border And CornerRadius  --------
-#pragma mark
 /**
  Returns a new image which is edge inset from this image.
  

@@ -11,7 +11,6 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface UIImage (WBRotate)
 #pragma mark --------  Rotate --------
-#pragma mark
 /**
  修正图片方向
 

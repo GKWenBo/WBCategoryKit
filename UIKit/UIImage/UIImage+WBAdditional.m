@@ -15,16 +15,20 @@
 @implementation UIImage (WBAdditional)
 
 #pragma mark --------  Create Image <PDF、Path、NSData、Color、GIF>  --------
-#pragma mark
-
 + (nullable UIImage *)wb_imageWithPDF:(id)dataOrPath {
     
-    return [self wb_imageWithPDF:dataOrPath resize:NO size:CGSizeZero];
+    return [self wb_imageWithPDF:dataOrPath
+                          resize:NO
+                            size:CGSizeZero];
 }
+
 + (nullable UIImage *)wb_imageWithPDF:(id)dataOrPath
                                  size:(CGSize)size {
-    return [self wb_imageWithPDF:dataOrPath resize:YES size:size];
+    return [self wb_imageWithPDF:dataOrPath
+                          resize:YES
+                            size:size];
 }
+
 + (nullable UIImage *)wb_imageWithSize:(CGSize)size
                              drawBlock:(void (^)(CGContextRef context))drawBlock{
     if (!drawBlock) return nil;
@@ -45,6 +49,7 @@
     UIGraphicsEndImageContext();
     return image;
 }
+
 + (UIImage *)wb_shotWithView:(UIView *)view {
     
     UIGraphicsBeginImageContext(view.bounds.size);
@@ -53,6 +58,7 @@
     UIGraphicsEndImageContext();
     return image;
 }
+
 + (UIImage *)wb_shotWithView:(UIView *)view
                        scope:(CGRect)scope{
     CGImageRef imageRef = CGImageCreateWithImageInRect([self wb_shotWithView:view].CGImage, scope);
@@ -68,6 +74,7 @@
     CGContextRelease(context);
     return image;
 }
+
 - (UIImage *)wb_resizableImageWithInsets:(UIEdgeInsets)insets {
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0f) {
         return [self resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
@@ -75,6 +82,7 @@
     
     return [self stretchableImageWithLeftCapWidth:insets.left topCapHeight:insets.top];
 }
+
 - (UIImage *)wb_imageByResizeToScale:(CGFloat)scale {
     CGSize size = CGSizeMake(self.size.width *scale, self.size.height * scale);
     if (size.width <= 0 || size.height <= 0) return nil;
@@ -84,6 +92,7 @@
     UIGraphicsEndImageContext();
     return image;
 }
+
 + (UIImage *)wb_getVideoImage:(NSURL *)videoURL {
     AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:videoURL options:nil];
     AVAssetImageGenerator *gen = [[AVAssetImageGenerator alloc] initWithAsset:asset];
@@ -96,8 +105,8 @@
     CGImageRelease(image);
     return thumb;
 }
+
 #pragma mark --------  Modify Image  --------
-#pragma mark
 CGRect YYCGRectFitWithContentMode(CGRect rect, CGSize size, UIViewContentMode mode) {
     rect = CGRectStandardize(rect);
     size.width = size.width < 0 ? -size.width : size.width;
@@ -177,6 +186,7 @@ CGRect YYCGRectFitWithContentMode(CGRect rect, CGSize size, UIViewContentMode mo
     }
     return rect;
 }
+
 - (void)wb_drawInRect:(CGRect)rect
       withContentMode:(UIViewContentMode)contentMode
         clipsToBounds:(BOOL)clips {
@@ -195,8 +205,8 @@ CGRect YYCGRectFitWithContentMode(CGRect rect, CGSize size, UIViewContentMode mo
         [self drawInRect:drawRect];
     }
 }
+
 - (nullable UIImage *)wb_imageByResizeToSize:(CGSize)size {
-    
     if (size.width <= 0 || size.height <= 0) return nil;
     UIGraphicsBeginImageContextWithOptions(size, NO, self.scale);
     [self drawInRect:CGRectMake(0, 0, size.width, size.height)];
@@ -204,22 +214,19 @@ CGRect YYCGRectFitWithContentMode(CGRect rect, CGSize size, UIViewContentMode mo
     UIGraphicsEndImageContext();
     return image;
 }
+
 - (nullable UIImage *)wb_imageByResizeToSize:(CGSize)size
                                  contentMode:(UIViewContentMode)contentMode {
     if (size.width <= 0 || size.height <= 0) return nil;
     UIGraphicsBeginImageContextWithOptions(size, NO, self.scale);
-    [self wb_drawInRect:CGRectMake(0, 0, size.width, size.height) withContentMode:contentMode clipsToBounds:NO];
+    [self wb_drawInRect:CGRectMake(0, 0, size.width, size.height)
+        withContentMode:contentMode
+          clipsToBounds:NO];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
 }
-/**
- Returns a new image which is cropped from this image.
- 
- @param rect  Image's inner rect.
- 
- @return      The new image, or nil if an error occurs.
- */
+
 - (nullable UIImage *)wb_imageByCropToRect:(CGRect)rect {
     rect.origin.x *= self.scale;
     rect.origin.y *= self.scale;
@@ -324,7 +331,6 @@ CGRect YYCGRectFitWithContentMode(CGRect rect, CGSize size, UIViewContentMode mo
 }
 
 #pragma mark --------  Border And CornerRadius  --------
-#pragma mark
 - (nullable UIImage *)wb_imageByInsetEdge:(UIEdgeInsets)insets
                                 withColor:(nullable UIColor *)color{
     CGSize size = self.size;
@@ -348,15 +354,17 @@ CGRect YYCGRectFitWithContentMode(CGRect rect, CGSize size, UIViewContentMode mo
     UIGraphicsEndImageContext();
     return image;
 }
+
 - (nullable UIImage *)wb_imageByRoundCornerRadius:(CGFloat)radius
                                       borderWidth:(CGFloat)borderWidth
                                       borderColor:(nullable UIColor *)borderColor{
     return [self wb_imageByRoundCornerRadius:radius
-                           corners:UIRectCornerAllCorners
-                       borderWidth:borderWidth
-                       borderColor:borderColor
-                    borderLineJoin:kCGLineJoinMiter];
+                                     corners:UIRectCornerAllCorners
+                                 borderWidth:borderWidth
+                                 borderColor:borderColor
+                              borderLineJoin:kCGLineJoinMiter];
 }
+
 - (nullable UIImage *)wb_imageByRoundCornerRadius:(CGFloat)radius
                                           corners:(UIRectCorner)corners
                                       borderWidth:(CGFloat)borderWidth
@@ -406,7 +414,10 @@ CGRect YYCGRectFitWithContentMode(CGRect rect, CGSize size, UIViewContentMode mo
     UIGraphicsEndImageContext();
     return image;
 }
-+ (UIImage *)wb_imageWithPDF:(id)dataOrPath resize:(BOOL)resize size:(CGSize)size {
+
++ (UIImage *)wb_imageWithPDF:(id)dataOrPath
+                      resize:(BOOL)resize
+                        size:(CGSize)size {
     CGPDFDocumentRef pdf = NULL;
     if ([dataOrPath isKindOfClass:[NSData class]]) {
         CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)dataOrPath);

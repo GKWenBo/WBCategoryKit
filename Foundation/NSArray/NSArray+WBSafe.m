@@ -58,4 +58,5 @@
     }
     return [self _wb_safe_objectAtIndexedSubscript:index];
 }
+
 @end

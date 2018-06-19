@@ -151,7 +151,8 @@
  *  @param aDate 日期
  *  @return NSDate类型
  */
-+ (BOOL)wb_isSameYearAsDate:(NSDate *)aDate andSecDate:(NSDate *) bDate;
++ (BOOL)wb_isSameYearAsDate:(NSDate *)aDate
+                 andSecDate:(NSDate *) bDate;
 
 /**
  *  是不是本年

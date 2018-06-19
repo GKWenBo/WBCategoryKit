@@ -33,21 +33,20 @@
  */
 + (id)wb_jsonDataToObject:(NSData *)jsonData;
 
-
 /**
- <#Description#>
+ JSON sting convert to data.
  
- @param string <#string description#>
- @return <#return value description#>
+ @param string JSON string.
+ @return data.
  */
 + (NSData *)wb_jsonDataFromString:(NSString *)string;
 
-
 /**
- <#Description#>
+ Convert object to data.
  
- @param object <#object description#>
- @return <#return value description#>
+ @param object object.
+ @return data.
  */
 + (NSData *)wb_jsonDataFromObject:(id)object;
+
 @end
