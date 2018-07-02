@@ -63,6 +63,29 @@
  */
 + (BOOL)wb_isPhotoLibraryAuthorized;
 
+
+// MARK:Picker Video
+/**
+ 原生视频拾取
+
+ @return UIImagePickerController.
+ */
++ (UIImagePickerController *)wb_pickerVideoController;
+
+/**
+ 视频录制
+
+ @param videoQuality 录制视频质量
+ @param cameraFlashMode 设置闪光灯模式
+ @param showsCameraControls 是否需要默认UI
+ @param videoMaximumDuration 最大录制时长
+ @return UIImagePickerController.
+ */
++ (UIImagePickerController *)wb_recordVideoWithVideoQuality:(UIImagePickerControllerQualityType)videoQuality
+                                            cameraFlashMode:(UIImagePickerControllerCameraFlashMode)cameraFlashMode
+                                        showsCameraControls:(BOOL)showsCameraControls
+                                       videoMaximumDuration:(CGFloat)videoMaximumDuration;
+
 /**
  视频压缩，转格式
 

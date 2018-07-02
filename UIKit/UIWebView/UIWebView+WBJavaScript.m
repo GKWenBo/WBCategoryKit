@@ -97,6 +97,11 @@
     [self stringByEvaluatingJavaScriptFromString:jsString];
 }
 
+- (void)wb_setFontSize:(int)fontSize {
+    NSString *jsString = [NSString stringWithFormat:@"document.querySelectorAll('.wrap')[0].style.fontSize= '%dpx'",fontSize];
+    [self stringByEvaluatingJavaScriptFromString:jsString];
+}
+
 #pragma mark ------ < Delete > ------
 - (void)wb_deleteNodeByElementID:(NSString *)elementID {
      [self stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementById('%@').remove();",elementID]];

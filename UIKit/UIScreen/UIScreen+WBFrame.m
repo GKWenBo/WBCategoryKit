@@ -41,6 +41,15 @@ static inline CGSize wb_sizeSwap(CGSize size) {
     return [self wb_orientationSize].height;
 }
 
++ (CGFloat)wb_brightness {
+    return [UIScreen mainScreen].brightness;
+}
+
++ (void)wb_setBrightness:(CGFloat)value {
+    if (value > 1 || value < 0) return;
+    [[UIScreen mainScreen] setBrightness:value];
+}
+
 + (CGSize)wb_DPISize {
     CGSize size = [self wb_size];
     CGFloat scale = [[UIScreen mainScreen] scale];

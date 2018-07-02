@@ -90,8 +90,15 @@
  @param size size
  @param tagName tagName
  */
-- (void)wb_setFontSize:(int) size
+- (void)wb_setFontSize:(int)size
                withTag:(NSString *)tagName;
+
+/**
+ Change web fontSize.
+
+ @param fontSize 字体大小.
+ */
+- (void)wb_setFontSize:(int)fontSize;
 
 #pragma mark ------ < Delete > ------
 

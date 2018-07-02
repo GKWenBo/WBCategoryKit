@@ -52,6 +52,20 @@
  */
 + (CGFloat)wb_orientationHeight;
 
+/**
+ Get screen brightness, the value is 0 - 1.
+
+ @return brightness value.
+ */
++ (CGFloat)wb_brightness;
+
+/**
+ Set screen brightness.
+
+ @param value 屏幕亮度
+ */
++ (void)wb_setBrightness:(CGFloat)value;
+
 + (CGSize)wb_DPISize;
 
 @end

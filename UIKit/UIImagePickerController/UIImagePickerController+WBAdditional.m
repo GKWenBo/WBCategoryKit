@@ -96,6 +96,30 @@
     return result;
 }
 
+// MARK:Picker Video
++ (UIImagePickerController *)wb_pickerVideoController {
+    UIImagePickerController *videoPickerController = [[UIImagePickerController alloc]init];
+    videoPickerController.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    videoPickerController.allowsEditing = NO;
+    videoPickerController.mediaTypes = [NSArray arrayWithObjects:(NSString *)kUTTypeMovie, nil];
+    return videoPickerController;
+}
+
++ (UIImagePickerController *)wb_recordVideoWithVideoQuality:(UIImagePickerControllerQualityType)videoQuality
+                                            cameraFlashMode:(UIImagePickerControllerCameraFlashMode)cameraFlashMode
+                                        showsCameraControls:(BOOL)showsCameraControls
+                                       videoMaximumDuration:(CGFloat)videoMaximumDuration {
+    UIImagePickerController *recordController = [[UIImagePickerController alloc]init];
+    recordController.sourceType = UIImagePickerControllerSourceTypeCamera;
+    recordController.videoQuality = videoQuality;
+    recordController.mediaTypes = [NSArray arrayWithObjects:(NSString *)kUTTypeMovie, nil];
+    recordController.cameraFlashMode = cameraFlashMode;
+    recordController.showsCameraControls = showsCameraControls;
+    recordController.videoMaximumDuration = videoMaximumDuration;
+    return recordController;
+}
+
+
 + (void)wb_compressVideoWithInputURL:(NSURL *)inputURL
                           AVFileType:(AVFileType)outputFileType
                              quality:(NSString *)quality

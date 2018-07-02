@@ -13,6 +13,8 @@
 #import "NSString+WBDeviceInfo.h"
 
 #import <libextobjc/EXTScope.h>
+#import <AVFoundation/AVFoundation.h>
+#import <MobileCoreServices/MobileCoreServices.h>
 
 @interface ViewController ()
 {
@@ -43,6 +45,8 @@
 //    NSMutableString *tableString = [[NSMutableString alloc] initWithFormat:@"防止项目数组字典越界崩溃"];
 //    NSLog(@"%@",[tableString substringFromIndex:100]);
     NSLog(@"%@",[NSString wb_getBoundleName]);
+    
+    NSLog(@"%@",kUTTypeMovie);
 }
 
 
