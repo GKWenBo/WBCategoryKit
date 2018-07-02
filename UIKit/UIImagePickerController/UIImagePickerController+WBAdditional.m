@@ -7,19 +7,31 @@
 //
 
 #import "UIImagePickerController+WBAdditional.h"
-#import <AVFoundation/AVFoundation.h>
-#import <MobileCoreServices/MobileCoreServices.h>
-#import <Photos/Photos.h>
-#import <AssetsLibrary/AssetsLibrary.h>
+#import "WBDateFormatterPool.h"
 
 @implementation UIImagePickerController (WBAdditional)
 
-#pragma mark ------ < 系统相机相关 > ------
-#pragma mark
+// MARK:系统相机相关
 + (UIImagePickerController *)wb_imagePickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType {
     UIImagePickerController *controller = [[UIImagePickerController alloc]init];
     [controller setSourceType:sourceType];
-    [controller setMediaTypes:@[(NSString *)kUTTypeImage]];
+    
+    NSMutableArray *mediaTypes = @[].mutableCopy;
+    [mediaTypes addObject:(__bridge NSString *)kUTTypeImage];
+    [mediaTypes addObject:(__bridge NSString *)kUTTypeJPEG];
+    [mediaTypes addObject:(__bridge NSString *)kUTTypeJPEG2000];
+    [mediaTypes addObject:(__bridge NSString *)kUTTypeTIFF];
+    [mediaTypes addObject:(__bridge NSString *)kUTTypePICT];
+    [mediaTypes addObject:(__bridge NSString *)kUTTypeGIF];
+    [mediaTypes addObject:(__bridge NSString *)kUTTypePNG];
+    [mediaTypes addObject:(__bridge NSString *)kUTTypeQuickTimeImage];
+    [mediaTypes addObject:(__bridge NSString *)kUTTypeAppleICNS];
+    [mediaTypes addObject:(__bridge NSString *)kUTTypeBMP];
+    [mediaTypes addObject:(__bridge NSString *)kUTTypeICO];
+    [mediaTypes addObject:(__bridge NSString *)kUTTypeRawImage];
+    [mediaTypes addObject:(__bridge NSString *)kUTTypeScalableVectorGraphics];
+    [mediaTypes addObject:(__bridge NSString *)kUTTypeLivePhoto];
+    [controller setMediaTypes:mediaTypes];
     return controller;
 }
 
@@ -55,6 +67,8 @@
             return YES;
         }
     }else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         ALAuthorizationStatus status = [ALAssetsLibrary authorizationStatus];
         if (status == ALAuthorizationStatusRestricted || status == ALAuthorizationStatusDenied) {
             return NO;
@@ -62,6 +76,7 @@
             return YES;
         }
     }
+#pragma clang diagnostic pop
 }
 
 + (BOOL)wb_isSupportsMedia:(NSString *)mediaType
@@ -81,7 +96,41 @@
     return result;
 }
 
-#pragma mark < Private Method >
++ (void)wb_compressVideoWithInputURL:(NSURL *)inputURL
+                          AVFileType:(AVFileType)outputFileType
+                             quality:(NSString *)quality
+                      completedBlock:(void (^) (NSURL *outputURL, float process, NSError *error))completedBlock {
+    if (!inputURL) return;
+    
+    /** < 创建路径 > */
+    NSString *cahcePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+    NSDateFormatter *dateFormatter = [[WBDateFormatterPool shareInstance] wb_dateFormatterWithFormat:@"yyyyMMddHHmmss"];
+    NSString *dateStr = [dateFormatter stringFromDate:[NSDate date]];
+    NSString *strPath = [cahcePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@output.mp4",dateStr]];
+    NSURL *outputURL = [NSURL fileURLWithPath:strPath];
+    
+    AVURLAsset *avAsset = [[AVURLAsset alloc]initWithURL:inputURL
+                                                 options:nil];
+    
+    NSArray *exportPresets = [AVAssetExportSession exportPresetsCompatibleWithAsset:avAsset];
+    /** < 所支持的压缩格式中是否有 所选的压缩格式 > */
+    if ([exportPresets containsObject:quality]) {
+        AVAssetExportSession *exportSession = [[AVAssetExportSession alloc]initWithAsset:avAsset
+                                                                              presetName:quality];
+        exportSession.outputURL = outputURL;
+        exportSession.outputFileType = outputFileType;
+        exportSession.shouldOptimizeForNetworkUse = YES;
+        [exportSession exportAsynchronouslyWithCompletionHandler:^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (completedBlock) {
+                    completedBlock(outputURL,exportSession.progress,exportSession.error);
+                }
+            });
+        }];
+    }
+}
+
+// MARK:Private Method
 + (BOOL)isiOS8OrLater {
     return [[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0;
 }

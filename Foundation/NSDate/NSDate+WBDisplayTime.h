@@ -18,8 +18,6 @@
  */
 + (NSString *)wb_compareCurrentTime:(NSTimeInterval)compareDate;
 
-
-
 /**
  *  计算上次日期距离现在多久
  *

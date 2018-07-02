@@ -91,6 +91,7 @@
 		84E35FB72029889200E4683F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E35FB52029889200E4683F /* LaunchScreen.storyboard */; };
 		84E35FBA2029889200E4683F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E35FB92029889200E4683F /* main.m */; };
 		C22FC87620D3A4D600222487 /* UIImage+WBCompress.m in Sources */ = {isa = PBXBuildFile; fileRef = C22FC87520D3A4D600222487 /* UIImage+WBCompress.m */; };
+		C25FB1A820E9F18F00CB0FEC /* NSData+WBFragment.m in Sources */ = {isa = PBXBuildFile; fileRef = C25FB1A720E9F18F00CB0FEC /* NSData+WBFragment.m */; };
 		C286B19320B3C6A2009DBDB9 /* UIAlertController+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = C286B19220B3C6A2009DBDB9 /* UIAlertController+WBAdditional.m */; };
 		C2C5D6A720A155C500DA8C54 /* NSArray+WBSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5D6A620A155C500DA8C54 /* NSArray+WBSafe.m */; };
 		C2C5D6AA20A1746500DA8C54 /* NSMutableArray+WBSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C5D6A920A1746500DA8C54 /* NSMutableArray+WBSafe.m */; };
@@ -275,6 +276,8 @@
 		84E35FB92029889200E4683F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C22FC87420D3A4D600222487 /* UIImage+WBCompress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+WBCompress.h"; sourceTree = "<group>"; };
 		C22FC87520D3A4D600222487 /* UIImage+WBCompress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WBCompress.m"; sourceTree = "<group>"; };
+		C25FB1A620E9F18F00CB0FEC /* NSData+WBFragment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+WBFragment.h"; sourceTree = "<group>"; };
+		C25FB1A720E9F18F00CB0FEC /* NSData+WBFragment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+WBFragment.m"; sourceTree = "<group>"; };
 		C286B19120B3C6A2009DBDB9 /* UIAlertController+WBAdditional.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+WBAdditional.h"; sourceTree = "<group>"; };
 		C286B19220B3C6A2009DBDB9 /* UIAlertController+WBAdditional.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+WBAdditional.m"; sourceTree = "<group>"; };
 		C2C5D6A520A155C500DA8C54 /* NSArray+WBSafe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+WBSafe.h"; sourceTree = "<group>"; };
@@ -632,6 +635,7 @@
 		841D7E2F202ED8FD00D70A07 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				C25FB1A520E9F09E00CB0FEC /* NSData */,
 				841D7E30202ED8FD00D70A07 /* NSArray */,
 				841D7E35202ED8FD00D70A07 /* NSDate */,
 				841D7E3F202ED8FD00D70A07 /* NSDictionary */,
@@ -798,6 +802,15 @@
 			path = WBCategories;
 			sourceTree = "<group>";
 		};
+		C25FB1A520E9F09E00CB0FEC /* NSData */ = {
+			isa = PBXGroup;
+			children = (
+				C25FB1A620E9F18F00CB0FEC /* NSData+WBFragment.h */,
+				C25FB1A720E9F18F00CB0FEC /* NSData+WBFragment.m */,
+			);
+			path = NSData;
+			sourceTree = "<group>";
+		};
 		C286B19020B3C68E009DBDB9 /* UIAlertController */ = {
 			isa = PBXGroup;
 			children = (
@@ -921,6 +934,7 @@
 				841D7E5E202ED8FD00D70A07 /* UIApplication+WBKeyBoardFrame.m in Sources */,
 				841D7E69202ED8FD00D70A07 /* UIButton+WBShowIndicator.m in Sources */,
 				841D7E88202ED8FD00D70A07 /* UIView+WBBlockGesture.m in Sources */,
+				C25FB1A820E9F18F00CB0FEC /* NSData+WBFragment.m in Sources */,
 				841D7E83202ED8FD00D70A07 /* UITableViewCell+FindUITableView.m in Sources */,
 				841D7E6B202ED8FD00D70A07 /* UIColor+WBAdditional.m in Sources */,
 				841D7E8F202ED8FD00D70A07 /* UIView+WBFrame.m in Sources */,

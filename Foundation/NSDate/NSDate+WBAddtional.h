@@ -124,12 +124,4 @@
  */
 + (NSString *)wb_toTimeStamp;
 
-/**
- *  通过时间戳获取年龄大小
- *
- *  @param timestamp 生日时间戳
- *  @return 年龄字符串
- */
-+ (NSInteger)wb_getAgeByTimestamp:(NSTimeInterval)timestamp;
-
 @end

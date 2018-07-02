@@ -7,12 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <Photos/Photos.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @interface UIImagePickerController (WBAdditional)
 
-#pragma mark < Public Method >
+// MARK:Public Method
 + (UIImagePickerController *)wb_imagePickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType;
 
+// MARK:权限判断
 /**
  图库是否可用
  
@@ -57,5 +62,21 @@
  @return YES/NO
  */
 + (BOOL)wb_isPhotoLibraryAuthorized;
+
+/**
+ 视频压缩，转格式
+
+ @param inputURL 视频源路径
+ @param outputFileType 输出格式
+ @param quality 压缩质量
+ @param completedBlock 完成回调
+ */
++ (void)wb_compressVideoWithInputURL:(NSURL *)inputURL
+                          AVFileType:(AVFileType)outputFileType
+                             quality:(NSString *)quality
+                      completedBlock:(void (^) (NSURL *outputURL, float process, NSError *error))completedBlock;
+
+
+
 
 @end
