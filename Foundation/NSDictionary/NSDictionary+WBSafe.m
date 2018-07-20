@@ -30,7 +30,9 @@
             rightCount ++;
         }
     }
-    return [self _wb_safe_initWithObjects:objects forKeys:keys count:rightCount];
+    return [self _wb_safe_initWithObjects:objects
+                                  forKeys:keys
+                                    count:rightCount];
 }
 
 @end

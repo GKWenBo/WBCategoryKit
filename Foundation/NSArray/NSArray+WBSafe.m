@@ -33,30 +33,66 @@
 #pragma mark < Exchage Method >
 - (id)_wb_safe_ZeroObjectAtIndex:(NSUInteger)index {
     if (index >= self.count) {
-        return nil;
+        @try {
+            return [self _wb_safe_ZeroObjectAtIndex:index];
+        } @catch (NSException *exception) {
+            NSLog(@"---------- %s Crash Because Method %s  ----------\n", class_getName(self.class), __func__);
+            NSLog(@"%@", [exception callStackSymbols]);
+            return nil;
+        } @finally {
+            
+        }
+    }else {
+        return [self _wb_safe_ZeroObjectAtIndex:index];
     }
-    return [self _wb_safe_ZeroObjectAtIndex:index];
 }
 
 - (id)_wb_safe_ObjectAtIndex:(NSUInteger)index {
     if (index >= self.count) {
-        return nil;
+        @try {
+            return [self _wb_safe_ObjectAtIndex:index];
+        } @catch (NSException *exception) {
+            NSLog(@"---------- %s Crash Because Method %s  ----------\n", class_getName(self.class), __func__);
+            NSLog(@"%@", [exception callStackSymbols]);
+            return nil;
+        } @finally {
+            
+        }
+    }else {
+        return [self _wb_safe_ObjectAtIndex:index];
     }
-    return [self _wb_safe_ObjectAtIndex:index];
 }
 
 - (id)_wb_safe_singleObjectAtIndex:(NSUInteger)index {
     if (index >= self.count) {
-        return nil;
+        @try {
+            return [self _wb_safe_singleObjectAtIndex:index];
+        } @catch (NSException *exception) {
+            NSLog(@"---------- %s Crash Because Method %s  ----------\n", class_getName(self.class), __func__);
+            NSLog(@"%@", [exception callStackSymbols]);
+            return nil;
+        } @finally {
+            
+        }
+    }else {
+        return [self _wb_safe_singleObjectAtIndex:index];
     }
-    return [self _wb_safe_singleObjectAtIndex:index];
 }
 
 - (id)_wb_safe_objectAtIndexedSubscript:(NSUInteger)index {
     if (index >= self.count) {
-        return nil;
+        @try {
+            return [self _wb_safe_objectAtIndexedSubscript:index];
+        } @catch (NSException *exception) {
+            NSLog(@"---------- %s Crash Because Method %s  ----------\n", class_getName(self.class), __func__);
+            NSLog(@"%@", [exception callStackSymbols]);
+            return nil;
+        } @finally {
+            
+        }
+    }else {
+        return [self _wb_safe_objectAtIndexedSubscript:index];
     }
-    return [self _wb_safe_objectAtIndexedSubscript:index];
 }
 
 @end

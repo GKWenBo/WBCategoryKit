@@ -34,55 +34,79 @@
 #pragma mark < Swizzle Method >
 - (id)_wb_safe_MutableObjectAtIndex:(NSUInteger)index {
     if (index >= self.count) {
-        return nil;
+        @try {
+            return [self _wb_safe_MutableObjectAtIndex:index];
+        } @catch (NSException *exception) {
+            NSLog(@"---------- %s Crash Because Method %s  ----------\n", class_getName(self.class), __func__);
+            NSLog(@"%@", [exception callStackSymbols]);
+            return nil;
+        } @finally {
+            
+        }
+    }else {
+        return [self _wb_safe_MutableObjectAtIndex:index];
     }
-    return [self _wb_safe_MutableObjectAtIndex:index];
 }
 
 - (void)_wb_safe_MutableRemoveObjectsInRange:(NSRange)range {
-    if (range.location > self.count) {
-        return;
+    if (range.location > self.count || range.length > self.count || (range.location + range.length) > self.count) {
+        @try {
+            return [self _wb_safe_MutableRemoveObjectsInRange:range];
+        } @catch (NSException *exception) {
+            NSLog(@"---------- %s Crash Because Method %s  ----------\n", class_getName(self.class), __func__);
+            NSLog(@"%@", [exception callStackSymbols]);
+        } @finally {
+            
+        }
+    }else {
+        return [self _wb_safe_MutableRemoveObjectsInRange:range];
     }
-    if (range.length > self.count) {
-        return;
-    }
-    if ((range.location + range.length) > self.count) {
-        return;
-    }
-    return [self _wb_safe_MutableRemoveObjectsInRange:range];
 }
 
 - (void)_wb_safe_MutableInsertObject:(id)object atIndex:(NSUInteger)index {
-    if (index > self.count) {
-        return;
+    if (index > self.count || !object) {
+        @try {
+            return [self _wb_safe_MutableInsertObject:object atIndex:index];
+        } @catch (NSException *exception) {
+            NSLog(@"---------- %s Crash Because Method %s  ----------\n", class_getName(self.class), __func__);
+            NSLog(@"%@", [exception callStackSymbols]);
+        } @finally {
+            
+        }
+    }else {
+        return [self _wb_safe_MutableInsertObject:object atIndex:index];
     }
-    if (!object) {
-        return;
-    }
-    return [self _wb_safe_MutableInsertObject:object atIndex:index];
 }
 
 - (void)_wb_safe_MutableRemoveObject:(id)object inRange:(NSRange)range {
-    if (range.location > self.count) {
-        return;
+    if (range.location > self.count || range.length > self.count || (range.location + range.length) > self.count || !object) {
+        @try {
+            return [self _wb_safe_MutableRemoveObject:object inRange:range];
+        } @catch (NSException *exception) {
+            NSLog(@"---------- %s Crash Because Method %s  ----------\n", class_getName(self.class), __func__);
+            NSLog(@"%@", [exception callStackSymbols]);
+        } @finally {
+            
+        }
+    }else {
+        return [self _wb_safe_MutableRemoveObject:object inRange:range];
     }
-    if (range.length > self.count) {
-        return;
-    }
-    if ((range.location + range.length) > self.count) {
-        return;
-    }
-    if (!object) {
-        return;
-    }
-    return [self _wb_safe_MutableRemoveObject:object inRange:range];
 }
 
 - (id)_wb_safe_MutableObjectAtIndexedSubscript:(NSUInteger)index {
     if (index >= self.count) {
-        return nil;
+        @try {
+            return [self _wb_safe_MutableObjectAtIndexedSubscript:index];
+        } @catch (NSException *exception) {
+            NSLog(@"---------- %s Crash Because Method %s  ----------\n", class_getName(self.class), __func__);
+            NSLog(@"%@", [exception callStackSymbols]);
+            return nil;
+        } @finally {
+            
+        }
+    }else {
+        return [self _wb_safe_MutableObjectAtIndexedSubscript:index];
     }
-    return [self _wb_safe_MutableObjectAtIndexedSubscript:index];
 }
 
 @end

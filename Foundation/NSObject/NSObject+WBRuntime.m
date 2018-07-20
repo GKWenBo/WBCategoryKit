@@ -20,7 +20,11 @@ void ProtectCrashProtected(id self, SEL sel) {
     Method originAddObserverMethod = class_getClassMethod(selfClass, oriSel);
     Method swizzledAddObserverMethod = class_getClassMethod(selfClass, swiSel);
     
-    [self swizzleMethodWithOriginSel:oriSel oriMethod:originAddObserverMethod swizzledSel:swiSel swizzledMethod:swizzledAddObserverMethod class:selfClass];
+    [self swizzleMethodWithOriginSel:oriSel
+                           oriMethod:originAddObserverMethod
+                         swizzledSel:swiSel
+                      swizzledMethod:swizzledAddObserverMethod
+                               class:selfClass];
 }
 
 + (void)swizzleInstanceMethodWithOriginSel:(SEL)oriSel
@@ -29,7 +33,11 @@ void ProtectCrashProtected(id self, SEL sel) {
     Method originAddObserverMethod = class_getInstanceMethod(selfClass, oriSel);
     Method swizzledAddObserverMethod = class_getInstanceMethod(selfClass, swiSel);
     
-    [self swizzleMethodWithOriginSel:oriSel oriMethod:originAddObserverMethod swizzledSel:swiSel swizzledMethod:swizzledAddObserverMethod class:selfClass];
+    [self swizzleMethodWithOriginSel:oriSel
+                           oriMethod:originAddObserverMethod
+                         swizzledSel:swiSel
+                      swizzledMethod:swizzledAddObserverMethod
+                               class:selfClass];
 }
 
 + (void)swizzleMethodWithOriginSel:(SEL)oriSel

@@ -25,19 +25,32 @@
 #pragma mark < Swizzle Method >
 - (void)_wb_safe_MutableRemoveObjectForKey:(id<NSCopying>)akey {
     if (!akey) {
-        return;
+        @try {
+            return [self _wb_safe_MutableRemoveObjectForKey:akey];
+        } @catch (NSException *exception) {
+            NSLog(@"---------- %s Crash Because Method %s  ----------\n", class_getName(self.class), __func__);
+            NSLog(@"%@", [exception callStackSymbols]);
+        } @finally {
+            
+        }
+    }else {
+        return [self _wb_safe_MutableRemoveObjectForKey:akey];
     }
-    return [self _wb_safe_MutableRemoveObjectForKey:akey];
 }
 
 - (void)_wb_safe_MutableSetObject:(id)anObject forKey:(id<NSCopying>)akey {
-    if (!anObject) {
-        return;
+    if (!anObject || !akey) {
+        @try {
+            return [self _wb_safe_MutableSetObject:anObject forKey:akey];
+        } @catch (NSException *exception) {
+            NSLog(@"---------- %s Crash Because Method %s  ----------\n", class_getName(self.class), __func__);
+            NSLog(@"%@", [exception callStackSymbols]);
+        } @finally {
+            
+        }
+    }else {
+        return [self _wb_safe_MutableSetObject:anObject forKey:akey];
     }
-    if (!akey) {
-        return;
-    }
-    return [self _wb_safe_MutableSetObject:anObject forKey:akey];
 }
 
 @end

@@ -30,11 +30,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     // 测试数组
-//    NSArray *arr = @[@"1",@"2",@"2",@"2",@"2",@"2",@"2",@"2",@"2"];
-//    NSMutableArray *tableArray = [[NSMutableArray alloc] initWithArray:arr];
-//    NSLog(@"arr====%@   tableArray====%@",arr[100],tableArray[100]);
-//    NSLog(@"arr====%@   tableArray====%@",[arr objectAtIndex:100],tableArray[100]);
-//
+    NSArray *arr = @[@"1",@"2",@"2",@"2",@"2",@"2",@"2",@"2",@"2"];
+    NSMutableArray *tableArray = [[NSMutableArray alloc] initWithArray:arr];
+    NSLog(@"arr====%@   tableArray====%@",arr[100],tableArray[100]);
+    NSLog(@"arr====%@   tableArray====%@",[arr objectAtIndex:100],tableArray[100]);
+    //
 //    // 测试字典
 //    NSDictionary *dict = @{@"name":@"",@"age":@"20"};
 //    NSMutableDictionary *tableDict = [[NSMutableDictionary alloc] initWithDictionary:dict];

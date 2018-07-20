@@ -34,30 +34,51 @@
 #pragma mark < Swizzle Method >
 - (NSString *)_wb_safe_MutableSubstringFromIndex:(NSUInteger)from {
     if (from > self.length) {
-        return nil;
+        @try {
+            return [self _wb_safe_MutableSubstringFromIndex:from];
+        } @catch (NSException *exception) {
+            NSLog(@"---------- %s Crash Because Method %s  ----------\n", class_getName(self.class), __func__);
+            NSLog(@"%@", [exception callStackSymbols]);
+            return nil;
+        } @finally {
+            
+        }
+    }else {
+        return [self _wb_safe_MutableSubstringFromIndex:from];
     }
-    return [self _wb_safe_MutableSubstringFromIndex:from];
 }
 
 
 - (NSString *)_wb_safe_MutableSubstringToIndex:(NSUInteger)to {
     if (to > self.length) {
-        return nil;
+        @try {
+            return [self _wb_safe_MutableSubstringToIndex:to];
+        } @catch (NSException *exception) {
+            NSLog(@"---------- %s Crash Because Method %s  ----------\n", class_getName(self.class), __func__);
+            NSLog(@"%@", [exception callStackSymbols]);
+            return nil;
+        } @finally {
+            
+        }
+    }else {
+        return [self _wb_safe_MutableSubstringToIndex:to];
     }
-    return [self _wb_safe_MutableSubstringToIndex:to];
 }
 
 - (NSString *)_wb_safe_MutableSubstringWithRange:(NSRange)range {
-    if (range.location > self.length) {
-        return nil;
+    if (range.location > self.length || range.length > self.length || (range.length + range.location) > self.length) {
+        @try {
+            return [self _wb_safe_MutableSubstringWithRange:range];
+        } @catch (NSException *exception) {
+            NSLog(@"---------- %s Crash Because Method %s  ----------\n", class_getName(self.class), __func__);
+            NSLog(@"%@", [exception callStackSymbols]);
+            return nil;
+        } @finally {
+            
+        }
+    }else {
+        return [self _wb_safe_MutableSubstringWithRange:range];
     }
-    if (range.length > self.length) {
-        return nil;
-    }
-    if ((range.length + range.location) > self.length) {
-        return nil;
-    }
-    return [self _wb_safe_MutableSubstringWithRange:range];
 }
 
 - (NSRange)_wb_safe_MutableRangeOfString:(NSString *)searchString
@@ -84,8 +105,17 @@
 
 - (void)_wb_safe_MutableAppendString:(NSString *)aString {
     if (!aString) {
-        return;
+        @try {
+            return [self _wb_safe_MutableAppendString:aString];
+        } @catch (NSException *exception) {
+            NSLog(@"---------- %s Crash Because Method %s  ----------\n", class_getName(self.class), __func__);
+            NSLog(@"%@", [exception callStackSymbols]);
+        } @finally {
+            
+        }
+    }else {
+       return [self _wb_safe_MutableAppendString:aString];
     }
-    return [self _wb_safe_MutableAppendString:aString];
 }
+
 @end
