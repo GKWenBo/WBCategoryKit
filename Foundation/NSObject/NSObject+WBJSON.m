@@ -23,6 +23,7 @@
     }
     return nil;
 }
+
 + (id)wb_jsonStringToObject:(NSString *)jsonString {
     if ([jsonString isEqualToString:@""]||jsonString == nil||!(jsonString.length > 0)) {
         NSAssert(jsonString != nil, @"jsonString 不能为空",__PRETTY_FUNCTION__);
