@@ -62,27 +62,32 @@
  */
 - (BOOL)wb_isValidMobile;
 //- (BOOL)wb_isValidMobile;
+
 /**
  *  身份证是否正确
  *
  */
 - (BOOL)wb_isValidIdentityCard;
 + (BOOL)wb_validateIdentityCard:(NSString *)identityCard;
+
 /**
  *  验证码是否正确，位数可自行制定
  *
  */
 - (BOOL)wb_isValidVerifyCode;
+
 /**
  *  有效中文姓名
  *
  */
 - (BOOL)wb_isValidRealName;
+
 /**
  *  有效密码（6-12位）
  *
  */
 - (BOOL)wb_isValidAlphaNumberPassword;
+
 /**
  *  是否只有中文
  *
