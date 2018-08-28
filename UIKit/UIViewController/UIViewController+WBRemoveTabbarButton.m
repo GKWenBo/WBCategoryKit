@@ -9,6 +9,7 @@
 #import "UIViewController+WBRemoveTabbarButton.h"
 
 @implementation UIViewController (WBRemoveTabbarButton)
+
 - (void)wb_removeTabbarButton {
     if (self.navigationController.viewControllers.count > 1) {
         return;
@@ -27,4 +28,5 @@
         }
     }
 }
+
 @end

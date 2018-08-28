@@ -14,4 +14,5 @@
  Remove system tabbarButton
  */
 - (void)wb_removeTabbarButton;
+
 @end

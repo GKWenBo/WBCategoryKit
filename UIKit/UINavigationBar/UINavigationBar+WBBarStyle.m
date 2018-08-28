@@ -1,18 +1,18 @@
 //
-//  UINavigationController+WBStatusBarStyle.m
+//  UINavigationBar+WBBarStyle.m
 //  WBManageStatusBarStyleDemo
 //
-//  Created by 文波 on 2018/7/26.
+//  Created by Mr_Lucky on 2018/8/28.
 //  Copyright © 2018年 文波. All rights reserved.
 //
 
-#import "UINavigationController+WBStatusBarStyle.h"
+#import "UINavigationBar+WBBarStyle.h"
 #import <objc/runtime.h>
 
 static char kWBDefaultStatusBarStyleKey;
 static char kWBStatusBarStyleKey;
 
-@implementation UINavigationController (WBStatusBarStyle)
+@implementation UINavigationBar (WBBarStyle)
 
 + (void)wb_setDefaultStatusBarStyle:(UIStatusBarStyle)statusBarStyle {
     objc_setAssociatedObject(self, &kWBDefaultStatusBarStyleKey, @(statusBarStyle), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -22,6 +22,12 @@ static char kWBStatusBarStyleKey;
     id style = objc_getAssociatedObject(self, &kWBDefaultStatusBarStyleKey);
     return style ? [style integerValue] : UIStatusBarStyleDefault;
 }
+
+
+@end
+
+@implementation UINavigationController (WBBarStyle)
+
 
 /** < Override to return a child view controller or nil. If non-nil, that view controller's status bar appearance attributes will be used. If nil, self is used. Whenever the return values from these methods change, -setNeedsUpdatedStatusBarAttributes should be called. > */
 //- (UIViewController *)childViewControllerForStatusBarStyle {
@@ -38,7 +44,7 @@ static char kWBStatusBarStyleKey;
 
 @end
 
-@implementation UIViewController (WBStatusBarStyle)
+@implementation UIViewController (WBBarStyle)
 
 - (void)setWb_statusBarStyle:(UIStatusBarStyle)wb_statusBarStyle {
     objc_setAssociatedObject(self, &kWBStatusBarStyleKey, @(wb_statusBarStyle), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -48,7 +54,8 @@ static char kWBStatusBarStyleKey;
 
 - (UIStatusBarStyle)wb_statusBarStyle {
     id style = objc_getAssociatedObject(self, &kWBStatusBarStyleKey);
-    return style ? [style integerValue] : [UINavigationController wb_DefaultStatusBarStyle];
+    return style ? [style integerValue] : [UINavigationBar wb_DefaultStatusBarStyle];
 }
 
 @end
+
