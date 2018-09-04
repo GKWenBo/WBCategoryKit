@@ -6,7 +6,7 @@ target 'WBCategories' do
   use_frameworks!
   pod 'UICKeyChainStore',:inhibit_warnings => true
   pod 'SDWebImage' ,:inhibit_warnings => true
-  pod 'libextobjc/EXTScope',:inhibit_warnings => true
+  #pod 'libextobjc/EXTScope',:inhibit_warnings => true
 
   # Pods for WBCategories
 
