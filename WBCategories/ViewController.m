@@ -21,7 +21,6 @@
     UIView *redView;
 }
 
-
 @end
 
 @implementation ViewController

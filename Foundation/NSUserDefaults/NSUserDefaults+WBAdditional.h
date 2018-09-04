@@ -29,16 +29,22 @@
 
 #pragma mark ------ < 存取 > ------
 + (id)wb_objectForKey:(NSString *)key;
+
 + (void)wb_saveObject:(id)object
                forKey:(NSString *)key;
+
 + (void)wb_saveIntegerValue:(NSInteger)integerValue
                      forKey:(NSString *)key;
+
 + (void)wb_saveFloatValue:(float)floatValue
                      forKey:(NSString *)key;
+
 + (void)wb_saveDoubleValue:(double)doubleValue
                      forKey:(NSString *)key;
+
 + (void)wb_saveBoolValue:(BOOL)boolValue
                   forKey:(NSString *)key;
+
 + (void)wb_saveLonglongValue:(int64_t)longlongValue
                       forKey:(NSString *)key;
 

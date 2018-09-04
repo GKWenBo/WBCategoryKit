@@ -11,7 +11,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSDictionary (WBAdditional)
 
 #pragma mark --------  Convert  --------
-#pragma mark
 /**
  Creates and returns a dictionary from a specified property list data.
  
@@ -103,48 +102,62 @@ NS_ASSUME_NONNULL_BEGIN
 + (nullable NSDictionary *)wb_dictionaryWithXML:(id)xmlDataOrString;
 
 #pragma mark --------  Value Getter  --------
-#pragma mark
 - (BOOL)wb_boolValueForKey:(NSString *)key
                    default:(BOOL)def;
+
 - (char)wb_charValueForKey:(NSString *)key
                    default:(char)def;
+
 - (unsigned char)wb_unsignedCharValueForKey:(NSString *)key
                                     default:(unsigned char)def;
+
 - (short)wb_shortValueForKey:(NSString *)key
                      default:(short)def;
+
 - (unsigned short)wb_unsignedShortValueForKey:(NSString *)key
                                       default:(unsigned short)def;
+
 - (int)wb_intValueForKey:(NSString *)key
                  default:(int)def;
+
 - (unsigned int)wb_unsignedIntValueForKey:(NSString *)key
                                   default:(unsigned int)def;
+
 - (long)wb_longValueForKey:(NSString *)key
                    default:(long)def;
+
 - (unsigned long)wb_unsignedLongValueForKey:(NSString *)key
                                     default:(unsigned long)def;
+
 - (long long)wb_longLongValueForKey:(NSString *)key
                             default:(long long)def;
+
 - (unsigned long long)wb_unsignedLongLongValueForKey:(NSString *)key
                                              default:(unsigned long long)def;
+
 - (float)wb_floatValueForKey:(NSString *)key
                      default:(float)def;
+
 - (double)wb_doubleValueForKey:(NSString *)key
                        default:(double)def;
+
 - (NSInteger)wb_integerValueForKey:(NSString *)key
                            default:(NSInteger)def;
+
 - (NSUInteger)wb_unsignedIntegerValueForKey:(NSString *)key
                                     default:(NSUInteger)def;
+
 - (nullable NSNumber *)wb_numberValueForKey:(NSString *)key
                                     default:(nullable NSNumber *)def;
+
 - (nullable NSString *)wb_stringValueForKey:(NSString *)key
                                     default:(nullable NSString *)def;
 
 @end
 
-
 #pragma mark --------  可变字典  --------
-#pragma mark
 @interface NSMutableDictionary (WB_Additional)
+
 /**
  Creates and returns a dictionary from a specified property list data.
  
@@ -154,6 +167,7 @@ NS_ASSUME_NONNULL_BEGIN
  @discussion Apple has implemented this method, but did not make it public.
  */
 + (nullable NSMutableDictionary *)wb_dictionaryWithPlistData:(NSData *)plist;
+
 /**
  Creates and returns a dictionary from a specified property list xml string.
  
@@ -161,6 +175,7 @@ NS_ASSUME_NONNULL_BEGIN
  @return A new dictionary created from the plist string, or nil if an error occurs.
  */
 + (nullable NSMutableDictionary *)wb_dictionaryWithPlistString:(NSString *)plist;
+
 /**
  Removes and returns the value associated with a given key.
  
@@ -180,5 +195,4 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSDictionary *)wb_popEntriesForKeys:(NSArray *)keys;
 
 @end
-
 NS_ASSUME_NONNULL_END

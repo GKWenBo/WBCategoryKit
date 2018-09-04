@@ -70,7 +70,8 @@
                                                                                      localeIdentifier:nil
                                                                                          timeZoneName:nil];
     NSDate *currentDate = [dateFormatter2 dateFromString:currentTime];
-    return [self timeIntervalFromLastTime:lastDate ToCurrentTime:currentDate];
+    return [self timeIntervalFromLastTime:lastDate
+                            ToCurrentTime:currentDate];
 }
 
 + (NSString *)timeIntervalFromLastTime:(NSDate *)lastTime
@@ -241,7 +242,6 @@
                                                                              localeIdentifier:nil
                                                                                  timeZoneName:nil];
     NSDate *d = [NSDate dateWithTimeIntervalSince1970:timestamp];
-    
     NSString *dateStr = [format stringFromDate:d];// 2012-05-17 11:23:23
     double timezoneFix = [NSTimeZone localTimeZone].secondsFromGMT;
     switch ((int)(([[NSDate date] timeIntervalSince1970] + timezoneFix) / (24 * 3600)) -

@@ -31,28 +31,21 @@
     
     
     NSCalendar *localeCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierChinese];
-    
     unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
-    
-    NSDateComponents *localeComp = [localeCalendar components:unitFlags fromDate:date];
-    
-    NSLog(@"%zd_%zd_%zd",localeComp.year,localeComp.month,localeComp.day);
-    
+    NSDateComponents *localeComp = [localeCalendar components:unitFlags
+                                                     fromDate:date];
     NSString *y_str = [chineseYears objectAtIndex:localeComp.year-1];
     NSString *m_str = [chineseMonths objectAtIndex:localeComp.month-1];
     NSString *d_str = [chineseDays objectAtIndex:localeComp.day-1];
     
     NSString *chineseCal_str =[NSString stringWithFormat: @"%@_%@_%@",y_str,m_str,d_str];
-    
     return chineseCal_str;
 }
 
 + (NSDate *)wb_dateWithYMD:(NSDate *)date {
-//    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
-//    fmt.dateFormat = @"yyyy-MM-dd";
     NSDateFormatter *fmt = [[WBDateFormatterPool shareInstance] wb_dateFormatterWithFormat:@"yyyy-MM-dd"
                                                                           localeIdentifier:nil
-                                                                             timeZoneName:nil];
+                                                                              timeZoneName:nil];
     NSString *selfStr = [fmt stringFromDate:date];
     return [fmt dateFromString:selfStr];
 }
@@ -63,7 +56,8 @@
     NSTimeZone *timeZone = [[NSTimeZone alloc] initWithName:@"Asia/Shanghai"];
     [calendar setTimeZone: timeZone];
     NSCalendarUnit calendarUnit = NSCalendarUnitWeekday;
-    NSDateComponents *theComponents = [calendar components:calendarUnit fromDate:inputDate];
+    NSDateComponents *theComponents = [calendar components:calendarUnit
+                                                  fromDate:inputDate];
     return [weekdays objectAtIndex:theComponents.weekday];
 }
 
@@ -77,14 +71,12 @@
     NSInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit |
     NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
 #pragma clang diagnostic pop
-    
     comps = [calendar components:unitFlags fromDate:date];
     return [self getWeekdayWithNumber:[comps weekday]];
 }
 
 //1代表星期日、如此类推
-+(NSString *)getWeekdayWithNumber:(NSInteger)number
-{
++ (NSString *)getWeekdayWithNumber:(NSInteger)number {
     switch (number) {
         case 1:
             return @"周日";
@@ -112,7 +104,6 @@
             return @"";
             break;
     }
-    
 }
 
 + (NSDate *)wb_dateTomorrow {
@@ -269,7 +260,7 @@
 }
 
 + (BOOL)wb_isSameYearAsDate:(NSDate *)aDate
-                 andSecDate:(NSDate *) bDate {
+                 andSecDate:(NSDate *)bDate {
     NSDateFormatter *ds = [[WBDateFormatterPool shareInstance] wb_dateFormatterWithFormat:@"yyyy"
                                                                          localeIdentifier:nil
                                                                              timeZoneName:nil];
@@ -307,8 +298,6 @@
 }
 
 + (BOOL)wb_isNextYear:(NSDate *)aDate {
-//    NSDateFormatter *ds = [[NSDateFormatter alloc] init];
-//    [ds setDateFormat:@"yyyy"];
     NSDateFormatter *ds = [[WBDateFormatterPool shareInstance] wb_dateFormatterWithFormat:@"yyyy"
                                                                          localeIdentifier:nil
                                                                              timeZoneName:nil];

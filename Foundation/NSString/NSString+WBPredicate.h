@@ -9,12 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface NSString (WBPredicate)
+
 #pragma mark -- 字符串处理
 /**
  *  remove white spaces
  *
  */
 - (NSString *)wb_trim;
+
 /**
  *  remove white spaces
  *
@@ -27,6 +29,7 @@
  *
  */
 - (BOOL)wb_isBlank;
+
 /**
  *  判断字符串是否为NULL
  *

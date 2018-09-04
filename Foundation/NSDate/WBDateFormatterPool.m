@@ -47,7 +47,6 @@ static dispatch_semaphore_t _cahcePoolLook;
     NSString *key = [self wb_getCacheKeyWithFormat:format
                                   localeIdentifier:identifier
                                       timeZoneName:timeZoneName];
-    NSLog(@"%@",key);
     NSDateFormatter *formatter = [self.dateFormatterCache objectForKey:key];
     if (formatter) return formatter;
     
@@ -91,7 +90,7 @@ static dispatch_semaphore_t _cahcePoolLook;
     if (format) [key appendString:format];
     if (identifier) [key appendFormat:@"|%@",identifier];
     if (timeZoneName) [key appendFormat:@"|%@",timeZoneName];
-    return key;
+    return key.copy;
 }
 
 - (NSString *)wb_getCacheKeyWithDateStyle:(NSDateFormatterStyle)dateStyle
@@ -103,7 +102,7 @@ static dispatch_semaphore_t _cahcePoolLook;
     if (timeStyle) [key appendFormat:@"|%lu",timeStyle];
     if (identifier) [key appendFormat:@"|%@",identifier];
     if (timeZoneName) [key appendFormat:@"|%@",timeZoneName];
-    return key;
+    return key.copy;
 }
 
 - (NSDateFormatter *)wb_getDateFormatterByKey:(NSString *)key {

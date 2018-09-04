@@ -48,25 +48,4 @@
     return @"document.documentElement.style.webkitUserSelect='none';";
 }
 
-//- (NSString *)wb_autoFitHTMLString {
-//    return [NSString stringWithFormat:@"<html> \n"
-//            "<head> \n"
-//            "<style type=\"text/css\"> \n"
-//            "body {font-size:14px;}\n"
-//            "</style> \n"
-//            "</head> \n"
-//            "<body>"
-//            "<script type='text/javascript'>"
-//            "window.onload = function(){\n"
-//            "var $img = document.getElementsByTagName('img');\n"
-//            "for(var p in  $img){\n"
-//            " $img[p].style.width = '100%%';\n"
-//            "$img[p].style.height ='auto'\n"
-//            "}\n"
-//            "}"
-//            "</script>%@"
-//            "</body>"
-//            "</html>",self];
-//}
-
 @end

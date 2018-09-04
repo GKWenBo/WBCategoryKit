@@ -10,7 +10,6 @@
 #import <UIKit/UIKit.h>
 @interface NSString (WBJavaScript)
 
-
 /**
  Auto fit image height,font size 14pt
 
@@ -48,13 +47,6 @@
  @return javaScript code
  */
 + (NSString *)wb_getDisableSelectJsString;
-
-///**
-// 富文本自适应图片大小
-//
-// @return 处理后的html内容
-// */
-//- (NSString *)wb_autoFitHTMLString;
 
 
 @end

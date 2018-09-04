@@ -16,4 +16,5 @@
  @return UITableView
  */
 - (UITableView *)wb_parentTableView;
+
 @end

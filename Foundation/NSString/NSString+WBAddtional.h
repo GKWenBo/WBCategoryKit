@@ -31,6 +31,7 @@
  rounded up to the nearest whole number.
  */
 - (CGFloat)wb_widthForFont:(UIFont *)font;
+
 /**
  Returns the height of the string if it were rendered with the specified constraints.
  
@@ -71,15 +72,18 @@
  *  @return 大写金额
  */
 + (NSString *)wb_digitUppercaseWithMoney:(NSString *)money;
+
 /**
  Try to parse this string and returns an `NSNumber`.
  @return Returns an `NSNumber` if parse succeed, or nil if an error occurs.
  */
 - (NSNumber *)wb_numberValue;
+
 /**
  Returns an NSData using UTF-8 encoding.
  */
 - (NSData *)wb_dataValue;
+
 /**
  Returns an NSDictionary/NSArray which is decoded from receiver.
  Returns nil if an error occurs.
@@ -106,4 +110,5 @@
  *  @return Library/Caches路径
  */
 + (NSString *)wb_getLibraryCaches;
+
 @end

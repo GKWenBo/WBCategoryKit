@@ -37,7 +37,6 @@
 }
 
 #pragma mark --------  NSXMLParserDelegate  --------
-#pragma mark
 
 #define XMLText @"_text"
 #define XMLName @"_name"
@@ -134,12 +133,14 @@
     }
 }
 
-- (void)parser:(__unused NSXMLParser *)parser foundCharacters:(NSString *)string {
+- (void)parser:(__unused NSXMLParser *)parser
+foundCharacters:(NSString *)string {
     if (_text) [_text appendString:string];
     else _text = [NSMutableString stringWithString:string];
 }
 
-- (void)parser:(__unused NSXMLParser *)parser foundCDATA:(NSData *)CDATABlock {
+- (void)parser:(__unused NSXMLParser *)parser
+    foundCDATA:(NSData *)CDATABlock {
     NSString *string = [[NSString alloc] initWithData:CDATABlock encoding:NSUTF8StringEncoding];
     if (_text) [_text appendString:string];
     else _text = [NSMutableString stringWithString:string];
@@ -151,7 +152,6 @@
 
 @end
 
-
 @implementation NSDictionary (WBAdditional)
 + (nullable NSDictionary *)wb_dictionaryWithPlistData:(NSData *)plist {
     if (!plist) return nil;
@@ -159,30 +159,35 @@
     if ([dictionary isKindOfClass:[NSDictionary class]]) return dictionary;
     return nil;
 }
+
 + (nullable NSDictionary *)wb_dictionaryWithPlistString:(NSString *)plist {
     if (!plist) return nil;
     NSData* data = [plist dataUsingEncoding:NSUTF8StringEncoding];
     return [self wb_dictionaryWithPlistData:data];
 }
+
 - (nullable NSData *)wb_plistData {
     return [NSPropertyListSerialization dataWithPropertyList:self format:NSPropertyListBinaryFormat_v1_0 options:kNilOptions error:NULL];
 }
+
 - (nullable NSString *)wb_plistString {
     NSData *xmlData = [NSPropertyListSerialization dataWithPropertyList:self format:NSPropertyListXMLFormat_v1_0 options:kNilOptions error:NULL];
     if (xmlData) return [self utf8StringWithData:xmlData];
     return nil;
-
 }
 
 - (NSString *)utf8StringWithData:(NSData *)data {
     if (data.length > 0) {
-        return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        return [[NSString alloc] initWithData:data
+                                     encoding:NSUTF8StringEncoding];
     }
     return @"";
 }
+
 - (NSArray *)wb_allKeysSorted {
     return [[self allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
 }
+
 /**
  Returns a new array containing the dictionary's values sorted by keys.
  
@@ -200,10 +205,12 @@
     }
     return arr;
 }
+
 - (BOOL)wb_containsObjectForKey:(id)key {
     if (!key) return NO;
     return self[key] != nil;
 }
+
 - (NSDictionary *)wb_entriesForKeys:(NSArray *)keys {
     NSMutableDictionary *dic = [NSMutableDictionary new];
     for (id key in keys) {
@@ -212,6 +219,7 @@
     }
     return dic;
 }
+
 - (nullable NSString *)wb_jsonStringEncoded {
     if ([NSJSONSerialization isValidJSONObject:self]) {
         NSError *error;
@@ -222,9 +230,6 @@
     return nil;
 }
 
-/**
- Convert dictionary to json string formatted. return nil if an error occurs.
- */
 - (nullable NSString *)wb_jsonPrettyStringEncoded {
     if ([NSJSONSerialization isValidJSONObject:self]) {
         NSError *error;
@@ -282,61 +287,76 @@ return def;
                    default:(BOOL)def {
     RETURN_VALUE(boolValue);
 }
+
 - (char)wb_charValueForKey:(NSString *)key
                    default:(char)def {
     RETURN_VALUE(charValue);
 }
+
 - (unsigned char)wb_unsignedCharValueForKey:(NSString *)key
                                     default:(unsigned char)def {
     RETURN_VALUE(unsignedCharValue);
 }
+
 - (short)wb_shortValueForKey:(NSString *)key
                      default:(short)def {
     RETURN_VALUE(shortValue);
 }
+
 - (unsigned short)wb_unsignedShortValueForKey:(NSString *)key default:(unsigned short)def {
     RETURN_VALUE(unsignedShortValue);
 }
+
 - (int)wb_intValueForKey:(NSString *)key
                  default:(int)def {
     RETURN_VALUE(intValue);
 }
+
 - (unsigned int)wb_unsignedIntValueForKey:(NSString *)key
                                   default:(unsigned int)def {
     RETURN_VALUE(unsignedIntValue);
 }
+
 - (long)wb_longValueForKey:(NSString *)key
                    default:(long)def {
     RETURN_VALUE(longValue);
 }
+
 - (unsigned long)wb_unsignedLongValueForKey:(NSString *)key
                                     default:(unsigned long)def {
     RETURN_VALUE(unsignedLongValue);
 }
+
 - (long long)wb_longLongValueForKey:(NSString *)key
                             default:(long long)def {
      RETURN_VALUE(longLongValue);
 }
+
 - (unsigned long long)wb_unsignedLongLongValueForKey:(NSString *)key
                                              default:(unsigned long long)def {
     RETURN_VALUE(unsignedLongLongValue);
 }
+
 - (float)wb_floatValueForKey:(NSString *)key
                      default:(float)def {
     RETURN_VALUE(floatValue);
 }
+
 - (double)wb_doubleValueForKey:(NSString *)key
                        default:(double)def {
     RETURN_VALUE(doubleValue);
 }
+
 - (NSInteger)wb_integerValueForKey:(NSString *)key
                            default:(NSInteger)def {
     RETURN_VALUE(integerValue);
 }
+
 - (NSUInteger)wb_unsignedIntegerValueForKey:(NSString *)key
                                     default:(NSUInteger)def {
     RETURN_VALUE(unsignedIntegerValue);
 }
+
 - (nullable NSNumber *)wb_numberValueForKey:(NSString *)key
                                     default:(nullable NSNumber *)def {
     if (!key) return def;
@@ -346,6 +366,7 @@ return def;
     if ([value isKindOfClass:[NSString class]]) return NSNumberFromID(value);
     return def;
 }
+
 - (nullable NSString *)wb_stringValueForKey:(NSString *)key
                                     default:(nullable NSString *)def {
     if (!key) return def;
@@ -364,17 +385,20 @@ return def;
     if ([dictionary isKindOfClass:[NSMutableDictionary class]]) return dictionary;
     return nil;
 }
+
 + (nullable NSMutableDictionary *)wb_dictionaryWithPlistString:(NSString *)plist {
     if (!plist) return nil;
     NSData* data = [plist dataUsingEncoding:NSUTF8StringEncoding];
     return [self wb_dictionaryWithPlistData:data];
 }
+
 - (nullable id)wb_popObjectForKey:(id)aKey {
     if (!aKey) return nil;
     id value = self[aKey];
     [self removeObjectForKey:aKey];
     return value;
 }
+
 - (NSDictionary *)wb_popEntriesForKeys:(NSArray *)keys {
     NSMutableDictionary *dic = [NSMutableDictionary new];
     for (id key in keys) {
@@ -386,4 +410,5 @@ return def;
     }
     return dic;
 }
+
 @end

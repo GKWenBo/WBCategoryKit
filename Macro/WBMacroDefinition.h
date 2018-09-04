@@ -9,17 +9,6 @@
 #ifndef WB_MacroDefinition_h
 #define WB_MacroDefinition_h
 
-//---------------------- API接口切换宏 0.测试 1.正式 ----------------------------
-#define kWB_FORMAL_ENVIRONMENT_SWITCH (0)
-
-#if kWB_FORMAL_ENVIRONMENT_SWITCH
-////正式API
-#define kAPP_API_BASEURL @"正式"
-#else
-//测试API
-#define kAPP_API_BASEURL @"测试"
-#endif
-
 /**  < 自定义高效率log >  */
 #ifdef DEBUG
 #   define NSLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);

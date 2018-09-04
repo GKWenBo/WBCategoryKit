@@ -65,7 +65,6 @@
 		841D7E94202ED8FD00D70A07 /* UIViewController+WBTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 841D7E2B202ED8FD00D70A07 /* UIViewController+WBTransition.m */; };
 		841D7E95202ED8FD00D70A07 /* UIWindow+WBHierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 841D7E2E202ED8FD00D70A07 /* UIWindow+WBHierarchy.m */; };
 		841D7E96202ED8FD00D70A07 /* NSArray+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = 841D7E32202ED8FD00D70A07 /* NSArray+WBAdditional.m */; };
-		841D7E97202ED8FD00D70A07 /* NSMutableArray+WBSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 841D7E34202ED8FD00D70A07 /* NSMutableArray+WBSort.m */; };
 		841D7E98202ED8FD00D70A07 /* NSDate+WBAddtional.m in Sources */ = {isa = PBXBuildFile; fileRef = 841D7E37202ED8FD00D70A07 /* NSDate+WBAddtional.m */; };
 		841D7E99202ED8FD00D70A07 /* NSDate+WBDisplayTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 841D7E39202ED8FD00D70A07 /* NSDate+WBDisplayTime.m */; };
 		841D7E9A202ED8FD00D70A07 /* NSDate+WBTimePredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = 841D7E3B202ED8FD00D70A07 /* NSDate+WBTimePredicate.m */; };
@@ -90,6 +89,11 @@
 		C286B19320B3C6A2009DBDB9 /* UIAlertController+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = C286B19220B3C6A2009DBDB9 /* UIAlertController+WBAdditional.m */; };
 		C2D1C36520AD774E00D1EB39 /* WBDateFormatterPool.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D1C36420AD774E00D1EB39 /* WBDateFormatterPool.m */; };
 		C2F37BF120A92E5200577E00 /* UIControl+WBIgnoreMutiple.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F37BF020A92E5200577E00 /* UIControl+WBIgnoreMutiple.m */; };
+		D0A4BAA4213E7AE00041A9FB /* WKWebView+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A4BA9C213E7ADE0041A9FB /* WKWebView+WBAdditional.m */; };
+		D0A4BAA5213E7AE00041A9FB /* WKWebView+WBLoadInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A4BA9F213E7ADF0041A9FB /* WKWebView+WBLoadInfo.m */; };
+		D0A4BAA6213E7AE00041A9FB /* WKWebView+WBJavaScript.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A4BAA1213E7ADF0041A9FB /* WKWebView+WBJavaScript.m */; };
+		D0A4BAA7213E7AE00041A9FB /* WKWebView+WBMetaParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A4BAA3213E7AE00041A9FB /* WKWebView+WBMetaParser.m */; };
+		D0A4BAAA213E80EF0041A9FB /* WKWebView+WBCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A4BAA9213E80EF0041A9FB /* WKWebView+WBCapture.m */; };
 		D0B52992213518B000D957CF /* UINavigationBar+WBBarStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B52991213518B000D957CF /* UINavigationBar+WBBarStyle.m */; };
 		EC710CE97B7D940C77F25DB8 /* libPods-WBCategories.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5BA29418AFB0FD4A2DB97B8 /* libPods-WBCategories.a */; };
 /* End PBXBuildFile section */
@@ -212,8 +216,6 @@
 		841D7E2E202ED8FD00D70A07 /* UIWindow+WBHierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+WBHierarchy.m"; sourceTree = "<group>"; };
 		841D7E31202ED8FD00D70A07 /* NSArray+WBAdditional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+WBAdditional.h"; sourceTree = "<group>"; };
 		841D7E32202ED8FD00D70A07 /* NSArray+WBAdditional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+WBAdditional.m"; sourceTree = "<group>"; };
-		841D7E33202ED8FD00D70A07 /* NSMutableArray+WBSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+WBSort.h"; sourceTree = "<group>"; };
-		841D7E34202ED8FD00D70A07 /* NSMutableArray+WBSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+WBSort.m"; sourceTree = "<group>"; };
 		841D7E36202ED8FD00D70A07 /* NSDate+WBAddtional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+WBAddtional.h"; sourceTree = "<group>"; };
 		841D7E37202ED8FD00D70A07 /* NSDate+WBAddtional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+WBAddtional.m"; sourceTree = "<group>"; };
 		841D7E38202ED8FD00D70A07 /* NSDate+WBDisplayTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+WBDisplayTime.h"; sourceTree = "<group>"; };
@@ -266,6 +268,16 @@
 		C2F37BEF20A92E5100577E00 /* UIControl+WBIgnoreMutiple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+WBIgnoreMutiple.h"; sourceTree = "<group>"; };
 		C2F37BF020A92E5200577E00 /* UIControl+WBIgnoreMutiple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+WBIgnoreMutiple.m"; sourceTree = "<group>"; };
 		CFB7BF25A8BDC4ABEBC4DA61 /* Pods-WBCategories.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WBCategories.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WBCategories/Pods-WBCategories.debug.xcconfig"; sourceTree = "<group>"; };
+		D0A4BA9C213E7ADE0041A9FB /* WKWebView+WBAdditional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+WBAdditional.m"; sourceTree = "<group>"; };
+		D0A4BA9D213E7ADF0041A9FB /* WKWebView+WBJavaScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WKWebView+WBJavaScript.h"; sourceTree = "<group>"; };
+		D0A4BA9E213E7ADF0041A9FB /* WKWebView+WBLoadInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WKWebView+WBLoadInfo.h"; sourceTree = "<group>"; };
+		D0A4BA9F213E7ADF0041A9FB /* WKWebView+WBLoadInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+WBLoadInfo.m"; sourceTree = "<group>"; };
+		D0A4BAA0213E7ADF0041A9FB /* WKWebView+WBMetaParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WKWebView+WBMetaParser.h"; sourceTree = "<group>"; };
+		D0A4BAA1213E7ADF0041A9FB /* WKWebView+WBJavaScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+WBJavaScript.m"; sourceTree = "<group>"; };
+		D0A4BAA2213E7AE00041A9FB /* WKWebView+WBAdditional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WKWebView+WBAdditional.h"; sourceTree = "<group>"; };
+		D0A4BAA3213E7AE00041A9FB /* WKWebView+WBMetaParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+WBMetaParser.m"; sourceTree = "<group>"; };
+		D0A4BAA8213E80EF0041A9FB /* WKWebView+WBCapture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WKWebView+WBCapture.h"; sourceTree = "<group>"; };
+		D0A4BAA9213E80EF0041A9FB /* WKWebView+WBCapture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+WBCapture.m"; sourceTree = "<group>"; };
 		D0B52990213518B000D957CF /* UINavigationBar+WBBarStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+WBBarStyle.h"; sourceTree = "<group>"; };
 		D0B52991213518B000D957CF /* UINavigationBar+WBBarStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+WBBarStyle.m"; sourceTree = "<group>"; };
 		E5BA29418AFB0FD4A2DB97B8 /* libPods-WBCategories.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WBCategories.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -623,8 +635,6 @@
 			children = (
 				841D7E31202ED8FD00D70A07 /* NSArray+WBAdditional.h */,
 				841D7E32202ED8FD00D70A07 /* NSArray+WBAdditional.m */,
-				841D7E33202ED8FD00D70A07 /* NSMutableArray+WBSort.h */,
-				841D7E34202ED8FD00D70A07 /* NSMutableArray+WBSort.m */,
 			);
 			path = NSArray;
 			sourceTree = "<group>";
@@ -779,6 +789,16 @@
 		D0B5299321351A4900D957CF /* WKWebView */ = {
 			isa = PBXGroup;
 			children = (
+				D0A4BAA2213E7AE00041A9FB /* WKWebView+WBAdditional.h */,
+				D0A4BA9C213E7ADE0041A9FB /* WKWebView+WBAdditional.m */,
+				D0A4BA9D213E7ADF0041A9FB /* WKWebView+WBJavaScript.h */,
+				D0A4BAA1213E7ADF0041A9FB /* WKWebView+WBJavaScript.m */,
+				D0A4BA9E213E7ADF0041A9FB /* WKWebView+WBLoadInfo.h */,
+				D0A4BA9F213E7ADF0041A9FB /* WKWebView+WBLoadInfo.m */,
+				D0A4BAA0213E7ADF0041A9FB /* WKWebView+WBMetaParser.h */,
+				D0A4BAA3213E7AE00041A9FB /* WKWebView+WBMetaParser.m */,
+				D0A4BAA8213E80EF0041A9FB /* WKWebView+WBCapture.h */,
+				D0A4BAA9213E80EF0041A9FB /* WKWebView+WBCapture.m */,
 			);
 			path = WKWebView;
 			sourceTree = "<group>";
@@ -818,7 +838,7 @@
 		84E35F9F2029889200E4683F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = WENBO;
 				TargetAttributes = {
 					84E35FA62029889200E4683F = {
@@ -887,6 +907,7 @@
 				841D7E8A202ED8FD00D70A07 /* UIView+WBConstraints.m in Sources */,
 				841D7E6D202ED8FD00D70A07 /* UIControl+WBAcitonBlock.m in Sources */,
 				841D7E78202ED8FD00D70A07 /* UINavigationController+WBFullScreen.m in Sources */,
+				D0A4BAA6213E7AE00041A9FB /* WKWebView+WBJavaScript.m in Sources */,
 				841D7E6C202ED8FD00D70A07 /* UIColor+WBCommonColor.m in Sources */,
 				841D7E92202ED8FD00D70A07 /* UIViewController+WBAdditional.m in Sources */,
 				841D7EA5202ED8FD00D70A07 /* UIView+WBCoreAnimation.m in Sources */,
@@ -929,6 +950,7 @@
 				841D7E67202ED8FD00D70A07 /* UIButton+WBImagePosition.m in Sources */,
 				841D7E8C202ED8FD00D70A07 /* UIView+WBDraggable.m in Sources */,
 				841D7EA3202ED8FD00D70A07 /* NSString+WBPredicate.m in Sources */,
+				D0A4BAA7213E7AE00041A9FB /* WKWebView+WBMetaParser.m in Sources */,
 				D0B52992213518B000D957CF /* UINavigationBar+WBBarStyle.m in Sources */,
 				C2F37BF120A92E5200577E00 /* UIControl+WBIgnoreMutiple.m in Sources */,
 				841D7EA0202ED8FD00D70A07 /* NSString+WBCreateFileName.m in Sources */,
@@ -940,6 +962,7 @@
 				841D7E7F202ED8FD00D70A07 /* UIScreen+WBFrame.m in Sources */,
 				841D7E71202ED8FD00D70A07 /* WBUUID.m in Sources */,
 				841D7E6F202ED8FD00D70A07 /* UIControl+WBSound.m in Sources */,
+				D0A4BAAA213E80EF0041A9FB /* WKWebView+WBCapture.m in Sources */,
 				841D7E90202ED8FD00D70A07 /* UIView+WBRecursion.m in Sources */,
 				84E35FAC2029889200E4683F /* AppDelegate.m in Sources */,
 				841D7E72202ED8FD00D70A07 /* UIFont+WBRuntimeSize.m in Sources */,
@@ -954,17 +977,18 @@
 				841D7EA1202ED8FD00D70A07 /* NSString+WBDeviceInfo.m in Sources */,
 				841D7E84202ED8FD00D70A07 /* UITextView+Placeholder.m in Sources */,
 				841D7E79202ED8FD00D70A07 /* Swizzle.m in Sources */,
+				D0A4BAA5213E7AE00041A9FB /* WKWebView+WBLoadInfo.m in Sources */,
 				841D7E63202ED8FD00D70A07 /* UIButton+WBAdjustPosition.m in Sources */,
 				841D7E81202ED8FD00D70A07 /* UISearchBar+WBAddition.m in Sources */,
 				841D7E99202ED8FD00D70A07 /* NSDate+WBDisplayTime.m in Sources */,
 				841D7EA2202ED8FD00D70A07 /* NSString+WBJavaScript.m in Sources */,
-				841D7E97202ED8FD00D70A07 /* NSMutableArray+WBSort.m in Sources */,
 				841D7E76202ED8FD00D70A07 /* UIImagePickerController+WBAdditional.m in Sources */,
 				841D7E8B202ED8FD00D70A07 /* UIView+WBDismissKeyboard.m in Sources */,
 				841D7E8D202ED8FD00D70A07 /* UIView+WBExtension.m in Sources */,
 				841D7E9C202ED8FD00D70A07 /* NSDictionary+WBAdditional.m in Sources */,
 				841D7E7B202ED8FD00D70A07 /* UINavigationBarContentViewLayout+Margin.m in Sources */,
 				841D7E5D202ED8FD00D70A07 /* UIApplication+WBApplicationSize.m in Sources */,
+				D0A4BAA4213E7AE00041A9FB /* WKWebView+WBAdditional.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1004,6 +1028,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1011,6 +1036,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1038,7 +1064,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1059,6 +1085,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1066,6 +1093,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1087,7 +1115,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

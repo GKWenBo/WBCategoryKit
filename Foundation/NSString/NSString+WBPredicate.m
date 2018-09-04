@@ -61,7 +61,6 @@
 }
 
 - (BOOL)wb_isValidMobile {
-    
     NSString * MOBIL = @"^1(3[0-9]|5[0-35-9]|8[025-9])\\d{8}$";
     NSString * CM = @"^1(34[0-8]|(3[5-9]|5[017-9]|8[2378])\\d)\\d{7}$";
     NSString * CU = @"^1(3[0-2]|5[256]|8[56])\\d{8}$";
@@ -82,12 +81,6 @@
     }
     return NO;
 }
-
-//- (BOOL)wb_isValidMobile {
-//    NSString *phoneRegex = @"^1+[3578]+\\d{9}";
-//    NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",phoneRegex];
-//    return [phoneTest evaluateWithObject:self];
-//}
 
 - (BOOL)wb_isValidIdentityCard {
     NSString *value = [self copy];
@@ -179,6 +172,7 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
     return [predicate evaluateWithObject:self];
 }
+
 - (BOOL)wb_isValidRealName {
     NSString *nicknameRegex = @"^[\u4e00-\u9fa5]{2,8}$";
     
@@ -192,6 +186,7 @@
     NSPredicate *identityCardPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
     return [identityCardPredicate evaluateWithObject:self];
 }
+
 - (BOOL)wb_isOnlyChinese {
     NSString * chineseTest=@"^[\u4e00-\u9fa5]{0,}$";
     NSPredicate*chinesePredicate=[NSPredicate predicateWithFormat:@"SELF MATCHES %@",chineseTest];
@@ -268,4 +263,5 @@
         return NO;
     }
 }
+
 @end

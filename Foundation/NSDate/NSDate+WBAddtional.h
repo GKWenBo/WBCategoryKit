@@ -24,7 +24,7 @@
 /**
  *  通过时间戳得出时间字符串
  *
- *  @param timestamp 时间戳
+ *  @param timestamp 时间戳，如：@"1447400310"
  *  @param formatter 时间格式
  *  @return 时间字符串
  */
@@ -58,6 +58,7 @@
  *  @return yyyy-MM-dd HH:mm:ss
  */
 + (NSString *)wb_dateStringFromYKMDateString:(NSString *)dateString;
+
 /**
  *  时间转换字符串
  *
@@ -81,8 +82,8 @@
  *  @return yyyy-MM-dd HH:mm:ss
  */
 + (NSString *)wb_hourDateStringFromDate:(NSDate *)date;
-#pragma mark -- Date
 
+#pragma mark -- Date
 /**
  *  从时间字符串得到时间
  *
@@ -117,6 +118,7 @@
  *  @return 时间戳
  */
 + (NSTimeInterval)wb_timeIntervalSince1970FromString:(NSString *)dateString;
+
 /**
  *  当前时间转换为时间戳字符串
  *

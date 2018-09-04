@@ -125,7 +125,7 @@ CGRect YYCGRectFitWithContentMode(CGRect rect, CGSize size, UIViewContentMode mo
  
  @param size  The new size to be scaled, values should be positive.
  
- @return      The new image with the given size.
+ @return The new image with the given size.
  */
 - (nullable UIImage *)wb_imageByResizeToSize:(CGSize)size;
 /**

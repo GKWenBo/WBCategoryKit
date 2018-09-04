@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 
 @implementation NSString (WBDeviceInfo)
+
 + (void)wb_check {
     CTTelephonyNetworkInfo * info = [[CTTelephonyNetworkInfo alloc]init];
     CTCarrier*carrier = info.subscriberCellularProvider;

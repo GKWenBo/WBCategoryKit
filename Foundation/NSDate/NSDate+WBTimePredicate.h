@@ -17,6 +17,7 @@
  *  @return 例如：正月 初一
  */
 + (NSString *)wb_getChineseCalendarWithDate:(NSDate *)date;
+
 /**
  *  获取时间
  *
@@ -24,6 +25,7 @@
  *  @return yyyy-MM-dd
  */
 + (NSDate *)wb_dateWithYMD:(NSDate *)date;
+
 /**
  *  星期几
  *
@@ -39,27 +41,31 @@
  *  @return 明天日期
  */
 + (NSDate *)wb_dateTomorrow;
+
 /**
  *  获取昨天日期
  *
  *  @return 昨天日期
  */
 + (NSDate *)wb_dateYesterday;
+
 /**
  *  获取指定天数后的日期
  *
  *  @param days 天数
  *  @return NSDate
  */
-+ (NSDate *)wb_dateWithDaysFromNow:(NSUInteger)days
-;
++ (NSDate *)wb_dateWithDaysFromNow:(NSUInteger)days;
+
 /**
  *  获取指定天数前的日期
  *
  *  @param days 天数
  *  @return NSDate
  */
+
 + (NSDate *)wb_dateWithDaysBeforeNow:(NSInteger)days;
+
 /**
  *  获取指定小时数后的日期
  *
@@ -67,6 +73,7 @@
  *  @return NSDate类型
  */
 + (NSDate *)wb_dateWithHoursFromNow:(NSUInteger)dHours;
+
 /**
  *  获取指定小时数前的日期
  *
@@ -74,6 +81,7 @@
  *  @return NSDate类型
  */
 + (NSDate *)wb_dateWithHoursBeforeNow:(NSInteger)dHours;
+
 /**
  *  获取指定分钟后的日期
  *  @param dMinutes 分钟

@@ -41,6 +41,7 @@ return _instance;\
 }
 
 #else
+
 //非ARC
 #define singleM static id _instance;\
 +(instancetype)allocWithZone:(struct _NSZone *)zone\

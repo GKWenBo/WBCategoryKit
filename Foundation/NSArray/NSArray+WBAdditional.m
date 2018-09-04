@@ -16,6 +16,7 @@
     if ([array isKindOfClass:[NSArray class]]) return array;
     return nil;
 }
+
 + (nullable NSArray *)wb_arrayWithPlistString:(NSString *)plist {
     if (!plist) return nil;
     NSData* data = [plist dataUsingEncoding:NSUTF8StringEncoding];
@@ -164,13 +165,16 @@
     
     [self addObject:anObject];
 }
+
 - (void)wb_prependObject:(id)anObject {
     [self insertObject:anObject atIndex:0];
 }
+
 - (void)wb_appendObjects:(NSArray *)objects {
     if (!objects) return;
     [self addObjectsFromArray:objects];
 }
+
 - (void)wb_prependObjects:(NSArray *)objects {
     if (!objects) return;
     NSUInteger i = 0;
@@ -178,6 +182,7 @@
         [self insertObject:obj atIndex:i++];
     }
 }
+
 - (void)wb_insertObjects:(NSArray *)objects
                  atIndex:(NSUInteger)index {
     NSUInteger i = index;
@@ -185,10 +190,7 @@
         [self insertObject:obj atIndex:i++];
     }
 }
-/**
- Reverse the index of object in this array.
- Example: Before @[ @1, @2, @3 ], After @[ @3, @2, @1 ].
- */
+
 - (void)wb_reverse {
     NSUInteger count = self.count;
     int mid = floor(count / 2.0);
@@ -196,13 +198,12 @@
         [self exchangeObjectAtIndex:i withObjectAtIndex:(count - (i + 1))];
     }
 }
-/**
- Sort the object in this array randomly.
- */
+
 - (void)wb_shuffle {
     for (NSUInteger i = self.count; i > 1; i--) {
         [self exchangeObjectAtIndex:(i - 1)
                   withObjectAtIndex:arc4random_uniform((u_int32_t)i)];
     }
 }
+
 @end

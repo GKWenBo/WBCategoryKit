@@ -6,8 +6,6 @@
 //  Copyright © 2017年 文波. All rights reserved.
 //
 
-#ifndef WB_DateHeaderFile_h
-#define WB_DateHeaderFile_h
 
 /*
  G: 公元时代，例如AD公元
@@ -60,18 +58,16 @@
  MM dd yyyy
  */
 
+#import <Foundation/Foundation.h>
 
-#define DateFormat          @"yyyy MM dd HH mm ss"
-#define CustomDateFormat    @"yyyy-MM-dd HH:mm:ss"
-#define DayFormat           @"yyyy MM dd"
-#define DayPointFormat      @"yyyy.MM.dd"
-#define DayFormatLine       @"yyyy-MM-dd"
-#define ShortTime           @"MM-dd HH:mm"
-#define SinaDateFormat      @"yyyy MMM d EEE HH:mm:ss ZZZ"
-#define YkmDateFormat       @"yyyyMMddHHmmss"
+#define kWBDateFormat          @"yyyy MM dd HH mm ss"
+#define kWBCustomDateFormat    @"yyyy-MM-dd HH:mm:ss"
+#define kWBDayFormat           @"yyyy MM dd"
+#define kWBDayPointFormat      @"yyyy.MM.dd"
+#define kWBDayFormatLine       @"yyyy-MM-dd"
+#define kWBShortTime           @"MM-dd HH:mm"
+#define kWBSinaDateFormat      @"yyyy MMM d EEE HH:mm:ss ZZZ"
+#define kWBYkmDateFormat       @"yyyyMMddHHmmss"
 
-#import "NSDate+WBAddtional.h"
-#import "NSDate+WBDisplayTime.h"
-#import "NSDate+WBTimePredicate.h"
 
-#endif /* WB_DateHeaderFile_h */
+

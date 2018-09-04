@@ -118,7 +118,7 @@ static const void *kCoreAnimationCompletionKey = &kCoreAnimationCompletionKey;
                    diretion:(WBRotateDiretion)diretion
                    duration:(NSTimeInterval)duration {
     CABasicAnimation *animation = [CABasicAnimation
-                                   animationWithKeyPath: @"transform" ];
+                                   animationWithKeyPath:@"transform"];
     animation.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
     switch (diretion) {
         case WBRotateXDiretion:
@@ -137,7 +137,8 @@ static const void *kCoreAnimationCompletionKey = &kCoreAnimationCompletionKey;
             break;
     }
     animation.duration = duration;
-    [self.layer addAnimation:animation forKey:nil];
+    [self.layer addAnimation:animation
+                      forKey:nil];
 }
 
 #pragma mark ------ < Getter And Setter > ------
