@@ -43,16 +43,20 @@
 }
 
 - (void)wb_setupCustomUserAgent:(NSString *)customUserAgent {
-    __weak typeof(self) weakSelf = self;
-    [self evaluateJavaScript:@"navigator.userAgent"
-           completionHandler:^(id _Nullable result, NSError * _Nullable error) {
-               __strong typeof(self) strongSelf = weakSelf;
-               NSString *userAgent = result;
-               NSString *newUserAgent = [userAgent stringByAppendingString:customUserAgent];
-               [[NSUserDefaults standardUserDefaults] registerDefaults:@{@"UserAgent" : newUserAgent}];
-               [[NSUserDefaults standardUserDefaults] synchronize];
-               strongSelf.customUserAgent = newUserAgent;
-           }];
+    if (@available(iOS 9.0,*)) {
+        __weak typeof(self) weakSelf = self;
+        [self evaluateJavaScript:@"navigator.userAgent"
+               completionHandler:^(id _Nullable result, NSError * _Nullable error) {
+                   __strong typeof(self) strongSelf = weakSelf;
+                   NSString *userAgent = result;
+                   NSString *newUserAgent = [userAgent stringByAppendingString:customUserAgent];
+                   [[NSUserDefaults standardUserDefaults] registerDefaults:@{@"UserAgent" : newUserAgent}];
+                   [[NSUserDefaults standardUserDefaults] synchronize];
+                   strongSelf.customUserAgent = newUserAgent;
+               }];
+    }else {
+        NSLog(@"API not available.");
+    }
 }
 
 @end

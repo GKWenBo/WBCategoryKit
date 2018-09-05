@@ -33,7 +33,7 @@
 }
 
 - (void)wb_setCancelBtnTitle:(NSString *)title {
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0) {
+    if (@available(iOS 9.0,*)) {
         [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setTitle:title];
     }else {
 #pragma clang diagnostic push
@@ -54,7 +54,7 @@
 }
 
 - (void)wb_setCancelBtnColor:(UIColor *)color {
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0) {
+    if (@available(iOS 9.0,*)) {
         [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setTitleTextAttributes:@{NSForegroundColorAttributeName : color} forState:UIControlStateNormal];
     }else {
 #pragma clang diagnostic push
@@ -65,7 +65,7 @@
 }
 
 - (void)wb_setCancelBtnFont:(UIFont *)font {
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0) {
+    if (@available(iOS 9.0,*)) {
         [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setTitleTextAttributes:@{NSFontAttributeName : font} forState:UIControlStateNormal];
     }else {
 #pragma clang diagnostic push
@@ -99,7 +99,7 @@
 }
 
 - (void)wb_setSearchTextColor:(UIColor *)color {
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0) {
+    if (@available(iOS 9.0,*)) {
         [UITextField appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]].textColor = color;
     }else {
 #pragma clang diagnostic push
