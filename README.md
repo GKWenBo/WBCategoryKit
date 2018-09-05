@@ -5,8 +5,8 @@
 <a  href="https://cocoapods.org/pods/WBCategoryKit"><img src ="https://img.shields.io/cocoapods/v/WBCategoryKit.svg?style=flat"> </a>
 <a  href="https://cocoapods.org/pods/WBCategoryKit"><img src ="https://img.shields.io/cocoapods/l/WBCategoryKit.svg?style=flat"> </a>
 <a  href="https://cocoapods.org/pods/WBCategoryKit"><img src ="https://img.shields.io/cocoapods/p/WBCategoryKit.svg?style=flat"> </a>
-<a  href="https://cocoapods.org/pods/WBCategoryKit"><img src ="https://img.shields.io/cocoapods/dt/WBCategoryKit-red.svg"> </a>
-<a  href="https://cocoapods.org/pods/WBCategoryKit"><img src ="https://img.shields.io/badge/language-objective-c-orange.svg"> </a>
+<a  href="https://cocoapods.org/pods/WBCategoryKit"><img src ="https://img.shields.io/cocoapods/dt/WBCategoryKit.svg"> </a>
+<a  href="https://cocoapods.org/pods/WBCategoryKit"><img src ="https://img.shields.io/badge/language-objc-orange.svg"> </a>
 </p>
 
 ## Example
