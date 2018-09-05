@@ -1,9 +1,9 @@
 # WBCategoryKit
 
 <p align="center">
-[![Version](https://img.shields.io/cocoapods/v/WBCategoryKit.svg?style=flat)](https://cocoapods.org/pods/WBCategoryKit)
-[![License](https://img.shields.io/cocoapods/l/WBCategoryKit.svg?style=flat)](https://cocoapods.org/pods/WBCategoryKit)
-[![Platform](https://img.shields.io/cocoapods/p/WBCategoryKit.svg?style=flat)](https://cocoapods.org/pods/WBCategoryKit)
+<a  href="https://cocoapods.org/pods/WBCategoryKit"><img src ="https://img.shields.io/cocoapods/v/WBCategoryKit.svg?style=flat"> </a>
+<a  href="https://cocoapods.org/pods/WBCategoryKit"><img src ="https://img.shields.io/cocoapods/l/WBCategoryKit.svg?style=flat"> </a>
+<a  href="https://cocoapods.org/pods/WBCategoryKit"><img src ="https://img.shields.io/cocoapods/p/WBCategoryKit.svg?style=flat"> </a>
 </p>
 
 ## Example
