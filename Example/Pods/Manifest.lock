@@ -1,5 +1,5 @@
 PODS:
-  - WBCategoryKit (0.1.0)
+  - WBCategoryKit (0.0.1)
 
 DEPENDENCIES:
   - WBCategoryKit (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  WBCategoryKit: b72562dd8d67a1f2a139a0cfafaea6447539efad
+  WBCategoryKit: 5da571d94529cbea53f4e6e6d2c45812e15a483e
 
 PODFILE CHECKSUM: 180cbe0af866ca384d38b76103e292232f21f862
 
