@@ -1,9 +1,10 @@
 # WBCategoryKit
 
-[![CI Status](https://img.shields.io/travis/wenmobo/WBCategoryKit.svg?style=flat)](https://travis-ci.org/wenmobo/WBCategoryKit)
+<p align="center">
 [![Version](https://img.shields.io/cocoapods/v/WBCategoryKit.svg?style=flat)](https://cocoapods.org/pods/WBCategoryKit)
 [![License](https://img.shields.io/cocoapods/l/WBCategoryKit.svg?style=flat)](https://cocoapods.org/pods/WBCategoryKit)
 [![Platform](https://img.shields.io/cocoapods/p/WBCategoryKit.svg?style=flat)](https://cocoapods.org/pods/WBCategoryKit)
+</p>
 
 ## Example
 
