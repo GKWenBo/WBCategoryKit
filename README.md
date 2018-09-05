@@ -5,24 +5,22 @@
 <a  href="https://cocoapods.org/pods/WBCategoryKit"><img src ="https://img.shields.io/cocoapods/v/WBCategoryKit.svg?style=flat"> </a>
 <a  href="https://cocoapods.org/pods/WBCategoryKit"><img src ="https://img.shields.io/cocoapods/l/WBCategoryKit.svg?style=flat"> </a>
 <a  href="https://cocoapods.org/pods/WBCategoryKit"><img src ="https://img.shields.io/cocoapods/p/WBCategoryKit.svg?style=flat"> </a>
-<a  href="https://cocoapods.org/pods/WBCategoryKit"><img src ="https://img.shields.io/cocoapods/dt/WBCategoryKit.svg"> </a>
 <a  href="https://cocoapods.org/pods/WBCategoryKit"><img src ="https://img.shields.io/badge/language-objc-red.svg"> </a>
 </p>
 
-## Example
+## 中文说明
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
 
 ## Installation
 
-WBCategoryKit is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
 ```ruby
 pod 'WBCategoryKit'
 ```
+
+## Usage
+
 
 ## Author
 
