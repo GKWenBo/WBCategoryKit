@@ -11,6 +11,4 @@ Pod::Spec.new do |s|
   s.source_files = 'WBCategoryKit/Classes/**/*.{h,m}'
   s.frameworks = 'UIKit', 'Foundation' , 'WebKit', 'AVFoundation', 'MobileCoreServices', 'Photos', 'AssetsLibrary', 'QuartzCore'
   s.requires_arc = true
-  #s.dependency 'SDWebImage'
-  #s.dependency 'UICKeyChainStore'
 end
