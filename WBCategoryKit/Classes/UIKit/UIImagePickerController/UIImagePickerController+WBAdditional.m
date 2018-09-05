@@ -30,7 +30,9 @@
     [mediaTypes addObject:(__bridge NSString *)kUTTypeICO];
     [mediaTypes addObject:(__bridge NSString *)kUTTypeRawImage];
     [mediaTypes addObject:(__bridge NSString *)kUTTypeScalableVectorGraphics];
-    [mediaTypes addObject:(__bridge NSString *)kUTTypeLivePhoto];
+    if (@available(iOS 9.1,*)) {
+        [mediaTypes addObject:(__bridge NSString *)kUTTypeLivePhoto];
+    }
     [controller setMediaTypes:mediaTypes];
     return controller;
 }

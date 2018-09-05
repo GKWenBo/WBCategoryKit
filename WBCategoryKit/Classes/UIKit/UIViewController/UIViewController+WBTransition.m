@@ -26,7 +26,7 @@
 }
 
 - (BOOL)wb_haveNavigationVc {
-    return self.navigationController;
+    return self.navigationController ? YES : NO;
 }
 
 - (void)wb_pushVcAnimated:(UIViewController *)vc {
