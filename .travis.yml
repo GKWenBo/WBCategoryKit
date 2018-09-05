@@ -11,7 +11,6 @@ xcode_project: WBCategoryKit.xcworkspace
 # - gem install cocoapods # Since Travis is not always on latest version
 # - pod install --project-directory=Example
 script:
-xcodebuild -project WBCategoryKit.xcworkspace -scheme "WBCategoryKit-Example" -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6,OS=latest'
+- set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/WBCategoryKit.xcworkspace -scheme WBCategoryKit-Example -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty
 
-#- set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/#WBCategoryKit.xcworkspace -scheme WBCategoryKit-Example -sdk iphonesimulator9.3 #ONLY_ACTIVE_ARCH=NO | xcpretty
 #- pod lib lint
