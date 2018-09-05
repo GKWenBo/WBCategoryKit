@@ -68,7 +68,6 @@ static dispatch_semaphore_t _cahcePoolLook;
                                             timeStyle:timeStyle
                                      localeIdentifier:identifier
                                          timeZoneName:timeZoneName];
-    NSLog(@"%@",key);
     NSDateFormatter *formatter = [self.dateFormatterCache objectForKey:key];
     if (formatter) return formatter;
     
@@ -98,8 +97,8 @@ static dispatch_semaphore_t _cahcePoolLook;
                          localeIdentifier:(NSString *)identifier
                              timeZoneName:(NSString *)timeZoneName {
     NSMutableString *key = [NSMutableString string];
-    if (dateStyle) [key appendFormat:@"%lu",dateStyle];
-    if (timeStyle) [key appendFormat:@"|%lu",timeStyle];
+    if (dateStyle) [key appendFormat:@"%lu",(unsigned long)dateStyle];
+    if (timeStyle) [key appendFormat:@"|%lu",(unsigned long)timeStyle];
     if (identifier) [key appendFormat:@"|%@",identifier];
     if (timeZoneName) [key appendFormat:@"|%@",timeZoneName];
     return key.copy;

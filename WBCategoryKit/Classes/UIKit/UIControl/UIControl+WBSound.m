@@ -16,7 +16,7 @@ static const void *kWBSoundKey = &kWBSoundKey;
 
 - (void)wb_playSoundWithFileName:(NSString *)fileName forControlEvent:(UIControlEvents)forControlEvent {
     // Remove the old UI sound.
-    NSString *oldSoundKey = [NSString stringWithFormat:@"%zd", forControlEvent];
+    NSString *oldSoundKey = [NSString stringWithFormat:@"%lu", (unsigned long)forControlEvent];
     AVAudioPlayer *oldSound = [self wb_sounds][oldSoundKey];
     [self removeTarget:oldSound action:@selector(play) forControlEvents:forControlEvent];
     
@@ -33,7 +33,7 @@ static const void *kWBSoundKey = &kWBSoundKey;
     
     // Create and prepare the sound.
     AVAudioPlayer *tapSound = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:&error];
-    NSString *controlEventKey = [NSString stringWithFormat:@"%zd", forControlEvent];
+    NSString *controlEventKey = [NSString stringWithFormat:@"%lu", (unsigned long)forControlEvent];
     NSMutableDictionary *sounds = [self wb_sounds];
     [sounds setObject:tapSound forKey:controlEventKey];
     [tapSound prepareToPlay];
