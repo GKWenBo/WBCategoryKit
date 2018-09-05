@@ -12,6 +12,7 @@
 
 
 ## Requirements
+
 - iOS 8+
 - Xcode 8+
 
@@ -28,7 +29,8 @@ pod 'WBCategoryKit'
 
 ## Author
 
-wenmobo, 1050794513@qq.com
+author：wenbo    
+email：1050794513@qq.com
 
 ## License
 
