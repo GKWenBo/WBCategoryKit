@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'WBCategoryKit'
-  s.version          = '1.0.1'
+  s.version          = '1.0.2'
   s.summary          = 'Some useful Objective-C Categories and Macro'
   s.homepage         = 'https://github.com/wenmobo/WBCategoryKit'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -9,13 +9,50 @@ Pod::Spec.new do |s|
   s.social_media_url = 'http://blogwenbo.com/'
   s.ios.deployment_target = '8.0'
   s.source_files = 'WBCategoryKit/WBCategoryKit.h'
-  s.frameworks = 'UIKit', 'Foundation' , 'WebKit', 'AVFoundation', 'MobileCoreServices', 'Photos', 'AssetsLibrary', 'QuartzCore', 'Accelerate'
+  s.frameworks = 'UIKit', 'Foundation' , 'WebKit', 'AVFoundation', 'MobileCoreServices', 'Photos', 'AssetsLibrary', 'QuartzCore', 'Accelerate', 'ImageIO', 'CoreText', 'CoreGraphics'
   s.requires_arc = true
   
-  s.subspec 'Foundation' do |ss|
-      ss.source_files = 'WBCategoryKit/Foundation/NSDictionary/**/*.{h,m}', 'WBCategoryKit/Foundation/NSData/**/*.{h,m}', 'WBCategoryKit/Foundation/NSString/**/*.{h,m}', 'WBCategoryKit/Foundation/NSArray/**/*.{h,m}', 'WBCategoryKit/Foundation/NSUserDefaults/**/*.{h,m}', 'WBCategoryKit/Foundation/NSObject/**/*.{h,m}', 'WBCategoryKit/Foundation/NSDate/**/*.{h,m}', 'WBCategoryKit/Foundation/WBFoundation.h'
-      ss.frameworks = 'Foundation', 'UIKit'
+  s.subspec 'Foundation' do |folder1|
+      folder1.source_files = 'WBCategoryKit/Foundation/WBFoundation.h'
+      folder1.frameworks = 'Foundation', 'UIKit'
+      
+      folder1.subspec 'NSData' do |folder2|
+          folder2.source_files = 'WBCategoryKit/Foundation/NSData/**/*.{h,m}'
+          folder2.frameworks = 'Foundation'
+          end
+      
+      folder1.subspec 'NSDictionary' do |folder2|
+          folder2.source_files = 'WBCategoryKit/Foundation/NSDictionary/**/*.{h,m}'
+          folder2.frameworks = 'Foundation'
+          folder2.dependency 'WBCategoryKit/Foundation/NSString'
       end
+      
+      folder1.subspec 'NSString' do |folder2|
+          folder2.source_files = 'WBCategoryKit/Foundation/NSString/**/*.{h,m}'
+          folder2.frameworks = 'Foundation', 'UIKit'
+      end
+      
+      folder1.subspec 'NSArray' do |folder2|
+          folder2.source_files = 'WBCategoryKit/Foundation/NSArray/**/*.{h,m}'
+          folder2.frameworks = 'Foundation'
+      end
+      
+      folder1.subspec 'NSUserDefaults' do |folder2|
+          folder2.source_files = 'WBCategoryKit/Foundation/NSUserDefaults/**/*.{h,m}'
+          folder2.frameworks = 'Foundation'
+      end
+      
+      folder1.subspec 'NSObject' do |folder2|
+          folder2.source_files = 'WBCategoryKit/Foundation/NSObject/**/*.{h,m}'
+          folder2.frameworks = 'Foundation'
+      end
+      
+      folder1.subspec 'NSDate' do |folder2|
+          folder2.source_files = 'WBCategoryKit/Foundation/NSDate/**/*.{h,m}'
+          folder2.frameworks = 'Foundation'
+      end
+      
+  end
   
   s.subspec 'Macro' do |ss|
       ss.source_files = 'WBCategoryKit/Macro/*.{h}'
@@ -27,11 +64,123 @@ Pod::Spec.new do |s|
       ss.frameworks = 'Foundation', 'UIKit', 'QuartzCore'
   end
   
-  s.subspec 'UIKit' do |ss|
-      ss.source_files = 'WBCategoryKit/UIKit/UIFont/**/*.{h,m}', 'WBCategoryKit/UIKit/UIImage/**/*.{h,m}', 'WBCategoryKit/UIKit/UIScrollView/**/*.{h,m}', 'WBCategoryKit/UIKit/UIScreen/**/*.{h,m}', 'WBCategoryKit/UIKit/UIWindow/**/*.{h,m}', 'WBCategoryKit/UIKit/UIApplication/**/*.{h,m}', 'WBCategoryKit/UIKit/UITableViewCell/**/*.{h,m}', 'WBCategoryKit/UIKit/UIButton/**/*.{h,m}', 'WBCategoryKit/UIKit/UIColor/**/*.{h,m}', 'WBCategoryKit/UIKit/UIAlertController/**/*.{h,m}', 'WBCategoryKit/UIKit/UIView/**/*.{h,m}', 'WBCategoryKit/UIKit/UINavigationItem/**/*.{h,m}', 'WBCategoryKit/UIKit/WKWebView/**/*.{h,m}', 'WBCategoryKit/UIKit/UITextView/**/*.{h,m}', 'WBCategoryKit/UIKit/UICollectionView/**/*.{h,m}', 'WBCategoryKit/UIKit/UIImagePickerController/**/*.{h,m}', 'WBCategoryKit/UIKit/UIBarButtonItem/**/*.{h,m}', 'WBCategoryKit/UIKit/UINavigationBar/**/*.{h,m}', 'WBCategoryKit/UIKit/UIViewController/**/*.{h,m}', 'WBCategoryKit/UIKit/UISearchBar/**/*.{h,m}', 'WBCategoryKit/UIKit/UIControl/**/*.{h,m}', 'WBCategoryKit/UIKit/WBUIKit.h'
-      ss.frameworks = 'Foundation', 'UIKit', 'WebKit', 'AVFoundation', 'MobileCoreServices', 'Photos', 'AssetsLibrary', 'QuartzCore', 'Accelerate'
-      ss.dependency 'WBCategoryKit/Foundation'
-      ss.dependency 'WBCategoryKit/Macro'
+  s.subspec 'UIKit' do |folder1|
+      folder1.source_files = 'WBCategoryKit/UIKit/WBUIKit.h'
+      folder1.frameworks = 'Foundation', 'UIKit', 'WebKit', 'AVFoundation', 'MobileCoreServices', 'Photos', 'AssetsLibrary', 'QuartzCore', 'Accelerate'
+      folder1.dependency 'WBCategoryKit/Foundation'
+      folder1.dependency 'WBCategoryKit/Macro'
+      
+      folder1.subspec 'UIFont' do |folder2|
+          folder2.source_files = 'WBCategoryKit/UIKit/UIFont/**/*.{h,m}'
+          folder2.frameworks = 'Foundation', 'UIKit'
+          folder2.dependency 'WBCategoryKit/Foundation/NSObject'
+          folder2.dependency 'WBCategoryKit/Macro'
+      end
+      
+      folder1.subspec 'UIImage' do |folder2|
+          folder2.source_files = 'WBCategoryKit/UIKit/UIImage/**/*.{h,m}'
+          folder2.frameworks = 'Foundation', 'UIKit', 'CoreGraphics', 'ImageIO', 'CoreText', 'AVFoundation', 'Accelerate'
+      end
+      
+      folder1.subspec 'UIScrollView' do |folder2|
+          folder2.source_files = 'WBCategoryKit/UIKit/UIScrollView/**/*.{h,m}'
+          folder2.frameworks = 'Foundation', 'UIKit'
+      end
+      
+      folder1.subspec 'UIScreen' do |folder2|
+          folder2.source_files = 'WBCategoryKit/UIKit/UIScreen/**/*.{h,m}'
+          folder2.frameworks = 'Foundation', 'UIKit'
+      end
+      
+      folder1.subspec 'UIWindow' do |folder2|
+          folder2.source_files = 'WBCategoryKit/UIKit/UIWindow/**/*.{h,m}'
+          folder2.frameworks = 'Foundation', 'UIKit'
+      end
+      
+      folder1.subspec 'UIApplication' do |folder2|
+          folder2.source_files = 'WBCategoryKit/UIKit/UIApplication/**/*.{h,m}'
+          folder2.frameworks = 'Foundation', 'UIKit'
+      end
+      
+      folder1.subspec 'UITableViewCell' do |folder2|
+          folder2.source_files = 'WBCategoryKit/UIKit/UITableViewCell/**/*.{h,m}'
+          folder2.frameworks = 'Foundation', 'UIKit'
+      end
+      
+      folder1.subspec 'UIButton' do |folder2|
+          folder2.source_files = 'WBCategoryKit/UIKit/UIButton/**/*.{h,m}'
+          folder2.frameworks = 'Foundation', 'UIKit'
+      end
+      
+      folder1.subspec 'UIColor' do |folder2|
+          folder2.source_files = 'WBCategoryKit/UIKit/UIColor/**/*.{h,m}'
+          folder2.frameworks = 'Foundation', 'UIKit'
+      end
+      
+      folder1.subspec 'UIAlertController' do |folder2|
+          folder2.source_files = 'WBCategoryKit/UIKit/UIAlertController/**/*.{h,m}'
+          folder2.frameworks = 'Foundation', 'UIKit'
+      end
+      
+      folder1.subspec 'UIView' do |folder2|
+          folder2.source_files = 'WBCategoryKit/UIKit/UIView/**/*.{h,m}'
+          folder2.frameworks = 'Foundation', 'UIKit', 'QuartzCore'
+      end
+      
+      folder1.subspec 'UINavigationItem' do |folder2|
+          folder2.source_files = 'WBCategoryKit/UIKit/UINavigationItem/**/*.{h,m}'
+          folder2.frameworks = 'Foundation', 'UIKit'
+      end
+      
+      folder1.subspec 'WKWebView' do |folder2|
+          folder2.source_files = 'WBCategoryKit/UIKit/WKWebView/**/*.{h,m}'
+          folder2.frameworks = 'Foundation', 'UIKit', 'WebKit'
+      end
+      
+      folder1.subspec 'UITextView' do |folder2|
+          folder2.source_files = 'WBCategoryKit/UIKit/UITextView/**/*.{h,m}'
+          folder2.frameworks = 'Foundation', 'UIKit'
+      end
+      
+      folder1.subspec 'UICollectionView' do |folder2|
+          folder2.source_files = 'WBCategoryKit/UIKit/UICollectionView/**/*.{h,m}'
+          folder2.frameworks = 'Foundation', 'UIKit'
+      end
+      
+      folder1.subspec 'UIImagePickerController' do |folder2|
+          folder2.source_files = 'WBCategoryKit/UIKit/UIImagePickerController/**/*.{h,m}'
+          folder2.frameworks = 'Foundation', 'UIKit', 'AVFoundation', 'MobileCoreServices', 'Photos', 'AssetsLibrary'
+      end
+      
+      folder1.subspec 'UIBarButtonItem' do |folder2|
+          folder2.source_files = 'WBCategoryKit/UIKit/UIBarButtonItem/**/*.{h,m}'
+          folder2.frameworks = 'Foundation', 'UIKit'
+      end
+      
+      folder1.subspec 'UINavigationBar' do |folder2|
+          folder2.source_files = 'WBCategoryKit/UIKit/UINavigationBar/**/*.{h,m}'
+          folder2.frameworks = 'Foundation', 'UIKit'
+      end
+      
+      folder1.subspec 'UIViewController' do |folder2|
+          folder2.source_files = 'WBCategoryKit/UIKit/UIViewController/**/*.{h,m}'
+          folder2.frameworks = 'Foundation', 'UIKit'
+      end
+      
+      folder1.subspec 'UISearchBar' do |folder2|
+          folder2.source_files = 'WBCategoryKit/UIKit/UISearchBar/**/*.{h,m}'
+          folder2.frameworks = 'Foundation', 'UIKit'
+      end
+      
+      folder1.subspec 'UISearchBar' do |folder2|
+          folder2.source_files = 'WBCategoryKit/UIKit/UISearchBar/**/*.{h,m}'
+          folder2.frameworks = 'Foundation', 'UIKit'
+      end
+      
+      folder1.subspec 'UIControl' do |folder2|
+          folder2.source_files = 'WBCategoryKit/UIKit/UIControl/**/*.{h,m}'
+          folder2.frameworks = 'Foundation', 'UIKit', 'AVFoundation'
+      end
   end
   
 end

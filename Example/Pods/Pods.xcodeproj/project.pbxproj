@@ -710,7 +710,6 @@
 			isa = PBXGroup;
 			children = (
 				C5D04FD121402BCC00B244FC /* WBUIButton.h */,
-				C5D04FC721402BCC00B244FC /* UIButton+WBCountDown.h */,
 				C5D04FCF21402BCC00B244FC /* UIButton+WBBlock.h */,
 				C5D04FCA21402BCC00B244FC /* UIButton+WBBlock.m */,
 				C5D04FCC21402BCC00B244FC /* UIButton+WBShowIndicator.h */,
@@ -721,6 +720,7 @@
 				C5D04FCE21402BCC00B244FC /* UIButton+WBImagePosition.m */,
 				C5D04FD021402BCC00B244FC /* UIButton+WBAdjustPosition.h */,
 				C5D04FC821402BCC00B244FC /* UIButton+WBAdjustPosition.m */,
+				C5D04FC721402BCC00B244FC /* UIButton+WBCountDown.h */,
 				C5D04FD221402BCC00B244FC /* UIButton+WBCountDown.m */,
 				C5D04FC621402BCC00B244FC /* UIButton+WBMiddleAlign.h */,
 				C5D04FD321402BCC00B244FC /* UIButton+WBMiddleAlign.m */,

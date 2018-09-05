@@ -10,6 +10,7 @@
 #import "WBDateFormatterPool.h"
 
 @implementation NSDate (WBTimePredicate)
+
 + (NSString *)wb_getChineseCalendarWithDate:(NSDate *)date {
     NSArray *chineseYears = [NSArray arrayWithObjects:
                              @"甲子", @"乙丑", @"丙寅", @"丁卯",  @"戊辰",  @"己巳",  @"庚午",  @"辛未",  @"壬申",  @"癸酉",
