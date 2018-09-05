@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 #import <objc/runtime.h>
+
 static const void *kWBSoundKey = &kWBSoundKey;
 
 @implementation UIControl (WBSound)

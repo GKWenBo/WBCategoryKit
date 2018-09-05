@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @interface UIView (WBFrame)
 
 @property (nonatomic,assign) CGFloat left;        ///< Shortcut for frame.origin.x.

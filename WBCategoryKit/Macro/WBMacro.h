@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#if __has_include(<WBCategoryKit/WBCategoryKit.h>)
+#if __has_include(<WBCategoryKit/WBMacro.h>)
 
 #import <WBCategoryKit/WBMacroDefinition.h>
 #import <WBCategoryKit/WBFontMacro.h>

@@ -10,6 +10,8 @@
 #endif
 #endif
 
+#import "WBCategoryKit.h"
+#import "WBFoundation.h"
 #import "NSArray+WBAdditional.h"
 #import "WBNSArray.h"
 #import "NSData+WBFragment.h"
@@ -33,7 +35,6 @@
 #import "WBNSString.h"
 #import "NSUserDefaults+WBAdditional.h"
 #import "WBNSUserDefaults.h"
-#import "WBFoundation.h"
 #import "WBClearWarningMacro.h"
 #import "WBFontMacro.h"
 #import "WBMacro.h"
@@ -41,6 +42,7 @@
 #import "WBSingletonMacro.h"
 #import "UIView+WBCoreAnimation.h"
 #import "WBQuartzCore.h"
+#import "WBUIKit.h"
 #import "UIAlertController+WBAdditional.h"
 #import "WBUIAlertController.h"
 #import "UIApplication+WBApplicationSize.h"
@@ -112,14 +114,12 @@
 #import "WBUIViewController.h"
 #import "UIWindow+WBHierarchy.h"
 #import "WBUIWindow.h"
-#import "WBUIKit.h"
 #import "WBWKWebView.h"
 #import "WKWebView+WBAdditional.h"
 #import "WKWebView+WBCapture.h"
 #import "WKWebView+WBJavaScript.h"
 #import "WKWebView+WBLoadInfo.h"
 #import "WKWebView+WBMetaParser.h"
-#import "WBCategoryKit.h"
 
 FOUNDATION_EXPORT double WBCategoryKitVersionNumber;
 FOUNDATION_EXPORT const unsigned char WBCategoryKitVersionString[];

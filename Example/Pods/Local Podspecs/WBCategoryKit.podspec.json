@@ -1,6 +1,6 @@
 {
   "name": "WBCategoryKit",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "summary": "Some useful Objective-C Categories and Macro",
   "homepage": "https://github.com/wenmobo/WBCategoryKit",
   "license": {
@@ -12,13 +12,13 @@
   },
   "source": {
     "git": "https://github.com/wenmobo/WBCategoryKit.git",
-    "tag": "0.0.1"
+    "tag": "0.0.2"
   },
   "social_media_url": "http://blogwenbo.com/",
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "WBCategoryKit/Classes/**/*.{h,m}",
+  "source_files": "WBCategoryKit/Classes/*.{h}",
   "frameworks": [
     "UIKit",
     "Foundation",
@@ -29,5 +29,48 @@
     "AssetsLibrary",
     "QuartzCore"
   ],
-  "requires_arc": true
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "Foundation",
+      "source_files": [
+        "WBCategoryKit/Classes/Foundation/*.{h}",
+        "WBCategoryKit/Classes/Foundation/**/*.{h,m}"
+      ],
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ]
+    },
+    {
+      "name": "Macro",
+      "source_files": "WBCategoryKit/Classes/Macro/**/*.{h}",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ]
+    },
+    {
+      "name": "QuartzCore",
+      "source_files": [
+        "WBCategoryKit/Classes/QuartzCore/*.{h}",
+        "WBCategoryKit/Classes/QuartzCore/**/*.{h,m}"
+      ],
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ]
+    },
+    {
+      "name": "UIKit",
+      "source_files": [
+        "WBCategoryKit/Classes/UIKit/*.{h}",
+        "WBCategoryKit/Classes/UIKit/**/*.{h,m}"
+      ],
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ]
+    }
+  ]
 }

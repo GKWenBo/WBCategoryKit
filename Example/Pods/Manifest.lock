@@ -1,5 +1,13 @@
 PODS:
-  - WBCategoryKit (0.0.1)
+  - WBCategoryKit (0.0.2):
+    - WBCategoryKit/Foundation (= 0.0.2)
+    - WBCategoryKit/Macro (= 0.0.2)
+    - WBCategoryKit/QuartzCore (= 0.0.2)
+    - WBCategoryKit/UIKit (= 0.0.2)
+  - WBCategoryKit/Foundation (0.0.2)
+  - WBCategoryKit/Macro (0.0.2)
+  - WBCategoryKit/QuartzCore (0.0.2)
+  - WBCategoryKit/UIKit (0.0.2)
 
 DEPENDENCIES:
   - WBCategoryKit (from `../`)
@@ -9,7 +17,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  WBCategoryKit: 5da571d94529cbea53f4e6e6d2c45812e15a483e
+  WBCategoryKit: 79d55349eb205cd2ddbe6e4112d7057c4b77c804
 
 PODFILE CHECKSUM: 180cbe0af866ca384d38b76103e292232f21f862
 

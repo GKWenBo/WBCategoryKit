@@ -8,6 +8,7 @@
 
 #import "UIImage+WBRotate.h"
 #import <Accelerate/Accelerate.h>
+
 /// Convert degrees to radians.
 static inline CGFloat DegreesToRadians(CGFloat degrees) {
     return degrees * M_PI / 180;
