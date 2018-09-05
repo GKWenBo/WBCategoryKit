@@ -12,12 +12,16 @@
 
 
 ## Requirements
+- iOS 8+
+- Xcode 8+
 
 ## Installation
 
+- 安装所有分类文件
 ```ruby
 pod 'WBCategoryKit'
 ```
+
 
 ## Usage
 

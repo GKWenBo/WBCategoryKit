@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   
   s.subspec 'Foundation' do |ss|
-      ss.source_files = 'WBCategoryKit/Foundation/**/*.{h,m}'
+      ss.source_files = 'WBCategoryKit/Foundation/NSDictionary/**/*.{h,m}', 'WBCategoryKit/Foundation/NSData/**/*.{h,m}', 'WBCategoryKit/Foundation/NSString/**/*.{h,m}', 'WBCategoryKit/Foundation/NSArray/**/*.{h,m}', 'WBCategoryKit/Foundation/NSUserDefaults/**/*.{h,m}', 'WBCategoryKit/Foundation/NSObject/**/*.{h,m}', 'WBCategoryKit/Foundation/NSDate/**/*.{h,m}', 'WBCategoryKit/Foundation/WBFoundation.h'
       ss.frameworks = 'Foundation', 'UIKit'
       end
   
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'UIKit' do |ss|
-      ss.source_files = 'WBCategoryKit/UIKit/**/*.{h,m}'
+      ss.source_files = 'WBCategoryKit/UIKit/UIFont/**/*.{h,m}', 'WBCategoryKit/UIKit/UIImage/**/*.{h,m}', 'WBCategoryKit/UIKit/UIScrollView/**/*.{h,m}', 'WBCategoryKit/UIKit/UIScreen/**/*.{h,m}', 'WBCategoryKit/UIKit/UIWindow/**/*.{h,m}', 'WBCategoryKit/UIKit/UIApplication/**/*.{h,m}', 'WBCategoryKit/UIKit/UITableViewCell/**/*.{h,m}', 'WBCategoryKit/UIKit/UIButton/**/*.{h,m}', 'WBCategoryKit/UIKit/UIColor/**/*.{h,m}', 'WBCategoryKit/UIKit/UIAlertController/**/*.{h,m}', 'WBCategoryKit/UIKit/UIView/**/*.{h,m}', 'WBCategoryKit/UIKit/UINavigationItem/**/*.{h,m}', 'WBCategoryKit/UIKit/WKWebView/**/*.{h,m}', 'WBCategoryKit/UIKit/UITextView/**/*.{h,m}', 'WBCategoryKit/UIKit/UICollectionView/**/*.{h,m}', 'WBCategoryKit/UIKit/UIImagePickerController/**/*.{h,m}', 'WBCategoryKit/UIKit/UIBarButtonItem/**/*.{h,m}', 'WBCategoryKit/UIKit/UINavigationBar/**/*.{h,m}', 'WBCategoryKit/UIKit/UIViewController/**/*.{h,m}', 'WBCategoryKit/UIKit/UISearchBar/**/*.{h,m}', 'WBCategoryKit/UIKit/UIControl/**/*.{h,m}', 'WBCategoryKit/UIKit/WBUIKit.h'
       ss.frameworks = 'Foundation', 'UIKit', 'WebKit', 'AVFoundation', 'MobileCoreServices', 'Photos', 'AssetsLibrary', 'QuartzCore', 'Accelerate'
       ss.dependency 'WBCategoryKit/Foundation'
       ss.dependency 'WBCategoryKit/Macro'

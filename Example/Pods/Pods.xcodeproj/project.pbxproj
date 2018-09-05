@@ -910,8 +910,8 @@
 			isa = PBXGroup;
 			children = (
 				C5D0512B21402F0C00B244FC /* WBQuartzCore.h */,
-				C5D0503C21402BCC00B244FC /* UIView+WBCoreAnimation.m */,
 				C5D0503D21402BCC00B244FC /* UIView+WBCoreAnimation.h */,
+				C5D0503C21402BCC00B244FC /* UIView+WBCoreAnimation.m */,
 			);
 			name = QuartzCore;
 			path = WBCategoryKit/QuartzCore;
