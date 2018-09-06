@@ -43,24 +43,24 @@ pod 'WBCategoryKit/UIKit/WKWebView'
 
 ### Foundation
 
-- NSObject  
-//swizzle 类方法   
+- NSObject     
 ```
+//swizzle 类方法
 + (void)swizzleClassMethodWithOriginSel:(SEL)oriSel
                             swizzledSel:(SEL)swiSel
                               selfClass:(Class)selfClass;
 ```
-
-//swizzle 实例方法  
+ 
 ```
+//swizzle 实例方法 
 + (void)swizzleInstanceMethodWithOriginSel:(SEL)oriSel
                                swizzledSel:(SEL)swiSel
                                  selfClass:(Class)selfClass;
 ```                                                         
                                                          
 - NSDate    
-//NSDateFormatter缓存 
 ```
+//NSDateFormatter缓存 
 - (NSDateFormatter *)wb_dateFormatterWithFormat:(NSString *)format;
 ```
 
@@ -92,36 +92,36 @@ pod 'WBCategoryKit/UIKit/WKWebView'
 
 ### UIKit
 
-- WKWebView 
-//获取某个标签的结点个数   
+- WKWebView    
 ```
+//获取某个标签的结点个数
 - (void)wb_nodeCountOfTag:(NSString *)tag
 completedHandler:(void (^) (int tagCount))completedHandler;
 ```
-
-//获取网页中的图片  
+ 
 ```
+//获取网页中的图片 
 - (void)wb_getImages:(void (^) (NSArray *images))completedHandler;
 ```
-
-//获取网页内容高度  
+  
 ```
+//获取网页内容高度
 - (void)wb_getScrollHeight:(void (^) (CGFloat scrollHeight))completedHandler;
 ```
 
-//为所有图片添加点击事件   
 ```
+//为所有图片添加点击事件
 - (void)wb_addClickEventOnImg;
 ```
-
-//根据id隐藏网页元素    
+    
 ```
+//根据id隐藏网页元素
 - (void)wb_hiddenElementById:(NSString *)idString;
 ```
 
-- UIFont    
-//runtime字体适配   
+- UIFont       
 ```
+//runtime字体适配
 + (UIFont *)_wb_systemFontOfSize:(CGFloat)fontSize;
 + (UIFont *)_wb_boldSystemFontOfSize:(CGFloat)fontSize;
 + (UIFont *)_wb_fontWithName:(NSString *)fontName
