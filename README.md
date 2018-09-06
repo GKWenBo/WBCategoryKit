@@ -1,8 +1,8 @@
 # WBCategoryKit
 
 <p align="left">
-<a href="https://travis-ci.org/wenmobo/WBCategoryKit"><img src="https://travis-ci.org/wenmobo/WBCategoryKit.svg?branch=master"></a>
-<a href="https://travis-ci.org/wenmobo/WBCategoryKit"><img src="https://img.shields.io/badge/cocoapods-supported-4BC51D.svg?style=flat"></a>
+<a href="https://travis-ci.org/wenmobo/WBCategoryKit"><img src="https://travis-ci.org/wenmobo/WBCategoryKit.svg?branch=master?style=flat"></a>
+<a href="https://travis-ci.org/wenmobo/WBCategoryKit"><img src="https://img.shields.io/badge/cocoapods-supported-4BC51D.svg?style=flatt"></a>
 <a  href="https://cocoapods.org/pods/WBCategoryKit"><img src ="https://img.shields.io/cocoapods/v/WBCategoryKit.svg?style=flat"> </a>
 <a  href="https://cocoapods.org/pods/WBCategoryKit"><img src ="https://img.shields.io/packagist/l/doctrine/orm.svg?style=flat"> </a>
 <a  href="https://cocoapods.org/pods/WBCategoryKit"><img src ="https://img.shields.io/cocoapods/p/WBCategoryKit.svg?style=flat"> </a>
