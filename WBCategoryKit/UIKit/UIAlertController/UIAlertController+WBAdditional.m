@@ -12,7 +12,6 @@
 
 #define kPhotoLibraryDeniedMessage [NSString stringWithFormat:@"请在iPhone的“设置”-“隐私”-“照片”功能中，找到“%@”打开照片访问权",[[NSBundle mainBundle].infoDictionary objectForKey:@"CFBundleName"]]
 
-
 @implementation UIAlertController (WBAdditional)
 
 + (void)showAlertWithTitle:(NSString *)title

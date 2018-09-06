@@ -17,8 +17,10 @@
     float randomGreen = (arc4random()%255)/255.0f;
     float randomBlue  = (arc4random()%255)/255.0f;
     
-    color= [UIColor colorWithRed:randomRed green:randomGreen blue:randomBlue alpha:1.0];
-    
+    color= [UIColor colorWithRed:randomRed
+                           green:randomGreen
+                            blue:randomBlue
+                           alpha:1.0];
     return color;
 }
 
@@ -101,12 +103,14 @@
                             blue:(rgbValue & 0xFF) / 255.0f
                            alpha:1];
 }
+
 + (UIColor *)wb_colorWithRGBA:(uint32_t)rgbaValue {
     return [UIColor colorWithRed:((rgbaValue & 0xFF000000) >> 24) / 255.0f
                            green:((rgbaValue & 0xFF0000) >> 16) / 255.0f
                             blue:((rgbaValue & 0xFF00) >> 8) / 255.0f
                            alpha:(rgbaValue & 0xFF) / 255.0f];
 }
+
 + (UIColor *)wb_colorWithRGB:(uint32_t)rgbValue
                        alpha:(CGFloat)alpha {
     return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16) / 255.0f
@@ -150,7 +154,6 @@
     CGGradientRelease(gradient);
     CGColorSpaceRelease(colorspace);
     UIGraphicsEndImageContext();
-    
     return [UIColor colorWithPatternImage:image];
 }
 

@@ -10,8 +10,7 @@
 
 @implementation UINavigationItem (WBLock)
 
-- (void)wb_lockRightItem:(BOOL)lock
-{
+- (void)wb_lockRightItem:(BOOL)lock {
     NSArray *rightBarItems = self.rightBarButtonItems;
     if (rightBarItems  && [rightBarItems count]>0) {
         [rightBarItems enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -25,8 +24,7 @@
     }
 }
 
-- (void)wb_lockLeftItem:(BOOL)lock
-{
+- (void)wb_lockLeftItem:(BOOL)lock {
     NSArray *leftBarItems = self.leftBarButtonItems;
     if (leftBarItems  && [leftBarItems count]>0) {
         [leftBarItems enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {

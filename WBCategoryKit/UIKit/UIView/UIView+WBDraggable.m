@@ -7,7 +7,6 @@
 //
 
 #import "UIView+WBDraggable.h"
-
 #import <objc/runtime.h>
 
 @implementation UIView (WBDraggable)
@@ -164,7 +163,6 @@
 }
 
 #pragma mark - Drag state handling
-
 - (void)setDraggable:(BOOL)draggable {
     self.panGesture.enabled = draggable;
 }
@@ -177,6 +175,5 @@
     self.handle = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     [self addGestureRecognizer:self.panGesture];
 }
-
 
 @end

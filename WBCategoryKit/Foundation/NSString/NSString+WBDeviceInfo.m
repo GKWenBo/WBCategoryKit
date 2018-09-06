@@ -8,6 +8,8 @@
 
 #import "NSString+WBDeviceInfo.h"
 #import <UIKit/UIKit.h>
+#import <CoreTelephony/CTTelephonyNetworkInfo.h>
+#import <CoreTelephony/CTCarrier.h>
 
 @implementation NSString (WBDeviceInfo)
 

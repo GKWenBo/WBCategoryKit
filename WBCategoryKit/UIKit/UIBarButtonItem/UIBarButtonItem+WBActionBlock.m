@@ -7,7 +7,6 @@
 //
 
 #import "UIBarButtonItem+WBActionBlock.h"
-
 #import <objc/runtime.h>
 
 static const void *kBarButtonItemActionKey = &kBarButtonItemActionKey;

@@ -39,6 +39,7 @@ typedef void(^WBSuperviewBlock)(UIView *spuerview);
  Enable control evnets.
  */
 - (void)wb_enableAllControlsInViewHierarchy;
+
 /**
  Disable control evnets.
  */

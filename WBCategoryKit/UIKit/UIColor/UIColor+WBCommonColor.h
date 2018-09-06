@@ -11,7 +11,6 @@
 @interface UIColor (WBCommonColor)
 
 #pragma mark --------  Custom Color  --------
-#pragma mark
 /**  分割线颜色 灰色  */
 + (UIColor *)wb_sepratorColor;
 /**  天蓝色  */

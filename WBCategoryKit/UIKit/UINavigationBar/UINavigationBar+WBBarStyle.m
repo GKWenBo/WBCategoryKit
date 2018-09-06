@@ -28,7 +28,6 @@ static char kWBStatusBarStyleKey;
 
 @implementation UINavigationController (WBBarStyle)
 
-
 /** < Override to return a child view controller or nil. If non-nil, that view controller's status bar appearance attributes will be used. If nil, self is used. Whenever the return values from these methods change, -setNeedsUpdatedStatusBarAttributes should be called. > */
 //- (UIViewController *)childViewControllerForStatusBarStyle {
 //    return self.topViewController;

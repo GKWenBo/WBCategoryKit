@@ -14,6 +14,7 @@
 #endif
 
 @implementation UIImage (WBEffect)
+
 + (UIImage *)wb_imageWithColor:(UIColor *)color {
     return [self wb_imageWithColor:color
                               size:CGSizeMake(1, 1)];

@@ -25,6 +25,7 @@
     // raise the image and push it right to center it
     self.imageEdgeInsets = UIEdgeInsetsMake(- (titleSize.height + spacing/2), 0.0, 0.0, - titleSize.width);
 }
+
 - (void)wb_verticalCenterImageAndTitle {
     const int DEFAULT_SPACING = 6.0f;
     [self wb_verticalCenterImageAndTitle:DEFAULT_SPACING];
@@ -45,6 +46,7 @@
     // raise the image and push it right to center it
     self.imageEdgeInsets = UIEdgeInsetsMake(0.0, titleSize.width + spacing/2, 0.0, - titleSize.width);
 }
+
 - (void)wb_horizontalCenterTitleAndImage {
     const int DEFAULT_SPACING = 6.0f;
     [self wb_horizontalCenterTitleAndImage:DEFAULT_SPACING];
@@ -58,6 +60,7 @@
     self.titleEdgeInsets = UIEdgeInsetsMake(0.0,  0.0, 0.0,  - spacing/2);
     self.imageEdgeInsets = UIEdgeInsetsMake(0.0, - spacing/2, 0.0, 0.0);
 }
+
 - (void)wb_horizontalCenterImageAndTitle {
     const int DEFAULT_SPACING = 6.0f;
     [self wb_horizontalCenterImageAndTitle:DEFAULT_SPACING];
@@ -70,6 +73,7 @@
     
     self.imageEdgeInsets = UIEdgeInsetsMake(0.0, - spacing, 0.0, 0.0);
 }
+
 - (void)wb_horizontalCenterTitleAndImageLeft {
     const int DEFAULT_SPACING = 6.0f;
     [self wb_horizontalCenterTitleAndImageLeft:DEFAULT_SPACING];

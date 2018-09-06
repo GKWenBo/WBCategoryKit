@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'WBCategoryKit'
-  s.version          = '1.0.2'
+  s.version          = '1.0.3'
   s.summary          = 'Some useful Objective-C Categories and Macro'
   s.homepage         = 'https://github.com/wenmobo/WBCategoryKit'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.social_media_url = 'http://blogwenbo.com/'
   s.ios.deployment_target = '8.0'
   s.source_files = 'WBCategoryKit/WBCategoryKit.h'
-  s.frameworks = 'UIKit', 'Foundation' , 'WebKit', 'AVFoundation', 'MobileCoreServices', 'Photos', 'AssetsLibrary', 'QuartzCore', 'Accelerate', 'ImageIO', 'CoreText', 'CoreGraphics'
+  s.frameworks = 'UIKit', 'Foundation' , 'WebKit', 'AVFoundation', 'MobileCoreServices', 'Photos', 'AssetsLibrary', 'QuartzCore', 'Accelerate', 'ImageIO', 'CoreText', 'CoreGraphics', 'CoreTelephony'
   s.requires_arc = true
   
   s.subspec 'Foundation' do |folder1|
@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
       
       folder1.subspec 'NSString' do |folder2|
           folder2.source_files = 'WBCategoryKit/Foundation/NSString/**/*.{h,m}'
-          folder2.frameworks = 'Foundation', 'UIKit'
+          folder2.frameworks = 'Foundation', 'UIKit', 'CoreTelephony'
       end
       
       folder1.subspec 'NSArray' do |folder2|
@@ -67,8 +67,6 @@ Pod::Spec.new do |s|
   s.subspec 'UIKit' do |folder1|
       folder1.source_files = 'WBCategoryKit/UIKit/WBUIKit.h'
       folder1.frameworks = 'Foundation', 'UIKit', 'WebKit', 'AVFoundation', 'MobileCoreServices', 'Photos', 'AssetsLibrary', 'QuartzCore', 'Accelerate'
-      folder1.dependency 'WBCategoryKit/Foundation'
-      folder1.dependency 'WBCategoryKit/Macro'
       
       folder1.subspec 'UIFont' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UIFont/**/*.{h,m}'
@@ -150,6 +148,7 @@ Pod::Spec.new do |s|
       folder1.subspec 'UIImagePickerController' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UIImagePickerController/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit', 'AVFoundation', 'MobileCoreServices', 'Photos', 'AssetsLibrary'
+          folder2.dependency 'WBCategoryKit/Foundation/NSDate'
       end
       
       folder1.subspec 'UIBarButtonItem' do |folder2|

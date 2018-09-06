@@ -49,7 +49,6 @@
     [self swizzledDealloc];
 }
 
-
 #pragma mark - Class Methods
 #pragma mark `defaultPlaceholderColor`
 
@@ -132,7 +131,6 @@
 }
 
 #pragma mark `placeholderColor`
-
 - (UIColor *)placeholderColor {
     return self.placeholderLabel.textColor;
 }
@@ -143,7 +141,6 @@
 
 
 #pragma mark `needsUpdateFont`
-
 - (BOOL)needsUpdateFont {
     return [objc_getAssociatedObject(self, @selector(needsUpdateFont)) boolValue];
 }

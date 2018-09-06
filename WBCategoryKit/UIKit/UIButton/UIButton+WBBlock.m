@@ -7,7 +7,6 @@
 //
 
 #import "UIButton+WBBlock.h"
-
 #import <objc/runtime.h>
 
 static const void *kButtonActionKey = &kButtonActionKey;
@@ -20,7 +19,6 @@ static const void *kButtonActionKey = &kButtonActionKey;
 }
 
 #pragma mark ------ < Event Response > ------
-#pragma mark
 - (void)wb_buttonActionBlock:(UIButton *)sender {
     WBButtonBlock block = objc_getAssociatedObject(self, kButtonActionKey);
     if (block) {

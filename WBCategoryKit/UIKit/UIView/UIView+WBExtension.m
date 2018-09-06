@@ -42,14 +42,12 @@
 }
 
 #pragma mark -- CornerRadius
-#pragma mark
 - (void)wb_setCornerRadius:(CGFloat)cornerRadius {
     self.layer.cornerRadius = cornerRadius;
     self.layer.masksToBounds = YES;
 }
 
 - (void)wb_setCircleCornerRadius {
-    
     NSAssert(self.bounds.size.width != self.bounds.size.height, @"请检查视图frame设置是否正确");
     [self wb_setCornerRadius:self.bounds.size.width];
 }
