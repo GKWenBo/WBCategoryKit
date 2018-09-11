@@ -42,15 +42,11 @@
     [self evaluateJavaScript:@"var objs = document.getElementsByTagName(\"img\");\
      var imgUrlStr = '';\
      for(var i = 0; i < objs.length; i ++){\
-         if(i == 0){\
-             if(objs[i].alt == ''){\
-                 imgUrlStr = objs[i].src;\
-             }\
-         }else{\
-             if(objs[i].alt==''){\
-                 imgUrlStr += ',' + objs[i].src;\
-            }\
-        }\
+     if(i == 0){\
+     imgUrlStr = objs[i].src;\
+     }else{\
+     imgUrlStr += '#' + objs[i].src;\
+     }\
      }"
            completionHandler:^(id _Nullable result, NSError * _Nullable error) {
                NSString *imageUrlString = (NSString *)result;
@@ -161,8 +157,14 @@
                for (int i = 0; i < tagCount; i ++) {
                    //利用重定向获取img.src，为区分，给url添加'img:'前缀
                    NSString *jsString = [NSString stringWithFormat:
-                                         @"document.getElementsByTagName('img')[%d].onclick = \
-                                         function() { document.location.href = 'img' + this.src; }",i];
+                                         @"var objs = document.getElementsByTagName(\"img\");\
+                                         for(var i = 0; i < objs.length; i ++){\
+                                         objs[i].setAttribute(\"index\", i);\
+                                         objs[i].onclick =\
+                                         function () {\
+                                         document.location.href = 'img' + this.getAttribute(\"index\");\
+                                         }\
+                                         }"];
                    [strongSelf evaluateJavaScript:jsString
                                 completionHandler:nil];
                }
