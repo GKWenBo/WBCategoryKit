@@ -7,6 +7,7 @@
 //
 
 #import "WBViewController.h"
+#import <WBCategoryKit/WBMacro.h>
 
 @interface WBViewController ()
 
@@ -17,7 +18,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
 }
 
 - (void)didReceiveMemoryWarning
