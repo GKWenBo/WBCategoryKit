@@ -17,6 +17,8 @@
 #import <WBCategoryKit/WBNSArray.h>
 #import <WBCategoryKit/WBNSObject.h>
 #import <WBCategoryKit/WBNSDate.h>
+#import <WBCategoryKit/WBNSDate.h>
+#import <WBCategoryKit/NSObject+WBSwizzle.h>
 
 #else
 
@@ -27,5 +29,6 @@
 #import "WBNSArray.h"
 #import "WBNSObject.h"
 #import "WBNSDate.h"
+#import "WBCategoryKit/NSObject+WBSwizzle.h"
 
 #endif

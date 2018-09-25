@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'WBCategoryKit'
-  s.version          = '1.0.5'
+  s.version          = '1.0.6'
   s.summary          = 'Some useful Objective-C Categories and Macro'
   s.homepage         = 'https://github.com/wenmobo/WBCategoryKit'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -51,6 +51,11 @@ Pod::Spec.new do |s|
           folder2.source_files = 'WBCategoryKit/Foundation/NSDate/**/*.{h,m}'
           folder2.frameworks = 'Foundation'
       end
+      
+      folder1.subspec 'Swizzle' do |folder2|
+          folder2.source_files = 'WBCategoryKit/Foundation/Swizzle/**/*.{h,m}'
+          folder2.frameworks = 'Foundation'
+          end
       
   end
   
