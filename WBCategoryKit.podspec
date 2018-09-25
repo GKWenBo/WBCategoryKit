@@ -76,7 +76,7 @@ Pod::Spec.new do |s|
       folder1.subspec 'UIFont' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UIFont/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit'
-          folder2.dependency 'WBCategoryKit/Foundation/NSObject'
+          folder2.dependency 'WBCategoryKit/Foundation/Swizzle'
           folder2.dependency 'WBCategoryKit/Macro'
       end
       
