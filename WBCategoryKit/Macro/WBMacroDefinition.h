@@ -106,7 +106,7 @@ _Pragma("clang diagnostic pop")\
 ||\
 CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size)\
 ||\
-CGSizeEqualToSize(CGSizeMake(828, 1792), [[UIScreen mainScreen] currentMode].size))\
+CGSizeEqualToSize(CGSizeMake(750, 1624), [[UIScreen mainScreen] currentMode].size))\
 : NO)
 
 /**  < 获取系统版本 >  */

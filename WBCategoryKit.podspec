@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'WBCategoryKit'
-  s.version          = '1.0.6'
+  s.version          = '1.0.7'
   s.summary          = 'Some useful Objective-C Categories and Macro'
   s.homepage         = 'https://github.com/wenmobo/WBCategoryKit'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
