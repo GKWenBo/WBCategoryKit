@@ -54,7 +54,6 @@
 #import "UIButton+WBAdditional.h"
 #import "UIButton+WBAdjustPosition.h"
 #import "UIButton+WBBlock.h"
-#import "UIButton+WBCountDown.h"
 #import "UIButton+WBEnlargeTouchAreas.h"
 #import "UIButton+WBImagePosition.h"
 #import "UIButton+WBMiddleAlign.h"

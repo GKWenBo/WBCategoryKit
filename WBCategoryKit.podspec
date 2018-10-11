@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'WBCategoryKit'
-  s.version          = '1.0.7'
+  s.version          = '1.0.8'
   s.summary          = 'Some useful Objective-C Categories and Macro'
   s.homepage         = 'https://github.com/wenmobo/WBCategoryKit'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -57,6 +57,10 @@ Pod::Spec.new do |s|
           folder2.frameworks = 'Foundation'
           end
       
+      folder1.subspec 'NSMutableAttributedString' do |folder2|
+          folder2.source_files = 'WBCategoryKit/Foundation/NSMutableAttributedString/**/*.{h,m}'
+          folder2.frameworks = 'Foundation','UIKit'
+      end
   end
   
   s.subspec 'Macro' do |ss|

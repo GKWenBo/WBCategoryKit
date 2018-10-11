@@ -168,6 +168,8 @@
 		CDDF7BF8627C4E0AEB57A56EE8135C7C /* NSData+WBFragment.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F34E9C24F7DE6B1D0F347CC08382609 /* NSData+WBFragment.m */; };
 		CEAD3C04AB4A2A7DF2F453E568E1C383 /* UIImage+WBRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6347F3E463597810A42193EFCC1438 /* UIImage+WBRotate.m */; };
 		CFF09CFE94695B6A726B307340003E0C /* WKWebView+WBJavaScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B85530E31E969599F38D36C0FDA673 /* WKWebView+WBJavaScript.m */; };
+		D0BABCF5216F34C800D89449 /* NSMutableAttributedString+WBAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = D0BABCF3216F34C800D89449 /* NSMutableAttributedString+WBAdditional.h */; };
+		D0BABCF6216F34C800D89449 /* NSMutableAttributedString+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BABCF4216F34C800D89449 /* NSMutableAttributedString+WBAdditional.m */; };
 		D46DB761E3A29220697B70C5D84721A7 /* UIButton+WBImagePosition.h in Headers */ = {isa = PBXBuildFile; fileRef = 46C8BB6BE504811C414D00805600F9F7 /* UIButton+WBImagePosition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D57587C477B0BB99EB9C808CA61091D7 /* UIView+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B7132209A15121AC763047B7736D740 /* UIView+WBAdditional.m */; };
 		D5E7C004D3DC3B6074094C30E47A8AD5 /* NSDate+WBAddtional.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F36573A4ADA358B789F909BADB3308 /* NSDate+WBAddtional.m */; };
@@ -418,6 +420,8 @@
 		CCB0252FDBC596A163D712034762FAE8 /* NSDate+WBTimePredicate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDate+WBTimePredicate.h"; path = "WBCategoryKit/Foundation/NSDate/NSDate+WBTimePredicate.h"; sourceTree = "<group>"; };
 		CD340C606B7E651F8F014A0187391B86 /* UIView+WBAdditional.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+WBAdditional.h"; path = "WBCategoryKit/UIKit/UIView/UIView+WBAdditional.h"; sourceTree = "<group>"; };
 		CFAF89BA45D7023249F80F39B3E8DF88 /* WBNSString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBNSString.h; path = WBCategoryKit/Foundation/NSString/WBNSString.h; sourceTree = "<group>"; };
+		D0BABCF3216F34C800D89449 /* NSMutableAttributedString+WBAdditional.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+WBAdditional.h"; sourceTree = "<group>"; };
+		D0BABCF4216F34C800D89449 /* NSMutableAttributedString+WBAdditional.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+WBAdditional.m"; sourceTree = "<group>"; };
 		D1D07C3E8FF1EB5C0E0DFF4EA0C90940 /* Pods-WBCategoryKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WBCategoryKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		D208A203F40B971586B405961E7CC42B /* UIApplication+WBApplicationSize.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIApplication+WBApplicationSize.h"; path = "WBCategoryKit/UIKit/UIApplication/UIApplication+WBApplicationSize.h"; sourceTree = "<group>"; };
 		D403EAF9DAAFAB997A7C5BDFE5422622 /* WBWKWebView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBWKWebView.h; path = WBCategoryKit/UIKit/WKWebView/WBWKWebView.h; sourceTree = "<group>"; };
@@ -879,6 +883,7 @@
 		A0A27CA47459E2F03FDE41195562681C /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				D0BABCEE216F348600D89449 /* NSMutableAttributedString */,
 				C1C509C2F1D868058DA453C45A4F2BF9 /* WBFoundation.h */,
 				57326C03BBE955A08077DDF6E39BAFCF /* NSArray */,
 				D5FA8D40D4099E8B3453739DB5C71497 /* NSData */,
@@ -960,6 +965,16 @@
 				97D7897AB79E7805D6FBE90C6D46557C /* WBUITableViewCell.h */,
 			);
 			name = UITableViewCell;
+			sourceTree = "<group>";
+		};
+		D0BABCEE216F348600D89449 /* NSMutableAttributedString */ = {
+			isa = PBXGroup;
+			children = (
+				D0BABCF3216F34C800D89449 /* NSMutableAttributedString+WBAdditional.h */,
+				D0BABCF4216F34C800D89449 /* NSMutableAttributedString+WBAdditional.m */,
+			);
+			name = NSMutableAttributedString;
+			path = WBCategoryKit/Foundation/NSMutableAttributedString;
 			sourceTree = "<group>";
 		};
 		D518F1623EE9EC937698DF20F40801D6 /* UIImagePickerController */ = {
@@ -1209,6 +1224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E674C7AA14CB3A2C7DE948B435A9513B /* Pods-WBCategoryKit_Example-umbrella.h in Headers */,
+				D0BABCF5216F34C800D89449 /* NSMutableAttributedString+WBAdditional.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1415,6 +1431,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0BABCF6216F34C800D89449 /* NSMutableAttributedString+WBAdditional.m in Sources */,
 				4C142F9240FB7F7990818EA8D3B2FF24 /* Pods-WBCategoryKit_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

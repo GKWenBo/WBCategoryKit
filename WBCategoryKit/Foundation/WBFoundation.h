@@ -19,6 +19,7 @@
 #import <WBCategoryKit/WBNSDate.h>
 #import <WBCategoryKit/WBNSDate.h>
 #import <WBCategoryKit/NSObject+WBSwizzle.h>
+#import <WBCategoryKit/NSMutableAttributedString+WBAdditional.h>
 
 #else
 
@@ -30,5 +31,6 @@
 #import "WBNSObject.h"
 #import "WBNSDate.h"
 #import "WBCategoryKit/NSObject+WBSwizzle.h"
+#import "WBCategoryKit/NSMutableAttributedString+WBAdditional.h"
 
 #endif
