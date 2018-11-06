@@ -168,6 +168,8 @@
 		CDDF7BF8627C4E0AEB57A56EE8135C7C /* NSData+WBFragment.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F34E9C24F7DE6B1D0F347CC08382609 /* NSData+WBFragment.m */; };
 		CEAD3C04AB4A2A7DF2F453E568E1C383 /* UIImage+WBRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6347F3E463597810A42193EFCC1438 /* UIImage+WBRotate.m */; };
 		CFF09CFE94695B6A726B307340003E0C /* WKWebView+WBJavaScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B85530E31E969599F38D36C0FDA673 /* WKWebView+WBJavaScript.m */; };
+		D064394D219146B900822923 /* UIScrollView+WBScrollDirection.h in Headers */ = {isa = PBXBuildFile; fileRef = D064394B219146B900822923 /* UIScrollView+WBScrollDirection.h */; };
+		D064394E219146B900822923 /* UIScrollView+WBScrollDirection.m in Sources */ = {isa = PBXBuildFile; fileRef = D064394C219146B900822923 /* UIScrollView+WBScrollDirection.m */; };
 		D0BABCF5216F34C800D89449 /* NSMutableAttributedString+WBAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = D0BABCF3216F34C800D89449 /* NSMutableAttributedString+WBAdditional.h */; };
 		D0BABCF6216F34C800D89449 /* NSMutableAttributedString+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BABCF4216F34C800D89449 /* NSMutableAttributedString+WBAdditional.m */; };
 		D46DB761E3A29220697B70C5D84721A7 /* UIButton+WBImagePosition.h in Headers */ = {isa = PBXBuildFile; fileRef = 46C8BB6BE504811C414D00805600F9F7 /* UIButton+WBImagePosition.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -420,6 +422,8 @@
 		CCB0252FDBC596A163D712034762FAE8 /* NSDate+WBTimePredicate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDate+WBTimePredicate.h"; path = "WBCategoryKit/Foundation/NSDate/NSDate+WBTimePredicate.h"; sourceTree = "<group>"; };
 		CD340C606B7E651F8F014A0187391B86 /* UIView+WBAdditional.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+WBAdditional.h"; path = "WBCategoryKit/UIKit/UIView/UIView+WBAdditional.h"; sourceTree = "<group>"; };
 		CFAF89BA45D7023249F80F39B3E8DF88 /* WBNSString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBNSString.h; path = WBCategoryKit/Foundation/NSString/WBNSString.h; sourceTree = "<group>"; };
+		D064394B219146B900822923 /* UIScrollView+WBScrollDirection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+WBScrollDirection.h"; path = "WBCategoryKit/UIKit/UIScrollView/UIScrollView+WBScrollDirection.h"; sourceTree = "<group>"; };
+		D064394C219146B900822923 /* UIScrollView+WBScrollDirection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+WBScrollDirection.m"; path = "WBCategoryKit/UIKit/UIScrollView/UIScrollView+WBScrollDirection.m"; sourceTree = "<group>"; };
 		D0BABCF3216F34C800D89449 /* NSMutableAttributedString+WBAdditional.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+WBAdditional.h"; sourceTree = "<group>"; };
 		D0BABCF4216F34C800D89449 /* NSMutableAttributedString+WBAdditional.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+WBAdditional.m"; sourceTree = "<group>"; };
 		D1D07C3E8FF1EB5C0E0DFF4EA0C90940 /* Pods-WBCategoryKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WBCategoryKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -1074,6 +1078,8 @@
 			children = (
 				BF505712B2C0EEA496875E0F29DF88C3 /* UIScrollView+WBAdditional.h */,
 				33B522417BF4B668340153845EB65357 /* UIScrollView+WBAdditional.m */,
+				D064394B219146B900822923 /* UIScrollView+WBScrollDirection.h */,
+				D064394C219146B900822923 /* UIScrollView+WBScrollDirection.m */,
 				3B4BE0162C3703F0A934AA11C82E3A07 /* WBUIScrollView.h */,
 			);
 			name = UIScrollView;
@@ -1223,6 +1229,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D064394D219146B900822923 /* UIScrollView+WBScrollDirection.h in Headers */,
 				E674C7AA14CB3A2C7DE948B435A9513B /* Pods-WBCategoryKit_Example-umbrella.h in Headers */,
 				D0BABCF5216F34C800D89449 /* NSMutableAttributedString+WBAdditional.h in Headers */,
 			);
@@ -1432,6 +1439,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0BABCF6216F34C800D89449 /* NSMutableAttributedString+WBAdditional.m in Sources */,
+				D064394E219146B900822923 /* UIScrollView+WBScrollDirection.m in Sources */,
 				4C142F9240FB7F7990818EA8D3B2FF24 /* Pods-WBCategoryKit_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
