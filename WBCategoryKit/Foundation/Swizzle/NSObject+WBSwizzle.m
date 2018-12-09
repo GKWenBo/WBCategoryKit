@@ -1,28 +1,27 @@
 //
-//  NSObject+WBRuntime.m
-//  UINavigationItemDemo
+//  NSObject+WBSwizzle.m
+//  Pods-WBCategoryKit_Example
 //
-//  Created by WMB on 2017/9/26.
-//  Copyright © 2017年 WMB. All rights reserved.
+//  Created by Mr_Lucky on 2018/9/25.
 //
 
-#import "NSObject+WBRuntime.h"
+#import "NSObject+WBSwizzle.h"
 #import <objc/runtime.h>
 
 char * const kProtectCrashProtectorName = "kProtectCrashProtector";
 void ProtectCrashProtected(id self, SEL sel) {
 }
 
-@implementation NSObject (WBRuntime)
+@implementation NSObject (WBSwizzle)
 
 + (void)wb_exchangeMethodWithOriginMethod:(SEL)oriSel
                                    newSel:(SEL)newSel {
     /**  获取替换后的方法  */
-    Method newMethod = class_getClassMethod([self class], oriSel);
+    Method method = class_getClassMethod([self class], oriSel);
     /**  获取替换前的类方法  */
-    Method method = class_getClassMethod([self class], newSel);
+    Method newMethod = class_getClassMethod([self class], newSel);
     /**  交换类方法  */
-    method_exchangeImplementations(newMethod, method);
+    method_exchangeImplementations(method, newMethod);
 }
 
 + (void)swizzleClassMethodWithOriginSel:(SEL)oriSel

@@ -10,7 +10,6 @@
 
 #if __has_include(<WBCategoryKit/WBUIButton.h>)
 
-#import <WBCategoryKit/UIButton+WBCountDown.h>
 #import <WBCategoryKit/UIButton+WBAdjustPosition.h>
 #import <WBCategoryKit/UIButton+WBAdditional.h>
 #import <WBCategoryKit/UIButton+WBEnlargeTouchAreas.h>
@@ -21,7 +20,6 @@
 
 #else
 
-#import "UIButton+WBCountDown.h"
 #import "UIButton+WBAdjustPosition.h"
 #import "UIButton+WBAdditional.h"
 #import "UIButton+WBEnlargeTouchAreas.h"

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'WBCategoryKit'
-  s.version          = '1.0.4'
+  s.version          = '1.0.8'
   s.summary          = 'Some useful Objective-C Categories and Macro'
   s.homepage         = 'https://github.com/wenmobo/WBCategoryKit'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -52,6 +52,15 @@ Pod::Spec.new do |s|
           folder2.frameworks = 'Foundation'
       end
       
+      folder1.subspec 'Swizzle' do |folder2|
+          folder2.source_files = 'WBCategoryKit/Foundation/Swizzle/**/*.{h,m}'
+          folder2.frameworks = 'Foundation'
+          end
+      
+      folder1.subspec 'NSMutableAttributedString' do |folder2|
+          folder2.source_files = 'WBCategoryKit/Foundation/NSMutableAttributedString/**/*.{h,m}'
+          folder2.frameworks = 'Foundation','UIKit'
+      end
   end
   
   s.subspec 'Macro' do |ss|
@@ -71,7 +80,7 @@ Pod::Spec.new do |s|
       folder1.subspec 'UIFont' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UIFont/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit'
-          folder2.dependency 'WBCategoryKit/Foundation/NSObject'
+          folder2.dependency 'WBCategoryKit/Foundation/Swizzle'
           folder2.dependency 'WBCategoryKit/Macro'
       end
       

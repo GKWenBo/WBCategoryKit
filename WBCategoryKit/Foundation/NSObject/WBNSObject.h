@@ -11,11 +11,9 @@
 #if __has_include(<WBCategoryKit/WBNSObject.h>)
 
 #import <WBCategoryKit/NSObject+WBJSON.h>
-#import <WBCategoryKit/NSObject+WBRuntime.h>
 
 #else
 
 #import "NSObject+WBJSON.h"
-#import "NSObject+WBRuntime.h"
 
 #endif

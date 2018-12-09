@@ -1,18 +1,19 @@
 //
-//  NSObject+WBRuntime.h
-//  UINavigationItemDemo
+//  NSObject+WBSwizzle.h
+//  Pods-WBCategoryKit_Example
 //
-//  Created by WMB on 2017/9/26.
-//  Copyright © 2017年 WMB. All rights reserved.
+//  Created by Mr_Lucky on 2018/9/25.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface NSObject (WBRuntime)
+NS_ASSUME_NONNULL_BEGIN
+
+@interface NSObject (WBSwizzle)
 
 /**
  Exchange method.
-
+ 
  @param oriSel origin method.
  @param newSel new method.
  */
@@ -69,3 +70,5 @@
 + (Class)addMethodToStubClass:(SEL)aSelector;
 
 @end
+
+NS_ASSUME_NONNULL_END

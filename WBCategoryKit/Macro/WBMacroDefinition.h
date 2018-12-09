@@ -101,7 +101,13 @@ _Pragma("clang diagnostic pop")\
 #define kWB_IS_IPHONE6PLUS_OR_6SPLUS [[UIScreen mainScreen] bounds].size.width == 414.0f && [[UIScreen mainScreen] bounds].size.height == 736.0f
 
 /**  < 判断是否是iPhone X >  */
-#define kWB_IS_IPHONE_X ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+#define kWB_IS_IPHONE_X ([UIScreen instancesRespondToSelector:@selector(currentMode)] ?\
+(CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size)\
+||\
+CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size)\
+||\
+CGSizeEqualToSize(CGSizeMake(750, 1624), [[UIScreen mainScreen] currentMode].size))\
+: NO)
 
 /**  < 获取系统版本 >  */
 #define kWB_IOS_SYSTEM_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
