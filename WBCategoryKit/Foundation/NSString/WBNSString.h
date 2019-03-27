@@ -15,6 +15,7 @@
 #import <WBCategoryKit/NSString+WBJavaScript.h>
 #import <WBCategoryKit/NSString+WBCreateFileName.h>
 #import <WBCategoryKit/NSString+WBDeviceInfo.h>
+#import <WBCategoryKit/NSString+HTML.h>
 
 #else
 
@@ -23,5 +24,6 @@
 #import "NSString+WBJavaScript.h"
 #import "NSString+WBCreateFileName.h"
 #import "NSString+WBDeviceInfo.h"
+#import "WBCategoryKit/NSString+HTML.h"
 
 #endif
