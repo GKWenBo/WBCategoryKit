@@ -11,9 +11,11 @@
 #if __has_include(<WBCategoryKit/WBUIFont.h>)
 
 #import <WBCategoryKit/UIFont+WBAdaptFontSize.h>
+#import <WBCategoryKit/UIFont+WBAdditional.h>
 
 #else
 
 #import "UIFont+WBAdaptFontSize.h"
+#import "UIFont+WBAdditional.h"
 
 #endif

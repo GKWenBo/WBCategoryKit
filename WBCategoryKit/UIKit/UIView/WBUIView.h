@@ -11,7 +11,6 @@
 #if __has_include(<WBCategoryKit/WBUIView.h>)
 
 #import <WBCategoryKit/UIView+WBBlurEffect.h>
-#import <WBCategoryKit/UIView+WBBasicAnimation.h>
 #import <WBCategoryKit/UIView+WBRecursion.h>
 #import <WBCategoryKit/UIView+WBDraggable.h>
 #import <WBCategoryKit/UIView+WBAdditional.h>
@@ -20,13 +19,11 @@
 #import <WBCategoryKit/UIView+WBFind.h>
 #import <WBCategoryKit/UIView+WBFrame.h>
 #import <WBCategoryKit/UIView+WBDismissKeyboard.h>
-#import <WBCategoryKit/UIView+WBExtension.h>
-#import <WBCategoryKit/UIView+WBShake.h>
+#import <WBCategoryKit/UIView+WBAnimation.h>
 
 #else
 
 #import "UIView+WBBlurEffect.h"
-#import "UIView+WBBasicAnimation.h"
 #import "UIView+WBRecursion.h"
 #import "UIView+WBDraggable.h"
 #import "UIView+WBAdditional.h"
@@ -35,7 +32,6 @@
 #import "UIView+WBFind.h"
 #import "UIView+WBFrame.h"
 #import "UIView+WBDismissKeyboard.h"
-#import "UIView+WBExtension.h"
-#import "UIView+WBShake.h"
+#import "UIView+WBAnimation.h"
 
 #endif

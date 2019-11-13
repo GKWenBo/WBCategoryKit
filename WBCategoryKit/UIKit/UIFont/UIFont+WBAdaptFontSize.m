@@ -29,17 +29,17 @@
 }
 
 + (UIFont *)_wb_systemFontOfSize:(CGFloat)fontSize {
-    return [self _wb_systemFontOfSize:kWB_AUTOLAYOUTSIZE(fontSize)];
+    return [self _wb_systemFontOfSize:WB_AUTOLAYOUTSIZE(fontSize)];
 }
 
 + (UIFont *)_wb_boldSystemFontOfSize:(CGFloat)fontSize {
-    return [self _wb_boldSystemFontOfSize:kWB_AUTOLAYOUTSIZE(fontSize)];
+    return [self _wb_boldSystemFontOfSize:WB_AUTOLAYOUTSIZE(fontSize)];
 }
 
 + (UIFont *)_wb_fontWithName:(NSString *)fontName
                         size:(CGFloat)fontSize {
     return [self _wb_fontWithName:fontName
-                             size:kWB_AUTOLAYOUTSIZE(fontSize)];
+                             size:WB_AUTOLAYOUTSIZE(fontSize)];
 }
 
 @end

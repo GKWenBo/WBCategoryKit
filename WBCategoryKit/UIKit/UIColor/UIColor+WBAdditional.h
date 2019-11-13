@@ -77,10 +77,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSString *)wb_getHexString;
 
-#pragma mark --------  渐变色  --------
+#pragma mark 渐变色
+/// 创建渐变颜色
+/// @param c1 起始颜色
+/// @param c2 终止颜色
+/// @param startPoint 渐变起始点
+/// @param endPoint 渐变结束点
 + (UIColor*)wb_gradientFromColor:(UIColor *)c1
                          toColor:(UIColor *)c2
-                      withHeight:(int)height;
+                      startPoint:(CGPoint)startPoint
+                        endPoint:(CGPoint)endPoint;
 
 @end
 NS_ASSUME_NONNULL_END

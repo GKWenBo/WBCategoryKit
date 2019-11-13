@@ -13,7 +13,6 @@
 #import <WBCategoryKit/NSString+WBAddtional.h>
 #import <WBCategoryKit/NSString+WBPredicate.h>
 #import <WBCategoryKit/NSString+WBJavaScript.h>
-#import <WBCategoryKit/NSString+WBCreateFileName.h>
 #import <WBCategoryKit/NSString+WBDeviceInfo.h>
 #import <WBCategoryKit/NSString+HTML.h>
 
@@ -22,7 +21,6 @@
 #import "NSString+WBAddtional.h"
 #import "NSString+WBPredicate.h"
 #import "NSString+WBJavaScript.h"
-#import "NSString+WBCreateFileName.h"
 #import "NSString+WBDeviceInfo.h"
 #import "WBCategoryKit/NSString+HTML.h"
 

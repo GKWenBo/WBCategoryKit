@@ -12,14 +12,12 @@
 
 #import <WBCategoryKit/UIImage+WBAdditional.h>
 #import <WBCategoryKit/UIImage+WBCompress.h>
-#import <WBCategoryKit/UIImage+WBEffect.h>
 #import <WBCategoryKit/UIImage+WBRotate.h>
 
 #else
 
 #import "UIImage+WBAdditional.h"
 #import "UIImage+WBCompress.h"
-#import "UIImage+WBEffect.h"
 #import "UIImage+WBRotate.h"
 
 #endif

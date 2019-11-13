@@ -1,78 +1,77 @@
 PODS:
-  - WBCategoryKit (1.0.8):
-    - WBCategoryKit/Foundation (= 1.0.8)
-    - WBCategoryKit/Macro (= 1.0.8)
-    - WBCategoryKit/QuartzCore (= 1.0.8)
-    - WBCategoryKit/UIKit (= 1.0.8)
-  - WBCategoryKit/Foundation (1.0.8):
-    - WBCategoryKit/Foundation/NSArray (= 1.0.8)
-    - WBCategoryKit/Foundation/NSData (= 1.0.8)
-    - WBCategoryKit/Foundation/NSDate (= 1.0.8)
-    - WBCategoryKit/Foundation/NSDictionary (= 1.0.8)
-    - WBCategoryKit/Foundation/NSMutableAttributedString (= 1.0.8)
-    - WBCategoryKit/Foundation/NSObject (= 1.0.8)
-    - WBCategoryKit/Foundation/NSString (= 1.0.8)
-    - WBCategoryKit/Foundation/NSUserDefaults (= 1.0.8)
-    - WBCategoryKit/Foundation/Swizzle (= 1.0.8)
-  - WBCategoryKit/Foundation/NSArray (1.0.8)
-  - WBCategoryKit/Foundation/NSData (1.0.8)
-  - WBCategoryKit/Foundation/NSDate (1.0.8)
-  - WBCategoryKit/Foundation/NSDictionary (1.0.8):
+  - WBCategoryKit (1.1.0):
+    - WBCategoryKit/Foundation (= 1.1.0)
+    - WBCategoryKit/Macro (= 1.1.0)
+    - WBCategoryKit/QuartzCore (= 1.1.0)
+    - WBCategoryKit/UIKit (= 1.1.0)
+  - WBCategoryKit/Foundation (1.1.0):
+    - WBCategoryKit/Foundation/NSArray (= 1.1.0)
+    - WBCategoryKit/Foundation/NSData (= 1.1.0)
+    - WBCategoryKit/Foundation/NSDate (= 1.1.0)
+    - WBCategoryKit/Foundation/NSDictionary (= 1.1.0)
+    - WBCategoryKit/Foundation/NSMutableAttributedString (= 1.1.0)
+    - WBCategoryKit/Foundation/NSObject (= 1.1.0)
+    - WBCategoryKit/Foundation/NSString (= 1.1.0)
+    - WBCategoryKit/Foundation/NSUserDefaults (= 1.1.0)
+    - WBCategoryKit/Foundation/Swizzle (= 1.1.0)
+  - WBCategoryKit/Foundation/NSArray (1.1.0)
+  - WBCategoryKit/Foundation/NSData (1.1.0)
+  - WBCategoryKit/Foundation/NSDate (1.1.0)
+  - WBCategoryKit/Foundation/NSDictionary (1.1.0):
     - WBCategoryKit/Foundation/NSString
-  - WBCategoryKit/Foundation/NSMutableAttributedString (1.0.8)
-  - WBCategoryKit/Foundation/NSObject (1.0.8)
-  - WBCategoryKit/Foundation/NSString (1.0.8)
-  - WBCategoryKit/Foundation/NSUserDefaults (1.0.8)
-  - WBCategoryKit/Foundation/Swizzle (1.0.8)
-  - WBCategoryKit/Macro (1.0.8)
-  - WBCategoryKit/QuartzCore (1.0.8)
-  - WBCategoryKit/UIKit (1.0.8):
-    - WBCategoryKit/UIKit/UIAlertController (= 1.0.8)
-    - WBCategoryKit/UIKit/UIApplication (= 1.0.8)
-    - WBCategoryKit/UIKit/UIBarButtonItem (= 1.0.8)
-    - WBCategoryKit/UIKit/UIButton (= 1.0.8)
-    - WBCategoryKit/UIKit/UICollectionView (= 1.0.8)
-    - WBCategoryKit/UIKit/UIColor (= 1.0.8)
-    - WBCategoryKit/UIKit/UIControl (= 1.0.8)
-    - WBCategoryKit/UIKit/UIFont (= 1.0.8)
-    - WBCategoryKit/UIKit/UIImage (= 1.0.8)
-    - WBCategoryKit/UIKit/UIImagePickerController (= 1.0.8)
-    - WBCategoryKit/UIKit/UINavigationBar (= 1.0.8)
-    - WBCategoryKit/UIKit/UINavigationItem (= 1.0.8)
-    - WBCategoryKit/UIKit/UIScreen (= 1.0.8)
-    - WBCategoryKit/UIKit/UIScrollView (= 1.0.8)
-    - WBCategoryKit/UIKit/UISearchBar (= 1.0.8)
-    - WBCategoryKit/UIKit/UISearchBar (= 1.0.8)
-    - WBCategoryKit/UIKit/UITableViewCell (= 1.0.8)
-    - WBCategoryKit/UIKit/UITextView (= 1.0.8)
-    - WBCategoryKit/UIKit/UIView (= 1.0.8)
-    - WBCategoryKit/UIKit/UIViewController (= 1.0.8)
-    - WBCategoryKit/UIKit/UIWindow (= 1.0.8)
-    - WBCategoryKit/UIKit/WKWebView (= 1.0.8)
-  - WBCategoryKit/UIKit/UIAlertController (1.0.8)
-  - WBCategoryKit/UIKit/UIApplication (1.0.8)
-  - WBCategoryKit/UIKit/UIBarButtonItem (1.0.8)
-  - WBCategoryKit/UIKit/UIButton (1.0.8)
-  - WBCategoryKit/UIKit/UICollectionView (1.0.8)
-  - WBCategoryKit/UIKit/UIColor (1.0.8)
-  - WBCategoryKit/UIKit/UIControl (1.0.8)
-  - WBCategoryKit/UIKit/UIFont (1.0.8):
+  - WBCategoryKit/Foundation/NSMutableAttributedString (1.1.0)
+  - WBCategoryKit/Foundation/NSObject (1.1.0)
+  - WBCategoryKit/Foundation/NSString (1.1.0)
+  - WBCategoryKit/Foundation/NSUserDefaults (1.1.0)
+  - WBCategoryKit/Foundation/Swizzle (1.1.0)
+  - WBCategoryKit/Macro (1.1.0)
+  - WBCategoryKit/QuartzCore (1.1.0)
+  - WBCategoryKit/UIKit (1.1.0):
+    - WBCategoryKit/UIKit/UIAlertController (= 1.1.0)
+    - WBCategoryKit/UIKit/UIApplication (= 1.1.0)
+    - WBCategoryKit/UIKit/UIBarButtonItem (= 1.1.0)
+    - WBCategoryKit/UIKit/UIButton (= 1.1.0)
+    - WBCategoryKit/UIKit/UICollectionView (= 1.1.0)
+    - WBCategoryKit/UIKit/UIColor (= 1.1.0)
+    - WBCategoryKit/UIKit/UIControl (= 1.1.0)
+    - WBCategoryKit/UIKit/UIFont (= 1.1.0)
+    - WBCategoryKit/UIKit/UIImage (= 1.1.0)
+    - WBCategoryKit/UIKit/UIImagePickerController (= 1.1.0)
+    - WBCategoryKit/UIKit/UINavigationBar (= 1.1.0)
+    - WBCategoryKit/UIKit/UINavigationItem (= 1.1.0)
+    - WBCategoryKit/UIKit/UIScreen (= 1.1.0)
+    - WBCategoryKit/UIKit/UIScrollView (= 1.1.0)
+    - WBCategoryKit/UIKit/UISearchBar (= 1.1.0)
+    - WBCategoryKit/UIKit/UITableViewCell (= 1.1.0)
+    - WBCategoryKit/UIKit/UITextView (= 1.1.0)
+    - WBCategoryKit/UIKit/UIView (= 1.1.0)
+    - WBCategoryKit/UIKit/UIViewController (= 1.1.0)
+    - WBCategoryKit/UIKit/UIWindow (= 1.1.0)
+    - WBCategoryKit/UIKit/WKWebView (= 1.1.0)
+  - WBCategoryKit/UIKit/UIAlertController (1.1.0)
+  - WBCategoryKit/UIKit/UIApplication (1.1.0)
+  - WBCategoryKit/UIKit/UIBarButtonItem (1.1.0)
+  - WBCategoryKit/UIKit/UIButton (1.1.0)
+  - WBCategoryKit/UIKit/UICollectionView (1.1.0)
+  - WBCategoryKit/UIKit/UIColor (1.1.0)
+  - WBCategoryKit/UIKit/UIControl (1.1.0)
+  - WBCategoryKit/UIKit/UIFont (1.1.0):
     - WBCategoryKit/Foundation/Swizzle
     - WBCategoryKit/Macro
-  - WBCategoryKit/UIKit/UIImage (1.0.8)
-  - WBCategoryKit/UIKit/UIImagePickerController (1.0.8):
+  - WBCategoryKit/UIKit/UIImage (1.1.0)
+  - WBCategoryKit/UIKit/UIImagePickerController (1.1.0):
     - WBCategoryKit/Foundation/NSDate
-  - WBCategoryKit/UIKit/UINavigationBar (1.0.8)
-  - WBCategoryKit/UIKit/UINavigationItem (1.0.8)
-  - WBCategoryKit/UIKit/UIScreen (1.0.8)
-  - WBCategoryKit/UIKit/UIScrollView (1.0.8)
-  - WBCategoryKit/UIKit/UISearchBar (1.0.8)
-  - WBCategoryKit/UIKit/UITableViewCell (1.0.8)
-  - WBCategoryKit/UIKit/UITextView (1.0.8)
-  - WBCategoryKit/UIKit/UIView (1.0.8)
-  - WBCategoryKit/UIKit/UIViewController (1.0.8)
-  - WBCategoryKit/UIKit/UIWindow (1.0.8)
-  - WBCategoryKit/UIKit/WKWebView (1.0.8)
+  - WBCategoryKit/UIKit/UINavigationBar (1.1.0)
+  - WBCategoryKit/UIKit/UINavigationItem (1.1.0)
+  - WBCategoryKit/UIKit/UIScreen (1.1.0)
+  - WBCategoryKit/UIKit/UIScrollView (1.1.0)
+  - WBCategoryKit/UIKit/UISearchBar (1.1.0)
+  - WBCategoryKit/UIKit/UITableViewCell (1.1.0)
+  - WBCategoryKit/UIKit/UITextView (1.1.0)
+  - WBCategoryKit/UIKit/UIView (1.1.0)
+  - WBCategoryKit/UIKit/UIViewController (1.1.0)
+  - WBCategoryKit/UIKit/UIWindow (1.1.0)
+  - WBCategoryKit/UIKit/WKWebView (1.1.0)
 
 DEPENDENCIES:
   - WBCategoryKit (from `../`)
@@ -82,8 +81,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  WBCategoryKit: 669c76ecbe4137ae9fd1a3f823366fcd7093186c
+  WBCategoryKit: c710c5d008af1016cc24db0e04fe3e26f46275b6
 
 PODFILE CHECKSUM: 180cbe0af866ca384d38b76103e292232f21f862
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.8.4

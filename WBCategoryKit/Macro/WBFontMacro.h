@@ -10,18 +10,15 @@
 #define WBFontMacro_h
 
 /**  < 设置平方字体PingFangSC >  */
-#define kWB_PFR kWB_SYSTEM_VERSION_9_OR_LATER ? @"PingFangSC-Regular" : @"PingFang SC"
-#define kWB_PFR_FONT(s) [UIFont fontWithName:kWB_PFR size:s]
-#define kWB_PFR_FONT20 [UIFont fontWithName:kWB_PFR size:20]
-#define kWB_PFR_FONT19 [UIFont fontWithName:kWB_PFR size:19]
-#define kWB_PFR_FONT18 [UIFont fontWithName:kWB_PFR size:18]
-#define kWB_PFR_FONT17 [UIFont fontWithName:kWB_PFR size:17]
-#define kWB_PFR_FONT16 [UIFont fontWithName:kWB_PFR size:16]
-#define kWB_PFR_FONT15 [UIFont fontWithName:kWB_PFR size:15]
-#define kWB_PFR_FONT14 [UIFont fontWithName:kWB_PFR size:14]
-#define kWB_PFR_FONT13 [UIFont fontWithName:kWB_PFR size:13]
-#define kWB_PFR_FONT12 [UIFont fontWithName:kWB_PFR size:12]
-#define kWB_PFR_FONT11 [UIFont fontWithName:kWB_PFR size:11]
-#define kWB_PFR_FONT10 [UIFont fontWithName:kWB_PFR size:10]
+///苹方字体常规
+#define WBFONT_PFR_SIZE(s) [UIFont fontWithName:@"PingFangSC-Regular" size:s]
+///苹方字体中等
+#define WBFONT_PFM_SIZE(s) [UIFont fontWithName:@"PingFangSC-Medium" size:s]
+///平方字体粗体
+#define WBFONT_PFB_SIZE(s) [UIFont fontWithName:@"PingFangSC-Semibold" size:s]
+///系统字体
+#define WBFONT_SYS_SIZE(s) [UIFont systemFontOfSize:s]
+///系统字体加粗
+#define WBFONT_SYSB_SIZE(s) [UIFont boldSystemFontOfSize:s]
 
 #endif /* WBFontMacro_h */

@@ -40,8 +40,8 @@
  
  */
 
-/** << 忽略PerformSelector警告 > */
-#define SUPPRESS_PerformSelectorLeak_WARNING(Stuff) \
+///PerformSelector警告
+#define WB_SUPPRESS_PerformSelectorLeak_WARNING(Stuff) \
 do { \
 _Pragma("clang diagnostic push") \
 _Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
@@ -49,8 +49,8 @@ Stuff; \
 _Pragma("clang diagnostic pop") \
 } while (0)
 
-/** << 忽略未定义方法警告 > */
-#define  SUPPRESS_Undeclaredselector_WARNING(Stuff) \
+///忽略未定义方法警告
+#define  WB_SUPPRESS_Undeclaredselector_WARNING(Stuff) \
 do { \
 _Pragma("clang diagnostic push") \
 _Pragma("clang diagnostic ignored \"-Wundeclared-selector\"") \
@@ -58,11 +58,20 @@ Stuff; \
 _Pragma("clang diagnostic pop") \
 } while (0)
 
-/** << 忽略过期API警告 > */
-#define SUPPRESS_DEPRECATED_WARNING(Stuff) \
+///忽略过期API警告
+#define WB_SUPPRESS_DEPRECATED_WARNING(Stuff) \
 do { \
 _Pragma("clang diagnostic push") \
 _Pragma("clang diagnostic ignored \"-Wdeprecated-declarations\"") \
+Stuff; \
+_Pragma("clang diagnostic pop") \
+} while (0)
+
+///未使用定义
+#define WB_SUPPRESS_UNUSEDVALUE_WARNING(Stuff)\
+do { \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Wunused-value\"") \
 Stuff; \
 _Pragma("clang diagnostic pop") \
 } while (0)

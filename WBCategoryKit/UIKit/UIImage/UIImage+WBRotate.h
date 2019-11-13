@@ -50,5 +50,6 @@ NS_ASSUME_NONNULL_BEGIN
  Returns a horizontally flipped image. ⇋
  */
 - (nullable UIImage *)wb_imageByFlipHorizontal;
+
 @end
 NS_ASSUME_NONNULL_END

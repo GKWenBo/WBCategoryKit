@@ -1,23 +1,200 @@
 //
-//  UIView+WBCoreAnimation.m
-//  WBCategories
+//  UIView+WBAnimation.m
+//  Pods
 //
-//  Created by Admin on 2018/2/6.
-//  Copyright © 2018年 WENBO. All rights reserved.
+//  Created by 文波 on 2019/11/13.
 //
 
-#import "UIView+WBCoreAnimation.h"
+#import "UIView+WBAnimation.h"
 #import <QuartzCore/QuartzCore.h>
 #import <objc/runtime.h>
 
-static const void *kCoreAnimationCompletionKey = &kCoreAnimationCompletionKey;
+static const void *UtilityKey = &UtilityKey;
 
 @interface UIView () <CAAnimationDelegate>
 
 @end
 
+@implementation UIView (WBAnimation)
 
-@implementation UIView (WBCoreAnimation)
+- (void)shake {
+    [self shake:5
+      withDelta:5
+          speed:0.03];
+}
+
+- (void)shake:(int)times
+    withDelta:(CGFloat)delta {
+    [self shake:times
+      withDelta:delta
+     completion:nil];
+}
+
+- (void)shake:(int)times
+    withDelta:(CGFloat)delta
+   completion:(nullable void (^)(void))handler {
+    [self shake:times
+      withDelta:delta
+          speed:0.03
+     completion:handler];
+}
+
+- (void)shake:(int)times
+    withDelta:(CGFloat)delta
+        speed:(NSTimeInterval)interval {
+    [self shake:times
+      withDelta:delta
+          speed:interval
+     completion:nil];
+}
+
+- (void)shake:(int)times
+    withDelta:(CGFloat)delta
+        speed:(NSTimeInterval)interval completion:(nullable void (^)(void))handler {
+    [self shake:times
+      withDelta:delta
+          speed:interval
+ shakeDirection:ShakeDirectionHorizontal
+     completion:handler];
+}
+
+- (void)shake:(int)times
+    withDelta:(CGFloat)delta
+        speed:(NSTimeInterval)interval
+shakeDirection:(ShakeDirection)shakeDirection {
+    [self shake:times
+      withDelta:delta
+          speed:interval
+ shakeDirection:shakeDirection
+     completion:nil];
+}
+
+- (void)shake:(int)times
+    withDelta:(CGFloat)delta
+        speed:(NSTimeInterval)interval
+shakeDirection:(ShakeDirection)shakeDirection
+   completion:(nullable void (^)(void))completion {
+    [self _shake:times
+       direction:1
+    currentTimes:0
+       withDelta:delta
+           speed:interval
+  shakeDirection:shakeDirection
+      completion:completion];
+}
+
+- (void)_shake:(int)times
+     direction:(int)direction
+  currentTimes:(int)current
+     withDelta:(CGFloat)delta
+         speed:(NSTimeInterval)interval
+shakeDirection:(ShakeDirection)shakeDirection
+    completion:(void (^)(void))completionHandler {
+    __weak UIView *weakSelf = self;
+    [UIView animateWithDuration:interval animations:^{
+        switch (shakeDirection) {
+            case ShakeDirectionVertical:
+                weakSelf.layer.affineTransform = CGAffineTransformMakeTranslation(0, delta * direction);
+                break;
+            case ShakeDirectionRotation:
+                weakSelf.layer.affineTransform = CGAffineTransformMakeRotation(M_PI * delta / 1000.0f * direction);
+                break;
+            case ShakeDirectionHorizontal:
+                weakSelf.layer.affineTransform = CGAffineTransformMakeTranslation(delta * direction, 0);
+            default:
+                break;
+        }
+    } completion:^(BOOL finished) {
+        if(current >= times) {
+            [UIView animateWithDuration:interval animations:^{
+                weakSelf.layer.affineTransform = CGAffineTransformIdentity;
+            } completion:^(BOOL finished){
+                if (completionHandler != nil) {
+                    completionHandler();
+                }
+            }];
+            return;
+        }
+        [weakSelf _shake:times
+               direction:direction * -1
+            currentTimes:current + 1
+               withDelta:delta
+                   speed:interval
+          shakeDirection:shakeDirection
+              completion:completionHandler];
+    }];
+}
+
+- (void)setCompleteBlock:(void (^)(void))completeBlock
+{
+    objc_setAssociatedObject(self, &UtilityKey, completeBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+- (void(^)(void))completeBlock
+{
+    return objc_getAssociatedObject(self, UtilityKey);
+}
+
+// MARK: -------- Basic Animation
+
+- (void)wb_fadeInWithDuration:(NSTimeInterval)duration {
+    UIView *view = self;
+    view.alpha = 0.f;
+    [UIView animateWithDuration:duration delay:0.0 options:UIViewAnimationOptionAllowUserInteraction
+                     animations:^{
+        view.alpha = 1.0f;
+    } completion:nil];
+}
+
+- (void)wb_fadeIn {
+    [self wb_fadeInWithDuration:0.2f];
+}
+
+/**
+ *  淡出动画
+ *
+ *  @param duration 动画时间
+ */
+- (void)wb_fadeOutWithDuration:(NSTimeInterval)duration {
+    UIView *view = self;
+    view.alpha = 1.f;
+    [UIView animateWithDuration:duration delay:0.0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+        view.alpha = 0.0f;
+    } completion:nil];
+}
+- (void)wb_fadeOut {
+    [self wb_fadeOutWithDuration:0.2f];
+}
+
+/**
+ *  淡出并移除视图
+ *
+ *  @param duration 动画时间
+ */
+- (void)wb_fadeOutAndRemoveFromSuperViewWithDuration:(NSTimeInterval)duration {
+    UIView *view = self;
+    view.alpha = 1.f;
+    [UIView animateWithDuration:duration
+                          delay:0.0
+                        options:UIViewAnimationOptionAllowUserInteraction
+                     animations:^{
+        view.alpha = 0.0f;
+    } completion:^(BOOL finished) {
+        [view removeFromSuperview];
+    }];
+}
+
+- (void)wb_fadeOutAndRemoveFromSuperView {
+    [self wb_fadeOutAndRemoveFromSuperViewWithDuration:0.2f];
+}
+
+- (void)wb_transZWithDegree:(CGFloat)degree
+                   duration:(NSTimeInterval)durationn {
+    [UIView animateWithDuration:durationn
+                     animations:^{
+        self.layer.transform = CATransform3DMakeRotation(degree, 0, 1, 0);
+    }];
+}
 
 - (void)wb_crossfadeWithDuration:(NSTimeInterval)duration {
     CATransition *animation = [CATransition animation];
@@ -141,19 +318,12 @@ static const void *kCoreAnimationCompletionKey = &kCoreAnimationCompletionKey;
                       forKey:nil];
 }
 
-#pragma mark ------ < Getter And Setter > ------
-- (void)setCompleteBlock:(void (^)(void))completeBlock {
-    objc_setAssociatedObject(self, kCoreAnimationCompletionKey, completeBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
-}
-
-- (void (^)(void))completeBlock {
-    return objc_getAssociatedObject(self, kCoreAnimationCompletionKey);
-}
-
 #pragma mark ------ < CAAnimationDelegate > ------
-- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+- (void)animationDidStop:(CAAnimation *)anim
+                finished:(BOOL)flag {
     if (self.completeBlock && flag) {
         self.completeBlock();
     }
 }
+
 @end

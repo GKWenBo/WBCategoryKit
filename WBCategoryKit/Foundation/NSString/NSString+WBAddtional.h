@@ -10,6 +10,10 @@
 #import <UIKit/UIKit.h>
 
 @interface NSString (WBAddtional)
+
+/// 把该字符串转换为对应的 md5
+@property(readonly, copy) NSString *wb_md5;
+
 #pragma mark --------  计算文字大小  --------
 /**
  *  计算文字size
@@ -49,7 +53,7 @@
 
 #pragma mark --------  隐藏部分文字  --------
 /**
- *  隐藏部分文字
+ *  隐藏部分文字 "*"代替
  *
  *  @param number 数字字符串
  *  @param headerLength 头部不隐藏长度
@@ -93,11 +97,29 @@
  */
 - (id)wb_jsonValueDecoded;
 
+/// 格式化浮点数，最多保留两位小数
+/// @param floatValue 浮点数
++ (NSString *)wb_formatFloat:(float)floatValue;
+
+/// 获取浮点数格式
+/// @param floatValue 浮点数
++ (NSString *)wb_getFloatFormat:(float)floatValue;
+
+/// 格式化浮点数，解决精度丢失问题
+/// @param doubleValue doubleValue description
++ (NSString *)wb_formattingDoubleValue:(double)doubleValue;
+
 #pragma mark --------  Common Method  --------
 /**
  Returns NSMakeRange(0, self.length).
  */
 - (NSRange)wb_rangeOfAll;
+
+/// 获取文字所占所占行数
+/// @param width 宽度
+/// @param font 字体
+- (NSUInteger)wb_getNeedLinesWithLimitWidth:(CGFloat)width
+                                       font:(UIFont *)font;
 
 #pragma mark ------ < File Path > ------
 /**
@@ -111,5 +133,13 @@
  *  @return Library/Caches路径
  */
 + (NSString *)wb_getLibraryCaches;
+
+/**
+ Create upload file name.
+
+ @return random string.
+ */
+- (NSString *)wb_createFileName;
+
 
 @end
