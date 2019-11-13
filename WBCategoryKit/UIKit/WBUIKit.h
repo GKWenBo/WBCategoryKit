@@ -22,7 +22,6 @@
 #import <WBCategoryKit/WBUIView.h>
 #import <WBCategoryKit/WBUIFont.h>
 #import <WBCategoryKit/WBWKWebView.h>
-#import <WBCategoryKit/WBUITextView.h>
 #import <WBCategoryKit/WBUICollectionView.h>
 #import <WBCategoryKit/WBUIImagePickerController.h>
 #import <WBCategoryKit/WBUIBarButtonItem.h>
@@ -47,7 +46,6 @@
 #import "WBUIFont.h"
 #import "WBUINavigationItem.h"
 #import "WBWKWebView.h"
-#import "WBUITextView.h"
 #import "WBUICollectionView.h"
 #import "WBUIImagePickerController.h"
 #import "WBUIBarButtonItem.h"

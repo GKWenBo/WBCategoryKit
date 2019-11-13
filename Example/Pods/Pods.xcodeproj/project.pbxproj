@@ -21,7 +21,6 @@
 		285825C0B0D0B68CDEFBC9F82C7C63FA /* UINavigationItem+WBLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C7D276E7175464B6D6F1A4F5A15C93 /* UINavigationItem+WBLock.m */; };
 		295BF62A073B94CB8349C521678C4B5B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BB7B32ABCB40362738252F3D91C8ADD /* Accelerate.framework */; };
 		2C65C2D57D338D025BA49C042CFC42CE /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BA07F1A16806D4BE659FD84134FE68 /* CoreText.framework */; };
-		2C8BACA8CB9450F568926365BEBB2241 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DC70C9F9E3CCC811FCE64AF91724AE /* UITextView+Placeholder.m */; };
 		2CE9A0FFDBF1BF7FABE43A3CD85291D8 /* WBDateFormatterPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F68BF99FE716DDC805D1E7C6CFDD05 /* WBDateFormatterPool.m */; };
 		2DD27FBB2B2544B8972A0DA31D145828 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D893FE5B5EA2945BCBF467F3DE8A1C6B /* UIKit.framework */; };
 		2F9945C038BA99115D3A8B4BC9B09EF7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A54D96256849D0DE9C1334E1E2E551CE /* CoreGraphics.framework */; };
@@ -105,7 +104,6 @@
 		C504D726237C51C8001BD12B /* WBUIScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = BD368FC7492C413AE2DCEB03A2EEE873 /* WBUIScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D727237C51C8001BD12B /* WBUISearchBar.h in Headers */ = {isa = PBXBuildFile; fileRef = EF6AD3C35597A2015B5A06B7F57348A3 /* WBUISearchBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D728237C51C8001BD12B /* WBUITableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = C2E6A3CC441212A3244B824A45F6EB06 /* WBUITableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C504D729237C51C8001BD12B /* WBUITextView.h in Headers */ = {isa = PBXBuildFile; fileRef = A917FEE25184A2F11430489C1E7971C1 /* WBUITextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D72A237C51C8001BD12B /* WBUIView.h in Headers */ = {isa = PBXBuildFile; fileRef = 05B119FDD18DB47CAAF64A1BE2B73AFE /* WBUIView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D72B237C51C8001BD12B /* WBUIViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C206F9A0049031A77924A47C69B4C0CB /* WBUIViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D72C237C51C8001BD12B /* WBUIWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = DACDF6920783E292072E8E30840C0203 /* WBUIWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -164,7 +162,6 @@
 		C504D762237C52B8001BD12B /* UISearchBar+WBAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = 0968E5FDA1F6D3B1C00CABB9592CC378 /* UISearchBar+WBAddition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D763237C52B8001BD12B /* UITableViewCell+FindUITableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 97BADA2E9EBDA7D57B3387C41C1CD9CD /* UITableViewCell+FindUITableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D764237C52B8001BD12B /* UITableViewCell+WBAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = B7EBA992146B762E677865A36F564BD3 /* UITableViewCell+WBAdditional.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C504D765237C52B8001BD12B /* UITextView+Placeholder.h in Headers */ = {isa = PBXBuildFile; fileRef = 64B8DCD17414A23F9FD586E84C5217FD /* UITextView+Placeholder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D766237C52B8001BD12B /* UIView+WBAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = 548A0F2211BB05D35C61E148B897F4E5 /* UIView+WBAdditional.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D768237C52B8001BD12B /* UIView+WBBlockGesture.h in Headers */ = {isa = PBXBuildFile; fileRef = 28F49B1B0A05489A0BC1D3D955DA4E78 /* UIView+WBBlockGesture.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D769237C52B8001BD12B /* UIView+WBBlurEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 313DE76EEE1D1500F0D46EB1F1AA5021 /* UIView+WBBlurEffect.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -284,7 +281,6 @@
 		401AB54D40090F675D934CE41C26292A /* WBDateHeaderFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBDateHeaderFile.h; path = WBCategoryKit/Foundation/NSDate/WBDateHeaderFile.h; sourceTree = "<group>"; };
 		411AB14F6F93BD32FBA8F1B30BF0E659 /* UIControl+WBBlock.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIControl+WBBlock.h"; path = "WBCategoryKit/UIKit/UIControl/UIControl+WBBlock.h"; sourceTree = "<group>"; };
 		42EDE11A4A1FEBB6CAA5F168401F546B /* NSString+WBDeviceInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+WBDeviceInfo.h"; path = "WBCategoryKit/Foundation/NSString/NSString+WBDeviceInfo.h"; sourceTree = "<group>"; };
-		45DC70C9F9E3CCC811FCE64AF91724AE /* UITextView+Placeholder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextView+Placeholder.m"; path = "WBCategoryKit/UIKit/UITextView/UITextView+Placeholder.m"; sourceTree = "<group>"; };
 		461AFD5C36289528B8D363F17095B55A /* UIImage+WBRotate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+WBRotate.m"; path = "WBCategoryKit/UIKit/UIImage/UIImage+WBRotate.m"; sourceTree = "<group>"; };
 		46BF8B38E8E13B73BAC690FABBC5151C /* UIButton+WBImagePosition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+WBImagePosition.m"; path = "WBCategoryKit/UIKit/UIButton/UIButton+WBImagePosition.m"; sourceTree = "<group>"; };
 		46D08EAD8881C24331058AB1460D2441 /* UIApplication+WBNetworkActivityIndicator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIApplication+WBNetworkActivityIndicator.h"; path = "WBCategoryKit/UIKit/UIApplication/UIApplication+WBNetworkActivityIndicator.h"; sourceTree = "<group>"; };
@@ -310,7 +306,6 @@
 		62370097E612E90E9703903BF45A61F3 /* WBFoundation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBFoundation.h; path = WBCategoryKit/Foundation/WBFoundation.h; sourceTree = "<group>"; };
 		645651DAD22ABEB81696E9BE88092D09 /* UIView+WBFrame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+WBFrame.h"; path = "WBCategoryKit/UIKit/UIView/UIView+WBFrame.h"; sourceTree = "<group>"; };
 		64B73DA7C23DE12F614A2B9159FE0777 /* UIAlertController+WBAdditional.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIAlertController+WBAdditional.h"; path = "WBCategoryKit/UIKit/UIAlertController/UIAlertController+WBAdditional.h"; sourceTree = "<group>"; };
-		64B8DCD17414A23F9FD586E84C5217FD /* UITextView+Placeholder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextView+Placeholder.h"; path = "WBCategoryKit/UIKit/UITextView/UITextView+Placeholder.h"; sourceTree = "<group>"; };
 		64F64316206A0718E0FEB038EEE0F857 /* WBWKWebView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBWKWebView.h; path = WBCategoryKit/UIKit/WKWebView/WBWKWebView.h; sourceTree = "<group>"; };
 		657A8796CAB75AB28EBE1156A7413D3B /* WBUIImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBUIImage.h; path = WBCategoryKit/UIKit/UIImage/WBUIImage.h; sourceTree = "<group>"; };
 		66F59DAD9FB950CF2234FE43CA461F03 /* WBUIScreen.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBUIScreen.h; path = WBCategoryKit/UIKit/UIScreen/WBUIScreen.h; sourceTree = "<group>"; };
@@ -370,7 +365,6 @@
 		A54D96256849D0DE9C1334E1E2E551CE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		A78DB43CF062AD8F9BA1997DE0FAE00D /* WKWebView+WBMetaParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "WKWebView+WBMetaParser.m"; path = "WBCategoryKit/UIKit/WKWebView/WKWebView+WBMetaParser.m"; sourceTree = "<group>"; };
 		A81297B810B378C6EF15DB84576D6812 /* WBMacroDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBMacroDefinition.h; path = WBCategoryKit/Macro/WBMacroDefinition.h; sourceTree = "<group>"; };
-		A917FEE25184A2F11430489C1E7971C1 /* WBUITextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBUITextView.h; path = WBCategoryKit/UIKit/UITextView/WBUITextView.h; sourceTree = "<group>"; };
 		A9AEA7751FB3B2858360E311F8E069BF /* UINavigationItem+WBLoading.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UINavigationItem+WBLoading.m"; path = "WBCategoryKit/UIKit/UINavigationItem/UINavigationItem+WBLoading.m"; sourceTree = "<group>"; };
 		AA50E0F1D5A570C17A5BC2F886BF21A3 /* UIView+WBDraggable.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WBDraggable.m"; path = "WBCategoryKit/UIKit/UIView/UIView+WBDraggable.m"; sourceTree = "<group>"; };
 		AA811C7EAD475506DC1685150D2D57DF /* UIButton+WBShowIndicator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+WBShowIndicator.h"; path = "WBCategoryKit/UIKit/UIButton/UIButton+WBShowIndicator.h"; sourceTree = "<group>"; };
@@ -667,16 +661,6 @@
 				64BA52F408E65E967B562BE8D4EBBA58 /* WBCategoryKit */,
 			);
 			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		47EBD1B6269461A9EFA9294A1959DB07 /* UITextView */ = {
-			isa = PBXGroup;
-			children = (
-				64B8DCD17414A23F9FD586E84C5217FD /* UITextView+Placeholder.h */,
-				45DC70C9F9E3CCC811FCE64AF91724AE /* UITextView+Placeholder.m */,
-				A917FEE25184A2F11430489C1E7971C1 /* WBUITextView.h */,
-			);
-			name = UITextView;
 			sourceTree = "<group>";
 		};
 		6346E2EA56A86D0097B3145AF922DB24 /* Pod */ = {
@@ -978,7 +962,6 @@
 				96B40734C4B9FA800B5B63C5FACA55DB /* UIScrollView */,
 				039F3B192B60CA91C1466E5BEBF71C6F /* UISearchBar */,
 				F08F76782472B3020748BB7BA3D4673C /* UITableViewCell */,
-				47EBD1B6269461A9EFA9294A1959DB07 /* UITextView */,
 				B9CC0817DBF0CB503DA6E295B2396371 /* UIView */,
 				2231535481ED7B513B881F4A9BA2FB9E /* UIViewController */,
 				B989C01DCB60D55D6A56831191B94978 /* UIWindow */,
@@ -1134,7 +1117,6 @@
 				C504D726237C51C8001BD12B /* WBUIScrollView.h in Headers */,
 				C504D727237C51C8001BD12B /* WBUISearchBar.h in Headers */,
 				C504D728237C51C8001BD12B /* WBUITableViewCell.h in Headers */,
-				C504D729237C51C8001BD12B /* WBUITextView.h in Headers */,
 				C504D72A237C51C8001BD12B /* WBUIView.h in Headers */,
 				C504D72B237C51C8001BD12B /* WBUIViewController.h in Headers */,
 				C504D72C237C51C8001BD12B /* WBUIWindow.h in Headers */,
@@ -1195,7 +1177,6 @@
 				C504D762237C52B8001BD12B /* UISearchBar+WBAddition.h in Headers */,
 				C504D763237C52B8001BD12B /* UITableViewCell+FindUITableView.h in Headers */,
 				C504D764237C52B8001BD12B /* UITableViewCell+WBAdditional.h in Headers */,
-				C504D765237C52B8001BD12B /* UITextView+Placeholder.h in Headers */,
 				C504D766237C52B8001BD12B /* UIView+WBAdditional.h in Headers */,
 				C504D768237C52B8001BD12B /* UIView+WBBlockGesture.h in Headers */,
 				C504D769237C52B8001BD12B /* UIView+WBBlurEffect.h in Headers */,
@@ -1403,7 +1384,6 @@
 				7CA11F6816B7A01CDA2EF2C110EE7018 /* UISearchBar+WBAddition.m in Sources */,
 				E5D9EC62468BAB401218D55BFCB514A4 /* UITableViewCell+FindUITableView.m in Sources */,
 				8C8AB97C0BDACD68B975F43F0B13D133 /* UITableViewCell+WBAdditional.m in Sources */,
-				2C8BACA8CB9450F568926365BEBB2241 /* UITextView+Placeholder.m in Sources */,
 				9AD3489D361175ECEC9D620D26A86C00 /* UIView+WBAdditional.m in Sources */,
 				9AC9133B7958599DF500B7522038C453 /* UIView+WBBlockGesture.m in Sources */,
 				BF57F908E915DE618A4FFA2E6A95E250 /* UIView+WBBlurEffect.m in Sources */,
