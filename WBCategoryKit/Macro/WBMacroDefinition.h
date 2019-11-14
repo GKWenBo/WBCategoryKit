@@ -9,6 +9,8 @@
 #ifndef WB_MacroDefinition_h
 #define WB_MacroDefinition_h
 
+#import "NSString+WBAddtional.h"
+
 /**  < 自定义高效率log >  */
 #ifdef DEBUG
 #   define NSLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
@@ -262,6 +264,22 @@ WBCGSizeIsEmpty(CGSize size) {
     return size.width <= 0 || size.height <= 0;
 }
 
+#pragma mark - Selector
+
+/**
+ 根据给定的 getter selector 获取对应的 setter selector
+ @param getter 目标 getter selector
+ @return 对应的 setter selector
+ */
+CG_INLINE SEL
+wb_setterWithGetter(SEL getter) {
+    NSString *getterString = NSStringFromSelector(getter);
+    NSMutableString *setterString = [[NSMutableString alloc] initWithString:@"set"];
+    [setterString appendString:getterString.wb_capitalizedString];
+    [setterString appendString:@":"];
+    SEL setter = NSSelectorFromString(setterString);
+    return setter;
+}
 
 #endif /* WB_MacroDefinition_h */
 

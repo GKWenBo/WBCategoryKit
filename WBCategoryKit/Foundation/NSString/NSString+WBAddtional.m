@@ -25,6 +25,12 @@
             result[12], result[13], result[14], result[15]];
 }
 
+- (NSString *)wb_capitalizedString {
+    if (self.length)
+        return [NSString stringWithFormat:@"%@%@", [self substringToIndex:1].uppercaseString, [self substringFromIndex:1]].copy;
+    return nil;
+}
+
 #pragma mark --------  计算文字大小  --------
 - (CGSize)wb_sizeForFont:(UIFont *)font
                     size:(CGSize)size

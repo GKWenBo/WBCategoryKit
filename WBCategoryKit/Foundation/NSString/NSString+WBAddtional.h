@@ -14,6 +14,9 @@
 /// 把该字符串转换为对应的 md5
 @property(readonly, copy) NSString *wb_md5;
 
+/// 把当前文本的第一个字符改为大写，其他的字符保持不变，例如 backgroundView.qmui_capitalizedString -> BackgroundView（系统的 capitalizedString 会变成 Backgroundview）
+- (NSString *)wb_capitalizedString;
+
 #pragma mark --------  计算文字大小  --------
 /**
  *  计算文字size
