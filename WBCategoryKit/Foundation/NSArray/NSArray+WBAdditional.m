@@ -102,13 +102,12 @@
 - (NSArray *)wb_arraySorting:(NSString *)parameters
                    ascending:(BOOL)ascending{
     NSSortDescriptor * sorter = [[NSSortDescriptor alloc]initWithKey:parameters ascending:ascending];
-    NSMutableArray *sortDescriptors=[[NSMutableArray alloc]initWithObjects:&sorter count:1];
-    NSArray *sortArray=[self sortedArrayUsingDescriptors:sortDescriptors];
+    NSMutableArray *sortDescriptors = [[NSMutableArray alloc]initWithObjects:&sorter count:1];
+    NSArray *sortArray = [self sortedArrayUsingDescriptors:sortDescriptors];
     return sortArray;
 }
 
 + (NSArray *)wb_arrayFromPlistFileName:(NSString *)name {
-    
     NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"plist"];
     return [NSArray arrayWithContentsOfFile:path];
 }

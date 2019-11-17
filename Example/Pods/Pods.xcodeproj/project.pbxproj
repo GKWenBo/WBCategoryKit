@@ -186,8 +186,12 @@
 		C504D784237C5514001BD12B /* UIView+WBAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = C504D781237C5514001BD12B /* UIView+WBAnimation.h */; };
 		C504D785237C5514001BD12B /* UIView+WBAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C504D782237C5514001BD12B /* UIView+WBAnimation.m */; };
 		C504D786237C5514001BD12B /* UIView+WBAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C504D782237C5514001BD12B /* UIView+WBAnimation.m */; };
+		C56B488D23819E2000310A17 /* NSMethodSignature+WBAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = C56B488B23819E2000310A17 /* NSMethodSignature+WBAdditional.h */; };
+		C56B488E23819E2000310A17 /* NSMethodSignature+WBAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = C56B488B23819E2000310A17 /* NSMethodSignature+WBAdditional.h */; };
+		C56B488F23819E2000310A17 /* NSMethodSignature+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = C56B488C23819E2000310A17 /* NSMethodSignature+WBAdditional.m */; };
+		C56B489023819E2000310A17 /* NSMethodSignature+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = C56B488C23819E2000310A17 /* NSMethodSignature+WBAdditional.m */; };
 		C5F17E8C237D99700066982F /* NSObject+WBRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = C5F17E8A237D99700066982F /* NSObject+WBRuntime.h */; };
-		C5F17E8D237D99700066982F /* NSObject+WBRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = C5F17E8A237D99700066982F /* NSObject+WBRuntime.h */; };
+		C5F17E8D237D99700066982F /* NSObject+WBRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = C5F17E8A237D99700066982F /* NSObject+WBRuntime.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C5F17E8E237D99700066982F /* NSObject+WBRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F17E8B237D99700066982F /* NSObject+WBRuntime.m */; };
 		C5F17E8F237D99700066982F /* NSObject+WBRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F17E8B237D99700066982F /* NSObject+WBRuntime.m */; };
 		C6E033F547046D17D3D951AC9CE555A0 /* NSDate+WBDisplayTime.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2BD24AD636706791D49A4D2F08F1DA /* NSDate+WBDisplayTime.m */; };
@@ -399,6 +403,8 @@
 		C504D781237C5514001BD12B /* UIView+WBAnimation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIView+WBAnimation.h"; path = "WBCategoryKit/UIKit/UIView/UIView+WBAnimation.h"; sourceTree = "<group>"; };
 		C504D782237C5514001BD12B /* UIView+WBAnimation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIView+WBAnimation.m"; path = "WBCategoryKit/UIKit/UIView/UIView+WBAnimation.m"; sourceTree = "<group>"; };
 		C52732E6D0C736CFD99CC160CFFA9E28 /* NSObject+WBJSON.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+WBJSON.h"; path = "WBCategoryKit/Foundation/NSObject/NSObject+WBJSON.h"; sourceTree = "<group>"; };
+		C56B488B23819E2000310A17 /* NSMethodSignature+WBAdditional.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMethodSignature+WBAdditional.h"; sourceTree = "<group>"; };
+		C56B488C23819E2000310A17 /* NSMethodSignature+WBAdditional.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMethodSignature+WBAdditional.m"; sourceTree = "<group>"; };
 		C5F17E8A237D99700066982F /* NSObject+WBRuntime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+WBRuntime.h"; sourceTree = "<group>"; };
 		C5F17E8B237D99700066982F /* NSObject+WBRuntime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WBRuntime.m"; sourceTree = "<group>"; };
 		C915B3B8772D67CD3132F3353FBD35F3 /* NSUserDefaults+WBAdditional.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSUserDefaults+WBAdditional.m"; path = "WBCategoryKit/Foundation/NSUserDefaults/NSUserDefaults+WBAdditional.m"; sourceTree = "<group>"; };
@@ -974,6 +980,16 @@
 			path = WBCategoryKit/UIKit/UILabel;
 			sourceTree = "<group>";
 		};
+		C56B488A23819DF900310A17 /* NSMethodSignature */ = {
+			isa = PBXGroup;
+			children = (
+				C56B488B23819E2000310A17 /* NSMethodSignature+WBAdditional.h */,
+				C56B488C23819E2000310A17 /* NSMethodSignature+WBAdditional.m */,
+			);
+			name = NSMethodSignature;
+			path = WBCategoryKit/Foundation/NSMethodSignature;
+			sourceTree = "<group>";
+		};
 		C5F17E83237D992B0066982F /* Runtime */ = {
 			isa = PBXGroup;
 			children = (
@@ -1056,6 +1072,7 @@
 		F6B672266B9310499156C4CD1EA9D05E /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				C56B488A23819DF900310A17 /* NSMethodSignature */,
 				C5F17E83237D992B0066982F /* Runtime */,
 				62370097E612E90E9703903BF45A61F3 /* WBFoundation.h */,
 				BB48BFFA438E594E3445F18D6FB4BFB4 /* NSArray */,
@@ -1085,6 +1102,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C56B488D23819E2000310A17 /* NSMethodSignature+WBAdditional.h in Headers */,
 				C504D70B237C3FFA001BD12B /* WBUILabel.h in Headers */,
 				C504D77F237C536A001BD12B /* WBHelper.h in Headers */,
 				D14966FFBA00B9F231B86671A1751086 /* Pods-WBCategoryKit_Example-umbrella.h in Headers */,
@@ -1118,6 +1136,7 @@
 				C504D724237C51C8001BD12B /* WBUINavigationBar.h in Headers */,
 				C504D725237C51C8001BD12B /* WBUIScreen.h in Headers */,
 				C504D726237C51C8001BD12B /* WBUIScrollView.h in Headers */,
+				C56B488E23819E2000310A17 /* NSMethodSignature+WBAdditional.h in Headers */,
 				C504D727237C51C8001BD12B /* WBUISearchBar.h in Headers */,
 				C504D728237C51C8001BD12B /* WBUITableViewCell.h in Headers */,
 				C504D72A237C51C8001BD12B /* WBUIView.h in Headers */,
@@ -1141,7 +1160,6 @@
 				C504D73B237C52B8001BD12B /* NSUserDefaults+WBAdditional.h in Headers */,
 				C504D73C237C52B8001BD12B /* WBClearWarningMacro.h in Headers */,
 				C504D73D237C52B8001BD12B /* WBFontMacro.h in Headers */,
-				C5F17E8D237D99700066982F /* NSObject+WBRuntime.h in Headers */,
 				C504D73E237C52B8001BD12B /* WBMacroDefinition.h in Headers */,
 				C504D73F237C52B8001BD12B /* WBSingletonMacro.h in Headers */,
 				C504D741237C52B8001BD12B /* UILabel+WBAdditional.h in Headers */,
@@ -1195,6 +1213,7 @@
 				C504D774237C52B8001BD12B /* UIViewController+WBTransition.h in Headers */,
 				C504D775237C52B8001BD12B /* UIWindow+WBHierarchy.h in Headers */,
 				C504D776237C52B8001BD12B /* WKWebView+WBAdditional.h in Headers */,
+				C5F17E8D237D99700066982F /* NSObject+WBRuntime.h in Headers */,
 				C504D777237C52B8001BD12B /* WKWebView+WBCapture.h in Headers */,
 				C504D778237C52B8001BD12B /* WKWebView+WBJavaScript.h in Headers */,
 				C504D779237C52B8001BD12B /* WKWebView+WBLoadInfo.h in Headers */,
@@ -1327,6 +1346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C56B488F23819E2000310A17 /* NSMethodSignature+WBAdditional.m in Sources */,
 				C504D785237C5514001BD12B /* UIView+WBAnimation.m in Sources */,
 				4FCCFF0F395ECDBDADBDA2282BE2FA0F /* Pods-WBCategoryKit_Example-dummy.m in Sources */,
 				C5F17E8E237D99700066982F /* NSObject+WBRuntime.m in Sources */,
@@ -1397,6 +1417,7 @@
 				39B1A550831871D4EDD485280C11E8A0 /* UIView+WBDraggable.m in Sources */,
 				C029E1741ABEED3C1EF223C34F301D63 /* UIView+WBFind.m in Sources */,
 				D57D38D109CB4E541D5FCEB01B1353B5 /* UIView+WBFrame.m in Sources */,
+				C56B489023819E2000310A17 /* NSMethodSignature+WBAdditional.m in Sources */,
 				7BC61C6DF69B83863DCC54012E9EDAE0 /* UIView+WBRecursion.m in Sources */,
 				D0EDA931E7269C79D9A1A9992DE7EDBC /* UIViewController+WBAdditional.m in Sources */,
 				53BF1689E7363E376146D5BA977044A8 /* UIViewController+WBRemoveTabbarButton.m in Sources */,

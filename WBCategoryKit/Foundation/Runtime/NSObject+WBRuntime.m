@@ -6,7 +6,7 @@
 //
 
 #import "NSObject+WBRuntime.h"
-#import "WBMacroDefinition.h"
+#import "WBMacro.h"
 
 char * const kProtectCrashProtectorName = "kProtectCrashProtector";
 void ProtectCrashProtected(id self, SEL sel) {}
@@ -154,37 +154,37 @@ void ProtectCrashProtected(id self, SEL sel) {}
     method_exchangeImplementations(method, newMethod);
 }
 
-+ (void)swizzleClassMethodWithOriginSel:(SEL)oriSel
-                            swizzledSel:(SEL)swiSel
-                              selfClass:(Class)selfClass {
++ (void)wb_swizzleClassMethodWithOriginSel:(SEL)oriSel
+                               swizzledSel:(SEL)swiSel
+                                 selfClass:(Class)selfClass {
     Method originAddObserverMethod = class_getClassMethod(selfClass, oriSel);
     Method swizzledAddObserverMethod = class_getClassMethod(selfClass, swiSel);
     
-    [self swizzleMethodWithOriginSel:oriSel
-                           oriMethod:originAddObserverMethod
-                         swizzledSel:swiSel
-                      swizzledMethod:swizzledAddObserverMethod
-                               class:selfClass];
+    [self wb_swizzleMethodWithOriginSel:oriSel
+                              oriMethod:originAddObserverMethod
+                            swizzledSel:swiSel
+                         swizzledMethod:swizzledAddObserverMethod
+                                  class:selfClass];
 }
 
-+ (void)swizzleInstanceMethodWithOriginSel:(SEL)oriSel
++ (void)wb_swizzleInstanceMethodWithOriginSel:(SEL)oriSel
                                swizzledSel:(SEL)swiSel
                                  selfClass:(Class)selfClass {
     Method originAddObserverMethod = class_getInstanceMethod(selfClass, oriSel);
     Method swizzledAddObserverMethod = class_getInstanceMethod(selfClass, swiSel);
     
-    [self swizzleMethodWithOriginSel:oriSel
-                           oriMethod:originAddObserverMethod
-                         swizzledSel:swiSel
-                      swizzledMethod:swizzledAddObserverMethod
-                               class:selfClass];
+    [self wb_swizzleMethodWithOriginSel:oriSel
+                              oriMethod:originAddObserverMethod
+                            swizzledSel:swiSel
+                         swizzledMethod:swizzledAddObserverMethod
+                                  class:selfClass];
 }
 
-+ (void)swizzleMethodWithOriginSel:(SEL)oriSel
-                         oriMethod:(Method)oriMethod
-                       swizzledSel:(SEL)swizzledSel
-                    swizzledMethod:(Method)swizzledMethod
-                             class:(Class)cls {
++ (void)wb_swizzleMethodWithOriginSel:(SEL)oriSel
+                            oriMethod:(Method)oriMethod
+                          swizzledSel:(SEL)swizzledSel
+                       swizzledMethod:(Method)swizzledMethod
+                                class:(Class)cls {
     BOOL didAddMethod = class_addMethod(cls, oriSel, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod));
     
     if (didAddMethod) {
@@ -194,7 +194,7 @@ void ProtectCrashProtected(id self, SEL sel) {}
     }
 }
 
-+ (Class)addMethodToStubClass:(SEL)aSelector {
++ (Class)wb_addMethodToStubClass:(SEL)aSelector {
     Class ProtectCrashProtector = objc_getClass(kProtectCrashProtectorName);
     
     if (!ProtectCrashProtector) {
@@ -206,16 +206,16 @@ void ProtectCrashProtected(id self, SEL sel) {}
     return ProtectCrashProtector;
 }
 
-- (BOOL)isMethodOverride:(Class)cls selector:(SEL)sel {
+- (BOOL)wb_isMethodOverride:(Class)cls
+                   selector:(SEL)sel {
     IMP clsIMP = class_getMethodImplementation(cls, sel);
     IMP superClsIMP = class_getMethodImplementation([cls superclass], sel);
     
     return clsIMP != superClsIMP;
 }
 
-+ (BOOL)isMainBundleClass:(Class)cls {
++ (BOOL)wb_isMainBundleClass:(Class)cls {
     return cls && [[NSBundle bundleForClass:cls] isEqual:[NSBundle mainBundle]];
 }
-
 
 @end
