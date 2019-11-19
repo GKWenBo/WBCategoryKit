@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WBHelper (UIGraphic)
 
+/// 获取一像素的大小
++ (CGFloat)wb_pixelOne;
+
 /// context是否合法
 + (void)wb_inspectContextIfInvalidatedInDebugMode:(CGContextRef)context;
 + (BOOL)wb_inspectContextIfInvalidatedInReleaseMode:(CGContextRef)context;

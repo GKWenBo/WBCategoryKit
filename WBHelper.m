@@ -13,6 +13,15 @@
 
 @implementation WBHelper (UIGraphic)
 
+static CGFloat wb_pixelOne = -1.0f;
+/// 获取一像素的大小
++ (CGFloat)wb_pixelOne {
+    if (wb_pixelOne < 0) {
+        wb_pixelOne = 1 / [[UIScreen mainScreen] scale];
+    }
+    return wb_pixelOne;
+}
+
 + (void)wb_inspectContextIfInvalidatedInDebugMode:(CGContextRef)context {
     if (!context) {
         // crash了就找zhoon或者molice

@@ -190,4 +190,104 @@ WBOverrideImplementation(Class targetClass, SEL targetSelector, id (^implementat
     return YES;
 }
 
+/**
+*  用 block 重写某个 class 的某个无参数且返回值为 void 的方法，会自动在调用 block 之前先调用该方法原本的实现。
+*  @param targetClass 要重写的 class
+*  @param targetSelector 要重写的 class 里的实例方法，注意如果该方法不存在于 targetClass 里，则什么都不做，注意该方法必须无参数，返回值为 void
+*  @param implementationBlock targetSelector 的自定义实现，直接将你的实现写进去即可，不需要管 super 的调用。参数 selfObject 代表当前正在调用这个方法的对象，也即 self 指针。
+*/
+CG_INLINE BOOL
+WBExtendImplementationOfVoidMethodWithoutArguments(Class targetClass, SEL targetSelector, void (^implementationBlock)(__kindof NSObject *selfObject)) {
+    return WBOverrideImplementation(targetClass, targetSelector, ^id _Nonnull(__unsafe_unretained Class  _Nonnull originClass, SEL  _Nonnull originCMD, IMP  _Nonnull (^ _Nonnull originalIMPProvider)(void)) {
+        void (^block)(__unsafe_unretained __kindof NSObject *selfObject) = ^(__unsafe_unretained __kindof NSObject *selfObject) {
+            
+            void (*originSelectorIMP)(id, SEL);
+                originSelectorIMP = (void (*)(id, SEL))originalIMPProvider();
+                originSelectorIMP(selfObject, originCMD);
+                
+                implementationBlock(selfObject);
+            };
+            #if __has_feature(objc_arc)
+            return block;
+            #else
+            return [block copy];
+            #endif
+    });
+}
+
+/**
+*  用 block 重写某个 class 的某个无参数且带返回值的方法，会自动在调用 block 之前先调用该方法原本的实现。
+*  @param _targetClass 要重写的 class
+*  @param _targetSelector 要重写的 class 里的实例方法，注意如果该方法不存在于 targetClass 里，则什么都不做，注意该方法必须带一个参数，返回值不为空
+*  @param _returnType 返回值的数据类型
+*  @param _implementationBlock 格式为 ^_returnType(NSObject *selfObject, _returnType originReturnValue) {}，内容即为 targetSelector 的自定义实现，直接将你的实现写进去即可，不需要管 super 的调用。第一个参数 selfObject 代表当前正在调用这个方法的对象，也即 self 指针；第二个参数 originReturnValue 代表 super 的返回值，具体类型请自行填写
+*/
+#define WBExtendImplementationOfNonVoidMethodWithoutArguments(_targetClass, _targetSelector, _returnType, _implementationBlock) WBOverrideImplementation(_targetClass, _targetSelector, ^id(__unsafe_unretained Class originClass, SEL originCMD, IMP (^originalIMPProvider)(void)) {\
+    return ^_returnType (__unsafe_unretained __kindof NSObject *selfObject) {\
+        \
+        _returnType (*originSelectorIMP)(id, SEL);\
+        originSelectorIMP = (_returnType (*)(id, SEL))originalIMPProvider();\
+        _returnType result = originSelectorIMP(selfObject, originCMD);\
+        \
+        return _implementationBlock(selfObject, result);\
+    };\
+});
+
+/**
+*  用 block 重写某个 class 的带一个参数且返回值为 void 的方法，会自动在调用 block 之前先调用该方法原本的实现。
+*  @param _targetClass 要重写的 class
+*  @param _targetSelector 要重写的 class 里的实例方法，注意如果该方法不存在于 targetClass 里，则什么都不做，注意该方法必须带一个参数，返回值为 void
+*  @param _argumentType targetSelector 的参数类型
+*  @param _implementationBlock 格式为 ^(NSObject *selfObject, _argumentType firstArgv) {}，内容即为 targetSelector 的自定义实现，直接将你的实现写进去即可，不需要管 super 的调用。第一个参数 selfObject 代表当前正在调用这个方法的对象，也即 self 指针；第二个参数 firstArgv 代表 targetSelector 被调用时传进来的第一个参数，具体的类型请自行填写
+*/
+#define WBExtendImplementationOfVoidMethodWithSingleArgument(_targetClass, _targetSelector, _argumentType, _implementationBlock) WBOverrideImplementation(_targetClass, _targetSelector, ^id(__unsafe_unretained Class originClass, SEL originCMD, IMP (^originalIMPProvider)(void)) {\
+        return ^(__unsafe_unretained __kindof NSObject *selfObject, _argumentType firstArgv) {\
+            \
+            void (*originSelectorIMP)(id, SEL, _argumentType);\
+            originSelectorIMP = (void (*)(id, SEL, _argumentType))originalIMPProvider();\
+            originSelectorIMP(selfObject, originCMD, firstArgv);\
+            \
+            _implementationBlock(selfObject, firstArgv);\
+        };\
+    });
+
+#define WBExtendImplementationOfVoidMethodWithTwoArguments(_targetClass, _targetSelector, _argumentType1, _argumentType2, _implementationBlock) WBOverrideImplementation(_targetClass, _targetSelector, ^id(__unsafe_unretained Class originClass, SEL originCMD, IMP (^originalIMPProvider)(void)) {\
+        return ^(__unsafe_unretained __kindof NSObject *selfObject, _argumentType1 firstArgv, _argumentType2 secondArgv) {\
+            \
+            void (*originSelectorIMP)(id, SEL, _argumentType1, _argumentType2);\
+            originSelectorIMP = (void (*)(id, SEL, _argumentType1, _argumentType2))originalIMPProvider();\
+            originSelectorIMP(selfObject, originCMD, firstArgv, secondArgv);\
+            \
+            _implementationBlock(selfObject, firstArgv, secondArgv);\
+        };\
+    });
+
+/**
+ *  用 block 重写某个 class 的带一个参数且带返回值的方法，会自动在调用 block 之前先调用该方法原本的实现。
+ *  @param targetClass 要重写的 class
+ *  @param targetSelector 要重写的 class 里的实例方法，注意如果该方法不存在于 targetClass 里，则什么都不做，注意该方法必须带一个参数，返回值不为空
+ *  @param implementationBlock，格式为 ^_returnType (NSObject *selfObject, _argumentType firstArgv, _returnType originReturnValue){}，内容也即 targetSelector 的自定义实现，直接将你的实现写进去即可，不需要管 super 的调用。第一个参数 selfObject 代表当前正在调用这个方法的对象，也即 self 指针；第二个参数 firstArgv 代表 targetSelector 被调用时传进来的第一个参数，具体的类型请自行填写；第三个参数 originReturnValue 代表 super 的返回值，具体类型请自行填写
+ */
+#define WBExtendImplementationOfNonVoidMethodWithSingleArgument(_targetClass, _targetSelector, _argumentType, _returnType, _implementationBlock) WBOverrideImplementation(_targetClass, _targetSelector, ^id(__unsafe_unretained Class originClass, SEL originCMD, IMP (^originalIMPProvider)(void)) {\
+        return ^_returnType (__unsafe_unretained __kindof NSObject *selfObject, _argumentType firstArgv) {\
+            \
+            _returnType (*originSelectorIMP)(id, SEL, _argumentType);\
+            originSelectorIMP = (_returnType (*)(id, SEL, _argumentType))originalIMPProvider();\
+            _returnType result = originSelectorIMP(selfObject, originCMD, firstArgv);\
+            \
+            return _implementationBlock(selfObject, firstArgv, result);\
+        };\
+    });
+
+#define WBExtendImplementationOfNonVoidMethodWithTwoArguments(_targetClass, _targetSelector, _argumentType1, _argumentType2, _returnType, _implementationBlock) WBOverrideImplementation(_targetClass, _targetSelector, ^id(__unsafe_unretained Class originClass, SEL originCMD, IMP (^originalIMPProvider)(void)) {\
+        return ^_returnType (__unsafe_unretained __kindof NSObject *selfObject, _argumentType1 firstArgv, _argumentType2 secondArgv) {\
+            \
+            _returnType (*originSelectorIMP)(id, SEL, _argumentType1, _argumentType2);\
+            originSelectorIMP = (_returnType (*)(id, SEL, _argumentType1, _argumentType2))originalIMPProvider();\
+            _returnType result = originSelectorIMP(selfObject, originCMD, firstArgv, secondArgv);\
+            \
+            return _implementationBlock(selfObject, firstArgv, secondArgv, result);\
+        };\
+    });
+
 NS_ASSUME_NONNULL_END
