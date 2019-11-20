@@ -15,7 +15,16 @@
     #define WBCGContextInspectContext(context) if(![WBHelper wb_inspectContextIfInvalidatedInReleaseMode:context]){return nil;}
 #endif
 
+typedef NS_OPTIONS(NSInteger, WBUIImageBorderPosition) {
+    WBUIImageBorderPositionAll      = 0,
+    WBUIImageBorderPositionTop      = 1 << 0,
+    WBUIImageBorderPositionLeft     = 1 << 1,
+    WBUIImageBorderPositionBottom   = 1 << 2,
+    WBUIImageBorderPositionRight    = 1 << 3,
+};
+
 NS_ASSUME_NONNULL_BEGIN
+
 @interface UIImage (WBAdditional)
 
 #pragma mark --------  Create Image <PDF、Path、NSData 、GIF、View>  --------
@@ -230,6 +239,38 @@ CGRect WBCGRectFitWithContentMode(CGRect rect, CGSize size, UIViewContentMode mo
 - (nullable UIImage *)wb_imageWithClippedCornerRadius:(CGFloat)cornerRadius
                                                 scale:(CGFloat)scale;
 
+/// 为图片加上一个border（可以是任意一条边，也可以是多条组合；只能创建矩形的border，不能添加圆角）
+/// @param borderColor border的颜色
+/// @param borderWidth border的宽度
+/// @param borderPosition border的位置
+- (nullable UIImage *)wb_imageWithBorderColor:(nullable UIColor *)borderColor
+                                  borderWidth:(CGFloat)borderWidth
+                               borderPosition:(WBUIImageBorderPosition)borderPosition;
+
+/// 为图片加上一个border，border的路径为path
+/// @param borderColor border的颜色
+/// @param path border的路径
+/// @warning 注意通过`path.lineWidth`设置边框大小，同时注意路径要考虑像素对齐（`path.lineWidth / 2.0`）
+- (nullable UIImage *)wb_imageWithBorderColor:(UIColor *)borderColor
+                                         path:(UIBezierPath *)path;
+
+/// 为图片加上一个border，border的路径为borderColor、cornerRadius和borderWidth所创建的path
+/// @param borderColor border的颜色
+/// @param borderWidth border的宽度
+/// @param cornerRadius border的圆角
+/// @param dashedLengths 一个CGFloat的数组，例如`CGFloat dashedLengths[] = {2, 4}`。如果不需要虚线，则传0即可
+- (nullable UIImage *)wb_imageWithBorderColor:(UIColor *)borderColor
+                                  borderWidth:(CGFloat)borderWidth
+                                 cornerRadius:(CGFloat)cornerRadius
+                                dashedLengths:(nullable const CGFloat *)dashedLengths;
+
+///  为图片加上一个border，border的路径为borderColor、cornerRadius和borderWidth所创建的path
+/// @param borderColor border的颜色
+/// @param borderWidth border的宽度
+/// @param cornerRadius border的圆角
+- (nullable UIImage *)wb_imageWithBorderColor:(UIColor *)borderColor
+                                  borderWidth:(CGFloat)borderWidth
+                                 cornerRadius:(CGFloat)cornerRadius;
 
 // MARK: -------- UIImage Effect
 /// 获取当前图片的像素大小，如果是多倍图，会被放大到一倍来算
@@ -266,6 +307,14 @@ CGRect WBCGRectFitWithContentMode(CGRect rect, CGSize size, UIViewContentMode mo
  */
 + (nullable UIImage *)wb_imageWithColor:(UIColor *)color
                                    size:(CGSize)size;
+
+///  创建一个纯色的UIImage
+/// @param color  创建一个纯色的UIImage颜色
+/// @param size 图片大小
+/// @param cornerRadius 图片的圆角
++ (nullable UIImage *)wb_imageWithColor:(nullable UIColor *)color
+                                   size:(CGSize)size
+                           cornerRadius:(CGFloat)cornerRadius;
 
 /**
  Tint the image in alpha channel with the given color.

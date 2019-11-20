@@ -12,7 +12,9 @@
 #import <CoreText/CoreText.h>
 #import <AVFoundation/AVFoundation.h>
 #import <Accelerate/Accelerate.h>
+
 #import "WBMacro.h"
+#import "WBUIColor.h"
 
 #ifndef WB_SWAP // swap two value
 #define WB_SWAP(_a_, _b_)  do { __typeof__(_a_) _tmp_ = (_a_); (_a_) = (_b_); (_b_) = _tmp_; } while (0)
@@ -489,6 +491,89 @@ CGRect WBCGRectFitWithContentMode(CGRect rect, CGSize size, UIViewContentMode mo
     }];
 }
 
+- (nullable UIImage *)wb_imageWithBorderColor:(nullable UIColor *)borderColor
+                                  borderWidth:(CGFloat)borderWidth
+                               borderPosition:(WBUIImageBorderPosition)borderPosition {
+    if (borderPosition == WBUIImageBorderPositionAll) {
+        return [self wb_imageWithBorderColor:borderColor
+                                 borderWidth:borderWidth
+                                cornerRadius:0];
+    } else {
+        // TODO 使用bezierPathWithRoundedRect:byRoundingCorners:cornerRadii:这个系统接口
+        UIBezierPath* path = [UIBezierPath bezierPath];
+        if ((WBUIImageBorderPositionBottom & borderPosition) == WBUIImageBorderPositionBottom) {
+            [path moveToPoint:CGPointMake(0, self.size.height - borderWidth / 2)];
+            [path addLineToPoint:CGPointMake(self.size.width, self.size.height - borderWidth / 2)];
+        }
+        if ((WBUIImageBorderPositionTop & borderPosition) == WBUIImageBorderPositionTop) {
+            [path moveToPoint:CGPointMake(0, borderWidth / 2)];
+            [path addLineToPoint:CGPointMake(self.size.width, borderWidth / 2)];
+        }
+        if ((WBUIImageBorderPositionLeft & borderPosition) == WBUIImageBorderPositionLeft) {
+            [path moveToPoint:CGPointMake(borderWidth / 2, 0)];
+            [path addLineToPoint:CGPointMake(borderWidth / 2, self.size.height)];
+        }
+        if ((WBUIImageBorderPositionRight & borderPosition) == WBUIImageBorderPositionRight) {
+            [path moveToPoint:CGPointMake(self.size.width - borderWidth / 2, 0)];
+            [path addLineToPoint:CGPointMake(self.size.width - borderWidth / 2, self.size.height)];
+        }
+        [path setLineWidth:borderWidth];
+        [path closePath];
+        return [self wb_imageWithBorderColor:borderColor
+                                        path:path];
+    }
+    return self;
+}
+
+- (nullable UIImage *)wb_imageWithBorderColor:(UIColor *)borderColor
+                                  borderWidth:(CGFloat)borderWidth
+                                 cornerRadius:(CGFloat)cornerRadius {
+    return [self wb_imageWithBorderColor:borderColor
+                             borderWidth:borderWidth
+                            cornerRadius:cornerRadius
+                           dashedLengths:0];
+}
+
+- (nullable UIImage *)wb_imageWithBorderColor:(UIColor *)borderColor
+                                  borderWidth:(CGFloat)borderWidth
+                                 cornerRadius:(CGFloat)cornerRadius
+                                dashedLengths:(const CGFloat *)dashedLengths {
+    if (!borderColor || !borderWidth) {
+        return self;
+    }
+    
+    UIBezierPath *path;
+    CGRect rect = CGRectInset(CGRectMake(0, 0, self.size.width, self.size.height), borderWidth / 2, borderWidth / 2);// 调整rect，从而保证绘制描边时像素对齐
+    if (cornerRadius > 0) {
+        path = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:cornerRadius];
+    } else {
+        path = [UIBezierPath bezierPathWithRect:rect];
+    }
+    
+    path.lineWidth = borderWidth;
+    if (dashedLengths) {
+        [path setLineDash:dashedLengths count:2 phase:0];
+    }
+    return [self wb_imageWithBorderColor:borderColor
+                                    path:path];
+}
+
+- (nullable UIImage *)wb_imageWithBorderColor:(UIColor *)borderColor
+                                         path:(UIBezierPath *)path {
+    if (!borderColor) {
+        return self;
+    }
+    
+    return [UIImage wb_imageWithSize:self.size
+                              opaque:self.wb_opaque
+                               scale:self.scale
+                             actions:^(CGContextRef contextRef) {
+        [self drawInRect:WBCGRectMakeWithSize(self.size)];
+        CGContextSetStrokeColorWithColor(contextRef, borderColor.CGColor);
+        [path stroke];
+    }];
+}
+
 // MARK: -------- UIImage Effect
 - (CGSize)wb_sizeInPixel {
     CGSize size = CGSizeMake(self.size.width * self.scale, self.size.height * self.scale);
@@ -551,7 +636,7 @@ CGRect WBCGRectFitWithContentMode(CGRect rect, CGSize size, UIViewContentMode mo
         CGImageRelease(maskedGrayImageRef);
         CGContextRelease(alphaContext);
         
-        // 用 CGBitmapContextCreateImage 方式创建出来的图片，CGImageAlphaInfo 总是为 CGImageAlphaInfoNone，导致 qmui_opaque 与原图不一致，所以这里再做多一步
+        // 用 CGBitmapContextCreateImage 方式创建出来的图片，CGImageAlphaInfo 总是为 CGImageAlphaInfoNone，导致 wb_opaque 与原图不一致，所以这里再做多一步
         grayImage = [UIImage wb_imageWithSize:grayImage.size opaque:NO scale:grayImage.scale actions:^(CGContextRef contextRef) {
             [grayImage drawInRect:imageRect];
         }];
@@ -624,6 +709,28 @@ CGRect WBCGRectFitWithContentMode(CGRect rect, CGSize size, UIViewContentMode mo
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
+}
+
++ (nullable UIImage *)wb_imageWithColor:(nullable UIColor *)color
+                                   size:(CGSize)size
+                           cornerRadius:(CGFloat)cornerRadius {
+    size = WBCGSizeFlatted(size);
+    [WBHelper wb_inspectContextSize:size];
+    color = color ? : [UIColor clearColor];
+    BOOL opaque = (cornerRadius == 0.0 && [color wb_alpha] == 1.0);
+    return [UIImage wb_imageWithSize:size
+                              opaque:opaque
+                               scale:0
+                             actions:^(CGContextRef contextRef) {
+        if (cornerRadius > 0) {
+            UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:WBCGRectMakeWithSize(size)
+                                                            cornerRadius:cornerRadius];
+            [path addClip];
+            [path fill];
+        }else {
+            CGContextFillRect(contextRef, WBCGRectMakeWithSize(size));
+        }
+    }];
 }
 
 - (nullable UIImage *)wb_imageByTintColor:(UIColor *)color {

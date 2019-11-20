@@ -10,6 +10,14 @@
 
 @implementation UIColor (WBAdditional)
 
+- (CGFloat)wb_alpha {
+    CGFloat a;
+    if ([self getRed:0 green:0 blue:0 alpha:&a]) {
+        return a;
+    }
+    return 0;
+}
+
 #pragma mark --------  随机色  --------
 + (UIColor *)wb_randomColor {
     UIColor *color;

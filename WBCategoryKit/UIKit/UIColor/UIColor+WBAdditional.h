@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
+
 @interface UIColor (WBAdditional)
+
+/// 获取当前 UIColor 对象里的透明色值 透明通道的色值，值范围为0.0-1.0
+- (CGFloat)wb_alpha;
 
 #pragma mark --------  随机色  --------
 + (UIColor *)wb_randomColor;
