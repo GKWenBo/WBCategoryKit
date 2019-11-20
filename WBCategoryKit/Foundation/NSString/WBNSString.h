@@ -22,6 +22,6 @@
 #import "NSString+WBPredicate.h"
 #import "NSString+WBJavaScript.h"
 #import "NSString+WBDeviceInfo.h"
-#import "WBCategoryKit/NSString+HTML.h"
+#import "NSString+HTML.h"
 
 #endif

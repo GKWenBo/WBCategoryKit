@@ -10,14 +10,10 @@
 
 #if __has_include(<WBCategoryKit/WBUIViewController.h>)
 
-#import <WBCategoryKit/UIViewController+WBRemoveTabbarButton.h>
 #import <WBCategoryKit/UIViewController+WBAdditional.h>
-#import <WBCategoryKit/UIViewController+WBTransition.h>
 
 #else
 
-#import "UIViewController+WBRemoveTabbarButton.h"
 #import "UIViewController+WBAdditional.h"
-#import "UIViewController+WBTransition.h"
 
 #endif

@@ -7,7 +7,6 @@
 //
 
 #import "WBViewController.h"
-#import <WBCategoryKit/WBMacro.h>
 
 @interface WBViewController ()
 

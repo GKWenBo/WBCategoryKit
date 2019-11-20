@@ -18,7 +18,7 @@ typedef void(^WBUIControlActionBlock)(id weakSender);
 /**  < ControlEvents Block Wrapper >  */
 @interface WBUIControlActionBlockWrapper : NSObject
 
-@property (nonatomic,copy) WBUIControlActionBlock actionBlock;
+@property (nonatomic, copy) WBUIControlActionBlock actionBlock;
 @property (nonatomic, assign) UIControlEvents controlEvents;
 
 - (void)wb_invokeBlock:(id)sender;

@@ -23,7 +23,6 @@ static char kWBStatusBarStyleKey;
     return style ? [style integerValue] : UIStatusBarStyleDefault;
 }
 
-
 @end
 
 @implementation UINavigationController (WBBarStyle)

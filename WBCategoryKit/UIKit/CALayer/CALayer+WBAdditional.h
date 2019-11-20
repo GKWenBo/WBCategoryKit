@@ -37,6 +37,13 @@ NS_ASSUME_NONNULL_BEGIN
 /// 移除所有动画
 - (void)wb_removeDefaultAnimations;
 
+/**
+ * 对 CALayer 执行一些操作，不以动画的形式展示过程（默认情况下修改 CALayer 的属性都会以动画形式展示出来）。
+ * @param actionsWithoutAnimation 要执行的操作，可以在里面修改 layer 的属性，例如 frame、backgroundColor 等。
+ * @note 如果该 layer 的任何属性修改都不需要动画，也可使用 qmui_removeDefaultAnimations。
+ */
++ (void)wb_performWithoutAnimation:(void (NS_NOESCAPE ^)(void))actionsWithoutAnimation;
+
 @end
 
 NS_ASSUME_NONNULL_END

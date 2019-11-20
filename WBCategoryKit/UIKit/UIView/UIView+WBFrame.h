@@ -10,19 +10,19 @@
 
 @interface UIView (WBFrame)
 
-@property (nonatomic,assign) CGFloat left;        ///< Shortcut for frame.origin.x.
-@property (nonatomic,assign) CGFloat top;         ///< Shortcut for frame.origin.y
-@property (nonatomic,assign) CGFloat right;       ///< Shortcut for frame.origin.x + frame.size.width
-@property (nonatomic,assign) CGFloat bottom;      ///< Shortcut for frame.origin.y + frame.size.height
-@property (nonatomic,assign) CGFloat width;       ///< Shortcut for frame.size.width.
-@property (nonatomic,assign) CGFloat height;      ///< Shortcut for frame.size.height.
-@property (nonatomic,assign) CGFloat centerX;     ///< Shortcut for center.x
-@property (nonatomic,assign) CGFloat centerY;     ///< Shortcut for center.y
-@property (nonatomic,assign) CGPoint origin;      ///< Shortcut for frame.origin.
-@property (nonatomic,assign) CGSize  size;        ///< Shortcut for frame.size.
+@property (nonatomic, assign) CGFloat wb_left;        ///< Shortcut for frame.origin.x.
+@property (nonatomic, assign) CGFloat wb_top;         ///< Shortcut for frame.origin.y
+@property (nonatomic, assign) CGFloat wb_right;       ///< Shortcut for frame.origin.x + frame.size.width
+@property (nonatomic, assign) CGFloat wb_bottom;      ///< Shortcut for frame.origin.y + frame.size.height
+@property (nonatomic, assign) CGFloat wb_width;       ///< Shortcut for frame.size.width.
+@property (nonatomic, assign) CGFloat wb_height;      ///< Shortcut for frame.size.height.
+@property (nonatomic, assign) CGFloat wb_centerX;     ///< Shortcut for center.x
+@property (nonatomic, assign) CGFloat wb_centerY;     ///< Shortcut for center.y
+@property (nonatomic, assign) CGPoint wb_origin;      ///< Shortcut for frame.origin.
+@property (nonatomic, assign) CGSize  wb_size;        ///< Shortcut for frame.size.
 /**  < 最大x值 >  */
-@property (nonatomic,assign) CGFloat maxX;
+@property (nonatomic, assign) CGFloat wb_maxX;
 /**  < 最大值 >  */
-@property (nonatomic,assign) CGFloat maxY;
+@property (nonatomic, assign) CGFloat wb_maxY;
 
 @end

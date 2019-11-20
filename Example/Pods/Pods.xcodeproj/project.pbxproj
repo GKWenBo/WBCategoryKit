@@ -32,7 +32,6 @@
 		47515C1B47940568ED4F878CCF45F2F4 /* UIBarButtonItem+WBBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = F2310C8CB45FDDF3A438CD2D556338B5 /* UIBarButtonItem+WBBadge.m */; };
 		4AD4878E3F75F08C154850CE16D91091 /* NSData+WBFragment.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB9B292932C952509C2A6E01BF72E9A /* NSData+WBFragment.m */; };
 		4FCCFF0F395ECDBDADBDA2282BE2FA0F /* Pods-WBCategoryKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2B31B72F767F8C1199F76FA4D7C0D9 /* Pods-WBCategoryKit_Example-dummy.m */; };
-		53BF1689E7363E376146D5BA977044A8 /* UIViewController+WBRemoveTabbarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FA702767D5D7921D4F0278A6B78D013C /* UIViewController+WBRemoveTabbarButton.m */; };
 		556782583537D2F3A0D5A2D349AEB582 /* NSDictionary+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = FA765CFF072352D2EC47EAD92A3DB2A1 /* NSDictionary+WBAdditional.m */; };
 		5602B53359BDDE332CB3F385B3BC6EAE /* NSString+WBPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DCEA9430A45C79F55418EE0A327320 /* NSString+WBPredicate.m */; };
 		569EB0F2138B1C65B45382EDDAAC20B6 /* WKWebView+WBMetaParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A78DB43CF062AD8F9BA1997DE0FAE00D /* WKWebView+WBMetaParser.m */; };
@@ -74,7 +73,6 @@
 		B9ED8605487F61DF1C433617910C202B /* NSDate+WBAddtional.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8C1E3D8D419D899CAE96269AC8FCDC /* NSDate+WBAddtional.m */; };
 		BAEF41B3FA1E93A904EE9D3884D5EE86 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08896C4C1A1384BB120828C549C9147C /* MobileCoreServices.framework */; };
 		BF57F908E915DE618A4FFA2E6A95E250 /* UIView+WBBlurEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = D07766B3446B4C0F13DE96A378F19C9B /* UIView+WBBlurEffect.m */; };
-		C0154B0F864E4E3A0306F7171E3B6484 /* UIViewController+WBTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = E4E4853CC778C9A171966B11E5D90247 /* UIViewController+WBTransition.m */; };
 		C029E1741ABEED3C1EF223C34F301D63 /* UIView+WBFind.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDA6A775DE9A4A0FDF804FBF6FA9BD1 /* UIView+WBFind.m */; };
 		C504D709237C3FFA001BD12B /* UILabel+WBAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = C504D706237C3FFA001BD12B /* UILabel+WBAdditional.h */; };
 		C504D70B237C3FFA001BD12B /* WBUILabel.h in Headers */ = {isa = PBXBuildFile; fileRef = C504D707237C3FFA001BD12B /* WBUILabel.h */; };
@@ -170,8 +168,6 @@
 		C504D76F237C52B8001BD12B /* UIView+WBFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = 645651DAD22ABEB81696E9BE88092D09 /* UIView+WBFrame.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D770237C52B8001BD12B /* UIView+WBRecursion.h in Headers */ = {isa = PBXBuildFile; fileRef = 99A1DB522B189A6E2401B9DEB916A5D4 /* UIView+WBRecursion.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D772237C52B8001BD12B /* UIViewController+WBAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B298CCF729CD9F1BD15E91513891F8 /* UIViewController+WBAdditional.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C504D773237C52B8001BD12B /* UIViewController+WBRemoveTabbarButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 21B55D4A6E59E94515E430F47E9A3237 /* UIViewController+WBRemoveTabbarButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C504D774237C52B8001BD12B /* UIViewController+WBTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = BAFBDE641D5D1DA67FE5DCF4B319E4DB /* UIViewController+WBTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D775237C52B8001BD12B /* UIWindow+WBHierarchy.h in Headers */ = {isa = PBXBuildFile; fileRef = B06FAF596A36277D9652B4A2FDEA55B1 /* UIWindow+WBHierarchy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D776237C52B8001BD12B /* WKWebView+WBAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = CAD4AB7662057F68E56B8EB09ABD9C64 /* WKWebView+WBAdditional.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D777237C52B8001BD12B /* WKWebView+WBCapture.h in Headers */ = {isa = PBXBuildFile; fileRef = F73EC1F0356E0564382C687FBF84B79E /* WKWebView+WBCapture.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -259,7 +255,6 @@
 		1CDCAD42C470B4A903B9BAB7B3DF2112 /* UIScrollView+WBScrollDirection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+WBScrollDirection.m"; path = "WBCategoryKit/UIKit/UIScrollView/UIScrollView+WBScrollDirection.m"; sourceTree = "<group>"; };
 		20B82BC1072F6F5C7CAA6A7AD679B237 /* WBUIColor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBUIColor.h; path = WBCategoryKit/UIKit/UIColor/WBUIColor.h; sourceTree = "<group>"; };
 		213D48874547C93BA0756970130FA498 /* UIControl+WBIgnoreMutiple.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIControl+WBIgnoreMutiple.h"; path = "WBCategoryKit/UIKit/UIControl/UIControl+WBIgnoreMutiple.h"; sourceTree = "<group>"; };
-		21B55D4A6E59E94515E430F47E9A3237 /* UIViewController+WBRemoveTabbarButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+WBRemoveTabbarButton.h"; path = "WBCategoryKit/UIKit/UIViewController/UIViewController+WBRemoveTabbarButton.h"; sourceTree = "<group>"; };
 		22077B8F8F122E579F88636B3CC6B3DC /* UIScrollView+WBScrollDirection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+WBScrollDirection.h"; path = "WBCategoryKit/UIKit/UIScrollView/UIScrollView+WBScrollDirection.h"; sourceTree = "<group>"; };
 		2230993EAEA430B507BB6B3C5D10DECE /* UIBarButtonItem+WBActionBlock.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+WBActionBlock.h"; path = "WBCategoryKit/UIKit/UIBarButtonItem/UIBarButtonItem+WBActionBlock.h"; sourceTree = "<group>"; };
 		239BBADE329FDC38D54DAFACAEEEACF4 /* UIAlertController+WBAdditional.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIAlertController+WBAdditional.m"; path = "WBCategoryKit/UIKit/UIAlertController/UIAlertController+WBAdditional.m"; sourceTree = "<group>"; };
@@ -391,7 +386,6 @@
 		B7D4D874B219E1AB7D78715BA87A1DB1 /* WBClearWarningMacro.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBClearWarningMacro.h; path = WBCategoryKit/Macro/WBClearWarningMacro.h; sourceTree = "<group>"; };
 		B7EBA992146B762E677865A36F564BD3 /* UITableViewCell+WBAdditional.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITableViewCell+WBAdditional.h"; path = "WBCategoryKit/UIKit/UITableViewCell/UITableViewCell+WBAdditional.h"; sourceTree = "<group>"; };
 		B9DCEA9430A45C79F55418EE0A327320 /* NSString+WBPredicate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+WBPredicate.m"; path = "WBCategoryKit/Foundation/NSString/NSString+WBPredicate.m"; sourceTree = "<group>"; };
-		BAFBDE641D5D1DA67FE5DCF4B319E4DB /* UIViewController+WBTransition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+WBTransition.h"; path = "WBCategoryKit/UIKit/UIViewController/UIViewController+WBTransition.h"; sourceTree = "<group>"; };
 		BC12EC687ED7BA841A83341A0D3B8021 /* Pods-WBCategoryKit_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WBCategoryKit_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		BD368FC7492C413AE2DCEB03A2EEE873 /* WBUIScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBUIScrollView.h; path = WBCategoryKit/UIKit/UIScrollView/WBUIScrollView.h; sourceTree = "<group>"; };
 		C0527BB378BD0F1590A5FD36A74D640E /* Pods-WBCategoryKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WBCategoryKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -436,7 +430,6 @@
 		E3ECFB7D1745FD8A8163D772EDBEE035 /* Pods-WBCategoryKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WBCategoryKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		E3F7F33235D64F87E431D3ECAA629D73 /* UIButton+WBAdjustPosition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+WBAdjustPosition.h"; path = "WBCategoryKit/UIKit/UIButton/UIButton+WBAdjustPosition.h"; sourceTree = "<group>"; };
 		E446A4BE746AB8291B5F38886807E2CB /* WKWebView+WBAdditional.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "WKWebView+WBAdditional.m"; path = "WBCategoryKit/UIKit/WKWebView/WKWebView+WBAdditional.m"; sourceTree = "<group>"; };
-		E4E4853CC778C9A171966B11E5D90247 /* UIViewController+WBTransition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+WBTransition.m"; path = "WBCategoryKit/UIKit/UIViewController/UIViewController+WBTransition.m"; sourceTree = "<group>"; };
 		E5344E27F5E769FEF7CC50852B719089 /* NSObject+WBJSON.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+WBJSON.m"; path = "WBCategoryKit/Foundation/NSObject/NSObject+WBJSON.m"; sourceTree = "<group>"; };
 		E65FBD38AC9FE6DEA1DE497EE0367895 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		EB049BBF540F967B568F1C4B42F81B8D /* UICollectionView+WBReload.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UICollectionView+WBReload.m"; path = "WBCategoryKit/UIKit/UICollectionView/UICollectionView+WBReload.m"; sourceTree = "<group>"; };
@@ -456,7 +449,6 @@
 		F73EC1F0356E0564382C687FBF84B79E /* WKWebView+WBCapture.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "WKWebView+WBCapture.h"; path = "WBCategoryKit/UIKit/WKWebView/WKWebView+WBCapture.h"; sourceTree = "<group>"; };
 		F7E936AA483D75D9099826BFE41C4A8A /* WBCategoryKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WBCategoryKit.xcconfig; sourceTree = "<group>"; };
 		FA3248FE3F14182DF9EEC5EB77645B96 /* UIApplication+WBApplicationSize.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+WBApplicationSize.m"; path = "WBCategoryKit/UIKit/UIApplication/UIApplication+WBApplicationSize.m"; sourceTree = "<group>"; };
-		FA702767D5D7921D4F0278A6B78D013C /* UIViewController+WBRemoveTabbarButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+WBRemoveTabbarButton.m"; path = "WBCategoryKit/UIKit/UIViewController/UIViewController+WBRemoveTabbarButton.m"; sourceTree = "<group>"; };
 		FA765CFF072352D2EC47EAD92A3DB2A1 /* NSDictionary+WBAdditional.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+WBAdditional.m"; path = "WBCategoryKit/Foundation/NSDictionary/NSDictionary+WBAdditional.m"; sourceTree = "<group>"; };
 		FC2D7AE32E2F6D61BB7A192470208070 /* WBNSObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBNSObject.h; path = WBCategoryKit/Foundation/NSObject/WBNSObject.h; sourceTree = "<group>"; };
 		FEDDA7794EDBB85B55F8F832F3CF974D /* UIScreen+WBFrame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScreen+WBFrame.h"; path = "WBCategoryKit/UIKit/UIScreen/UIScreen+WBFrame.h"; sourceTree = "<group>"; };
@@ -583,10 +575,6 @@
 			children = (
 				10B298CCF729CD9F1BD15E91513891F8 /* UIViewController+WBAdditional.h */,
 				772686F0004C5C0F99554A1FD8C49AD0 /* UIViewController+WBAdditional.m */,
-				21B55D4A6E59E94515E430F47E9A3237 /* UIViewController+WBRemoveTabbarButton.h */,
-				FA702767D5D7921D4F0278A6B78D013C /* UIViewController+WBRemoveTabbarButton.m */,
-				BAFBDE641D5D1DA67FE5DCF4B319E4DB /* UIViewController+WBTransition.h */,
-				E4E4853CC778C9A171966B11E5D90247 /* UIViewController+WBTransition.m */,
 				C206F9A0049031A77924A47C69B4C0CB /* WBUIViewController.h */,
 			);
 			name = UIViewController;
@@ -911,9 +899,9 @@
 				B14A4728F6676A4C38472C7E59332284 /* UIView+WBFrame.m */,
 				99A1DB522B189A6E2401B9DEB916A5D4 /* UIView+WBRecursion.h */,
 				846370C4BCA74C918899D48D8456354F /* UIView+WBRecursion.m */,
-				05B119FDD18DB47CAAF64A1BE2B73AFE /* WBUIView.h */,
 				C504D781237C5514001BD12B /* UIView+WBAnimation.h */,
 				C504D782237C5514001BD12B /* UIView+WBAnimation.m */,
+				05B119FDD18DB47CAAF64A1BE2B73AFE /* WBUIView.h */,
 			);
 			name = UIView;
 			sourceTree = "<group>";
@@ -1228,8 +1216,6 @@
 				C504D76F237C52B8001BD12B /* UIView+WBFrame.h in Headers */,
 				C504D770237C52B8001BD12B /* UIView+WBRecursion.h in Headers */,
 				C504D772237C52B8001BD12B /* UIViewController+WBAdditional.h in Headers */,
-				C504D773237C52B8001BD12B /* UIViewController+WBRemoveTabbarButton.h in Headers */,
-				C504D774237C52B8001BD12B /* UIViewController+WBTransition.h in Headers */,
 				C504D775237C52B8001BD12B /* UIWindow+WBHierarchy.h in Headers */,
 				C504D776237C52B8001BD12B /* WKWebView+WBAdditional.h in Headers */,
 				C5F17E8D237D99700066982F /* NSObject+WBRuntime.h in Headers */,
@@ -1440,8 +1426,6 @@
 				C56B489023819E2000310A17 /* NSMethodSignature+WBAdditional.m in Sources */,
 				7BC61C6DF69B83863DCC54012E9EDAE0 /* UIView+WBRecursion.m in Sources */,
 				D0EDA931E7269C79D9A1A9992DE7EDBC /* UIViewController+WBAdditional.m in Sources */,
-				53BF1689E7363E376146D5BA977044A8 /* UIViewController+WBRemoveTabbarButton.m in Sources */,
-				C0154B0F864E4E3A0306F7171E3B6484 /* UIViewController+WBTransition.m in Sources */,
 				C504D786237C5514001BD12B /* UIView+WBAnimation.m in Sources */,
 				3ABCB3DF81A2A145D9E15F62A369EA1B /* UIWindow+WBHierarchy.m in Sources */,
 				04D9CD7509A019BFBFEFA53FCA48E55B /* WBCategoryKit-dummy.m in Sources */,

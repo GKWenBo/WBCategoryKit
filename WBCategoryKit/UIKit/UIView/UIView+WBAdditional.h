@@ -20,6 +20,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIView (WBAdditional)
 
+// MARK:Property
+
+/// 在 iOS 11 及之后的版本，此属性将返回系统已有的 self.safeAreaInsets。在之前的版本此属性返回 UIEdgeInsetsZero
+@property (nonatomic, assign, readonly) UIEdgeInsets wb_safeAreaInsets;
+
+/// 相当于 initWithFrame:CGRectMake(0, 0, size.width, size.height)
+/// @param size 初始化size
+- (instancetype)wb_initWithSize:(CGSize)size;
+
 #pragma mark -- Event
 #pragma mark
 /**
@@ -59,11 +68,8 @@ NS_ASSUME_NONNULL_BEGIN
                   borderWidth:(CGFloat)borderWidth;
 
 #pragma mark -- CornerRadius
-/**
- *  设置圆角
- *
- *  @param cornerRadius 圆角大小
- */
+/// 设置圆角
+/// @param cornerRadius 圆角大小
 - (void)wb_setCornerRadius:(CGFloat)cornerRadius;
 
 /**

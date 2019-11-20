@@ -174,7 +174,7 @@ WBOverrideImplementation(Class targetClass, SEL targetSelector, id (^implementat
         // 空 block 虽然没有参数列表，但在业务那边被转换成 IMP 后就算传多个参数进来也不会 crash
         if (!result) {
             result = imp_implementationWithBlock(^(id selfObject) {
-                NSLog(([NSString stringWithFormat:@"%@", targetClass]), @"%@ 没有初始实现，%@\n%@", NSStringFromSelector(targetSelector), selfObject, [NSThread callStackSymbols]);
+                NSLog(@"%@", [NSString stringWithFormat:@"%@ %@ 没有初始实现，%@\n%@", targetClass, NSStringFromSelector(targetSelector), selfObject, [NSThread callStackSymbols]]);
             });
         }
         

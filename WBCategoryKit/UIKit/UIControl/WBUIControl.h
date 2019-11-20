@@ -18,7 +18,7 @@
 #else
 
 #import "UIControl+WBSound.h"
-#import "WBCategoryKitUIControl+WBIgnoreMutiple.h"
+#import "UIControl+WBIgnoreMutiple.h"
 #import "UIControl+WBAcitonBlock.h"
 #import "UIControl+WBBlock.h"
 

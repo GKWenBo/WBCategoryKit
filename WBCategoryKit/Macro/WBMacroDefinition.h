@@ -43,7 +43,7 @@
 
 // MARK:--------适配宏定义
 /**  < Adaptive  >  */
-#define  WB_AdjustsScrollViewInsets_NO(scrollView,vc)\
+#define WB_AdjustsScrollViewInsets_NO(scrollView,vc)\
 do { \
 _Pragma("clang diagnostic push") \
 _Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
@@ -264,8 +264,37 @@ WBCGSizeIsEmpty(CGSize size) {
     return size.width <= 0 || size.height <= 0;
 }
 
-#pragma mark - Selector
+/**
+*  某些地方可能会将 CGFLOAT_MIN 作为一个数值参与计算（但其实 CGFLOAT_MIN 更应该被视为一个标志位而不是数值），可能导致一些精度问题，所以提供这个方法快速将 CGFLOAT_MIN 转换为 0
+*  issue: https://github.com/Tencent/QMUI_iOS/issues/203
+*/
+CG_INLINE CGFloat wb_removeFloatMin(CGFloat floatValue) {
+    return floatValue == CGFLOAT_MIN ? 0 : floatValue;
+}
 
+/**
+*  基于指定的倍数，对传进来的 floatValue 进行像素取整。若指定倍数为0，则表示以当前设备的屏幕倍数为准。
+*
+*  例如传进来 “2.1”，在 2x 倍数下会返回 2.5（0.5pt 对应 1px），在 3x 倍数下会返回 2.333（0.333pt 对应 1px）。
+*/
+CG_INLINE CGFloat wb_flatSpecificScale(CGFloat floatValue, CGFloat scale) {
+    floatValue = wb_removeFloatMin(floatValue);
+    scale = scale ?: [UIScreen mainScreen].scale;
+    CGFloat flattedValue = ceil(floatValue * scale) / scale;
+    return flattedValue;
+}
+
+/**
+*  基于当前设备的屏幕倍数，对传进来的 floatValue 进行像素取整。
+*
+*  注意如果在 Core Graphic 绘图里使用时，要注意当前画布的倍数是否和设备屏幕倍数一致，若不一致，不可使用 flat() 函数，而应该用 flatSpecificScale
+*/
+
+CG_INLINE CGFloat wb_flat(CGFloat floatValue) {
+    return wb_flatSpecificScale(floatValue, 0);
+}
+
+#pragma mark - Selector
 /**
  根据给定的 getter selector 获取对应的 setter selector
  @param getter 目标 getter selector

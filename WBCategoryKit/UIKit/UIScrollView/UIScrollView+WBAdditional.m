@@ -21,6 +21,7 @@
     off.y = 0 - self.contentInset.top;
     [self setContentOffset:off animated:animated];
 }
+
 - (void)wb_scrollToTop {
     [self wb_scrollToTopAnimated:YES];
 }
@@ -36,7 +37,6 @@
     [self setContentOffset:off animated:animated];
 }
 - (void)wb_scrollToBottom {
-    
     [self wb_scrollToBottomAnimated:YES];
 }
 
@@ -50,6 +50,7 @@
     off.x = 0 - self.contentInset.left;
     [self setContentOffset:off animated:animated];
 }
+
 - (void)wb_scrollToLeft {
     [self wb_scrollToLeftAnimated:YES];
 }

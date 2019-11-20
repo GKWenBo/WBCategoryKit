@@ -80,7 +80,6 @@
                 paragraphSpacing:(CGFloat)paragraphSpacing
              firstLineHeadIndent:(CGFloat)firstLineHeadIndent
                       headIndent:(CGFloat)headIndent
-
                            range:(NSRange)range {
     [self addAttribute:NSFontAttributeName
                  value:font

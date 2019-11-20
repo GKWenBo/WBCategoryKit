@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+/*
+使用注意，需先设置按钮大小，然后调整图片文字位置
+ */
+
 @interface UIButton (WBAdjustPosition)
 
 /**

@@ -14,11 +14,24 @@
 
 @implementation UIView (WBAdditional)
 
+// MARK:Property
+- (UIEdgeInsets)wb_safeAreaInsets {
+    if (@available(iOS 11.0, *)) {
+        return self.safeAreaInsets;
+    } else {
+        return UIEdgeInsetsZero;
+    }
+}
+
+- (instancetype)wb_initWithSize:(CGSize)size {
+    return [self initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+}
+
 #pragma mark -- Event
 - (void)wb_addTapGestureTarget:(id)target
                         action:(SEL)action {
-    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:target
-                                                                          action:action];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:target
+                                                                         action:action];
     self.userInteractionEnabled = YES;
     [self addGestureRecognizer:tap];
 }
@@ -80,9 +93,10 @@
     }
     
     CGSize size = CGSizeMake(cornerRadius, cornerRadius);
-    UIBezierPath * maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds
-                                                    byRoundingCorners:corner cornerRadii:size];
-    CAShapeLayer * maskLayer = [[CAShapeLayer alloc]init];
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds
+                                                   byRoundingCorners:corner
+                                                         cornerRadii:size];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc]init];
     maskLayer.frame = self.bounds;
     maskLayer.path = maskPath.CGPath;
     self.layer.mask = maskLayer;

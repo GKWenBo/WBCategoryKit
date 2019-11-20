@@ -30,6 +30,7 @@
 #import <WBCategoryKit/WBUISearchBar.h>
 #import <WBCategoryKit/WBUIControl.h>
 #import <WBCategoryKit/WBUILabel.h>
+#import <WBCategoryKit/CALayer+WBAdditional.h>
 
 #else
 
@@ -54,5 +55,6 @@
 #import "WBUISearchBar.h"
 #import "WBUIControl.h"
 #import "WBUILabel.h"
+#import "CALayer+WBAdditional.h"
 
 #endif

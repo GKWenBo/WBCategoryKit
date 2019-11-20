@@ -17,13 +17,23 @@
 }
 
 #pragma mark --------  快速创建按钮  --------
++ (instancetype)wb_buttonWithTitle:(NSString *)title
+                              font:(UIFont *)font
+                        titleColor:(UIColor *)titleColor {
+    UIButton *button = [UIButton new];
+    [button setTitle:title forState:UIControlStateNormal];
+    [button setTitleColor:titleColor forState:UIControlStateNormal];
+    button.titleLabel.font = font;
+    return button;
+}
+
 + (UIButton *)wb_createButtonWithTitle:(NSString *)title
                               fontSize:(CGFloat)fontSize
                             titleColor:(UIColor *)titleColor
                        backgroundImage:(UIImage *)backgroundImage
                                 target:(id)target
                                 action:(SEL)action {
-    UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.titleLabel.font = [UIFont systemFontOfSize:fontSize];
     [button setTitle:title forState:UIControlStateNormal];
     [button setTitleColor:titleColor forState:UIControlStateNormal];

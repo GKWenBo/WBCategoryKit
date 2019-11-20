@@ -65,7 +65,6 @@ NS_ASSUME_NONNULL_BEGIN
                 paragraphSpacing:(CGFloat)paragraphSpacing
              firstLineHeadIndent:(CGFloat)firstLineHeadIndent
                       headIndent:(CGFloat)headIndent
-
                            range:(NSRange)range;
 
 /**
