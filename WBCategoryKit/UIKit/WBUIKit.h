@@ -31,6 +31,7 @@
 #import <WBCategoryKit/WBUIControl.h>
 #import <WBCategoryKit/WBUILabel.h>
 #import <WBCategoryKit/CALayer+WBAdditional.h>
+#import <WBCategoryKit/UIImageView+WBAdditional.h>
 
 #else
 
@@ -56,5 +57,6 @@
 #import "WBUIControl.h"
 #import "WBUILabel.h"
 #import "CALayer+WBAdditional.h"
+#import "UIImageView+WBAdditional.h"
 
 #endif

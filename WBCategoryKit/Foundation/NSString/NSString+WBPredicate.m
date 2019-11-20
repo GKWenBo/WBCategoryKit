@@ -15,8 +15,7 @@
     return [self stringByTrimmingCharactersInSet:set];
 }
 
-- (NSString *)wb_removeWhiteSpacesFromString
-{
+- (NSString *)wb_removeWhiteSpacesFromString {
     NSString *trimmedString = [self stringByTrimmingCharactersInSet:
                                [NSCharacterSet whitespaceAndNewlineCharacterSet]];
     return trimmedString;
@@ -31,8 +30,7 @@
     return ([[self wb_removeWhiteSpacesFromString] isEqualToString:@""] || self == nil || [self isEqualToString:@"(null)"]) ? YES : NO;
 }
 
-+ (BOOL)wb_isNull:(NSString *)object
-{
++ (BOOL)wb_isNull:(NSString *)object {
     // 判断是否为空串
     if([object isKindOfClass:[NSNull class]])
         return YES;
