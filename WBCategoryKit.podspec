@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
       folder1.subspec 'NSData' do |folder2|
           folder2.source_files = 'WBCategoryKit/Foundation/NSData/**/*.{h,m}'
           folder2.frameworks = 'Foundation'
-          end
+      end
       
       folder1.subspec 'NSDictionary' do |folder2|
           folder2.source_files = 'WBCategoryKit/Foundation/NSDictionary/**/*.{h,m}'
@@ -52,25 +52,27 @@ Pod::Spec.new do |s|
           folder2.frameworks = 'Foundation'
       end
       
-      folder1.subspec 'Swizzle' do |folder2|
-          folder2.source_files = 'WBCategoryKit/Foundation/Swizzle/**/*.{h,m}'
-          folder2.frameworks = 'Foundation'
-          end
+      folder1.subspec 'Runtime' do |folder2|
+          folder2.source_files = 'WBCategoryKit/Foundation/Runtime/**/*.{h,m}'
+          folder2.frameworks = 'Foundation','UIKit'
+          folder2.dependency = 'WBCategoryKit/Macro'
+      end
       
       folder1.subspec 'NSMutableAttributedString' do |folder2|
           folder2.source_files = 'WBCategoryKit/Foundation/NSMutableAttributedString/**/*.{h,m}'
           folder2.frameworks = 'Foundation','UIKit'
       end
+
+      folder1.subspec 'NSMethodSignature' do |folder2|
+      	folder2.source_files = 'WBCategoryKit/Foundation/NSMethodSignature/**/*.{h,m}'
+      	folder2.frameworks = 'Foundation'
+      end
+
   end
   
   s.subspec 'Macro' do |ss|
       ss.source_files = 'WBCategoryKit/Macro/*.{h}'
       ss.frameworks = 'Foundation', 'UIKit'
-  end
-  
-  s.subspec 'QuartzCore' do |ss|
-      ss.source_files = 'WBCategoryKit/QuartzCore/**/*.{h,m}'
-      ss.frameworks = 'Foundation', 'UIKit', 'QuartzCore'
   end
   
   s.subspec 'UIKit' do |folder1|
@@ -80,13 +82,14 @@ Pod::Spec.new do |s|
       folder1.subspec 'UIFont' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UIFont/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit'
-          folder2.dependency 'WBCategoryKit/Foundation/Swizzle'
+          folder2.dependency 'WBCategoryKit/Foundation/Runtime'
           folder2.dependency 'WBCategoryKit/Macro'
       end
       
       folder1.subspec 'UIImage' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UIImage/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit', 'CoreGraphics', 'ImageIO', 'CoreText', 'AVFoundation', 'Accelerate'
+          folder2.dependency 'WBCategoryKit/Macro'
       end
       
       folder1.subspec 'UIScrollView' do |folder2|
@@ -132,6 +135,9 @@ Pod::Spec.new do |s|
       folder1.subspec 'UIView' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UIView/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit', 'QuartzCore'
+          folder2.dependency 'WBCategoryKit/Foundation/Runtime'
+          folder2.dependency 'WBCategoryKit/UIKit/CALayer'
+          folder2.dependency 'WBCategoryKit/NSObject/NSObject'
       end
       
       folder1.subspec 'UINavigationItem' do |folder2|
@@ -142,11 +148,6 @@ Pod::Spec.new do |s|
       folder1.subspec 'WKWebView' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/WKWebView/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit', 'WebKit'
-      end
-      
-      folder1.subspec 'UITextView' do |folder2|
-          folder2.source_files = 'WBCategoryKit/UIKit/UITextView/**/*.{h,m}'
-          folder2.frameworks = 'Foundation', 'UIKit'
       end
       
       folder1.subspec 'UICollectionView' do |folder2|
@@ -180,14 +181,23 @@ Pod::Spec.new do |s|
           folder2.frameworks = 'Foundation', 'UIKit'
       end
       
-      folder1.subspec 'UISearchBar' do |folder2|
-          folder2.source_files = 'WBCategoryKit/UIKit/UISearchBar/**/*.{h,m}'
-          folder2.frameworks = 'Foundation', 'UIKit'
-      end
-      
       folder1.subspec 'UIControl' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UIControl/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit', 'AVFoundation'
+      end
+
+      folder1.subspec 'CALayer' do |folder2|
+      	  folder2.source_files = 'WBCategoryKit/UIKit/CALayer/**/*.{h,m}'
+      	  folder2.frameworks = 'UIkit'
+      	  folder2.dependency 'WBCategoryKit/Macro'
+      	  folder2.dependency 'WBCategoryKit/UIKit/Runtime'
+      	  folder2.dependency 'WBCategoryKit/UIKit/UIView'
+      end
+
+      folder1.subspec 'UILabel' do |folder2|
+      	  folder2.source_files = "WBCategoryKit/UIKit/UILabel/**/*.{h,m}"
+      	  folder2.frameworks = 'UIKit'
+      	  folder2.dependency 'WBCategoryKit/Macro'
       end
   end
   
