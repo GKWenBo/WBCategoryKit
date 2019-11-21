@@ -3,7 +3,6 @@
 //  Pods
 //
 //  Created by WenBo on 2019/11/21.
-//
 
 #import "UITabBarItem+WBAdditional.h"
 #import <objc/runtime.h>
@@ -13,11 +12,11 @@
 @implementation UITabBarItem (WBAdditional)
 
 // MARK:setter && getter
-- (void)setWb_doubleTapBlock:(void (^)(UITabBarItem * _Nonnull, NSInteger))wb_doubleTapBlock {
+- (void)setWb_doubleTapBlock:(void (^)(UITabBarItem *, NSInteger))wb_doubleTapBlock {
     objc_setAssociatedObject(self, @selector(wb_doubleTapBlock), wb_doubleTapBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
-- (void (^)(UITabBarItem * _Nonnull, NSInteger))wb_doubleTapBlock {
+- (void (^)(UITabBarItem *, NSInteger))wb_doubleTapBlock {
     return objc_getAssociatedObject(self, @selector(wb_doubleTapBlock));
 }
 
@@ -26,7 +25,6 @@
 }
 
 + (UIImageView *)wb_imageViewInTabBarButton:(UIView *)tabBarButton {
-    
     if (!tabBarButton) {
         return nil;
     }

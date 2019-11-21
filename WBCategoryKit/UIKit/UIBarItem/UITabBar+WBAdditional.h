@@ -25,6 +25,17 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, readonly) UIImageView *wb_shadowImageView;
 
+// MARK: Configuration Property
+@property(nonatomic, strong, nullable) UIImage  *wb_tabBarBackgroundImage;
+@property(nonatomic, strong, nullable) UIColor  *wb_tabBarBarTintColor;
+@property(nonatomic, strong, nullable) UIColor  *wb_tabBarShadowImageColor;
+@property(nonatomic, assign) UIBarStyle         wb_tabBarStyle;
+@property(nonatomic, strong, nullable) UIFont   *wb_tabBarItemTitleFont;
+@property(nonatomic, strong, nullable) UIColor  *wb_tabBarItemTitleColor;
+@property(nonatomic, strong, nullable) UIColor  *wb_tabBarItemTitleColorSelected;
+@property(nonatomic, strong, nullable) UIColor  *wb_tabBarItemImageColor;
+@property(nonatomic, strong, nullable) UIColor  *wb_tabBarItemImageColorSelected;
+
 @end
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000

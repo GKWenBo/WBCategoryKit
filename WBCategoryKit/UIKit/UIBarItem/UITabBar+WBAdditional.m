@@ -11,6 +11,9 @@
 #import "WBMacro.h"
 #import "NSObject+WBRuntime.h"
 #import "UITabBarItem+WBAdditional.m"
+#import "NSObject+WBAdditional.h"
+#import "WBUIViewController.h"
+#import "WBUIImage.h"
 
 static NSInteger const kLastTouchedTabBarItemIndexNone = -1;
 
@@ -20,10 +23,15 @@ static NSInteger const kLastTouchedTabBarItemIndexNone = -1;
 @property(nonatomic, assign) NSInteger lastTouchedTabBarItemViewIndex;
 @property(nonatomic, assign) NSInteger tabBarItemViewTouchCount;
 
+#ifdef WB_IOS13_SDK_ALLOWED
+
+@property(nonatomic, strong) UITabBarAppearance *wb_tabBarAppearance API_AVAILABLE(ios(13.0));
+
+#endif
+
 @end
 
 @implementation UITabBar (WBAdditional)
-
 // MARK:getter && setter
 - (void)setCanItemRespondDoubleTouch:(BOOL)canItemRespondDoubleTouch {
     objc_setAssociatedObject(self, @selector(canItemRespondDoubleTouch), @(canItemRespondDoubleTouch), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -49,6 +57,254 @@ static NSInteger const kLastTouchedTabBarItemIndexNone = -1;
     return [objc_getAssociatedObject(self, @selector(tabBarItemViewTouchCount)) integerValue];
 }
 
+// MARK: Configuration Property
+#ifdef WB_IOS13_SDK_ALLOWED
+- (UITabBarAppearance *)wb_tabBarAppearance {
+    UITabBarAppearance *wb_tabBarAppearance = objc_getAssociatedObject(self, @selector(wb_tabBarAppearance));
+    if (!wb_tabBarAppearance) {
+        wb_tabBarAppearance = [[UITabBarAppearance alloc] init];
+        [wb_tabBarAppearance configureWithDefaultBackground];
+        objc_setAssociatedObject(self, @selector(wb_tabBarAppearance), wb_tabBarAppearance, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    return wb_tabBarAppearance;
+}
+
+- (void)updateTabBarAppearance {
+    if (@available(iOS 13.0, *)) {
+        UITabBar.appearance.standardAppearance = self.wb_tabBarAppearance;
+        [[UIViewController wb_appearanceUpdatingTabBarControllers] enumerateObjectsUsingBlock:^(UITabBarController * _Nonnull tabBarController, NSUInteger idx, BOOL * _Nonnull stop) {
+            tabBarController.tabBar.standardAppearance = self.wb_tabBarAppearance;
+        }];
+    }
+}
+#endif
+
+- (void)setWb_tabBarStyle:(UIBarStyle)wb_tabBarStyle {
+    objc_setAssociatedObject(self, @selector(wb_tabBarStyle), @(wb_tabBarStyle), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+#ifdef WB_IOS13_SDK_ALLOWED
+    if (@available(iOS 13.0, *)) {
+        self.wb_tabBarAppearance.backgroundEffect = [UIBlurEffect effectWithStyle:wb_tabBarStyle == UIBarStyleDefault ? UIBlurEffectStyleSystemChromeMaterialLight : UIBlurEffectStyleSystemChromeMaterialDark];
+        [self updateTabBarAppearance];
+    } else {
+#endif
+        [UITabBar appearance].barStyle = wb_tabBarStyle;
+        [[UIViewController wb_appearanceUpdatingTabBarControllers] enumerateObjectsUsingBlock:^(UITabBarController * _Nonnull tabBarController, NSUInteger idx, BOOL * _Nonnull stop) {
+            tabBarController.tabBar.barStyle = wb_tabBarStyle;
+        }];
+#ifdef WB_IOS13_SDK_ALLOWED
+    }
+#endif
+}
+
+- (UIBarStyle)wb_tabBarStyle {
+    return [objc_getAssociatedObject(self, @selector(wb_tabBarStyle)) integerValue];
+}
+
+- (void)setWb_tabBarBarTintColor:(UIColor *)wb_tabBarBarTintColor {
+    objc_setAssociatedObject(self, @selector(wb_tabBarBarTintColor), wb_tabBarBarTintColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+#ifdef WB_IOS13_SDK_ALLOWED
+    if (@available(iOS 13.0, *)) {
+        self.wb_tabBarAppearance.backgroundColor = wb_tabBarBarTintColor;
+        [self updateTabBarAppearance];
+    } else {
+#endif
+        [UITabBar appearance].barTintColor = wb_tabBarBarTintColor;
+        [[UIViewController wb_appearanceUpdatingTabBarControllers] enumerateObjectsUsingBlock:^(UITabBarController * _Nonnull tabBarController, NSUInteger idx, BOOL * _Nonnull stop) {
+            tabBarController.tabBar.barTintColor = wb_tabBarBarTintColor;
+        }];
+#ifdef WB_IOS13_SDK_ALLOWED
+    }
+#endif
+}
+
+- (UIColor *)wb_tabBarBarTintColor {
+    return objc_getAssociatedObject(self, @selector(wb_tabBarBarTintColor));
+}
+
+- (void)setWb_tabBarBackgroundImage:(UIImage *)wb_tabBarBackgroundImage {
+    objc_setAssociatedObject(self, @selector(wb_tabBarBackgroundImage), wb_tabBarBackgroundImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+#ifdef WB_IOS13_SDK_ALLOWED
+    if (@available(iOS 13.0, *)) {
+        self.wb_tabBarAppearance.backgroundImage = wb_tabBarBackgroundImage;
+        [self updateTabBarAppearance];
+    } else {
+#endif
+        [UITabBar appearance].backgroundImage = wb_tabBarBackgroundImage;
+        [[UIViewController wb_appearanceUpdatingTabBarControllers] enumerateObjectsUsingBlock:^(UITabBarController * _Nonnull tabBarController, NSUInteger idx, BOOL * _Nonnull stop) {
+            tabBarController.tabBar.backgroundImage = wb_tabBarBackgroundImage;
+        }];
+#ifdef WB_IOS13_SDK_ALLOWED
+    }
+#endif
+}
+
+- (UIImage *)wb_tabBarBackgroundImage {
+    return objc_getAssociatedObject(self, @selector(wb_tabBarBackgroundImage));
+}
+
+- (void)setWb_tabBarShadowImageColor:(UIColor *)wb_tabBarShadowImageColor {
+    objc_setAssociatedObject(self, @selector(wb_tabBarShadowImageColor), wb_tabBarShadowImageColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+#ifdef WB_IOS13_SDK_ALLOWED
+    if (@available(iOS 13.0, *)) {
+        self.wb_tabBarAppearance.shadowColor = wb_tabBarShadowImageColor;
+        [self updateTabBarAppearance];
+    } else {
+#endif
+        UIImage *shadowImage = [UIImage wb_imageWithColor:wb_tabBarShadowImageColor
+                                                     size:CGSizeMake(1, [WBHelper wb_pixelOne])
+                                             cornerRadius:0];
+        [[UITabBar appearance] setShadowImage:shadowImage];
+        [[UIViewController wb_appearanceUpdatingTabBarControllers] enumerateObjectsUsingBlock:^(UITabBarController * _Nonnull tabBarController, NSUInteger idx, BOOL * _Nonnull stop) {
+            tabBarController.tabBar.shadowImage = shadowImage;
+        }];
+#ifdef WB_IOS13_SDK_ALLOWED
+    }
+#endif
+}
+
+- (UIColor *)wb_tabBarShadowImageColor {
+    return objc_getAssociatedObject(self, @selector(wb_tabBarShadowImageColor));
+}
+
+- (void)setWb_tabBarItemTitleFont:(UIFont *)wb_tabBarItemTitleFont {
+    objc_setAssociatedObject(self, @selector(wb_tabBarItemTitleFont), wb_tabBarItemTitleFont, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+#ifdef WB_IOS13_SDK_ALLOWED
+    if (@available(iOS 13.0, *)) {
+        [self.wb_tabBarAppearance wb_applyItemAppearanceWithBlock:^(UITabBarItemAppearance * _Nonnull itemAppearance) {
+            NSMutableDictionary<NSAttributedStringKey, id> *attributes = itemAppearance.normal.titleTextAttributes.mutableCopy;
+            attributes[NSFontAttributeName] = wb_tabBarItemTitleFont;
+            itemAppearance.normal.titleTextAttributes = attributes.copy;
+        }];
+        [self updateTabBarAppearance];
+    } else {
+#endif
+        NSMutableDictionary<NSString *, id> *textAttributes = [[NSMutableDictionary alloc] initWithDictionary:[[UITabBarItem appearance] titleTextAttributesForState:UIControlStateNormal]];
+        if (wb_tabBarItemTitleFont) {
+            textAttributes[NSFontAttributeName] = wb_tabBarItemTitleFont;
+        }
+        [[UITabBarItem appearance] setTitleTextAttributes:textAttributes forState:UIControlStateNormal];
+        [[UIViewController wb_appearanceUpdatingTabBarControllers] enumerateObjectsUsingBlock:^(UITabBarController * _Nonnull tabBarController, NSUInteger idx, BOOL * _Nonnull stop) {
+            [tabBarController.tabBar.items enumerateObjectsUsingBlock:^(UITabBarItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                [obj setTitleTextAttributes:textAttributes forState:UIControlStateNormal];
+            }];
+        }];
+#ifdef WB_IOS13_SDK_ALLOWED
+    }
+#endif
+}
+
+- (UIFont *)wb_tabBarItemTitleFont {
+    return objc_getAssociatedObject(self, @selector(wb_tabBarItemTitleFont));
+}
+
+- (void)setWb_tabBarItemTitleColor:(UIColor *)wb_tabBarItemTitleColor {
+    objc_setAssociatedObject(self, @selector(wb_tabBarItemTitleColor), wb_tabBarItemTitleColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+#ifdef WB_IOS13_SDK_ALLOWED
+    if (@available(iOS 13.0, *)) {
+        [self.wb_tabBarAppearance wb_applyItemAppearanceWithBlock:^(UITabBarItemAppearance * _Nonnull itemAppearance) {
+            NSMutableDictionary<NSAttributedStringKey, id> *attributes = itemAppearance.normal.titleTextAttributes.mutableCopy;
+            attributes[NSForegroundColorAttributeName] = wb_tabBarItemTitleColor;
+            itemAppearance.normal.titleTextAttributes = attributes.copy;
+        }];
+        [self updateTabBarAppearance];
+    } else {
+#endif
+        NSMutableDictionary<NSString *, id> *textAttributes = [[NSMutableDictionary alloc] initWithDictionary:[[UITabBarItem appearance] titleTextAttributesForState:UIControlStateNormal]];
+        textAttributes[NSForegroundColorAttributeName] = wb_tabBarItemTitleColor;
+        [[UITabBarItem appearance] setTitleTextAttributes:textAttributes forState:UIControlStateNormal];
+        [[UIViewController wb_appearanceUpdatingTabBarControllers] enumerateObjectsUsingBlock:^(UITabBarController * _Nonnull tabBarController, NSUInteger idx, BOOL * _Nonnull stop) {
+            [tabBarController.tabBar.items enumerateObjectsUsingBlock:^(UITabBarItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                [obj setTitleTextAttributes:textAttributes forState:UIControlStateNormal];
+            }];
+        }];
+#ifdef WB_IOS13_SDK_ALLOWED
+    }
+#endif
+}
+
+- (UIColor *)wb_tabBarItemTitleColor {
+    return objc_getAssociatedObject(self, @selector(wb_tabBarItemTitleColor));
+}
+
+- (void)setWb_tabBarItemTitleColorSelected:(UIColor *)wb_tabBarItemTitleColorSelected {
+    objc_setAssociatedObject(self, @selector(wb_tabBarItemTitleColorSelected), wb_tabBarItemTitleColorSelected, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+#ifdef WB_IOS13_SDK_ALLOWED
+    if (@available(iOS 13.0, *)) {
+        [self.wb_tabBarAppearance wb_applyItemAppearanceWithBlock:^(UITabBarItemAppearance * _Nonnull itemAppearance) {
+            NSMutableDictionary<NSAttributedStringKey, id> *attributes = itemAppearance.selected.titleTextAttributes.mutableCopy;
+            attributes[NSForegroundColorAttributeName] = wb_tabBarItemTitleColorSelected;
+            itemAppearance.selected.titleTextAttributes = attributes.copy;
+        }];
+        [self updateTabBarAppearance];
+    } else {
+#endif
+    NSMutableDictionary<NSString *, id> *textAttributes = [[NSMutableDictionary alloc] initWithDictionary:[[UITabBarItem appearance] titleTextAttributesForState:UIControlStateSelected]];
+    textAttributes[NSForegroundColorAttributeName] = wb_tabBarItemTitleColorSelected;
+    [[UITabBarItem appearance] setTitleTextAttributes:textAttributes forState:UIControlStateSelected];
+    [[UIViewController wb_appearanceUpdatingTabBarControllers] enumerateObjectsUsingBlock:^(UITabBarController * _Nonnull tabBarController, NSUInteger idx, BOOL * _Nonnull stop) {
+        [tabBarController.tabBar.items enumerateObjectsUsingBlock:^(UITabBarItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [obj setTitleTextAttributes:textAttributes forState:UIControlStateSelected];
+        }];
+    }];
+#ifdef WB_IOS13_SDK_ALLOWED
+    }
+#endif
+}
+
+- (UIColor *)wb_tabBarItemTitleColorSelected {
+    return objc_getAssociatedObject(self, @selector(wb_tabBarItemTitleColorSelected));
+}
+
+- (void)setWb_tabBarItemImageColor:(UIColor *)wb_tabBarItemImageColor {
+    objc_setAssociatedObject(self, @selector(wb_tabBarItemImageColor), wb_tabBarItemImageColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+#ifdef WB_IOS13_SDK_ALLOWED
+    if (@available(iOS 13.0, *)) {
+        [self.wb_tabBarAppearance wb_applyItemAppearanceWithBlock:^(UITabBarItemAppearance * _Nonnull itemAppearance) {
+            itemAppearance.normal.iconColor = wb_tabBarItemImageColor;
+        }];
+        [self updateTabBarAppearance];
+    } else {
+#endif
+    [[UIViewController wb_appearanceUpdatingTabBarControllers] enumerateObjectsUsingBlock:^(UITabBarController * _Nonnull tabBarController, NSUInteger idx, BOOL * _Nonnull stop) {
+        [tabBarController.tabBar.items enumerateObjectsUsingBlock:^(UITabBarItem * _Nonnull item, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (item == tabBarController.tabBar.selectedItem) return;
+            if (item.image.renderingMode == UIImageRenderingModeAlwaysOriginal) return;
+            item.image = [item.image wb_imageWithTintColor:wb_tabBarItemImageColor];
+        }];
+    }];
+#ifdef WB_IOS13_SDK_ALLOWED
+    }
+#endif
+}
+
+- (UIColor *)wb_tabBarItemImageColor {
+    return objc_getAssociatedObject(self, @selector(wb_tabBarItemImageColor));
+}
+
+- (void)setWb_tabBarItemImageColorSelected:(UIColor *)wb_tabBarItemImageColorSelected {
+    objc_setAssociatedObject(self, @selector(wb_tabBarItemImageColorSelected), wb_tabBarItemImageColorSelected, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+#ifdef WB_IOS13_SDK_ALLOWED
+    if (@available(iOS 13.0, *)) {
+        [self.wb_tabBarAppearance wb_applyItemAppearanceWithBlock:^(UITabBarItemAppearance * _Nonnull itemAppearance) {
+            itemAppearance.selected.iconColor = wb_tabBarItemImageColorSelected;
+        }];
+        [self updateTabBarAppearance];
+    } else {
+#endif
+        // iOS 12 及以下使用 tintColor 实现，tintColor 并没有声明 UI_APPEARANCE_SELECTOR，所以暂不使用 appearance 的方式去修改（虽然 appearance 方式实测是生效的）
+        [[UIViewController wb_appearanceUpdatingTabBarControllers] enumerateObjectsUsingBlock:^(UITabBarController * _Nonnull tabBarController, NSUInteger idx, BOOL * _Nonnull stop) {
+            tabBarController.tabBar.tintColor = wb_tabBarItemImageColorSelected;
+        }];
+#ifdef WB_IOS13_SDK_ALLOWED
+    }
+#endif
+}
+
+- (UIColor *)wb_tabBarItemImageColorSelected {
+    return objc_getAssociatedObject(self, @selector(wb_tabBarItemImageColorSelected));
+}
+
+// MARK: Load
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -69,7 +325,6 @@ static NSInteger const kLastTouchedTabBarItemIndexNone = -1;
                 
             };
         });
-        
         
         WBOverrideImplementation([UITabBar class], @selector(setSelectedItem:), ^id _Nonnull(__unsafe_unretained Class  _Nonnull originClass, SEL  _Nonnull originCMD, IMP  _Nonnull (^ _Nonnull originalIMPProvider)(void)) {
             return ^(UITabBar *selfObject, UITabBarItem *selectedItem) {
@@ -228,6 +483,26 @@ static NSInteger const kLastTouchedTabBarItemIndexNone = -1;
     });
 }
 
+- (UIView *)wb_backgroundView {
+    return [self wb_valueForKey:@"_backgroundView"];
+}
+
+- (UIImageView *)wb_shadowImageView {
+    if (@available(iOS 13, *)) {
+        return [self.wb_backgroundView wb_valueForKey:@"_shadowView1"];
+    } else if (@available(iOS 10, *)) {
+        // iOS 10 及以后，在 UITabBar 初始化之后就能获取到 backgroundView 和 shadowView 了
+        return [self.wb_backgroundView wb_valueForKey:@"_shadowView"];
+    }
+    // iOS 9 及以前，shadowView 要在 UITabBar 第一次 layoutSubviews 之后才会被创建，直至 UITabBarController viewWillAppear: 时仍未能获取到 shadowView，所以为了省去调用时机的考虑，这里获取不到的时候会主动触发一次 tabBar 的布局
+    UIImageView *shadowView = [self wb_valueForKey:@"_shadowView"];
+    if (!shadowView) {
+        [self setNeedsLayout];
+        [self layoutIfNeeded];
+        shadowView = [self wb_valueForKey:@"_shadowView"];
+    }
+    return shadowView;
+}
 
 // MARK:Event Response
 - (void)handleTabBarItemViewEvent:(UIControl *)itemView {

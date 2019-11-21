@@ -7,6 +7,7 @@
 //
 
 #import "WKWebView+WBJavaScript.h"
+#import "WBUIColor.h"
 
 @implementation WKWebView (WBJavaScript)
 
@@ -16,8 +17,8 @@
            completionHandler:^(id _Nullable result, NSError * _Nullable error) {
                if (completedHandler) {
                    completedHandler([result intValue]);
-               }
-           }];
+       }
+    }];
 }
 
 - (void)wb_getCurrentURL:(void(^) (NSString *url))completedHandler {
@@ -26,7 +27,7 @@
                if (completedHandler) {
                    completedHandler(result);
                }
-           }];
+    }];
 }
 
 - (void)wb_getCurrentTitle:(void (^) (NSString *title))completedHandler {
@@ -35,7 +36,7 @@
                if (completedHandler) {
                    completedHandler(result);
                }
-           }];
+    }];
 }
 
 - (void)wb_getImages:(void (^) (NSArray *images))completedHandler {
@@ -54,7 +55,7 @@
                if (completedHandler) {
                    completedHandler(imageArray);
                }
-           }];    
+    }];
 }
 
 - (void)wb_getScrollHeight:(void (^) (CGFloat scrollHeight))completedHandler {
@@ -63,7 +64,7 @@
                if (completedHandler) {
                    completedHandler([result floatValue]);
                }
-           }];
+    }];
 }
 
 - (void)wb_getOffsetHeight:(void (^) (CGFloat offsetHeight))completedHandler {
@@ -72,7 +73,7 @@
                if (completedHandler) {
                    completedHandler([result floatValue]);
                }
-           }];
+    }];
 }
 
 - (void)wb_chnageFontSize:(int)fontSize {
@@ -87,7 +88,7 @@
                if (completedHandler) {
                    completedHandler(cookie);
                }
-           }];
+    }];
 }
 
 - (void)wb_getLongPressImageUrlWithPoint:(CGPoint)touchPoint
@@ -98,7 +99,7 @@
                if (completedHandler) {
                    completedHandler(result);
                }
-           }];
+    }];
 }
 
 - (void)wb_setFontSize:(int)fontSize
@@ -129,8 +130,8 @@
                    jsString = [NSString stringWithFormat:@"document.getElementsByTagName('img')[%d].style.width = '%dpx'", i, size];
                    [strongSelf evaluateJavaScript:jsString
                                 completionHandler:nil];
-               }
-           }];
+        }
+    }];
 }
 
 - (void)wb_setImgHeight:(int)size {
@@ -145,8 +146,8 @@
                    jsString = [NSString stringWithFormat:@"document.getElementsByTagName('img')[%d].style.height = '%dpx'", i, size];
                    [strongSelf evaluateJavaScript:jsString
                                 completionHandler:nil];
-               }
-           }];
+       }
+   }];
 }
 
 - (void)wb_addClickEventOnImg {
@@ -167,8 +168,8 @@
                                          }"];
                    [strongSelf evaluateJavaScript:jsString
                                 completionHandler:nil];
-               }
-           }];
+       }
+   }];
 }
 
 - (void)wb_hiddenElementById:(NSString *)idString {
@@ -244,33 +245,6 @@
     NSLog(@"%d,%d,%d", r, g, b);
     NSString *webColor = [NSString stringWithFormat:@"#%02X%02X%02X", r, g, b];
     return webColor;
-}
-
-- (CGFloat *) wb_getRGB{
-    UIColor * uiColor = self;
-    CGColorRef cgColor = [uiColor CGColor];
-    int numComponents = (int)CGColorGetNumberOfComponents(cgColor);
-    if (numComponents == 4){
-        static CGFloat * components = Nil;
-        components = (CGFloat *) CGColorGetComponents(cgColor);
-        return (CGFloat *)components;
-    } else { //否则默认返回黑色
-        static CGFloat components[4] = {0};
-        CGFloat f = 0;
-        //非RGB空间的系统颜色单独处理
-        if ([uiColor isEqual:[UIColor whiteColor]]) {
-            f = 1.0;
-        } else if ([uiColor isEqual:[UIColor lightGrayColor]]) {
-            f = 0.8;
-        } else if ([uiColor isEqual:[UIColor grayColor]]) {
-            f = 0.5;
-        }
-        components[0] = f;
-        components[1] = f;
-        components[2] = f;
-        components[3] = 1.0;
-        return (CGFloat *)components;
-    }
 }
 
 @end

@@ -53,7 +53,7 @@
 
 + (NSString *)wb_dateStringFromYKMDateString:(NSString *)dateString {
     NSDate * date = [self wb_dateFromYKMString:dateString];
-    NSDateFormatter *dateFormatter = [[WBDateFormatterPool shareInstance] wb_dateFormatterWithFormat:kWBCustomDateFormat
+    NSDateFormatter *dateFormatter = [[WBDateFormatterPool shareInstance] wb_dateFormatterWithFormat:WB_CustomDateFormat
                                                                                     localeIdentifier:nil
                                                                                         timeZoneName:nil];
     NSString *strDate = [dateFormatter stringFromDate: date];
@@ -70,12 +70,12 @@
 
 + (NSString *)wb_dateStringFromDate:(NSDate *)date {
     return [self wb_dateStringFromDate:date
-                                format:kWBDayFormatLine];
+                                format:WB_DayFormatLine];
 }
 
 + (NSString *)wb_hourDateStringFromDate:(NSDate *)date {
     return [self wb_dateStringFromDate:date
-                                format:kWBCustomDateFormat];
+                                format:WB_CustomDateFormat];
 }
 
 + (NSString *)wb_getDateStringWithTimestamp:(NSTimeInterval)timestamp {
@@ -102,18 +102,18 @@
 
 + (NSDate *)wb_dateFromString:(NSString *)dateString {
     return [self wb_dateFromString:dateString
-                        withFormat:kWBCustomDateFormat];
+                        withFormat:WB_CustomDateFormat];
 }
 
 + (NSDate *)wb_dateFromYKMString:(NSString *)dateString {
     return [self wb_dateFromString:dateString
-                        withFormat:kWBYkmDateFormat];
+                        withFormat:WB_YkmDateFormat];
 }
 
 #pragma mark -- Timestamp
 + (NSTimeInterval)wb_timeIntervalSince1970FromString:(NSString *)dateString {
     NSDate * date = [self wb_dateFromString:dateString
-                                 withFormat:kWBCustomDateFormat];
+                                 withFormat:WB_CustomDateFormat];
     if (date) {
         NSTimeInterval time = [date timeIntervalSince1970] * 1000;
         return time;

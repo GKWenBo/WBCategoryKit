@@ -60,14 +60,14 @@
 
 #import <Foundation/Foundation.h>
 
-#define kWBDateFormat          @"yyyy MM dd HH mm ss"
-#define kWBCustomDateFormat    @"yyyy-MM-dd HH:mm:ss"
-#define kWBDayFormat           @"yyyy MM dd"
-#define kWBDayPointFormat      @"yyyy.MM.dd"
-#define kWBDayFormatLine       @"yyyy-MM-dd"
-#define kWBShortTime           @"MM-dd HH:mm"
-#define kWBSinaDateFormat      @"yyyy MMM d EEE HH:mm:ss ZZZ"
-#define kWBYkmDateFormat       @"yyyyMMddHHmmss"
+#define WB_DateFormat          @"yyyy MM dd HH mm ss"
+#define WB_CustomDateFormat    @"yyyy-MM-dd HH:mm:ss"
+#define WB_DayFormat           @"yyyy MM dd"
+#define WB_DayPointFormat      @"yyyy.MM.dd"
+#define WB_DayFormatLine       @"yyyy-MM-dd"
+#define WB_ShortTime           @"MM-dd HH:mm"
+#define WB_SinaDateFormat      @"yyyy MMM d EEE HH:mm:ss ZZZ"
+#define WB_YkmDateFormat       @"yyyyMMddHHmmss"
 
 
 

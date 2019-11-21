@@ -12,7 +12,7 @@
 #import "NSString+WBAddtional.h"
 #import "WBHelper.h"
 
-/**  < 自定义高效率log >  */
+/// 自定义高效率log
 #ifdef DEBUG
 #   define NSLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 #else
@@ -81,8 +81,8 @@
 /// 将所有屏幕按照宽松/紧凑分类，其中 iPad、iPhone XS Max/XR/Plus 均为宽松屏幕，但开启了放大模式的设备均会视为紧凑屏幕
 #define WB_PreferredValueForVisualDevice(_regular, _compact) ([WBHelper wb_isRegularScreen] ? _regular : _compact)
 
-// MARK:--------适配宏定义
-/**  < Adaptive  >  */
+// MARK: -------- 适配宏定义
+/// Adaptive
 #define WB_AdjustsScrollViewInsets_NO(scrollView,vc)\
 do { \
 _Pragma("clang diagnostic push") \
@@ -113,7 +113,7 @@ _Pragma("clang diagnostic pop")\
 } while (0)
 
 /**  < 屏幕适配 ipone6/6s 控件宽高 字体大小都可以用这个宏 >  */
-#define WB_AUTOLAYOUTSIZE(size) ((size) * (WB_SCREEN_WIDTH / 375))
+#define WB_AUTOLAYOUTSIZE(size) ((size) * (WB_DEVICE_WIDTH / 375))
 
 #define WB_VIEWSAFEAREAINSETS(view) ({UIEdgeInsets i; if(@available(iOS 11.0, *)) {i = view.safeAreaInsets;} else {i = UIEdgeInsetsZero;} i;})
 
@@ -126,33 +126,44 @@ _Pragma("clang diagnostic pop")\
 //#define WB_IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 ///是否是模拟器
 #define WB_IS_SIMULATOR [WBHelper wb_isSimulator]
-/// 是否放大模式（iPhone 6及以上的设备支持放大模式，iPhone X 除外）
-#define WB_IS_ZOOMEDMODE [WBHelper wb_isZoomedMode]
-/// 是否全面屏设备
-#define WB_IS_NOTCHED_SCREEN [WBHelper wb_isNotchedScreen]
-
 /// 判断是否为iPad
 #define WB_IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 //#define IS_IPAD ([[[UIDevice currentDevice] model] isEqualToString:@"iPad"])
-
-/// 判断是否为ipo
+/// 判断是否为ipod
 #define WB_IS_IPOD ([[[UIDevice currentDevice] model] isEqualToString:@"iPod touch"])
-
+/// 是否全面屏设备
+#define WB_IS_NOTCHED_SCREEN [WBHelper wb_isNotchedScreen]
 /// iPhone X/XS
 #define WB_IS_58INCH_SCREEN [WBHelper wb_is58InchScreen]
-
+/// iPhone XS Max
+#define WB_IS_65INCH_SCREEN [WBHelper wb_is65InchScreen]
+/// iPhone XR
+#define WB_IS_61INCH_SCREEN [WBHelper wb_is61InchScreen]
+/// iPhone 6/7/8 Plus
+#define WB_IS_55INCH_SCREEN [WBHelper wb_is55InchScreen]
+/// iPhone 6/7/8
+#define WB_IS_47INCH_SCREEN [WBHelper wb_is47InchScreen]
+/// iPhone 5/5S/SE
+#define WB_IS_40INCH_SCREEN [WBHelper wb_is40InchScreen]
+/// iPhone 4/4S
+#define WB_IS_35INCH_SCREEN [WBHelper wb_is35InchScreen]
+/// iPhone 4/4S/5/5S/SE
+#define WB_IS_320WIDTH_SCREEN (WB_IS_35INCH_SCREEN || WB_IS_40INCH_SCREEN)
 /// 判断iPhone 4/iPhone 4S 像素640x960，@2x
-#define WB_IS_IPHONE4_OR_4S [[UIScreen mainScreen] bounds].size.width == 320.0f && [[UIScreen mainScreen] bounds].size.height == 480.0f
+//#define WB_IS_IPHONE4_OR_4S [[UIScreen mainScreen] bounds].size.width == 320.0f && [[UIScreen mainScreen] bounds].size.height == 480.0f
 //#define iPhone4 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) : NO)
-
 /// 判断是否为 iPhone5/SE/iPhone5S/iPhone5C 分辨率320x568，像素640x1136，@2x
-#define WB_IS_IPHONE5_OR_SE [[UIScreen mainScreen] bounds].size.width == 320.0f && [[UIScreen mainScreen] bounds].size.height == 568.0f
-
+//#define WB_IS_IPHONE5_OR_SE [[UIScreen mainScreen] bounds].size.width == 320.0f && [[UIScreen mainScreen] bounds].size.height == 568.0f
 /// 判断是否为iPhone 6/6s 分辨率375x667，像素750x1334，@2x
-#define WB_IS_IPHONE6_OR_6S [[UIScreen mainScreen] bounds].size.width == 375.0f && [[UIScreen mainScreen] bounds].size.height == 667.0f
-
+//#define WB_IS_IPHONE6_OR_6S [[UIScreen mainScreen] bounds].size.width == 375.0f && [[UIScreen mainScreen] bounds].size.height == 667.0f
 /// 判断是否为iPhone 6Plus/6sPlus 分辨率414x736，像素1242x2208，@3x
-#define WB_IS_IPHONE6PLUS_OR_6SPLUS [[UIScreen mainScreen] bounds].size.width == 414.0f && [[UIScreen mainScreen] bounds].size.height == 736.0f
+//#define WB_IS_IPHONE6PLUS_OR_6SPLUS [[UIScreen mainScreen] bounds].size.width == 414.0f && [[UIScreen mainScreen] bounds].size.height == 736.0f
+
+/// 是否Retina
+#define WB_IS_RETINASCREEN ([[UIScreen mainScreen] scale] >= 2.0)
+
+/// 是否放大模式（iPhone 6及以上的设备支持放大模式，iPhone X 除外）
+#define WB_IS_ZOOMEDMODE [WBHelper wb_isZoomedMode]
 
 /// 判断是否是iPhone X
 #define WB_IS_iPHoneX \
@@ -186,7 +197,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 /// 判断 iOS 11 或更高的系统版本
 #define WB_SYSTEM_VERSION_11_OR_LATER WB_SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11.0")
 
-// MARK: --------颜色相关
+// MARK: -------- 颜色相关
 /// 随机色
 #define WB_RANDOM_COLOR [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
 /// 透明色
@@ -198,7 +209,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 /// HEX Color
 #define WB_COLORFROMHEXRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
-// MARK: --------系统单例
+// MARK: -------- 系统单例
 /// 通知中心
 #define WB_NOTIFICATIONCENTER [NSNotificationCenter defaultCenter]
 /// 系统偏好设置
@@ -208,7 +219,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 #define WB_WEAKSELF(type) __weak typeof(type) weak##type = type;
 #define WB_STRONGSELF(type) __strong typeof(type) type = weak##type;
 
-// MARK: -------解决循环引用
+// MARK: ------- 解决循环引用
 #define WB_WeakObjc(o) autoreleasepool{} __weak typeof(o) o##Weak = o;
 #define WB_StrongObjc(o) autoreleasepool{} __strong typeof(o) o = o##Weak;
 
@@ -253,7 +264,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 /// 协议窗口
 #define WB_APPDELEGATEWINDOW [[UIApplication sharedApplication].delegate window]
 
-// MARK: --------加载图片
+// MARK: -------- 加载图片
 /// 通过文件路径获取图片 文件夹
 #define WB_IMAGEWITHFILE(imageFile) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForAuxiliaryExecutable:imageFile]]
 /// 通过图片名获取图片 Assets
@@ -267,7 +278,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 /// 获取当前语言
 #define WB_CURRENTLANGUAGE [[NSLocale preferredLanguages] firstObject]
 
-// MARK: --------沙盒路径获取
+// MARK: -------- 沙盒路径获取
 /// 获取沙盒 Document
 #define WB_DOCUMENT_PATH [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
 /// 获取沙盒 Cache
@@ -277,7 +288,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 #define WB_LOCK(lock) dispatch_semaphore_wait(lock, DISPATCH_TIME_FOREVER);
 #define WB_UNLOCK(lock) dispatch_semaphore_signal(lock);
 
-// MARK: --------多线程
+// MARK: -------- 多线程
 /** < 主线程安全执行 >  */
 #ifndef dispatch_main_async_safe
 #define dispatch_main_async_safe(block) dispatch_queue_async_safe(dispatch_get_main_queue(), block)
@@ -293,7 +304,7 @@ dispatch_async(queue, block);\
 }
 #endif
 
-// MARK: --------INLINE函数
+// MARK: -------- INLINE函数
 CG_INLINE CGRect
 WBCGRectMakeWithSize(CGSize size) {
     return CGRectMake(0, 0, size.width, size.height);

@@ -152,6 +152,7 @@ Pod::Spec.new do |s|
       folder1.subspec 'WKWebView' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/WKWebView/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit', 'WebKit'
+          folder2.dependency 'WBCategoryKit/UIkit/UIColor'
       end
       
       folder1.subspec 'UICollectionView' do |folder2|
@@ -212,6 +213,16 @@ Pod::Spec.new do |s|
       folder1.subspec 'UIImageView' do |folder2|
           folder2.source_files = "WBCategoryKit/UIkit/UIImageView/**/*.{h,m}"
           folder2.dependency 'WBCategoryKit/Foundation/Runtime'
+      end
+
+      folder1.subspec 'UIBarItem' do |folder2|
+      	  folder2.source_files = "WBCategoryKit/UIkit/UIBarItem/**/*.{h,m}"
+      	  folder2.frameworks = 'UIKit'
+      	  folder2.dependency 'WBCategoryKit/Macro'
+      	  folder2.dependency 'WBCategoryKit/Foundation/Runtime'
+      	  folder2.dependency 'WBCategoryKit/UIkit/NSObject'
+      	  folder2.dependency 'WBCategoryKit/UIkit/UIViewController'
+      	  folder2.dependency 'WBCategoryKit/UIkit/UIImage'
       end
   end
   
