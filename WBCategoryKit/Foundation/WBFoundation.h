@@ -18,7 +18,6 @@
 #import <WBCategoryKit/WBNSObject.h>
 #import <WBCategoryKit/WBNSDate.h>
 #import <WBCategoryKit/NSMutableAttributedString+WBAdditional.h>
-#import <WBCategoryKit/NSObject+WBRuntime.h>
 #import <WBCategoryKit/NSMethodSignature+WBAdditional.h>
 
 #else
@@ -31,7 +30,6 @@
 #import "WBNSObject.h"
 #import "WBNSDate.h"
 #import "NSMutableAttributedString+WBAdditional.h"
-#import "NSObject+WBRuntime.h"
 #import "NSMethodSignature+WBAdditional.h"
 
 #endif

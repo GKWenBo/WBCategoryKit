@@ -6,7 +6,7 @@
 //
 
 #import "NSObject+WBRuntime.h"
-#import "WBMacro.h"
+#import "WBMacroDefinition.h"
 
 char * const kProtectCrashProtectorName = "kProtectCrashProtector";
 void ProtectCrashProtected(id self, SEL sel) {}

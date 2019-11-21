@@ -7,8 +7,7 @@
 //
 
 #import "UIFont+WBAdaptFontSize.h"
-#import "NSObject+WBRuntime.h"
-#import "WBMacro.h"
+#import "WBCategoryKitCore.h"
 
 @implementation UIFont (WBAdaptFontSize)
 

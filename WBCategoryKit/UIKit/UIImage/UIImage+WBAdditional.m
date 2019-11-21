@@ -13,7 +13,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <Accelerate/Accelerate.h>
 
-#import "WBMacro.h"
+#import "WBCategoryKitCore.h"
 #import "WBUIColor.h"
 
 #ifndef WB_SWAP // swap two value

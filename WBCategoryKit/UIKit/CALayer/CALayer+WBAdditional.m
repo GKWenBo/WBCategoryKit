@@ -6,9 +6,8 @@
 //
 
 #import "CALayer+WBAdditional.h"
-#import "WBMacro.h"
+#import "WBCategoryKitCore.h"
 #import "WBNSObject.h"
-#import "NSObject+WBRuntime.h"
 
 @implementation CALayer (WBAdditional)
 

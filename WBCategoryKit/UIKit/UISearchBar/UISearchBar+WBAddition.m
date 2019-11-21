@@ -11,8 +11,7 @@
 
 #import "NSObject+WBAdditional.h"
 #import "WBUIImage.h"
-#import "WBMacro.h"
-#import "NSObject+WBRuntime.h"
+#import "WBCategoryKitCore.h"
 #import "WBUIView.h"
 
 @implementation UISearchBar (WBAddition)

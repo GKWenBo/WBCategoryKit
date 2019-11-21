@@ -7,6 +7,7 @@
 
 #import "NSObject+WBAdditional.h"
 #import <objc/runtime.h>
+
 #import "NSObject+WBRuntime.h"
 
 @implementation NSObject (WBAdditional)
@@ -96,6 +97,7 @@
     if (@available(iOS 13.0, *)) {
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
+            
             WBOverrideImplementation(object_getClass([NSException class]), @selector(raise:format:), ^id _Nonnull(__unsafe_unretained Class  _Nonnull originClass, SEL  _Nonnull originCMD, IMP  _Nonnull (^ _Nonnull originalIMPProvider)(void)) {
                return ^(NSObject *selfObject, NSExceptionName raise, NSString *format, ...) {
                    if (raise == NSGenericException && [format isEqualToString:@"Access to %@'s %@ ivar is prohibited. This is an application bug"]) {

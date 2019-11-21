@@ -8,8 +8,7 @@
 #import "UITabBar+WBAdditional.h"
 #import <objc/runtime.h>
 
-#import "WBMacro.h"
-#import "NSObject+WBRuntime.h"
+#import "WBCategoryKitCore.h"
 #import "UITabBarItem+WBAdditional.m"
 #import "NSObject+WBAdditional.h"
 #import "WBUIViewController.h"
@@ -24,9 +23,7 @@ static NSInteger const kLastTouchedTabBarItemIndexNone = -1;
 @property(nonatomic, assign) NSInteger tabBarItemViewTouchCount;
 
 #ifdef WB_IOS13_SDK_ALLOWED
-
 @property(nonatomic, strong) UITabBarAppearance *wb_tabBarAppearance API_AVAILABLE(ios(13.0));
-
 #endif
 
 @end

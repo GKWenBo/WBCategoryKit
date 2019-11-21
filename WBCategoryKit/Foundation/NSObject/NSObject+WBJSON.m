@@ -9,6 +9,7 @@
 #import "NSObject+WBJSON.h"
 
 @implementation NSObject (WBJSON)
+
 + (id)wb_objectConvertToJsonSting:(id)object {
     if (![NSJSONSerialization isValidJSONObject:object]) {
         NSAssert(nil, @"不能转换为json",__PRETTY_FUNCTION__);

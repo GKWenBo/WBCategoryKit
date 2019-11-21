@@ -8,7 +8,7 @@
 #import "UILabel+WBAdditional.h"
 #import <objc/runtime.h>
 
-#import "WBMacro.h"
+#import "WBCategoryKitCore.h"
 
 @implementation UILabel (WBAdditional)
 

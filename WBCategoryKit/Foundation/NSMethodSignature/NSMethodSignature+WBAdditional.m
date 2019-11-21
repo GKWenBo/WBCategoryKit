@@ -6,7 +6,7 @@
 //
 
 #import "NSMethodSignature+WBAdditional.h"
-#import "WBMacro.h"
+#import "WBCategoryKitCore.h"
 
 @implementation NSMethodSignature (WBAdditional)
 

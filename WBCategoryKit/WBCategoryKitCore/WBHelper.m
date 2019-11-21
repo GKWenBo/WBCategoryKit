@@ -8,8 +8,8 @@
 #import "WBHelper.h"
 #import <sys/utsname.h>
 
-#import "WBMacro.h"
 #import "NSObject+WBAdditional.h"
+#import "WBMacroDefinition.h"
 
 @implementation WBHelper
 

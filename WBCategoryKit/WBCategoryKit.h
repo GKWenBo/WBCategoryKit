@@ -12,12 +12,12 @@
 
 #import <WBCategoryKit/WBUIKit.h>
 #import <WBCategoryKit/WBFoundation.h>
-#import <WBCategoryKit/WBMacro.h>
+#import <WBCategoryKit/WBCategoryKitCore.h>
 
 #else
 
 #import "WBUIKit.h"
 #import "WBFoundation.h"
-#import "WBMacro.h"
+#import "WBCategoryKitCore.h"
 
 #endif
