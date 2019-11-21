@@ -15,6 +15,17 @@
  */
 - (void)wb_hideBackButton;
 
+/// 获取class存在的控制器
+/// @param cls 要获取的class
+- (NSArray <UIViewController *>*)wb_existingViewControllersOfClass:(Class)cls;
+
+/// 获取需要更新的控制器
+/// @param cls cls description
++ (NSArray <UIViewController *>*)wb_appearanceUpdatingViewControllersOfClass:(Class)cls;
+
+/// 获取UITabBarController
++ (NSArray <UITabBarController *>*)wb_appearanceUpdatingTabBarControllers;
+
 @end
 
 @interface UIViewController (WBRemoveTabbarButton)

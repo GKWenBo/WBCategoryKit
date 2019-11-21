@@ -138,6 +138,9 @@ _Pragma("clang diagnostic pop")\
 /// 判断是否为ipo
 #define WB_IS_IPOD ([[[UIDevice currentDevice] model] isEqualToString:@"iPod touch"])
 
+/// iPhone X/XS
+#define WB_IS_58INCH_SCREEN [WBHelper wb_is58InchScreen]
+
 /// 判断iPhone 4/iPhone 4S 像素640x960，@2x
 #define WB_IS_IPHONE4_OR_4S [[UIScreen mainScreen] bounds].size.width == 320.0f && [[UIScreen mainScreen] bounds].size.height == 480.0f
 //#define iPhone4 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) : NO)
@@ -161,6 +164,9 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 
 /// 获取系统版本
 #define WB_IOS_SYSTEM_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+
+/// 数字形式的操作系统版本号，可直接用于大小比较；如 110205 代表 11.2.5 版本；根据 iOS 规范，版本号最多可能有3位
+#define WB_IOS_VERSION_NUMBER [WBHelper wb_numbericOSVersion]
 
 /// 系统版本判断
 #define WB_SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)

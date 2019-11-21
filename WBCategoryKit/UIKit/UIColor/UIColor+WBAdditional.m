@@ -52,6 +52,122 @@
                                alpha:1.f];
 }
 
+- (NSArray <NSNumber *>*)wb_getRGBDictionary {
+    CGFloat r = 0,g = 0,b = 0,a = 0;
+    if ([self respondsToSelector:@selector(getRed:green:blue:alpha:)]) {
+        [self getRed:&r
+               green:&g
+                blue:&b
+               alpha:&a];
+    } else {
+        const CGFloat *components = CGColorGetComponents(self.CGColor);
+        r = components[0];
+        g = components[1];
+        b = components[2];
+        a = components[3];
+    }
+    return @[@(r),
+             @(g),
+             @(b),
+             @(a)];
+}
+
++ (NSArray <NSNumber *>*)wb_transColorWithBeginColor:(UIColor *)beginColor
+                                            endColor:(UIColor *)endColor {
+    NSArray <NSNumber *>*beginColors = [beginColor wb_getRGBDictionary];
+    NSArray <NSNumber *>*endColors = [endColor wb_getRGBDictionary];
+    return @[@(endColors[0].doubleValue - beginColors[0].doubleValue),
+             @(endColors[1].doubleValue - beginColors[1].doubleValue),
+             @(endColors[2].doubleValue - beginColors[2].doubleValue)];
+}
+
+- (CGFloat *)wb_getRGB {
+    UIColor *uiColor = self;
+    CGColorRef cgColor = [uiColor CGColor];
+    int numComponents = (int)CGColorGetNumberOfComponents(cgColor);
+    if (numComponents == 4){
+        static CGFloat *components = Nil;
+        components = (CGFloat *)CGColorGetComponents(cgColor);
+        return (CGFloat *)components;
+    } else { //否则默认返回黑色
+        static CGFloat components[4] = {0};
+        CGFloat f = 0;
+        //非RGB空间的系统颜色单独处理
+        if ([uiColor isEqual:[UIColor whiteColor]]) {
+            f = 1.0;
+        } else if ([uiColor isEqual:[UIColor lightGrayColor]]) {
+            f = 0.8;
+        } else if ([uiColor isEqual:[UIColor grayColor]]) {
+            f = 0.5;
+        }
+        components[0] = f;
+        components[1] = f;
+        components[2] = f;
+        components[3] = 1.0;
+        return (CGFloat *)components;
+    }
+}
+
+- (CGFloat)wb_saturation {
+    CGFloat s;
+    if ([self getHue:0 saturation:&s brightness:0 alpha:0]) {
+        return s;
+    }
+    return 0;
+}
+
+- (CGFloat)wb_brightness {
+    CGFloat b;
+    if ([self getHue:0 saturation:0 brightness:&b alpha:0]) {
+        return b;
+    }
+    return 0;
+}
+
+- (UIColor *)wb_colorWithoutAlpha {
+    CGFloat r;
+    CGFloat g;
+    CGFloat b;
+    if ([self getRed:&r green:&g blue:&b alpha:0]) {
+        return [UIColor colorWithRed:r green:g blue:b alpha:1];
+    } else {
+        return nil;
+    }
+}
+
+- (UIColor *)wb_colorWithAlpha:(CGFloat)alpha
+               backgroundColor:(nullable UIColor *)backgroundColor {
+    return [UIColor wb_colorWithBackendColor:backgroundColor
+                                  frontColor:[self colorWithAlphaComponent:alpha]];
+}
+
+- (UIColor *)wb_colorWithAlphaAddedToWhite:(CGFloat)alpha {
+    return [self wb_colorWithAlpha:alpha
+                   backgroundColor:[UIColor whiteColor]];
+}
+
++ (UIColor *)wb_colorWithBackendColor:(UIColor *)backendColor
+                           frontColor:(UIColor *)frontColor {
+    NSArray <NSNumber *>*bgColors = [backendColor wb_getRGBDictionary];
+    NSArray <NSNumber *>*frColors = [frontColor wb_getRGBDictionary];
+    
+    CGFloat bgAlpha = bgColors[3].floatValue;
+    CGFloat bgRed = bgColors[0].floatValue;
+    CGFloat bgGreen = bgColors[1].floatValue;
+    CGFloat bgBlue = bgColors[2].floatValue;
+    
+    CGFloat frAlpha = frColors[3].floatValue;
+    CGFloat frRed = frColors[0].floatValue;
+    CGFloat frGreen = frColors[1].floatValue;
+    CGFloat frBlue = frColors[2].floatValue;
+    
+    CGFloat resultAlpha = frAlpha + bgAlpha * (1 - frAlpha);
+    CGFloat resultRed = (frRed * frAlpha + bgRed * bgAlpha * (1 - frAlpha)) / resultAlpha;
+    CGFloat resultGreen = (frGreen * frAlpha + bgGreen * bgAlpha * (1 - frAlpha)) / resultAlpha;
+    CGFloat resultBlue = (frBlue * frAlpha + bgBlue * bgAlpha * (1 - frAlpha)) / resultAlpha;
+    return [UIColor colorWithRed:resultRed green:resultGreen blue:resultBlue alpha:resultAlpha];
+}
+
 #pragma mark --------  Hex Color  --------
 + (UIColor *)wb_colorWithHexString:(NSString *)color
                              alpha:(CGFloat)alpha {
@@ -145,10 +261,10 @@
 }
 
 #pragma mark 渐变色
-+ (UIColor*)wb_gradientFromColor:(UIColor *)c1
-                         toColor:(UIColor *)c2
-                      startPoint:(CGPoint)startPoint
-                        endPoint:(CGPoint)endPoint {
++ (UIColor *)wb_gradientFromColor:(UIColor *)c1
+                          toColor:(UIColor *)c2
+                       startPoint:(CGPoint)startPoint
+                         endPoint:(CGPoint)endPoint {
     CGSize size = CGSizeMake(1, 1);
     UIGraphicsBeginImageContextWithOptions(size, NO, 0);
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -166,6 +282,47 @@
     CGColorSpaceRelease(colorspace);
     UIGraphicsEndImageContext();
     return [UIColor colorWithPatternImage:image];
+}
+
++ (UIColor *)wb_getGradientColorWithBeginColor:(UIColor *)beginColor
+                                      endColor:(UIColor *)endColor
+                                         ratio:(double)ratio {
+    ratio = MIN(ratio, 1.0f);
+    NSArray <NSNumber *>*beginColors = [beginColor wb_getRGBDictionary];
+    NSArray <NSNumber *>*diffColors = [self wb_transColorWithBeginColor:beginColor
+                                                               endColor:endColor];
+    double r = beginColors[0].doubleValue + ratio * diffColors[0].doubleValue;
+    double g = beginColors[1].doubleValue + ratio * diffColors[1].doubleValue;
+    double b = beginColors[2].doubleValue + ratio * diffColors[2].doubleValue;
+    return [UIColor colorWithRed:r
+                           green:g
+                            blue:b
+                           alpha:1.f];
+}
+
+// MARK: -------- Utility
+- (BOOL)wb_colorIsDark {
+    CGFloat red = 0.0, green = 0.0, blue = 0.0;
+    if ([self getRed:&red green:&green blue:&blue alpha:0]) {
+        float referenceValue = 0.411;
+        float colorDelta = ((red * 0.299) + (green * 0.587) + (blue * 0.114));
+        
+        return 1.0 - colorDelta > referenceValue;
+    }
+    return YES;
+}
+
+- (BOOL)wb_isSystemTintColor {
+    return [self isEqual:[UIColor wb_systemTintColor]];
+}
+
++ (UIColor *)wb_systemTintColor {
+    static UIColor *systemTintColor = nil;
+    if (!systemTintColor) {
+        UIView *view = [[UIView alloc] init];
+        systemTintColor = view.tintColor;
+    }
+    return systemTintColor;
 }
 
 @end

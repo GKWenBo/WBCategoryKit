@@ -86,4 +86,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface WBHelper (WBSystemVersion)
+
++ (NSInteger)wb_numbericOSVersion;
++ (NSComparisonResult)wb_compareSystemVersion:(nonnull NSString *)currentVersion
+                                    toVersion:(nonnull NSString *)targetVersion;
++ (BOOL)wb_isCurrentSystemAtLeastVersion:(nonnull NSString *)targetVersion;
++ (BOOL)wb_isCurrentSystemLowerThanVersion:(nonnull NSString *)targetVersion;
+
+@end
+
 NS_ASSUME_NONNULL_END

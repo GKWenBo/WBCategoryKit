@@ -24,7 +24,6 @@
 
 #pragma mark --------  Create Image <PDF、Path、NSData、Color、GIF>  --------
 + (nullable UIImage *)wb_imageWithPDF:(id)dataOrPath {
-    
     return [self wb_imageWithPDF:dataOrPath
                           resize:NO
                             size:CGSizeZero];

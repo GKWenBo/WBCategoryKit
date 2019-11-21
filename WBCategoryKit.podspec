@@ -94,6 +94,7 @@ Pod::Spec.new do |s|
           folder2.frameworks = 'Foundation', 'UIKit', 'CoreGraphics', 'ImageIO', 'CoreText', 'AVFoundation', 'Accelerate'
           folder2.dependency 'WBCategoryKit/Macro'
           folder2.dependency 'WBCategoryKit/Foundation/NSObject'
+          folder2.dependency 'WBCategoryKit/UIkit/UIColor'
       end
       
       folder1.subspec 'UIScrollView' do |folder2|
@@ -182,6 +183,11 @@ Pod::Spec.new do |s|
       folder1.subspec 'UISearchBar' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UISearchBar/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit'
+          folder2.dependency 'WBCategoryKit/Foundation/NSObject'
+          folder2.dependency 'WBCategoryKit/Macro'
+          folder2.dependency 'WBCategoryKit/UIkit/UIImage'
+          folder2.dependency 'WBCategoryKit/UIkit/UIView'
+          folder2.dependency 'WBCategoryKit/Foundation/Runtime'
       end
       
       folder1.subspec 'UIControl' do |folder2|

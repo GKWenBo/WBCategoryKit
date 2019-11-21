@@ -32,6 +32,7 @@
 #import <WBCategoryKit/WBUILabel.h>
 #import <WBCategoryKit/CALayer+WBAdditional.h>
 #import <WBCategoryKit/UIImageView+WBAdditional.h>
+#import <WBCategoryKit/UITabBar+WBAdditional.h>
 
 #else
 
@@ -58,5 +59,6 @@
 #import "WBUILabel.h"
 #import "CALayer+WBAdditional.h"
 #import "UIImageView+WBAdditional.h"
+#import "UITabBar+WBAdditional.h"
 
 #endif

@@ -15,6 +15,37 @@
     self.navigationItem.hidesBackButton = YES;
 }
 
+- (NSArray <UIViewController *>*)wb_existingViewControllersOfClass:(Class)cls {
+    NSMutableSet *viewControllers = [NSMutableSet set];
+    if (self.presentedViewController) {
+        [viewControllers addObjectsFromArray:[self.presentedViewController wb_existingViewControllersOfClass:cls]];
+    }
+    if ([self isKindOfClass:UINavigationController.class]) {
+        [viewControllers addObjectsFromArray:[((UINavigationController *)self).visibleViewController wb_existingViewControllersOfClass:cls]];
+    }
+    if ([self isKindOfClass:UITabBarController.class]) {
+        [viewControllers addObjectsFromArray:[((UITabBarController *)self).selectedViewController wb_existingViewControllersOfClass:cls]];
+    }
+    if ([self isKindOfClass:cls]) {
+        [viewControllers addObject:self];
+    }
+    return viewControllers.allObjects;
+}
+
++ (NSArray <UIViewController *>*)wb_appearanceUpdatingViewControllersOfClass:(Class)cls {
+    NSMutableArray *viewControllers = [NSMutableArray array];
+    [UIApplication.sharedApplication.windows enumerateObjectsUsingBlock:^(__kindof UIWindow * _Nonnull window, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (window.rootViewController) {
+            [viewControllers addObjectsFromArray:[window.rootViewController wb_existingViewControllersOfClass:cls]];
+        }
+    }];
+    return viewControllers;
+}
+
++ (NSArray <UITabBarController *>*)wb_appearanceUpdatingTabBarControllers {
+    return (NSArray <UITabBarController *>*)[self wb_appearanceUpdatingViewControllersOfClass:UITabBarController.class];
+}
+
 @end
 
 

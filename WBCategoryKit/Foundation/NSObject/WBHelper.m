@@ -450,5 +450,56 @@ static CGFloat preferredLayoutWidth = -1;
     return nativeScale > scale;
 }
 
+@end
+
+@implementation WBHelper (WBSystemVersion)
+
++ (NSInteger)wb_numbericOSVersion {
+    NSString *OSVersion = [[UIDevice currentDevice] systemVersion];
+    NSArray *OSVersionArr = [OSVersion componentsSeparatedByString:@"."];
+    
+    NSInteger numbericOSVersion = 0;
+    NSInteger pos = 0;
+    
+    while ([OSVersionArr count] > pos && pos < 3) {
+        numbericOSVersion += ([[OSVersionArr objectAtIndex:pos] integerValue] * pow(10, (4 - pos * 2)));
+        pos++;
+    }
+    
+    return numbericOSVersion;
+}
+
++ (NSComparisonResult)wb_compareSystemVersion:(NSString *)currentVersion
+                                    toVersion:(NSString *)targetVersion {
+    NSArray *currentVersionArr = [currentVersion componentsSeparatedByString:@"."];
+    NSArray *targetVersionArr = [targetVersion componentsSeparatedByString:@"."];
+    
+    NSInteger pos = 0;
+    
+    while ([currentVersionArr count] > pos || [targetVersionArr count] > pos) {
+        NSInteger v1 = [currentVersionArr count] > pos ? [[currentVersionArr objectAtIndex:pos] integerValue] : 0;
+        NSInteger v2 = [targetVersionArr count] > pos ? [[targetVersionArr objectAtIndex:pos] integerValue] : 0;
+        if (v1 < v2) {
+            return NSOrderedAscending;
+        }
+        else if (v1 > v2) {
+            return NSOrderedDescending;
+        }
+        pos++;
+    }
+    
+    return NSOrderedSame;
+}
+
++ (BOOL)wb_isCurrentSystemAtLeastVersion:(NSString *)targetVersion {
+    return [WBHelper wb_compareSystemVersion:[[UIDevice currentDevice] systemVersion] toVersion:targetVersion] == NSOrderedSame || [WBHelper wb_compareSystemVersion:[[UIDevice currentDevice] systemVersion] toVersion:targetVersion] == NSOrderedDescending;
+}
+
++ (BOOL)wb_isCurrentSystemLowerThanVersion:(NSString *)targetVersion {
+    return [WBHelper wb_compareSystemVersion:[[UIDevice currentDevice] systemVersion]
+                                   toVersion:targetVersion] == NSOrderedAscending;
+}
 
 @end
+
+

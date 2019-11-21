@@ -10,7 +10,6 @@
 #import <objc/runtime.h>
 
 #import "NSObject+WBAdditional.h"
-#import "WBNSObject.h"
 #import "WBUIImage.h"
 #import "WBMacro.h"
 #import "NSObject+WBRuntime.h"
@@ -417,6 +416,5 @@ static CGSize textFieldDefaultSize;
     }
     return frame;
 }
-
 
 @end
