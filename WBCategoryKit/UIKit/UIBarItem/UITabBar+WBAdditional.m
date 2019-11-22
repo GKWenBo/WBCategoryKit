@@ -9,8 +9,8 @@
 #import <objc/runtime.h>
 
 #import "WBCategoryKitCore.h"
-#import "UITabBarItem+WBAdditional.m"
-#import "NSObject+WBAdditional.h"
+#import "UITabBarItem+WBAdditional.h"
+#import "UIBarItem+WBAdditional.h"
 #import "WBUIViewController.h"
 #import "WBUIImage.h"
 
@@ -507,7 +507,7 @@ static NSInteger const kLastTouchedTabBarItemIndexNone = -1;
         return;
     }
     
-    if (!self.selectedItem.wb_doubleTapBlock) {
+    if (!self.selectedItem.wb_tabbarItemDoubleTapBlock) {
         return;
     }
     
@@ -532,8 +532,8 @@ static NSInteger const kLastTouchedTabBarItemIndexNone = -1;
     if (self.tabBarItemViewTouchCount == 2) {
         // 第二次点击了相同的 tabBarItem，触发双击事件
         UITabBarItem *item = self.items[selectedIndex];
-        if (item.wb_doubleTapBlock) {
-            item.wb_doubleTapBlock(item, selectedIndex);
+        if (item.wb_tabbarItemDoubleTapBlock) {
+            item.wb_tabbarItemDoubleTapBlock(item, selectedIndex);
         }
         [self revertTabBarItemTouch];
     }

@@ -9,7 +9,7 @@
 #import "UISearchBar+WBAddition.h"
 #import <objc/runtime.h>
 
-#import "NSObject+WBAdditional.h"
+#import "WBCategoryKitCore.h"
 #import "WBUIImage.h"
 #import "WBCategoryKitCore.h"
 #import "WBUIView.h"

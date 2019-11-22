@@ -6,7 +6,10 @@
 //  Copyright (c) 2018 wenmobo. All rights reserved.
 //
 
-@import XCTest;
+#import <XCTest/XCTest.h>
+#import <WBUIFont.h>
+#import <NSObject+WBAdditional.h>
+#import <UISearchBar+WBAddition.h>
 
 @interface Tests : XCTestCase
 
@@ -29,6 +32,27 @@
 - (void)testExample
 {
     XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+}
+
+- (void)testFont {
+    XCTAssertNotEqualObjects([UIFont systemFontOfSize:10], [UIFont systemFontOfSize:10 * 375 / [UIScreen mainScreen].bounds.size.width], @"已进行runtime字体适配");
+    XCTAssertNotEqualObjects([UIFont systemFontOfSize:15], [UIFont systemFontOfSize:15 * 375 / [UIScreen mainScreen].bounds.size.width], @"已进行runtime字体适配");
+}
+
+- (void)testKVC {
+    UISearchBar *searchBar = [UISearchBar new];
+    searchBar.scopeButtonTitles = @[@"A", @"B"];
+    searchBar.showsCancelButton = YES;
+    [searchBar sizeToFit];
+    [searchBar wb_setValue:@"Test" forKey:@"_cancelButtonText"];
+    // iOS13 crash : [searchBar setValue:@"Test" forKey:@"_cancelButtonText"];
+    UIView *searchField = [searchBar  wb_valueForKey:@"_searchField"];
+    // iOS13 crash : [searchBar valueForKey:@"_searchField"];
+
+    XCTAssertTrue(searchBar.wb_backgroundView);
+    XCTAssertTrue(searchBar.wb_cancelButton);
+    XCTAssertTrue(searchBar.wb_segmentedControl);
+    XCTAssertFalse([searchBar wb_valueForKey:@"_searchController"]);
 }
 
 @end

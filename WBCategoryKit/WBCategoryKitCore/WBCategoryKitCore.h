@@ -14,6 +14,7 @@
 #import <WBCategoryKit/NSObject+WBRuntime.h>
 #import <WBCategoryKit/WBHelper.h>
 #import <WBCategoryKit/NSObject+WBAdditional.h>
+#import <WBCategoryKit/NSMethodSignature+WBAdditional.h>
 
 #else
 
@@ -22,6 +23,7 @@
 #import "NSObject+WBRuntime.h"
 #import "WBHelper.h"
 #import "NSObject+WBAdditional.h"
+#import "NSMethodSignature+WBAdditional.h"
 
 #endif
 

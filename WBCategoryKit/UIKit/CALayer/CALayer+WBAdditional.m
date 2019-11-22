@@ -7,7 +7,6 @@
 
 #import "CALayer+WBAdditional.h"
 #import "WBCategoryKitCore.h"
-#import "WBNSObject.h"
 
 @implementation CALayer (WBAdditional)
 

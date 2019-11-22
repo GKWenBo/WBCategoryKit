@@ -7,7 +7,8 @@
 
 #import "UIImageView+WBAdditional.h"
 #import <objc/runtime.h>
-#import "NSObject+WBRuntime.h"
+
+#import "WBCategoryKitCore.h"
 
 @interface UIImageView ()
 

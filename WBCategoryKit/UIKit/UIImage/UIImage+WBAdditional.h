@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WBNSObject.h"
+#import "WBCategoryKitCore.h"
 
 #ifdef DEBUG
     #define WBCGContextInspectContext(context) [WBHelper wb_inspectContextIfInvalidatedInDebugMode:context]

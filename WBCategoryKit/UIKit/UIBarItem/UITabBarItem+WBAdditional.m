@@ -12,13 +12,15 @@
 @implementation UITabBarItem (WBAdditional)
 
 // MARK:setter && getter
-- (void)setWb_doubleTapBlock:(void (^)(UITabBarItem *, NSInteger))wb_doubleTapBlock {
-    objc_setAssociatedObject(self, @selector(wb_doubleTapBlock), wb_doubleTapBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+
+- (void)setWb_tabbarItemDoubleTapBlock:(void (^)(UITabBarItem *, NSInteger))wb_tabbarItemDoubleTapBlock {
+    objc_setAssociatedObject(self, @selector(wb_tabbarItemDoubleTapBlock), wb_tabbarItemDoubleTapBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
-- (void (^)(UITabBarItem *, NSInteger))wb_doubleTapBlock {
-    return objc_getAssociatedObject(self, @selector(wb_doubleTapBlock));
+- (void (^)(UITabBarItem *, NSInteger))wb_tabbarItemDoubleTapBlock {
+    return objc_getAssociatedObject(self, @selector(wb_tabbarItemDoubleTapBlock));
 }
+
 
 - (UIImageView *)wb_imageView {
     return [[self class] wb_imageViewInTabBarButton:self.wb_view];

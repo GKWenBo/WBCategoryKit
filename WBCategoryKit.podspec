@@ -52,22 +52,15 @@ Pod::Spec.new do |s|
           folder2.frameworks = 'Foundation'
       end
       
-      
       folder1.subspec 'NSMutableAttributedString' do |folder2|
           folder2.source_files = 'WBCategoryKit/Foundation/NSMutableAttributedString/**/*.{h,m}'
           folder2.frameworks = 'Foundation','UIKit'
       end
 
-      folder1.subspec 'NSMethodSignature' do |folder2|
-      	folder2.source_files = 'WBCategoryKit/Foundation/NSMethodSignature/**/*.{h,m}'
-      	folder2.frameworks = 'Foundation'
-        folder2.dependency 'WBCategoryKit/WBCategoryKitCore'
-      end
-
   end
   
   s.subspec 'WBCategoryKitCore' do |ss|
-      ss.source_files = 'WBCategoryKit/Macro/*.{h}'
+      ss.source_files = 'WBCategoryKit/WBCategoryKitCore/**/*.{h,m}'
       ss.frameworks = 'Foundation', 'UIKit'
       ss.dependency 'WBCategoryKit/Foundation/NSString'
   end

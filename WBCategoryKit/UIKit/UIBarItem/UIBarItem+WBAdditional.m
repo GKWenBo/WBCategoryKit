@@ -6,7 +6,7 @@
 //
 
 #import "UIBarItem+WBAdditional.h"
-#import "NSObject+WBAdditional.h"
+#import "WBCategoryKitCore.h"
 
 @implementation UIBarItem (WBAdditional)
 

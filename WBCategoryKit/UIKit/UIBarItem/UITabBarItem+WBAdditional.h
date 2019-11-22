@@ -15,7 +15,7 @@
  *  @arg tabBarItem 被双击的 UITabBarItem
  *  @arg index      被双击的 UITabBarItem 的序号
  */
-@property(nonatomic, copy) void (^wb_doubleTapBlock)(UITabBarItem *tabBarItem, NSInteger index);
+@property(nonatomic, copy) void (^wb_tabbarItemDoubleTapBlock)(UITabBarItem *tabBarItem, NSInteger index);
 
 /**
  * 获取一个UITabBarItem内显示图标的UIImageView，如果找不到则返回nil
