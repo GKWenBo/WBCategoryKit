@@ -28,7 +28,9 @@
 
 - (instancetype)wb_initWithFont:(nullable UIFont *)font
                       textColor:(nullable UIColor *)textColor {
-    WB_SUPPRESS_UNUSEDVALUE_WARNING([self init]);
+    WBBeginIgnoreClangWarning(-Wunused-value)
+    [self init];
+    WBEndIgnoreClangWarning
     self.font = font;
     self.textColor = textColor;
     return self;

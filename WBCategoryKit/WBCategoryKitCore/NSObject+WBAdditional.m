@@ -9,6 +9,7 @@
 #import <objc/runtime.h>
 
 #import "NSObject+WBRuntime.h"
+#import "WBMacroDefinition.h"
 
 @implementation NSObject (WBAdditional)
 
@@ -50,9 +51,9 @@
 - (nullable id)wb_valueForKey:(NSString *)key {
     if (@available(iOS 13.0, *)) {
         if ([self isKindOfClass:[UIView class]]) {
-            NSThread.currentThread.wb_shouldIgnoreUIKVCAccessProhibited = YES;
+            WBBeginIgnoreUIKVCAccessProhibited
             id value = [self valueForKey:key];
-            NSThread.currentThread.wb_shouldIgnoreUIKVCAccessProhibited = NO;
+            WBEndIgnoreUIKVCAccessProhibited
             return value;
         }
     } else {
@@ -63,9 +64,9 @@
 
 - (void)wb_setValue:(id)value forKey:(NSString *)key {
     if (@available(iOS 13.0, *)) {
-        NSThread.currentThread.wb_shouldIgnoreUIKVCAccessProhibited = YES;
+        WBBeginIgnoreUIKVCAccessProhibited
         [self setValue:value forKey:key];
-        NSThread.currentThread.wb_shouldIgnoreUIKVCAccessProhibited = NO;
+        WBEndIgnoreUIKVCAccessProhibited
         return;
     } else {
     }

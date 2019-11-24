@@ -538,5 +538,25 @@ Stuff; \
 _Pragma("clang diagnostic pop") \
 } while (0)
 
+/// 参数可直接传入 clang 的 warning 名，warning 列表参考：https://clang.llvm.org/docs/DiagnosticsReference.html
+#define WBArgumentToString(macro) #macro
+#define WBClangWarningConcat(warning_name) WBArgumentToString(clang diagnostic ignored warning_name)
+
+#define WBBeginIgnoreClangWarning(warningName) _Pragma("clang diagnostic push") _Pragma(WBClangWarningConcat(#warningName))
+#define WBEndIgnoreClangWarning _Pragma("clang diagnostic pop")
+
+#define WBBeginIgnorePerformSelectorLeaksWarning WBBeginIgnoreClangWarning(-Warc-performSelector-leaks)
+#define WBEndIgnorePerformSelectorLeaksWarning WBEndIgnoreClangWarning
+
+#define WBBeginIgnoreAvailabilityWarning WBBeginIgnoreClangWarning(-Wpartial-availability)
+#define WBEndIgnoreAvailabilityWarning WBEndIgnoreClangWarning
+
+#define WBBeginIgnoreDeprecatedWarning WBBeginIgnoreClangWarning(-Wdeprecated-declarations)
+#define WBEndIgnoreDeprecatedWarning WBEndIgnoreClangWarning
+
+// MARK: -------- 忽略 iOS 13 KVC 访问私有属性限制
+#define WBBeginIgnoreUIKVCAccessProhibited if (@available(iOS 13.0, *)) NSThread.currentThread.wb_shouldIgnoreUIKVCAccessProhibited = YES;
+#define WBEndIgnoreUIKVCAccessProhibited if (@available(iOS 13.0, *)) NSThread.currentThread.wb_shouldIgnoreUIKVCAccessProhibited = NO;
+
 #endif /* WB_MacroDefinition_h */
 

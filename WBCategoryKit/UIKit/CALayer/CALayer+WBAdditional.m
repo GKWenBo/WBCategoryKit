@@ -36,11 +36,10 @@
                                                                NSStringFromSelector(@selector(anchorPoint)): [NSNull null],
                                                                NSStringFromSelector(@selector(anchorPointZ)): [NSNull null],
                                                                NSStringFromSelector(@selector(transform)): [NSNull null],
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wundeclared-selector"
+                                                               WBBeginIgnoreClangWarning(-Wundeclared-selector)
                                                                NSStringFromSelector(@selector(hidden)): [NSNull null],
                                                                NSStringFromSelector(@selector(doubleSided)): [NSNull null],
-#pragma clang diagnostic pop
+                                                                   WBEndIgnoreClangWarning
                                                                NSStringFromSelector(@selector(sublayerTransform)): [NSNull null],
                                                                NSStringFromSelector(@selector(masksToBounds)): [NSNull null],
                                                                NSStringFromSelector(@selector(contents)): [NSNull null],
