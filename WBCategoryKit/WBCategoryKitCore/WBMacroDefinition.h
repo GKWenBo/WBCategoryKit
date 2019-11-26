@@ -81,6 +81,9 @@
 /// 将所有屏幕按照宽松/紧凑分类，其中 iPad、iPhone XS Max/XR/Plus 均为宽松屏幕，但开启了放大模式的设备均会视为紧凑屏幕
 #define WB_PreferredValueForVisualDevice(_regular, _compact) ([WBHelper wb_isRegularScreen] ? _regular : _compact)
 
+/// 判断当前是否是处于分屏模式的 iPad
+#define WB_IS_SPLIT_SCREEN_IPAD (WB_IS_IPAD && WB_APPLICATION_WIDTH != WB_SCREEN_WIDTH)
+
 // MARK: -------- 适配宏定义
 /// Adaptive
 #define WB_AdjustsScrollViewInsets_NO(scrollView,vc)\
@@ -131,6 +134,10 @@ _Pragma("clang diagnostic pop")\
 //#define IS_IPAD ([[[UIDevice currentDevice] model] isEqualToString:@"iPad"])
 /// 判断是否为ipod
 #define WB_IS_IPOD ([[[UIDevice currentDevice] model] isEqualToString:@"iPod touch"])
+/// 在 iPad 分屏模式下等于 app 实际运行宽度，否则等同于 SCREEN_WIDTH
+#define WB_APPLICATION_WIDTH [WBHelper wb_applicationSize].width
+/// 在 iPad 分屏模式下等于 app 实际运行宽度，否则等同于 DEVICE_HEIGHT
+#define WB_APPLICATION_HEIGHT [WBHelper wb_applicationSize].height
 /// 是否全面屏设备
 #define WB_IS_NOTCHED_SCREEN [WBHelper wb_isNotchedScreen]
 /// iPhone X/XS
@@ -405,11 +412,34 @@ WBCGRectInsetEdges(CGRect rect, UIEdgeInsets insets) {
     return rect;
 }
 
-
 CG_INLINE CGRect
 WBCGRectSetY(CGRect rect, CGFloat y) {
     rect.origin.y = wb_flat(y);
     return rect;
+}
+
+/// 对CGRect的x/y、width/height都调用一次flat，以保证像素对齐
+CG_INLINE CGRect
+WBCGRectFlatted(CGRect rect) {
+    return CGRectMake(wb_flat(rect.origin.x), wb_flat(rect.origin.y), wb_flat(rect.size.width), wb_flat(rect.size.height));
+}
+
+/// 系统提供的 CGRectIsInfinite 接口只能判断 CGRectInfinite 的情况，而该接口可以用于判断 INFINITY 的值
+CG_INLINE BOOL
+WBCGRectIsInf(CGRect rect) {
+    return isinf(rect.origin.x) || isinf(rect.origin.y) || isinf(rect.size.width) || isinf(rect.size.height);
+}
+
+/// 判断一个 CGRect 是否存在 NaN
+CG_INLINE BOOL
+WBCGRectIsNaN(CGRect rect) {
+    return isnan(rect.origin.x) || isnan(rect.origin.y) || isnan(rect.size.width) || isnan(rect.size.height);
+}
+
+/// 判断一个 CGRect 是否合法（例如不带无穷大的值、不带非法数字）
+CG_INLINE BOOL
+WBCGRectIsValidated(CGRect rect) {
+    return !CGRectIsNull(rect) && !CGRectIsInfinite(rect) && !WBCGRectIsNaN(rect) && !WBCGRectIsInf(rect);
 }
 
 #pragma mark - Selector
