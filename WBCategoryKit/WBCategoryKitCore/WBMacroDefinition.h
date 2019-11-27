@@ -312,6 +312,8 @@ dispatch_async(queue, block);\
 #endif
 
 // MARK: -------- INLINE函数
+#define WB_CGSizeMax CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)
+
 CG_INLINE CGRect
 WBCGRectMakeWithSize(CGSize size) {
     return CGRectMake(0, 0, size.width, size.height);
@@ -440,6 +442,42 @@ WBCGRectIsNaN(CGRect rect) {
 CG_INLINE BOOL
 WBCGRectIsValidated(CGRect rect) {
     return !CGRectIsNull(rect) && !CGRectIsInfinite(rect) && !WBCGRectIsNaN(rect) && !WBCGRectIsInf(rect);
+}
+
+CG_INLINE UIEdgeInsets
+WBUIEdgeInsetsRemoveFloatMin(UIEdgeInsets insets) {
+    UIEdgeInsets result = UIEdgeInsetsMake(wb_removeFloatMin(insets.top), wb_removeFloatMin(insets.left), wb_removeFloatMin(insets.bottom), wb_removeFloatMin(insets.right));
+    return result;
+}
+
+CG_INLINE CGRect
+WBCGRectSetX(CGRect rect, CGFloat x) {
+    rect.origin.x = wb_flat(x);
+    return rect;
+}
+
+/// 用于居中运算
+CG_INLINE CGFloat
+WBCGFloatGetCenter(CGFloat parent, CGFloat child) {
+    return wb_flat((parent - child) / 2.0);
+}
+
+CG_INLINE CGRect
+WBCGRectSetWidth(CGRect rect, CGFloat width) {
+    if (width < 0) {
+        return rect;
+    }
+    rect.size.width = wb_flat(width);
+    return rect;
+}
+
+CG_INLINE CGRect
+WBCGRectSetHeight(CGRect rect, CGFloat height) {
+    if (height < 0) {
+        return rect;
+    }
+    rect.size.height = wb_flat(height);
+    return rect;
 }
 
 #pragma mark - Selector

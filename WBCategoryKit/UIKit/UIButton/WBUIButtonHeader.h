@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#if __has_include(<WBCategoryKit/WBUIButton.h>)
+#if __has_include(<WBCategoryKit/WBUIButtonHeader.h>)
 
 #import <WBCategoryKit/UIButton+WBAdjustPosition.h>
 #import <WBCategoryKit/UIButton+WBAdditional.h>

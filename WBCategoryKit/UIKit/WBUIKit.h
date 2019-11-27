@@ -16,7 +16,7 @@
 #import <WBCategoryKit/WBUIWindow.h>
 #import <WBCategoryKit/WBUIApplication.h>
 #import <WBCategoryKit/WBUITableViewCell.h>
-#import <WBCategoryKit/WBUIButton.h>
+#import <WBCategoryKit/WBUIButtonHeader.h>
 #import <WBCategoryKit/WBUIColor.h>
 #import <WBCategoryKit/WBUIAlertController.h>
 #import <WBCategoryKit/WBUIView.h>

@@ -31,12 +31,17 @@ static dispatch_semaphore_t _cahcePoolLook;
 
 #pragma mark < Public Method >
 - (NSDateFormatter *)wb_dateFormatterWithFormat:(NSString *)format {
-    return [self wb_dateFormatterWithFormat:format localeIdentifier:[NSLocale currentLocale].localeIdentifier timeZoneName:nil];
+    return [self wb_dateFormatterWithFormat:format
+                           localeIdentifier:[NSLocale currentLocale].localeIdentifier
+                               timeZoneName:nil];
 }
 
 - (NSDateFormatter *)wb_dateFormatterWithFormat:(NSDateFormatterStyle)dateStyle
                                       timeStyle:(NSDateFormatterStyle)timeStyle {
-    return [self wb_dateFormatterWithFormat:dateStyle timeStyle:timeStyle localeIdentifier:[NSLocale currentLocale].localeIdentifier timeZoneName:nil];
+    return [self wb_dateFormatterWithFormat:dateStyle
+                                  timeStyle:timeStyle
+                           localeIdentifier:[NSLocale currentLocale].localeIdentifier
+                               timeZoneName:nil];
 }
 
 #pragma mark < Basic Method >

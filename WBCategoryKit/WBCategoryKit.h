@@ -13,11 +13,13 @@
 #import <WBCategoryKit/WBUIKit.h>
 #import <WBCategoryKit/WBFoundation.h>
 #import <WBCategoryKit/WBCategoryKitCore.h>
+#import <WBCategoryKit/WBUIComponents.h>
 
 #else
 
 #import "WBUIKit.h"
 #import "WBFoundation.h"
 #import "WBCategoryKitCore.h"
+#import "WBUIComponents.h"
 
 #endif

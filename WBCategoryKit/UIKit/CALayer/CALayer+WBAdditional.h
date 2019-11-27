@@ -7,7 +7,7 @@
 
 
 #import <QuartzCore/QuartzCore.h>
-#import <UIKit/UIkit.h>
+#import <UIKit/UIKit.h>
 
 typedef NS_OPTIONS (NSUInteger, WBUICornerMask) {
    WBUILayerMinXMinYCorner = 1U << 0,

@@ -11,6 +11,25 @@ Pod::Spec.new do |s|
   s.source_files = 'WBCategoryKit/WBCategoryKit.h'
   s.frameworks = 'UIKit', 'Foundation' , 'WebKit', 'AVFoundation', 'MobileCoreServices', 'Photos', 'AssetsLibrary', 'QuartzCore', 'Accelerate', 'ImageIO', 'CoreText', 'CoreGraphics', 'CoreTelephony'
   s.requires_arc = true
+
+  s.subspec 'WBUIComponents' do |folder1|
+    folder1.source_files = 'WBCategoryKit/WBUIComponents/WBUIComponents.h'
+    folder1.frameworks = 'Foundation', 'UIKit'
+
+      folder1.subspec 'WBKeyboardManager' do |folder2|
+        folder2.source_files = 'WBCategoryKit/WBUIComponents/WBKeyboardManager/**/*.{h,m}'
+        folder2.frameworks = 'Foundation'
+        folder2.dependency 'WBCategoryKit/WBCategoryKitCore'
+      end
+
+      folder1.subspec 'WBUIButton' do |folder2|
+        folder2.source_files = 'WBCategoryKit/WBUIComponents/WBUIButton/**/*.{h,m}'
+        folder2.frameworks = 'UIKit'
+        folder2.dependency 'WBCategoryKit/WBCategoryKitCore'
+        folder2.dependency 'WBCategoryKit/UIKit/CALayer'
+      end
+
+  end
   
   s.subspec 'Foundation' do |folder1|
       folder1.source_files = 'WBCategoryKit/Foundation/WBFoundation.h'

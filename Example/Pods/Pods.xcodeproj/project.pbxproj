@@ -89,7 +89,7 @@
 		C504D71C237C51C8001BD12B /* WBUIAlertController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9872741DF046B788AA500DAE848C1194 /* WBUIAlertController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D71D237C51C8001BD12B /* WBUIApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C5C3666F22139ED61F025356918BF3A /* WBUIApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D71E237C51C8001BD12B /* WBUIBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 479452A2F95703FDFA1D200608166A17 /* WBUIBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C504D71F237C51C8001BD12B /* WBUIButton.h in Headers */ = {isa = PBXBuildFile; fileRef = B28A934F883976BFC2FC5623529B38F7 /* WBUIButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C504D71F237C51C8001BD12B /* WBUIButtonHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = B28A934F883976BFC2FC5623529B38F7 /* WBUIButtonHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D720237C51C8001BD12B /* WBUIColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 20B82BC1072F6F5C7CAA6A7AD679B237 /* WBUIColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D721237C51C8001BD12B /* WBUIControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A8B8AC35A9AFEE444ED34378F14A9E7 /* WBUIControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D722237C51C8001BD12B /* WBUIFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C4806CB88CEBC08279EF487BE7C4F87 /* WBUIFont.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -196,13 +196,16 @@
 		C575B91E2386EB7D00CA4E50 /* NSObject+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = C575B91B2386EB7D00CA4E50 /* NSObject+WBAdditional.m */; };
 		C575B91F2386EB7D00CA4E50 /* NSObject+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = C575B91B2386EB7D00CA4E50 /* NSObject+WBAdditional.m */; };
 		C575B9222386F48D00CA4E50 /* NSMethodSignature+WBAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = C575B9202386F48D00CA4E50 /* NSMethodSignature+WBAdditional.h */; };
-		C575B9232386F48D00CA4E50 /* NSMethodSignature+WBAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = C575B9202386F48D00CA4E50 /* NSMethodSignature+WBAdditional.h */; };
+		C575B9232386F48D00CA4E50 /* NSMethodSignature+WBAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = C575B9202386F48D00CA4E50 /* NSMethodSignature+WBAdditional.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C575B9242386F48D00CA4E50 /* NSMethodSignature+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = C575B9212386F48D00CA4E50 /* NSMethodSignature+WBAdditional.m */; };
 		C575B9252386F48D00CA4E50 /* NSMethodSignature+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = C575B9212386F48D00CA4E50 /* NSMethodSignature+WBAdditional.m */; };
 		C575B92E238D682200CA4E50 /* WBKeyboardManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C575B92C238D682200CA4E50 /* WBKeyboardManager.h */; };
-		C575B92F238D682200CA4E50 /* WBKeyboardManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C575B92C238D682200CA4E50 /* WBKeyboardManager.h */; };
+		C575B92F238D682200CA4E50 /* WBKeyboardManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C575B92C238D682200CA4E50 /* WBKeyboardManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C575B930238D682200CA4E50 /* WBKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C575B92D238D682200CA4E50 /* WBKeyboardManager.m */; };
 		C575B931238D682200CA4E50 /* WBKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C575B92D238D682200CA4E50 /* WBKeyboardManager.m */; };
+		C575B936238EB97200CA4E50 /* WBUIButton.h in Headers */ = {isa = PBXBuildFile; fileRef = C575B934238EB97200CA4E50 /* WBUIButton.h */; };
+		C575B938238EB97200CA4E50 /* WBUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C575B935238EB97200CA4E50 /* WBUIButton.m */; };
+		C575B939238EB97200CA4E50 /* WBUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C575B935238EB97200CA4E50 /* WBUIButton.m */; };
 		C6E033F547046D17D3D951AC9CE555A0 /* NSDate+WBDisplayTime.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2BD24AD636706791D49A4D2F08F1DA /* NSDate+WBDisplayTime.m */; };
 		C7504743D6B8F347BBEB278E0377A4C2 /* UIButton+WBAdjustPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A8063B5CBD04B42B1FF70E49C2774 /* UIButton+WBAdjustPosition.m */; };
 		D042E4F92386832F00A8BAF0 /* UITabBarItem+WBAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = D042E4F52386832F00A8BAF0 /* UITabBarItem+WBAdditional.h */; };
@@ -400,7 +403,7 @@
 		B14A4728F6676A4C38472C7E59332284 /* UIView+WBFrame.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WBFrame.m"; path = "WBCategoryKit/UIKit/UIView/UIView+WBFrame.m"; sourceTree = "<group>"; };
 		B1D326D77C13CE6ED4F9782500984100 /* UIApplication+WBNetworkActivityIndicator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+WBNetworkActivityIndicator.m"; path = "WBCategoryKit/UIKit/UIApplication/UIApplication+WBNetworkActivityIndicator.m"; sourceTree = "<group>"; };
 		B227574C6050062428ADE70DEE89A738 /* WBCategoryKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = WBCategoryKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		B28A934F883976BFC2FC5623529B38F7 /* WBUIButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBUIButton.h; path = WBCategoryKit/UIKit/UIButton/WBUIButton.h; sourceTree = "<group>"; };
+		B28A934F883976BFC2FC5623529B38F7 /* WBUIButtonHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBUIButtonHeader.h; path = WBCategoryKit/UIKit/UIButton/WBUIButtonHeader.h; sourceTree = "<group>"; };
 		B5C31FE3ADA1FFDB83A2FEC634AAC7F0 /* NSDate+WBAddtional.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDate+WBAddtional.h"; path = "WBCategoryKit/Foundation/NSDate/NSDate+WBAddtional.h"; sourceTree = "<group>"; };
 		B73BD2ED692ED1372EEB9A9C93AFF929 /* UIView+WBConstraints.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WBConstraints.m"; path = "WBCategoryKit/UIKit/UIView/UIView+WBConstraints.m"; sourceTree = "<group>"; };
 		B79202AF73BEC6D5FD1EA57CDA25160D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -436,6 +439,8 @@
 		C575B92A238D67AF00CA4E50 /* WBUIComponents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBUIComponents.h; sourceTree = "<group>"; };
 		C575B92C238D682200CA4E50 /* WBKeyboardManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBKeyboardManager.h; sourceTree = "<group>"; };
 		C575B92D238D682200CA4E50 /* WBKeyboardManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBKeyboardManager.m; sourceTree = "<group>"; };
+		C575B934238EB97200CA4E50 /* WBUIButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBUIButton.h; sourceTree = "<group>"; };
+		C575B935238EB97200CA4E50 /* WBUIButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBUIButton.m; sourceTree = "<group>"; };
 		C915B3B8772D67CD3132F3353FBD35F3 /* NSUserDefaults+WBAdditional.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSUserDefaults+WBAdditional.m"; path = "WBCategoryKit/Foundation/NSUserDefaults/NSUserDefaults+WBAdditional.m"; sourceTree = "<group>"; };
 		CA7249CA1ED99460864541B4A7B2B34B /* UIImage+WBCompress.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+WBCompress.h"; path = "WBCategoryKit/UIKit/UIImage/UIImage+WBCompress.h"; sourceTree = "<group>"; };
 		CAD4AB7662057F68E56B8EB09ABD9C64 /* WKWebView+WBAdditional.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "WKWebView+WBAdditional.h"; path = "WBCategoryKit/UIKit/WKWebView/WKWebView+WBAdditional.h"; sourceTree = "<group>"; };
@@ -550,7 +555,7 @@
 				8FA3E559224F062D2ED799A68A2302C4 /* UIButton+WBMiddleAlign.m */,
 				AA811C7EAD475506DC1685150D2D57DF /* UIButton+WBShowIndicator.h */,
 				58237DA93895CCE4A9B644B3F2F380ED /* UIButton+WBShowIndicator.m */,
-				B28A934F883976BFC2FC5623529B38F7 /* WBUIButton.h */,
+				B28A934F883976BFC2FC5623529B38F7 /* WBUIButtonHeader.h */,
 			);
 			name = UIButton;
 			sourceTree = "<group>";
@@ -1033,6 +1038,7 @@
 		C575B928238D673C00CA4E50 /* WBUIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				C575B933238EB95100CA4E50 /* WBUIButton */,
 				C575B92B238D67FE00CA4E50 /* WBKeyboardManager */,
 				C575B92A238D67AF00CA4E50 /* WBUIComponents.h */,
 			);
@@ -1047,6 +1053,15 @@
 				C575B92D238D682200CA4E50 /* WBKeyboardManager.m */,
 			);
 			path = WBKeyboardManager;
+			sourceTree = "<group>";
+		};
+		C575B933238EB95100CA4E50 /* WBUIButton */ = {
+			isa = PBXGroup;
+			children = (
+				C575B934238EB97200CA4E50 /* WBUIButton.h */,
+				C575B935238EB97200CA4E50 /* WBUIButton.m */,
+			);
+			path = WBUIButton;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -1181,6 +1196,7 @@
 				D0EE494323852F2300EE1603 /* UIImageView+WBAdditional.h in Headers */,
 				C575B9072386E3DA00CA4E50 /* WBSingletonMacro.h in Headers */,
 				C504D70B237C3FFA001BD12B /* WBUILabel.h in Headers */,
+				C575B936238EB97200CA4E50 /* WBUIButton.h in Headers */,
 				C56B489523843AE200310A17 /* CALayer+WBAdditional.h in Headers */,
 				D14966FFBA00B9F231B86671A1751086 /* Pods-WBCategoryKit_Example-umbrella.h in Headers */,
 				C575B9122386E53A00CA4E50 /* NSObject+WBRuntime.h in Headers */,
@@ -1209,10 +1225,9 @@
 				C504D71C237C51C8001BD12B /* WBUIAlertController.h in Headers */,
 				C504D71D237C51C8001BD12B /* WBUIApplication.h in Headers */,
 				C504D71E237C51C8001BD12B /* WBUIBarButtonItem.h in Headers */,
-				C504D71F237C51C8001BD12B /* WBUIButton.h in Headers */,
+				C504D71F237C51C8001BD12B /* WBUIButtonHeader.h in Headers */,
 				C504D720237C51C8001BD12B /* WBUIColor.h in Headers */,
 				C504D721237C51C8001BD12B /* WBUIControl.h in Headers */,
-				C575B9232386F48D00CA4E50 /* NSMethodSignature+WBAdditional.h in Headers */,
 				C504D722237C51C8001BD12B /* WBUIFont.h in Headers */,
 				C504D723237C51C8001BD12B /* WBUIImage.h in Headers */,
 				C504D724237C51C8001BD12B /* WBUINavigationBar.h in Headers */,
@@ -1244,7 +1259,6 @@
 				C504D744237C52B8001BD12B /* UIApplication+WBNetworkActivityIndicator.h in Headers */,
 				C504D745237C52B8001BD12B /* UIBarButtonItem+WBActionBlock.h in Headers */,
 				C504D746237C52B8001BD12B /* UIBarButtonItem+WBBadge.h in Headers */,
-				C575B92F238D682200CA4E50 /* WBKeyboardManager.h in Headers */,
 				C504D747237C52B8001BD12B /* UIButton+WBAdditional.h in Headers */,
 				C504D748237C52B8001BD12B /* UIButton+WBAdjustPosition.h in Headers */,
 				C504D749237C52B8001BD12B /* UIButton+WBBlock.h in Headers */,
@@ -1301,6 +1315,8 @@
 				C504D784237C5514001BD12B /* UIView+WBAnimation.h in Headers */,
 				C504D777237C52B8001BD12B /* WKWebView+WBCapture.h in Headers */,
 				C504D778237C52B8001BD12B /* WKWebView+WBJavaScript.h in Headers */,
+				C575B92F238D682200CA4E50 /* WBKeyboardManager.h in Headers */,
+				C575B9232386F48D00CA4E50 /* NSMethodSignature+WBAdditional.h in Headers */,
 				C504D779237C52B8001BD12B /* WKWebView+WBLoadInfo.h in Headers */,
 				C504D77A237C52B8001BD12B /* WKWebView+WBMetaParser.h in Headers */,
 			);
@@ -1435,6 +1451,7 @@
 				D042E505238683AF00A8BAF0 /* UIBarItem+WBAdditional.m in Sources */,
 				C575B9102386E53A00CA4E50 /* NSObject+WBRuntime.m in Sources */,
 				D042E4FF2386832F00A8BAF0 /* UITabBarItem+WBAdditional.m in Sources */,
+				C575B938238EB97200CA4E50 /* WBUIButton.m in Sources */,
 				D042E4FB2386832F00A8BAF0 /* UITabBar+WBAdditional.m in Sources */,
 				C575B9242386F48D00CA4E50 /* NSMethodSignature+WBAdditional.m in Sources */,
 				C504D785237C5514001BD12B /* UIView+WBAnimation.m in Sources */,
@@ -1516,6 +1533,7 @@
 				C575B91F2386EB7D00CA4E50 /* NSObject+WBAdditional.m in Sources */,
 				C029E1741ABEED3C1EF223C34F301D63 /* UIView+WBFind.m in Sources */,
 				D57D38D109CB4E541D5FCEB01B1353B5 /* UIView+WBFrame.m in Sources */,
+				C575B939238EB97200CA4E50 /* WBUIButton.m in Sources */,
 				7BC61C6DF69B83863DCC54012E9EDAE0 /* UIView+WBRecursion.m in Sources */,
 				D0EDA931E7269C79D9A1A9992DE7EDBC /* UIViewController+WBAdditional.m in Sources */,
 				C504D786237C5514001BD12B /* UIView+WBAnimation.m in Sources */,
