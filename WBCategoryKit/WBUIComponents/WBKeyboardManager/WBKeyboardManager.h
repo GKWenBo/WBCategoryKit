@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 指定初始化方法，以 delegate 的方式将键盘事件传递给监听者
 /// @param delegate 代理
-- (instancetype)initWithDelegate:(id<WBUIKeyboardManagerDelegate>)delegate NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithDelegate:(id<WBUIKeyboardManagerDelegate> _Nullable)delegate NS_DESIGNATED_INITIALIZER;
 
 /// 获取当前的 delegate
 @property(nonatomic, weak, readonly) id<WBUIKeyboardManagerDelegate> delegate;

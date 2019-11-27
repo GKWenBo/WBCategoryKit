@@ -10,20 +10,6 @@
 
 #import "WBCategoryKitCore.h"
 
-@interface WBKeyboardManager ()
-
-@property(nonatomic, strong) NSMutableArray <NSValue *> *targetResponderValues;
-
-@property(nonatomic, strong) WBUIKeyboardUserInfo *lastUserInfo;
-@property(nonatomic, assign) CGRect keyboardMoveBeginRect;
-
-@property(nonatomic, weak) UIResponder *currentResponder;
-//@property(nonatomic, weak) UIResponder *currentResponderWhenResign;
-
-@property(nonatomic, assign) BOOL debug;
-
-@end
-
 @interface UIView (WBKeyboardManager)
 
 - (id)wb_findFirstResponder;
@@ -104,8 +90,160 @@
 
 @end
 
+@interface WBUIKeyboardViewFrameObserver : NSObject
+
+@property (nonatomic, copy) void (^keyboardViewChangeFrameBlock)(UIView *keyboardView);
+- (void)addToKeyboardView:(UIView *)keyboardView;
++ (instancetype)observerForView:(UIView *)keyboardView;
+
+@end
+
+static char kAssociatedObjectKey_KeyboardViewFrameObserver;
+@implementation WBUIKeyboardViewFrameObserver
+{
+    __unsafe_unretained UIView *_keyboardView;
+}
+
+- (void)addToKeyboardView:(UIView *)keyboardView {
+    if (_keyboardView == keyboardView) {
+        return;
+    }
+    if (_keyboardView) {
+        [self removeFrameObserver];
+        objc_setAssociatedObject(_keyboardView, &kAssociatedObjectKey_KeyboardViewFrameObserver, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    _keyboardView = keyboardView;
+    if (keyboardView) {
+        [self addFrameObserver];
+    }
+    objc_setAssociatedObject(keyboardView, &kAssociatedObjectKey_KeyboardViewFrameObserver, self, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (void)addFrameObserver {
+    if (!_keyboardView) {
+        return;
+    }
+    [_keyboardView addObserver:self forKeyPath:@"frame" options:kNilOptions context:NULL];
+    [_keyboardView addObserver:self forKeyPath:@"center" options:kNilOptions context:NULL];
+    [_keyboardView addObserver:self forKeyPath:@"bounds" options:kNilOptions context:NULL];
+    [_keyboardView addObserver:self forKeyPath:@"transform" options:kNilOptions context:NULL];
+}
+
+- (void)removeFrameObserver {
+    [_keyboardView removeObserver:self forKeyPath:@"frame"];
+    [_keyboardView removeObserver:self forKeyPath:@"center"];
+    [_keyboardView removeObserver:self forKeyPath:@"bounds"];
+    [_keyboardView removeObserver:self forKeyPath:@"transform"];
+    _keyboardView = nil;
+}
+
+- (void)dealloc {
+    [self removeFrameObserver];
+}
+
++ (instancetype)observerForView:(UIView *)keyboardView {
+    if (!keyboardView) {
+        return nil;
+    }
+    return objc_getAssociatedObject(keyboardView, &kAssociatedObjectKey_KeyboardViewFrameObserver);
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if (![keyPath isEqualToString:@"frame"] &&
+        ![keyPath isEqualToString:@"center"] &&
+        ![keyPath isEqualToString:@"bounds"] &&
+        ![keyPath isEqualToString:@"transform"]) {
+        return;
+    }
+    if ([[change objectForKey:NSKeyValueChangeNotificationIsPriorKey] boolValue]) {
+        return;
+    }
+    if ([[change objectForKey:NSKeyValueChangeKindKey] integerValue] != NSKeyValueChangeSetting) {
+        return;
+    }
+    id newValue = [change objectForKey:NSKeyValueChangeNewKey];
+    if (newValue == [NSNull null]) { newValue = nil; }
+    if (self.keyboardViewChangeFrameBlock) {
+        self.keyboardViewChangeFrameBlock(_keyboardView);
+    }
+}
+
+
+@end
+
+/**
+1. 系统键盘app启动第一次使用键盘的时候，会调用两轮键盘通知事件，之后就只会调用一次。而搜狗等第三方输入法的键盘，目前发现每次都会调用三次键盘通知事件。总之，键盘的通知事件是不确定的。
+
+2. 搜狗键盘可以修改键盘的高度，在修改键盘高度之后，会调用键盘的keyboardWillChangeFrameNotification和keyboardWillShowNotification通知。
+
+3. 如果从一个聚焦的输入框直接聚焦到另一个输入框，会调用前一个输入框的keyboardWillChangeFrameNotification，在调用后一个输入框的keyboardWillChangeFrameNotification，最后调用后一个输入框的keyboardWillShowNotification（如果此时是浮动键盘，那么后一个输入框的keyboardWillShowNotification不会被调用；）。
+
+4. iPad可以变成浮动键盘，固定->浮动：会调用keyboardWillChangeFrameNotification和keyboardWillHideNotification；浮动->固定：会调用keyboardWillChangeFrameNotification和keyboardWillShowNotification；浮动键盘在移动的时候只会调用keyboardWillChangeFrameNotification通知，并且endFrame为zero，fromFrame不为zero，而是移动前键盘的frame。浮动键盘在聚焦和失焦的时候只会调用keyboardWillChangeFrameNotification，不会调用show和hide的notification。
+
+5. iPad可以拆分为左右的小键盘，小键盘的通知具体基本跟浮动键盘一样。
+
+6. iPad可以外接键盘，外接键盘之后屏幕上就没有虚拟键盘了，但是当我们输入文字的时候，发现底部还是有一条灰色的候选词，条东西也是键盘，它也会触发跟虚拟键盘一样的通知事件。如果点击这条候选词右边的向下箭头，则可以完全隐藏虚拟键盘，这个时候如果失焦再聚焦发现还是没有这条候选词，也就是键盘完全不出来了，如果输入文字，候选词才会重新出来。总结来说就是这条候选词是可以关闭的，关闭之后只有当下次输入才会重新出现。（聚焦和失焦都只调用keyboardWillChangeFrameNotification和keyboardWillHideNotification通知，而且frame始终不变，都是在屏幕下面）
+
+7. iOS8 hide 之后高度变成0了，keyboardWillHideNotification还是正常的，所以建议不要使用键盘高度来做动画，而是用键盘的y值；在show和hide的时候endFrame会出现一些奇怪的中间值，但最终值是对的；两个输入框切换聚焦，iOS8不会触发任何键盘通知；iOS8的浮动切换正常；
+
+8. iOS8在 固定->浮动 的过程中，后面的keyboardWillChangeFrameNotification和keyboardWillHideNotification里面的endFrame是正确的，而iOS10和iOS9是错的，iOS9的y值是键盘的MaxY，而iOS10的y值是隐藏状态下的y，也就是屏幕高度。所以iOS9和iOS10需要在keyboardDidChangeFrameNotification里面重新刷新一下。
+*/
+
+@interface WBKeyboardManager ()
+
+@property(nonatomic, strong) NSMutableArray <NSValue *> *targetResponderValues;
+
+@property(nonatomic, strong) WBUIKeyboardUserInfo *lastUserInfo;
+@property(nonatomic, assign) CGRect keyboardMoveBeginRect;
+
+@property(nonatomic, weak) UIResponder *currentResponder;
+//@property(nonatomic, weak) UIResponder *currentResponderWhenResign;
+
+@property(nonatomic, assign) BOOL debug;
+
+@end
+
+static WBKeyboardManager *kKeyboardManagerInstance;
+
 @implementation WBKeyboardManager
 
++ (void)initialize {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        kKeyboardManagerInstance = [[WBKeyboardManager alloc]initWithDelegate:nil];
+    });
+}
+
+- (instancetype)init {
+    NSAssert(NO, @"请使用initWithDelegate:初始化");
+    return [self initWithDelegate:nil];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    NSAssert(NO, @"请使用initWithDelegate:初始化");
+    return [self initWithDelegate:nil];
+}
+
+- (instancetype)initWithDelegate:(id<WBUIKeyboardManagerDelegate>)delegate {
+    if (self = [super init]) {
+        _delegate = delegate;
+        _delegateEnabled = YES;
+        _targetResponderValues = [[NSMutableArray alloc] init];
+        
+        [self addKeyboardNotification];
+    }
+    return self;
+}
+
+#pragma mark - Notification
+- (void)addKeyboardNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowNotification:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShowNotification:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHideNotification:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHideNotification:) name:UIKeyboardDidHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrameNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidChangeFrameNotification:) name:UIKeyboardDidChangeFrameNotification object:nil];
+}
 
 @end
 
