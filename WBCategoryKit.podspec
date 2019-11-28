@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = 'WBCategoryKit'
   s.version          = '1.1.0'
-  s.summary          = 'Some useful Objective-C Categories and Macro'
+  s.summary          = 'Some useful Objective-C Categories, Custom UIComponents and Macro'
   s.homepage         = 'https://github.com/wenmobo/WBCategoryKit'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'wenmobo' => '1050794513@qq.com' }
@@ -11,17 +11,20 @@ Pod::Spec.new do |s|
   s.source_files = 'WBCategoryKit/WBCategoryKit.h'
   s.frameworks = 'UIKit', 'Foundation' , 'WebKit', 'AVFoundation', 'MobileCoreServices', 'Photos', 'AssetsLibrary', 'QuartzCore', 'Accelerate', 'ImageIO', 'CoreText', 'CoreGraphics', 'CoreTelephony'
   s.requires_arc = true
-
+  
+  #WBUIComponents
   s.subspec 'WBUIComponents' do |folder1|
     folder1.source_files = 'WBCategoryKit/WBUIComponents/WBUIComponents.h'
     folder1.frameworks = 'Foundation', 'UIKit'
-
+    
+      #WBKeyboardManager
       folder1.subspec 'WBKeyboardManager' do |folder2|
         folder2.source_files = 'WBCategoryKit/WBUIComponents/WBKeyboardManager/**/*.{h,m}'
         folder2.frameworks = 'Foundation'
         folder2.dependency 'WBCategoryKit/WBCategoryKitCore'
       end
 
+      #WBUIButton
       folder1.subspec 'WBUIButton' do |folder2|
         folder2.source_files = 'WBCategoryKit/WBUIComponents/WBUIButton/**/*.{h,m}'
         folder2.frameworks = 'UIKit'
@@ -31,46 +34,55 @@ Pod::Spec.new do |s|
 
   end
   
+  #Foundation
   s.subspec 'Foundation' do |folder1|
       folder1.source_files = 'WBCategoryKit/Foundation/WBFoundation.h'
       folder1.frameworks = 'Foundation', 'UIKit'
       
+      #NSData
       folder1.subspec 'NSData' do |folder2|
           folder2.source_files = 'WBCategoryKit/Foundation/NSData/**/*.{h,m}'
           folder2.frameworks = 'Foundation'
       end
       
+      #NSDictionary
       folder1.subspec 'NSDictionary' do |folder2|
           folder2.source_files = 'WBCategoryKit/Foundation/NSDictionary/**/*.{h,m}'
           folder2.frameworks = 'Foundation'
           folder2.dependency 'WBCategoryKit/Foundation/NSString'
       end
       
+      #NSString
       folder1.subspec 'NSString' do |folder2|
           folder2.source_files = 'WBCategoryKit/Foundation/NSString/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit', 'CoreTelephony'
       end
       
+      #NSArray
       folder1.subspec 'NSArray' do |folder2|
           folder2.source_files = 'WBCategoryKit/Foundation/NSArray/**/*.{h,m}'
           folder2.frameworks = 'Foundation'
       end
       
+      #NSUserDefaults
       folder1.subspec 'NSUserDefaults' do |folder2|
           folder2.source_files = 'WBCategoryKit/Foundation/NSUserDefaults/**/*.{h,m}'
           folder2.frameworks = 'Foundation'
       end
       
+      #NSObject
       folder1.subspec 'NSObject' do |folder2|
           folder2.source_files = 'WBCategoryKit/Foundation/NSObject/**/*.{h,m}'
           folder2.frameworks = 'Foundation'
       end
       
+      #NSDate
       folder1.subspec 'NSDate' do |folder2|
           folder2.source_files = 'WBCategoryKit/Foundation/NSDate/**/*.{h,m}'
           folder2.frameworks = 'Foundation'
       end
       
+      #NSMutableAttributedString
       folder1.subspec 'NSMutableAttributedString' do |folder2|
           folder2.source_files = 'WBCategoryKit/Foundation/NSMutableAttributedString/**/*.{h,m}'
           folder2.frameworks = 'Foundation','UIKit'
@@ -78,22 +90,26 @@ Pod::Spec.new do |s|
 
   end
   
+  #WBCategoryKitCore
   s.subspec 'WBCategoryKitCore' do |ss|
       ss.source_files = 'WBCategoryKit/WBCategoryKitCore/**/*.{h,m}'
       ss.frameworks = 'Foundation', 'UIKit'
       ss.dependency 'WBCategoryKit/Foundation/NSString'
   end
   
+  #UIKit
   s.subspec 'UIKit' do |folder1|
       folder1.source_files = 'WBCategoryKit/UIKit/WBUIKit.h'
       folder1.frameworks = 'Foundation', 'UIKit', 'WebKit', 'AVFoundation', 'MobileCoreServices', 'Photos', 'AssetsLibrary', 'QuartzCore', 'Accelerate'
       
+      #UIFont
       folder1.subspec 'UIFont' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UIFont/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit'
           folder2.dependency 'WBCategoryKit/WBCategoryKitCore'
       end
       
+      #UIImage
       folder1.subspec 'UIImage' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UIImage/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit', 'CoreGraphics', 'ImageIO', 'CoreText', 'AVFoundation', 'Accelerate'
@@ -101,88 +117,105 @@ Pod::Spec.new do |s|
           folder2.dependency 'WBCategoryKit/UIKit/UIColor'
       end
       
+      #UIScrollView
       folder1.subspec 'UIScrollView' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UIScrollView/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit'
       end
       
+      #UIScreen
       folder1.subspec 'UIScreen' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UIScreen/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit'
       end
       
+      #UIWindow
       folder1.subspec 'UIWindow' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UIWindow/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit'
       end
       
+      #UIApplication
       folder1.subspec 'UIApplication' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UIApplication/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit'
       end
       
+      #UITableViewCell
       folder1.subspec 'UITableViewCell' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UITableViewCell/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit'
       end
       
+      #UIButton
       folder1.subspec 'UIButton' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UIButton/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit'
       end
       
+      #UIColor
       folder1.subspec 'UIColor' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UIColor/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit'
       end
       
+      #UIAlertController
       folder1.subspec 'UIAlertController' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UIAlertController/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit'
       end
       
+      #UIView
       folder1.subspec 'UIView' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UIView/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit', 'QuartzCore'
       end
       
+      #UINavigationItem
       folder1.subspec 'UINavigationItem' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UINavigationItem/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit'
       end
       
+      #WKWebView
       folder1.subspec 'WKWebView' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/WKWebView/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit', 'WebKit'
           folder2.dependency 'WBCategoryKit/UIKit/UIColor'
       end
       
+      #UICollectionView
       folder1.subspec 'UICollectionView' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UICollectionView/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit'
       end
       
+      #UIImagePickerController
       folder1.subspec 'UIImagePickerController' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UIImagePickerController/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit', 'AVFoundation', 'MobileCoreServices', 'Photos', 'AssetsLibrary'
           folder2.dependency 'WBCategoryKit/Foundation/NSDate'
       end
       
+      #UIBarButtonItem
       folder1.subspec 'UIBarButtonItem' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UIBarButtonItem/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit'
       end
       
+      #UINavigationBar
       folder1.subspec 'UINavigationBar' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UINavigationBar/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit'
       end
       
+      #UIViewController
       folder1.subspec 'UIViewController' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UIViewController/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit'
       end
       
+      #UISearchBar
       folder1.subspec 'UISearchBar' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UISearchBar/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit'
@@ -191,28 +224,33 @@ Pod::Spec.new do |s|
           folder2.dependency 'WBCategoryKit/UIKit/UIView'
       end
       
+      #UIControl
       folder1.subspec 'UIControl' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UIControl/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit', 'AVFoundation'
       end
 
+      #CALayer
       folder1.subspec 'CALayer' do |folder2|
       	  folder2.source_files = 'WBCategoryKit/UIKit/CALayer/**/*.{h,m}'
       	  folder2.frameworks = 'UIKit'
       	  folder2.dependency 'WBCategoryKit/WBCategoryKitCore'
       end
 
+      #UILabel
       folder1.subspec 'UILabel' do |folder2|
       	  folder2.source_files = "WBCategoryKit/UIKit/UILabel/**/*.{h,m}"
       	  folder2.frameworks = 'UIKit'
       	  folder2.dependency 'WBCategoryKit/WBCategoryKitCore'
       end
 
+      #UIImageView
       folder1.subspec 'UIImageView' do |folder2|
           folder2.source_files = "WBCategoryKit/UIKit/UIImageView/**/*.{h,m}"
           folder2.dependency 'WBCategoryKit/WBCategoryKitCore'
       end
 
+      #UIBarItem
       folder1.subspec 'UIBarItem' do |folder2|
       	  folder2.source_files = "WBCategoryKit/UIKit/UIBarItem/**/*.{h,m}"
       	  folder2.frameworks = 'UIKit'

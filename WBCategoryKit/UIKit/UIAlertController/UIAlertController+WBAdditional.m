@@ -8,17 +8,17 @@
 
 #import "UIAlertController+WBAdditional.h"
 
-#define kCameraDeniedMessage [NSString stringWithFormat:@"请在iPhone的“设置”-“隐私”-“相机”功能中，找到“%@”打开相机访问权",[[NSBundle mainBundle].infoDictionary objectForKey:@"CFBundleName"]]
+#define kWBCameraDeniedMessage [NSString stringWithFormat:@"请在iPhone的“设置”-“隐私”-“相机”功能中，找到“%@”打开相机访问权",[[NSBundle mainBundle].infoDictionary objectForKey:@"CFBundleName"]]
 
-#define kPhotoLibraryDeniedMessage [NSString stringWithFormat:@"请在iPhone的“设置”-“隐私”-“照片”功能中，找到“%@”打开照片访问权",[[NSBundle mainBundle].infoDictionary objectForKey:@"CFBundleName"]]
+#define kWBPhotoLibraryDeniedMessage [NSString stringWithFormat:@"请在iPhone的“设置”-“隐私”-“照片”功能中，找到“%@”打开照片访问权",[[NSBundle mainBundle].infoDictionary objectForKey:@"CFBundleName"]]
 
 @implementation UIAlertController (WBAdditional)
 
-+ (void)showAlertWithTitle:(NSString *)title
-                   message:(NSString *)message
-              clickedBlock:(AlertClickedBlock)clickedBlock
-        cancelActionString:(NSString *)cancelActionString
-         otherActionString:(NSString *)otherActionString, ... {
++ (void)wb_showAlertWithTitle:(NSString *)title
+                      message:(NSString *)message
+                 clickedBlock:(WBAlertClickedBlock)clickedBlock
+           cancelActionString:(NSString *)cancelActionString
+            otherActionString:(NSString *)otherActionString, ... {
     NSMutableArray *argsArray = @[].mutableCopy;
     if (cancelActionString) [argsArray addObject:cancelActionString];
     NSString *arg;
@@ -54,12 +54,12 @@
     }
 }
 
-+ (void)showActionSheetWithTitle:(NSString *)title
-                         message:(NSString *)message
-                    clickedBlock:(AlertClickedBlock)clickedBlock
-              cancelActionString:(NSString *)cancelActionString
-         destructiveActionString:(NSString *)destructiveActionString
-               otherActionString:(NSString *)otherActionString, ... {
++ (void)wb_showActionSheetWithTitle:(NSString *)title
+                            message:(NSString *)message
+                       clickedBlock:(WBAlertClickedBlock)clickedBlock
+                 cancelActionString:(NSString *)cancelActionString
+            destructiveActionString:(NSString *)destructiveActionString
+                  otherActionString:(NSString *)otherActionString, ... {
     NSMutableArray *argsArray = @[].mutableCopy;
     if (cancelActionString) [argsArray addObject:cancelActionString];
     if (destructiveActionString) [argsArray addObject:destructiveActionString];
@@ -99,67 +99,67 @@
     }
 }
 
-+ (void)showOneAlertActionWithTitle:(NSString *)title
-                            message:(NSString *)message
-                        actionTitle:(NSString *)actionTitle {
-    [self showOneAlertActionWithTitle:title
-                              message:message
-                          actionTitle:actionTitle ? actionTitle : @"好的"
-                          actionBlock:nil];
++ (void)wb_showOneAlertActionWithTitle:(NSString *)title
+                               message:(NSString *)message
+                           actionTitle:(NSString *)actionTitle {
+    [self wb_showOneAlertActionWithTitle:title
+                                 message:message
+                             actionTitle:actionTitle ? actionTitle : @"好的"
+                             actionBlock:nil];
 }
 
-+ (void)showOneAlertActionWithTitle:(NSString *)title
-                            message:(NSString *)message
-                        actionTitle:(NSString *)actionTitle
-                       confirmBlock:(AlertActionBlock)confirmBlock {
-    [self showOneAlertActionWithTitle:title
-                              message:message
-                          actionTitle:actionTitle ? actionTitle : @"好的"
-                          actionBlock:confirmBlock];
++ (void)wb_showOneAlertActionWithTitle:(NSString *)title
+                               message:(NSString *)message
+                           actionTitle:(NSString *)actionTitle
+                          confirmBlock:(WBAlertActionBlock)confirmBlock {
+    [self wb_showOneAlertActionWithTitle:title
+                                 message:message
+                             actionTitle:actionTitle ? actionTitle : @"好的"
+                             actionBlock:confirmBlock];
 }
 
-+ (void)showTwoAlertActionWithTitle:(NSString *)title
-                            message:(NSString *)message
-                       confirmBlock:(AlertActionBlock)confirmBlock {
-    [self showTwoAlertActionWithTitle:title
-                              message:message
-                      leftActionTitle:@"取消"
-                     rightActionTitle:@"确定"
-                      leftActionBlock:nil
-                     rightActionBlock:confirmBlock];
++ (void)wb_showTwoAlertActionWithTitle:(NSString *)title
+                               message:(NSString *)message
+                          confirmBlock:(WBAlertActionBlock)confirmBlock {
+    [self wb_showTwoAlertActionWithTitle:title
+                                 message:message
+                         leftActionTitle:@"取消"
+                        rightActionTitle:@"确定"
+                         leftActionBlock:nil
+                        rightActionBlock:confirmBlock];
 }
 
-+ (void)showAutoDismissAlertWithTitle:(NSString *)title
-                              message:(NSString *)message {
-    [self showAutoDismissAlertWithTitle:title
-                                message:message
-                             afterDelay:2.f];
++ (void)wb_showAutoDismissAlertWithTitle:(NSString *)title
+                                 message:(NSString *)message {
+    [self wb_showAutoDismissAlertWithTitle:title
+                                   message:message
+                                afterDelay:2.f];
 }
 
-+ (void)showAutoDismissActionSheetWithTitle:(NSString *)title
-                                    message:(NSString *)message {
-    [self showAutoDismissAlertWithTitle:title
-                                message:message
-                             afterDelay:2.f];
++ (void)wb_showAutoDismissActionSheetWithTitle:(NSString *)title
+                                       message:(NSString *)message {
+    [self wb_showAutoDismissAlertWithTitle:title
+                                   message:message
+                                afterDelay:2.f];
 }
 
-+ (void)showCameraAuthorizationDeniedAlert {
-    [self showOneAlertActionWithTitle:kCameraDeniedMessage
-                              message:nil
-                          actionTitle:nil];
++ (void)wb_showCameraAuthorizationDeniedAlert {
+    [self wb_showOneAlertActionWithTitle:kWBCameraDeniedMessage
+                                 message:nil
+                             actionTitle:nil];
 }
 
-+ (void)showPhotoLibraryAuthorizationDeniedAlert {
-    [self showOneAlertActionWithTitle:kPhotoLibraryDeniedMessage
-                              message:nil
-                          actionTitle:nil];
++ (void)wb_showPhotoLibraryAuthorizationDeniedAlert {
+    [self wb_showOneAlertActionWithTitle:kWBPhotoLibraryDeniedMessage
+                                 message:nil
+                             actionTitle:nil];
 }
 
 #pragma mark < Basic Method >
-+ (void)showOneAlertActionWithTitle:(NSString *)title
-                            message:(NSString *)message
-                        actionTitle:(NSString *)actionTitle
-                        actionBlock:(AlertActionBlock)actionBlock {
++ (void)wb_showOneAlertActionWithTitle:(NSString *)title
+                               message:(NSString *)message
+                           actionTitle:(NSString *)actionTitle
+                           actionBlock:(WBAlertActionBlock)actionBlock {
     UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:title
                                                                      message:message
                                                               preferredStyle:UIAlertControllerStyleAlert];
@@ -174,12 +174,12 @@
                                                     completion:nil];
 }
 
-+ (void)showTwoAlertActionWithTitle:(NSString *)title
-                            message:(NSString *)message
-                    leftActionTitle:(NSString *)leftActionTitle
-                   rightActionTitle:(NSString *)rightActionTitle
-                    leftActionBlock:(AlertActionBlock)leftActionBlock
-                   rightActionBlock:(AlertActionBlock)rightActionBlock {
++ (void)wb_showTwoAlertActionWithTitle:(NSString *)title
+                               message:(NSString *)message
+                       leftActionTitle:(NSString *)leftActionTitle
+                      rightActionTitle:(NSString *)rightActionTitle
+                       leftActionBlock:(WBAlertActionBlock)leftActionBlock
+                      rightActionBlock:(WBAlertActionBlock)rightActionBlock {
     UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:title
                                                                      message:message
                                                               preferredStyle:UIAlertControllerStyleAlert];
@@ -200,9 +200,9 @@
                                                     completion:nil];
 }
 
-+ (void)showAutoDismissAlertWithTitle:(NSString *)title
-                              message:(NSString *)message
-                           afterDelay:(NSTimeInterval)afterDelay {
++ (void)wb_showAutoDismissAlertWithTitle:(NSString *)title
+                                 message:(NSString *)message
+                              afterDelay:(NSTimeInterval)afterDelay {
     UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:title
                                                                      message:message
                                                               preferredStyle:UIAlertControllerStyleAlert];
@@ -216,9 +216,9 @@
                                             }];
 }
 
-+ (void)showAutoDismissActionSheetWithTitle:(NSString *)title
-                                    message:(NSString *)message
-                                 afterDelay:(NSTimeInterval)afterDelay {
++ (void)wb_showAutoDismissActionSheetWithTitle:(NSString *)title
+                                       message:(NSString *)message
+                                    afterDelay:(NSTimeInterval)afterDelay {
     UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:title
                                                                      message:message
                                                               preferredStyle:UIAlertControllerStyleActionSheet];

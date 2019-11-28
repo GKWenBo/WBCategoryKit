@@ -311,39 +311,7 @@ dispatch_async(queue, block);\
 }
 #endif
 
-// MARK: -------- INLINE函数
-#define WB_CGSizeMax CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)
-
-CG_INLINE CGRect
-WBCGRectMakeWithSize(CGSize size) {
-    return CGRectMake(0, 0, size.width, size.height);
-}
-
-/// 判断一个 CGSize 是否为空（宽或高为0）
-CG_INLINE BOOL
-WBCGSizeIsEmpty(CGSize size) {
-    return size.width <= 0 || size.height <= 0;
-}
-
-/// 判断一个 CGSize 是否存在 infinite
-CG_INLINE BOOL
-WBCGSizeIsInf(CGSize size) {
-    return isinf(size.width) || isinf(size.height);
-}
-
-/// 判断一个 CGSize 是否存在 NaN
-CG_INLINE BOOL
-WBCGSizeIsNaN(CGSize size) {
-    return isnan(size.width) || isnan(size.height);
-}
-
-
-/// 判断一个 CGSize 是否合法（例如不带无穷大的值、不带非法数字）
-CG_INLINE BOOL
-WBCGSizeIsValidated(CGSize size) {
-    return !WBCGSizeIsEmpty(size) && !WBCGSizeIsInf(size) && !WBCGSizeIsNaN(size);
-}
-
+// MARK: -------- INLINE CGFloat
 /**
 *  某些地方可能会将 CGFLOAT_MIN 作为一个数值参与计算（但其实 CGFLOAT_MIN 更应该被视为一个标志位而不是数值），可能导致一些精度问题，所以提供这个方法快速将 CGFLOAT_MIN 转换为 0
 *  issue: https://github.com/Tencent/QMUI_iOS/issues/203
@@ -374,12 +342,6 @@ CG_INLINE CGFloat wb_flat(CGFloat floatValue) {
     return wb_flatSpecificScale(floatValue, 0);
 }
 
-/// 将一个 CGSize 像素对齐
-CG_INLINE CGSize
-WBCGSizeFlatted(CGSize size) {
-    return CGSizeMake(wb_flat(size.width), wb_flat(size.height));
-}
-
 /// 计算view的垂直居中，传入父view和子view的frame，返回子view在垂直居中时的y值
 CG_INLINE CGFloat
 WBCGRectGetMinYVerticallyCenterInParentRect(CGRect parentRect, CGRect childRect) {
@@ -404,6 +366,51 @@ WBUIEdgeInsetsGetVerticalValue(UIEdgeInsets insets) {
     return insets.top + insets.bottom;
 }
 
+/// 用于居中运算
+CG_INLINE CGFloat
+WBCGFloatGetCenter(CGFloat parent, CGFloat child) {
+    return wb_flat((parent - child) / 2.0);
+}
+
+// MARK: -------- INLINE CGSize
+#define WB_CGSizeMax CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)
+
+CG_INLINE CGRect
+WBCGRectMakeWithSize(CGSize size) {
+    return CGRectMake(0, 0, size.width, size.height);
+}
+
+/// 判断一个 CGSize 是否为空（宽或高为0）
+CG_INLINE BOOL
+WBCGSizeIsEmpty(CGSize size) {
+    return size.width <= 0 || size.height <= 0;
+}
+
+/// 判断一个 CGSize 是否存在 infinite
+CG_INLINE BOOL
+WBCGSizeIsInf(CGSize size) {
+    return isinf(size.width) || isinf(size.height);
+}
+
+/// 判断一个 CGSize 是否存在 NaN
+CG_INLINE BOOL
+WBCGSizeIsNaN(CGSize size) {
+    return isnan(size.width) || isnan(size.height);
+}
+
+/// 判断一个 CGSize 是否合法（例如不带无穷大的值、不带非法数字）
+CG_INLINE BOOL
+WBCGSizeIsValidated(CGSize size) {
+    return !WBCGSizeIsEmpty(size) && !WBCGSizeIsInf(size) && !WBCGSizeIsNaN(size);
+}
+
+/// 将一个 CGSize 像素对齐
+CG_INLINE CGSize
+WBCGSizeFlatted(CGSize size) {
+    return CGSizeMake(wb_flat(size.width), wb_flat(size.height));
+}
+
+// MARK: -------- INLINE CGRect
 /// 为给定的rect往内部缩小insets的大小
 CG_INLINE CGRect
 WBCGRectInsetEdges(CGRect rect, UIEdgeInsets insets) {
@@ -444,22 +451,10 @@ WBCGRectIsValidated(CGRect rect) {
     return !CGRectIsNull(rect) && !CGRectIsInfinite(rect) && !WBCGRectIsNaN(rect) && !WBCGRectIsInf(rect);
 }
 
-CG_INLINE UIEdgeInsets
-WBUIEdgeInsetsRemoveFloatMin(UIEdgeInsets insets) {
-    UIEdgeInsets result = UIEdgeInsetsMake(wb_removeFloatMin(insets.top), wb_removeFloatMin(insets.left), wb_removeFloatMin(insets.bottom), wb_removeFloatMin(insets.right));
-    return result;
-}
-
 CG_INLINE CGRect
 WBCGRectSetX(CGRect rect, CGFloat x) {
     rect.origin.x = wb_flat(x);
     return rect;
-}
-
-/// 用于居中运算
-CG_INLINE CGFloat
-WBCGFloatGetCenter(CGFloat parent, CGFloat child) {
-    return wb_flat((parent - child) / 2.0);
 }
 
 CG_INLINE CGRect
@@ -479,6 +474,20 @@ WBCGRectSetHeight(CGRect rect, CGFloat height) {
     rect.size.height = wb_flat(height);
     return rect;
 }
+
+/// 创建一个像素对齐的CGRect
+CG_INLINE CGRect
+WBCGRectFlatMake(CGFloat x, CGFloat y, CGFloat width, CGFloat height) {
+    return CGRectMake(wb_flat(x), wb_flat(y), wb_flat(width), wb_flat(height));
+}
+
+// MARK: -------- INLINE UIEdgeInsets
+CG_INLINE UIEdgeInsets
+WBUIEdgeInsetsRemoveFloatMin(UIEdgeInsets insets) {
+    UIEdgeInsets result = UIEdgeInsetsMake(wb_removeFloatMin(insets.top), wb_removeFloatMin(insets.left), wb_removeFloatMin(insets.bottom), wb_removeFloatMin(insets.right));
+    return result;
+}
+
 
 #pragma mark - Selector
 /**

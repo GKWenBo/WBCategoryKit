@@ -11,8 +11,10 @@
 @implementation NSMethodSignature (WBAdditional)
 
 - (NSString *)wb_typeString {
-    WB_SUPPRESS_PerformSelectorLeak_WARNING(NSString *typeString = [self performSelector:NSSelectorFromString([NSString stringWithFormat:@"_%@String", @"type"])];
-                                            return typeString;);
+WBBeginIgnorePerformSelectorLeaksWarning
+    NSString *typeString = [self performSelector:NSSelectorFromString([NSString stringWithFormat:@"_%@String", @"type"])];
+WBEndIgnorePerformSelectorLeaksWarning
+    return typeString;
 }
 
 - (const char *)wb_typeEncoding {

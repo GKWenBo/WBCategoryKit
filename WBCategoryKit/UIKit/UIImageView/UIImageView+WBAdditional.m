@@ -163,23 +163,18 @@
     
     CGRect fitRect = CGRectMake(0, 0, 1, 1);
     switch (self.wb_contentMode) {
-            
         case WBUIViewContentModeScaleAspectFitTop:
             fitRect = CGRectMake(x * 0.5, 0, width, height);
             break;
-            
         case WBUIViewContentModeScaleAspectFitBottom:
             fitRect = CGRectMake(x * 0.5, y, width, height);
             break;
-            
         case WBUIViewContentModeScaleAspectFitLeft:
             fitRect = CGRectMake(0, y * 0.5, width, height);
             break;
-            
         case WBUIViewContentModeScaleAspectFitRight:
             fitRect = CGRectMake(x, y * 0.5, width, height);
             break;
-            
         default:
             break;
     }

@@ -29,7 +29,7 @@
 #import <WBCategoryKit/WBUIViewController.h>
 #import <WBCategoryKit/WBUISearchBar.h>
 #import <WBCategoryKit/WBUIControl.h>
-#import <WBCategoryKit/WBUILabel.h>
+#import <WBCategoryKit/WBUILabelHeader.h>
 #import <WBCategoryKit/CALayer+WBAdditional.h>
 #import <WBCategoryKit/UIImageView+WBAdditional.h>
 #import <WBCategoryKit/WBUIBarItem.h>
@@ -42,7 +42,7 @@
 #import "WBUIWindow.h"
 #import "WBUIApplication.h"
 #import "WBUITableViewCell.h"
-#import "WBUIButton.h"
+#import "WBUIButtonHeader.h"
 #import "WBUIColor.h"
 #import "WBUIAlertController.h"
 #import "WBUIView.h"
@@ -56,7 +56,7 @@
 #import "WBUIViewController.h"
 #import "WBUISearchBar.h"
 #import "WBUIControl.h"
-#import "WBUILabel.h"
+#import "WBUILabelHeader.h"
 #import "CALayer+WBAdditional.h"
 #import "UIImageView+WBAdditional.h"
 #import "WBUIBarItem.h"

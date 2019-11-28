@@ -21,9 +21,7 @@ static const void *kActionBlockArrayKey = &kActionBlockArrayKey;
 
 @end
 
-
 @implementation UIControl (WBAcitonBlock)
-
 
 - (void)wb_handleControlEvents:(UIControlEvents)events withBlock:(WBUIControlActionBlock)block {
     NSMutableArray *actionBlockArray = [self wb_actionBlockArray];

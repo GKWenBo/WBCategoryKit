@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^AlertActionBlock)(void);
-typedef void(^AlertClickedBlock)(NSInteger clickedIndex);
+typedef void(^WBAlertActionBlock)(void);
+typedef void(^WBAlertClickedBlock)(NSInteger clickedIndex);
 
 @interface UIAlertController (WBAdditional)
 
@@ -22,11 +22,11 @@ typedef void(^AlertClickedBlock)(NSInteger clickedIndex);
  @param cancelActionString 取消标题
  @param otherActionString 其他按钮标题，example：@“相机”，@“照片”,nil
  */
-+ (void)showAlertWithTitle:(NSString *)title
-                   message:(NSString *)message
-              clickedBlock:(AlertClickedBlock)clickedBlock
-        cancelActionString:(NSString *)cancelActionString
-         otherActionString:(NSString *)otherActionString, ...;
++ (void)wb_showAlertWithTitle:(NSString *)title
+                      message:(NSString *)message
+                 clickedBlock:(WBAlertClickedBlock)clickedBlock
+           cancelActionString:(NSString *)cancelActionString
+            otherActionString:(NSString *)otherActionString, ...;
 
 /**
  快速创建底部弹出提示框
@@ -38,12 +38,12 @@ typedef void(^AlertClickedBlock)(NSInteger clickedIndex);
  @param destructiveActionString 红色按钮
  @param otherActionString 其他按钮标题，example：@“相机”，@“照片”,nil
  */
-+ (void)showActionSheetWithTitle:(NSString *)title
-                         message:(NSString *)message
-                    clickedBlock:(AlertClickedBlock)clickedBlock
-              cancelActionString:(NSString *)cancelActionString
-         destructiveActionString:(NSString *)destructiveActionString
-               otherActionString:(NSString *)otherActionString, ...;
++ (void)wb_showActionSheetWithTitle:(NSString *)title
+                            message:(NSString *)message
+                       clickedBlock:(WBAlertClickedBlock)clickedBlock
+                 cancelActionString:(NSString *)cancelActionString
+            destructiveActionString:(NSString *)destructiveActionString
+                  otherActionString:(NSString *)otherActionString, ...;
 /**
  提示框，一个按钮
  
@@ -51,9 +51,9 @@ typedef void(^AlertClickedBlock)(NSInteger clickedIndex);
  @param message 提示信息
  @param actionTitle 按钮标题，传nil，默认‘好的’
  */
-+ (void)showOneAlertActionWithTitle:(NSString *)title
-                            message:(NSString *)message
-                        actionTitle:(NSString *)actionTitle;
++ (void)wb_showOneAlertActionWithTitle:(NSString *)title
+                               message:(NSString *)message
+                           actionTitle:(NSString *)actionTitle;
 
 /**
  提示框，一个按钮，点击回调block
@@ -63,10 +63,10 @@ typedef void(^AlertClickedBlock)(NSInteger clickedIndex);
  @param actionTitle 按钮标题，传nil，默认‘好的’
  @param confirmBlock 点击回调block
  */
-+ (void)showOneAlertActionWithTitle:(NSString *)title
-                            message:(NSString *)message
-                        actionTitle:(NSString *)actionTitle
-                       confirmBlock:(AlertActionBlock)confirmBlock;
++ (void)wb_showOneAlertActionWithTitle:(NSString *)title
+                               message:(NSString *)message
+                           actionTitle:(NSString *)actionTitle
+                          confirmBlock:(WBAlertActionBlock)confirmBlock;
 
 
 /**
@@ -76,9 +76,9 @@ typedef void(^AlertClickedBlock)(NSInteger clickedIndex);
  @param message 提示信息
  @param confirmBlock 点击确定回调block
  */
-+ (void)showTwoAlertActionWithTitle:(NSString *)title
-                            message:(NSString *)message
-                       confirmBlock:(AlertActionBlock)confirmBlock;
++ (void)wb_showTwoAlertActionWithTitle:(NSString *)title
+                               message:(NSString *)message
+                          confirmBlock:(WBAlertActionBlock)confirmBlock;
 
 
 /**
@@ -87,8 +87,8 @@ typedef void(^AlertClickedBlock)(NSInteger clickedIndex);
  @param title 标题
  @param message 提示信息
  */
-+ (void)showAutoDismissAlertWithTitle:(NSString *)title
-                              message:(NSString *)message;
++ (void)wb_showAutoDismissAlertWithTitle:(NSString *)title
+                                 message:(NSString *)message;
 
 /**
  底部弹窗2s自动消失
@@ -96,39 +96,39 @@ typedef void(^AlertClickedBlock)(NSInteger clickedIndex);
  @param title 标题
  @param message 提示信息
  */
-+ (void)showAutoDismissActionSheetWithTitle:(NSString *)title
-                                    message:(NSString *)message;
++ (void)wb_showAutoDismissActionSheetWithTitle:(NSString *)title
+                                       message:(NSString *)message;
 
 
 /**
  提示：无相机权限
  */
-+ (void)showCameraAuthorizationDeniedAlert;
++ (void)wb_showCameraAuthorizationDeniedAlert;
 
 /**
  提示：无图库访问权限
  */
-+ (void)showPhotoLibraryAuthorizationDeniedAlert;
++ (void)wb_showPhotoLibraryAuthorizationDeniedAlert;
 
 #pragma mark < Basic Method >
-+ (void)showOneAlertActionWithTitle:(NSString *)title
-                            message:(NSString *)message
-                        actionTitle:(NSString *)actionTitle
-                        actionBlock:(AlertActionBlock)actionBlock;
++ (void)wb_showOneAlertActionWithTitle:(NSString *)title
+                               message:(NSString *)message
+                           actionTitle:(NSString *)actionTitle
+                           actionBlock:(WBAlertActionBlock)actionBlock;
 
-+ (void)showTwoAlertActionWithTitle:(NSString *)title
-                            message:(NSString *)message
-                    leftActionTitle:(NSString *)leftActionTitle
-                   rightActionTitle:(NSString *)rightActionTitle
-                    leftActionBlock:(AlertActionBlock)leftActionBlock
-                   rightActionBlock:(AlertActionBlock)rightActionBlock;
++ (void)wb_showTwoAlertActionWithTitle:(NSString *)title
+                               message:(NSString *)message
+                       leftActionTitle:(NSString *)leftActionTitle
+                      rightActionTitle:(NSString *)rightActionTitle
+                       leftActionBlock:(WBAlertActionBlock)leftActionBlock
+                      rightActionBlock:(WBAlertActionBlock)rightActionBlock;
 
-+ (void)showAutoDismissAlertWithTitle:(NSString *)title
-                              message:(NSString *)message
-                           afterDelay:(NSTimeInterval)afterDelay;
++ (void)wb_showAutoDismissAlertWithTitle:(NSString *)title
+                                 message:(NSString *)message
+                              afterDelay:(NSTimeInterval)afterDelay;
 
-+ (void)showAutoDismissActionSheetWithTitle:(NSString *)title
-                                    message:(NSString *)message
-                                 afterDelay:(NSTimeInterval)afterDelay;
++ (void)wb_showAutoDismissActionSheetWithTitle:(NSString *)title
+                                       message:(NSString *)message
+                                    afterDelay:(NSTimeInterval)afterDelay;
 
 @end

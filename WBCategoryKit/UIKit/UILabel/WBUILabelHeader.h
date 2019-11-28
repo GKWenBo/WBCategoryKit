@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 
-#if __has_include(<WBCategoryKit/WBUILabel.h>)
+#if __has_include(<WBCategoryKit/WBUILabelHeader.h>)
 
 #import <WBCategoryKit/UILabel+WBAdditional.h>
 
