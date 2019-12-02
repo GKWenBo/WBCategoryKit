@@ -16,6 +16,7 @@
 #import <WBCategoryKit/WBFileManager.h>
 #import <WBCategoryKit/WBUILabel.h>
 #import <WBCategoryKit/WBUICollectionViewPagingLayout.h>
+#import <WBCategoryKit/WBPermission.h>
 
 #else
 
@@ -26,5 +27,6 @@
 #import "WBFileManager.h"
 #import "WBUILabel.h"
 #import "WBUICollectionViewPagingLayout.h"
+#import "WBPermission.h"
 
 #endif

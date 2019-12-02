@@ -10,6 +10,7 @@
 #import <WBUIFont.h>
 #import <NSObject+WBAdditional.h>
 #import <UISearchBar+WBAddition.h>
+#import <WBPermission.h>
 
 @interface Tests : XCTestCase
 
@@ -54,6 +55,16 @@
     XCTAssertTrue(searchBar.wb_segmentedControl);
     XCTAssertFalse([searchBar wb_valueForKey:@"_searchController"]);
 }
+
+//- (void)testPermission {
+//    XCTestExpectation *ex = [self expectationWithDescription:@"test"];
+//    [WBPermission wb_authorizeWithType:WBPermissionType_Photos completion:^(BOOL granted, BOOL firstTime) {
+//        XCTAssertTrue(granted);
+//        [ex fulfill];
+//    }];
+//    
+//    [self waitForExpectations:@[ex] timeout:20];
+//}
 
 @end
 

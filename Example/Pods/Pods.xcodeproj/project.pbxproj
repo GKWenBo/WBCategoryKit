@@ -206,18 +206,20 @@
 		C575B936238EB97200CA4E50 /* WBUIButton.h in Headers */ = {isa = PBXBuildFile; fileRef = C575B934238EB97200CA4E50 /* WBUIButton.h */; };
 		C575B938238EB97200CA4E50 /* WBUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C575B935238EB97200CA4E50 /* WBUIButton.m */; };
 		C575B939238EB97200CA4E50 /* WBUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C575B935238EB97200CA4E50 /* WBUIButton.m */; };
+		C5E16DBB23956516005904C5 /* WBPermission.h in Headers */ = {isa = PBXBuildFile; fileRef = D0A058B72394F69F00843A94 /* WBPermission.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C5E16DBC239565B4005904C5 /* WBPermission.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A058B82394F69F00843A94 /* WBPermission.m */; };
 		C6E033F547046D17D3D951AC9CE555A0 /* NSDate+WBDisplayTime.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2BD24AD636706791D49A4D2F08F1DA /* NSDate+WBDisplayTime.m */; };
 		C7504743D6B8F347BBEB278E0377A4C2 /* UIButton+WBAdjustPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A8063B5CBD04B42B1FF70E49C2774 /* UIButton+WBAdjustPosition.m */; };
 		D0045326238F7495001A3BA8 /* WBCountdownButton.h in Headers */ = {isa = PBXBuildFile; fileRef = D0045324238F7495001A3BA8 /* WBCountdownButton.h */; };
-		D0045327238F7495001A3BA8 /* WBCountdownButton.h in Headers */ = {isa = PBXBuildFile; fileRef = D0045324238F7495001A3BA8 /* WBCountdownButton.h */; };
+		D0045327238F7495001A3BA8 /* WBCountdownButton.h in Headers */ = {isa = PBXBuildFile; fileRef = D0045324238F7495001A3BA8 /* WBCountdownButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D0045328238F7495001A3BA8 /* WBCountdownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D0045325238F7495001A3BA8 /* WBCountdownButton.m */; };
 		D0045329238F7495001A3BA8 /* WBCountdownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D0045325238F7495001A3BA8 /* WBCountdownButton.m */; };
 		D004532E238F81BE001A3BA8 /* WBUILabel.h in Headers */ = {isa = PBXBuildFile; fileRef = D004532C238F81BE001A3BA8 /* WBUILabel.h */; };
-		D004532F238F81BE001A3BA8 /* WBUILabel.h in Headers */ = {isa = PBXBuildFile; fileRef = D004532C238F81BE001A3BA8 /* WBUILabel.h */; };
+		D004532F238F81BE001A3BA8 /* WBUILabel.h in Headers */ = {isa = PBXBuildFile; fileRef = D004532C238F81BE001A3BA8 /* WBUILabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D0045330238F81BE001A3BA8 /* WBUILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D004532D238F81BE001A3BA8 /* WBUILabel.m */; };
 		D0045331238F81BE001A3BA8 /* WBUILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D004532D238F81BE001A3BA8 /* WBUILabel.m */; };
 		D0045336238F9BD2001A3BA8 /* WBUICollectionViewPagingLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = D0045334238F9BD2001A3BA8 /* WBUICollectionViewPagingLayout.h */; };
-		D0045337238F9BD2001A3BA8 /* WBUICollectionViewPagingLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = D0045334238F9BD2001A3BA8 /* WBUICollectionViewPagingLayout.h */; };
+		D0045337238F9BD2001A3BA8 /* WBUICollectionViewPagingLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = D0045334238F9BD2001A3BA8 /* WBUICollectionViewPagingLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D0045338238F9BD2001A3BA8 /* WBUICollectionViewPagingLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D0045335238F9BD2001A3BA8 /* WBUICollectionViewPagingLayout.m */; };
 		D0045339238F9BD2001A3BA8 /* WBUICollectionViewPagingLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D0045335238F9BD2001A3BA8 /* WBUICollectionViewPagingLayout.m */; };
 		D042E4F92386832F00A8BAF0 /* UITabBarItem+WBAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = D042E4F52386832F00A8BAF0 /* UITabBarItem+WBAdditional.h */; };
@@ -233,11 +235,11 @@
 		D042E505238683AF00A8BAF0 /* UIBarItem+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = D042E502238683AF00A8BAF0 /* UIBarItem+WBAdditional.m */; };
 		D042E506238683AF00A8BAF0 /* UIBarItem+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = D042E502238683AF00A8BAF0 /* UIBarItem+WBAdditional.m */; };
 		D07567C9238F6984008BD4DD /* WBCountdownManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D07567C7238F6984008BD4DD /* WBCountdownManager.h */; };
-		D07567CA238F6984008BD4DD /* WBCountdownManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D07567C7238F6984008BD4DD /* WBCountdownManager.h */; };
+		D07567CA238F6984008BD4DD /* WBCountdownManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D07567C7238F6984008BD4DD /* WBCountdownManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D07567CB238F6984008BD4DD /* WBCountdownManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D07567C8238F6984008BD4DD /* WBCountdownManager.m */; };
 		D07567CC238F6984008BD4DD /* WBCountdownManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D07567C8238F6984008BD4DD /* WBCountdownManager.m */; };
 		D0756856238F6F28008BD4DD /* WBFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D0756854238F6F28008BD4DD /* WBFileManager.h */; };
-		D0756857238F6F28008BD4DD /* WBFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D0756854238F6F28008BD4DD /* WBFileManager.h */; };
+		D0756857238F6F28008BD4DD /* WBFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D0756854238F6F28008BD4DD /* WBFileManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D0756858238F6F28008BD4DD /* WBFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D0756855238F6F28008BD4DD /* WBFileManager.m */; };
 		D0756859238F6F28008BD4DD /* WBFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D0756855238F6F28008BD4DD /* WBFileManager.m */; };
 		D0A058B92394F69F00843A94 /* WBPermission.h in Headers */ = {isa = PBXBuildFile; fileRef = D0A058B72394F69F00843A94 /* WBPermission.h */; };
@@ -1309,7 +1311,6 @@
 				C504D711237C51C8001BD12B /* WBNSArray.h in Headers */,
 				C504D712237C51C8001BD12B /* WBNSData.h in Headers */,
 				C504D713237C51C8001BD12B /* WBNSDate.h in Headers */,
-				D0045327238F7495001A3BA8 /* WBCountdownButton.h in Headers */,
 				C504D714237C51C8001BD12B /* WBNSDictionary.h in Headers */,
 				C504D715237C51C8001BD12B /* WBNSObject.h in Headers */,
 				C504D716237C51C8001BD12B /* WBNSString.h in Headers */,
@@ -1322,7 +1323,6 @@
 				C504D720237C51C8001BD12B /* WBUIColor.h in Headers */,
 				C504D721237C51C8001BD12B /* WBUIControl.h in Headers */,
 				C504D722237C51C8001BD12B /* WBUIFont.h in Headers */,
-				D0045337238F9BD2001A3BA8 /* WBUICollectionViewPagingLayout.h in Headers */,
 				C504D723237C51C8001BD12B /* WBUIImage.h in Headers */,
 				C504D724237C51C8001BD12B /* WBUINavigationBar.h in Headers */,
 				C504D725237C51C8001BD12B /* WBUIScreen.h in Headers */,
@@ -1382,7 +1382,6 @@
 				C504D761237C52B8001BD12B /* UIScrollView+WBScrollDirection.h in Headers */,
 				C504D762237C52B8001BD12B /* UISearchBar+WBAddition.h in Headers */,
 				C504D763237C52B8001BD12B /* UITableViewCell+FindUITableView.h in Headers */,
-				D0756857238F6F28008BD4DD /* WBFileManager.h in Headers */,
 				C504D764237C52B8001BD12B /* UITableViewCell+WBAdditional.h in Headers */,
 				C504D766237C52B8001BD12B /* UIView+WBAdditional.h in Headers */,
 				C504D768237C52B8001BD12B /* UIView+WBBlockGesture.h in Headers */,
@@ -1403,19 +1402,23 @@
 				C56B48A42386C56400310A17 /* WBUIBarItem.h in Headers */,
 				D042E4FE2386832F00A8BAF0 /* UITabBar+WBAdditional.h in Headers */,
 				C575B91D2386EB7D00CA4E50 /* NSObject+WBAdditional.h in Headers */,
-				D004532F238F81BE001A3BA8 /* WBUILabel.h in Headers */,
 				C575B9042386E3DA00CA4E50 /* WBMacroDefinition.h in Headers */,
 				C575B9132386E53A00CA4E50 /* NSObject+WBRuntime.h in Headers */,
 				C575B9192386E5AE00CA4E50 /* WBHelper.h in Headers */,
 				C575B9082386E3DA00CA4E50 /* WBSingletonMacro.h in Headers */,
 				C504D784237C5514001BD12B /* UIView+WBAnimation.h in Headers */,
 				C504D777237C52B8001BD12B /* WKWebView+WBCapture.h in Headers */,
-				C504D778237C52B8001BD12B /* WKWebView+WBJavaScript.h in Headers */,
+				D0045327238F7495001A3BA8 /* WBCountdownButton.h in Headers */,
+				D0045337238F9BD2001A3BA8 /* WBUICollectionViewPagingLayout.h in Headers */,
+				D0756857238F6F28008BD4DD /* WBFileManager.h in Headers */,
+				D004532F238F81BE001A3BA8 /* WBUILabel.h in Headers */,
 				D07567CA238F6984008BD4DD /* WBCountdownManager.h in Headers */,
+				C504D778237C52B8001BD12B /* WKWebView+WBJavaScript.h in Headers */,
 				C575B92F238D682200CA4E50 /* WBKeyboardManager.h in Headers */,
 				C575B9232386F48D00CA4E50 /* NSMethodSignature+WBAdditional.h in Headers */,
 				C504D779237C52B8001BD12B /* WKWebView+WBLoadInfo.h in Headers */,
 				C504D77A237C52B8001BD12B /* WKWebView+WBMetaParser.h in Headers */,
+				C5E16DBB23956516005904C5 /* WBPermission.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1571,6 +1574,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5E16DBC239565B4005904C5 /* WBPermission.m in Sources */,
 				B5EA71B3DF3E96C35761607BC3E9DEE9 /* NSArray+WBAdditional.m in Sources */,
 				4AD4878E3F75F08C154850CE16D91091 /* NSData+WBFragment.m in Sources */,
 				C575B9172386E5AE00CA4E50 /* WBHelper.m in Sources */,
