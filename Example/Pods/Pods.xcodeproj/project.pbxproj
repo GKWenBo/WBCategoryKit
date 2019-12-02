@@ -240,6 +240,8 @@
 		D0756857238F6F28008BD4DD /* WBFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D0756854238F6F28008BD4DD /* WBFileManager.h */; };
 		D0756858238F6F28008BD4DD /* WBFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D0756855238F6F28008BD4DD /* WBFileManager.m */; };
 		D0756859238F6F28008BD4DD /* WBFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D0756855238F6F28008BD4DD /* WBFileManager.m */; };
+		D0A058B92394F69F00843A94 /* WBPermission.h in Headers */ = {isa = PBXBuildFile; fileRef = D0A058B72394F69F00843A94 /* WBPermission.h */; };
+		D0A058BA2394F69F00843A94 /* WBPermission.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A058B82394F69F00843A94 /* WBPermission.m */; };
 		D0B1F8208CE01D80F2FB771BA3FABF7B /* UIFont+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = 671182CE0731FEB33C978DD02712D4FB /* UIFont+WBAdditional.m */; };
 		D0EDA931E7269C79D9A1A9992DE7EDBC /* UIViewController+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = 772686F0004C5C0F99554A1FD8C49AD0 /* UIViewController+WBAdditional.m */; };
 		D0EE494323852F2300EE1603 /* UIImageView+WBAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = D0EE494123852F2300EE1603 /* UIImageView+WBAdditional.h */; };
@@ -486,6 +488,8 @@
 		D0756854238F6F28008BD4DD /* WBFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBFileManager.h; sourceTree = "<group>"; };
 		D0756855238F6F28008BD4DD /* WBFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBFileManager.m; sourceTree = "<group>"; };
 		D07766B3446B4C0F13DE96A378F19C9B /* UIView+WBBlurEffect.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WBBlurEffect.m"; path = "WBCategoryKit/UIKit/UIView/UIView+WBBlurEffect.m"; sourceTree = "<group>"; };
+		D0A058B72394F69F00843A94 /* WBPermission.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBPermission.h; sourceTree = "<group>"; };
+		D0A058B82394F69F00843A94 /* WBPermission.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBPermission.m; sourceTree = "<group>"; };
 		D0EE494123852F2300EE1603 /* UIImageView+WBAdditional.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WBAdditional.h"; sourceTree = "<group>"; };
 		D0EE494223852F2300EE1603 /* UIImageView+WBAdditional.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WBAdditional.m"; sourceTree = "<group>"; };
 		D19F442BF00E573D0BD7964E5FB67ABF /* UIWindow+WBHierarchy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIWindow+WBHierarchy.m"; path = "WBCategoryKit/UIKit/UIWindow/UIWindow+WBHierarchy.m"; sourceTree = "<group>"; };
@@ -1068,6 +1072,7 @@
 		C575B928238D673C00CA4E50 /* WBUIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				D0A058282394E89D00843A94 /* WBPermission */,
 				D0045333238F9B00001A3BA8 /* WBUICollectionView */,
 				D004532B238F81AC001A3BA8 /* WBUILabel */,
 				D0756853238F6F28008BD4DD /* WBFileManager */,
@@ -1170,6 +1175,15 @@
 				D0756855238F6F28008BD4DD /* WBFileManager.m */,
 			);
 			path = WBFileManager;
+			sourceTree = "<group>";
+		};
+		D0A058282394E89D00843A94 /* WBPermission */ = {
+			isa = PBXGroup;
+			children = (
+				D0A058B72394F69F00843A94 /* WBPermission.h */,
+				D0A058B82394F69F00843A94 /* WBPermission.m */,
+			);
+			path = WBPermission;
 			sourceTree = "<group>";
 		};
 		D0EE494023852EFD00EE1603 /* UIImageView */ = {
@@ -1275,6 +1289,7 @@
 				D14966FFBA00B9F231B86671A1751086 /* Pods-WBCategoryKit_Example-umbrella.h in Headers */,
 				C575B9122386E53A00CA4E50 /* NSObject+WBRuntime.h in Headers */,
 				D004532E238F81BE001A3BA8 /* WBUILabel.h in Headers */,
+				D0A058B92394F69F00843A94 /* WBPermission.h in Headers */,
 				D042E503238683AF00A8BAF0 /* UIBarItem+WBAdditional.h in Headers */,
 				D042E4F92386832F00A8BAF0 /* UITabBarItem+WBAdditional.h in Headers */,
 				C575B9182386E5AE00CA4E50 /* WBHelper.h in Headers */,
@@ -1532,6 +1547,7 @@
 				C56B489723843AE200310A17 /* CALayer+WBAdditional.m in Sources */,
 				D0045330238F81BE001A3BA8 /* WBUILabel.m in Sources */,
 				D042E505238683AF00A8BAF0 /* UIBarItem+WBAdditional.m in Sources */,
+				D0A058BA2394F69F00843A94 /* WBPermission.m in Sources */,
 				C575B9102386E53A00CA4E50 /* NSObject+WBRuntime.m in Sources */,
 				D042E4FF2386832F00A8BAF0 /* UITabBarItem+WBAdditional.m in Sources */,
 				C575B938238EB97200CA4E50 /* WBUIButton.m in Sources */,
