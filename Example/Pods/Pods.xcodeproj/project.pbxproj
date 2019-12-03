@@ -244,6 +244,15 @@
 		D0756859238F6F28008BD4DD /* WBFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D0756855238F6F28008BD4DD /* WBFileManager.m */; };
 		D0A058B92394F69F00843A94 /* WBPermission.h in Headers */ = {isa = PBXBuildFile; fileRef = D0A058B72394F69F00843A94 /* WBPermission.h */; };
 		D0A058BA2394F69F00843A94 /* WBPermission.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A058B82394F69F00843A94 /* WBPermission.m */; };
+		D0A05A5E23962BD900843A94 /* WBUIButton.h in Headers */ = {isa = PBXBuildFile; fileRef = C575B934238EB97200CA4E50 /* WBUIButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0A05A5F23962BD900843A94 /* WBUIComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = C575B92A238D67AF00CA4E50 /* WBUIComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0A05A6023962BD900843A94 /* WBCategoryKitCore.h in Headers */ = {isa = PBXBuildFile; fileRef = C575B90D2386E4B000CA4E50 /* WBCategoryKitCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0A05A6123962BD900843A94 /* WBFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 62370097E612E90E9703903BF45A61F3 /* WBFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0A05A6223962BD900843A94 /* WBDateHeaderFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 401AB54D40090F675D934CE41C26292A /* WBDateHeaderFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0A05A6323962BD900843A94 /* NSString+WBPredicate.h in Headers */ = {isa = PBXBuildFile; fileRef = 3257E4CF74E4965CCA130EEB7347B2DE /* NSString+WBPredicate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0A05A6423962BD900843A94 /* WBUINavigationItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B0DF814F43C4A23EC0F9BBF92DFBA77 /* WBUINavigationItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0A05A6523962BFB00843A94 /* WBCategoryKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 95D409B7DA9A5BBE5349C3750EAB136C /* WBCategoryKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0A05A6623962C1B00843A94 /* WBUICollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D3DA7F28BB4A53D0769FABC33083B26 /* WBUICollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D0B1F8208CE01D80F2FB771BA3FABF7B /* UIFont+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = 671182CE0731FEB33C978DD02712D4FB /* UIFont+WBAdditional.m */; };
 		D0EDA931E7269C79D9A1A9992DE7EDBC /* UIViewController+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = 772686F0004C5C0F99554A1FD8C49AD0 /* UIViewController+WBAdditional.m */; };
 		D0EE494323852F2300EE1603 /* UIImageView+WBAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = D0EE494123852F2300EE1603 /* UIImageView+WBAdditional.h */; };
@@ -1419,6 +1428,15 @@
 				C504D779237C52B8001BD12B /* WKWebView+WBLoadInfo.h in Headers */,
 				C504D77A237C52B8001BD12B /* WKWebView+WBMetaParser.h in Headers */,
 				C5E16DBB23956516005904C5 /* WBPermission.h in Headers */,
+				D0A05A5E23962BD900843A94 /* WBUIButton.h in Headers */,
+				D0A05A5F23962BD900843A94 /* WBUIComponents.h in Headers */,
+				D0A05A6023962BD900843A94 /* WBCategoryKitCore.h in Headers */,
+				D0A05A6123962BD900843A94 /* WBFoundation.h in Headers */,
+				D0A05A6223962BD900843A94 /* WBDateHeaderFile.h in Headers */,
+				D0A05A6323962BD900843A94 /* NSString+WBPredicate.h in Headers */,
+				D0A05A6423962BD900843A94 /* WBUINavigationItem.h in Headers */,
+				D0A05A6523962BFB00843A94 /* WBCategoryKit.h in Headers */,
+				D0A05A6623962C1B00843A94 /* WBUICollectionView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

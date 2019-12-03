@@ -52,7 +52,7 @@ Pod::Spec.new do |s|
       folder1.subspec 'WBUILabel' do |folder2|
       	folder2.source_files = 'WBCategoryKit/WBUIComponents/WBUILabel/**/*.{h,m}'
       	folder2.frameworks = 'UIKit'
-      	folder2.dependency 'WBCategoryKitCore'
+      	folder2.dependency 'WBCategoryKit/WBCategoryKitCore'
       end
 
       #WBFileManager
@@ -155,6 +155,7 @@ Pod::Spec.new do |s|
       folder1.subspec 'UIScrollView' do |folder2|
           folder2.source_files = 'WBCategoryKit/UIKit/UIScrollView/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit'
+          folder2.dependency 'WBCategoryKit/WBCategoryKitCore'
       end
       
       #UIScreen

@@ -53,6 +53,11 @@
     }
 }
 
+- (CGFloat)wb_scrollRatio {
+    CGFloat w = self.contentSize.width - self.bounds.size.width;
+    return self.contentOffset.x / w;
+}
+
 static char kAssociatedObjectKey_initialContentInset;
 - (void)setWb_initialContentInset:(UIEdgeInsets)wb_initialContentInset {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_initialContentInset, [NSValue valueWithUIEdgeInsets:wb_initialContentInset], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -90,9 +95,11 @@ static char kAssociatedObjectKey_initialContentInset;
     }
 }
 
-- (void)wb_scrollToTopForce:(BOOL)force animated:(BOOL)animated {
+- (void)wb_scrollToTopForce:(BOOL)force
+                   animated:(BOOL)animated {
     if (force || (!force && [self wb_canScroll])) {
-        [self setContentOffset:CGPointMake(-self.wb_contentInset.left, -self.wb_contentInset.top) animated:animated];
+        [self setContentOffset:CGPointMake(-self.wb_contentInset.left, -self.wb_contentInset.top)
+                      animated:animated];
     }
 }
 
@@ -129,7 +136,8 @@ static char kAssociatedObjectKey_initialContentInset;
 - (void)wb_scrollToBottomAnimated:(BOOL)animated {
     CGPoint off = self.contentOffset;
     off.y = self.contentSize.height - self.bounds.size.height + self.contentInset.bottom;
-    [self setContentOffset:off animated:animated];
+    [self setContentOffset:off
+                  animated:animated];
 }
 - (void)wb_scrollToBottom {
     [self wb_scrollToBottomAnimated:NO];
@@ -143,7 +151,8 @@ static char kAssociatedObjectKey_initialContentInset;
 - (void)wb_scrollToLeftAnimated:(BOOL)animated {
     CGPoint off = self.contentOffset;
     off.x = 0 - self.contentInset.left;
-    [self setContentOffset:off animated:animated];
+    [self setContentOffset:off
+                  animated:animated];
 }
 
 - (void)wb_scrollToLeft {
@@ -153,9 +162,11 @@ static char kAssociatedObjectKey_initialContentInset;
 - (void)wb_scrollToRightAnimated:(BOOL)animated {
     CGPoint off = self.contentOffset;
     off.x = self.contentSize.width - self.bounds.size.width + self.contentInset.right;
-    [self setContentOffset:off animated:animated];
+    [self setContentOffset:off
+                  animated:animated];
 }
 - (void)wb_scrollToRight {
     [self wb_scrollToRightAnimated:NO];
 }
+
 @end

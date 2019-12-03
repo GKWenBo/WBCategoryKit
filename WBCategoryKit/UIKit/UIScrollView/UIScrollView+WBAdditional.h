@@ -19,6 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// UIScrollView 的真正 inset，在 iOS11 以后需要用到 adjustedContentInset 而在 iOS11 以前只需要用 contentInset
 @property(nonatomic, assign, readonly) UIEdgeInsets wb_contentInset;
 
+/// 滚动进度
+@property (nonatomic, assign, readonly) CGFloat wb_scrollRatio;
+
 /**
  UIScrollView 默认的 contentInset，会自动将 contentInset 和 scrollIndicatorInsets 都设置为这个值并且调用一次 wb_scrollToTopUponContentInsetTopChange 设置默认的 contentOffset，一般用于 UIScrollViewContentInsetAdjustmentNever 的列表。
  */
