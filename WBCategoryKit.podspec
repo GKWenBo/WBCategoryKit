@@ -32,6 +32,40 @@ Pod::Spec.new do |s|
         folder2.dependency 'WBCategoryKit/UIKit/CALayer'
       end
 
+      #WBPermission
+      folder1.subspec 'WBPermission' do |folder2|
+      	folder2.source_files = 'WBCategoryKit/WBUIComponents/WBPermission/**/*.{h,m}'
+      	folder2.frameworks = 'UIKit', 'CoreMotion', 'Photos', 'AssetsLibrary', 'AddressBook', 'Contacts', 'CoreLocation', 'EventKit', 'HealthKit', 'MediaPlayer', 'CoreTelephony', 'Speech', 'UserNotifications'
+      	folder2.dependency 'WBCategoryKit/WBCategoryKitCore'
+      end
+
+      #WBUICollectionView
+      folder1.subspec 'WBUICollectionView' do |folder2|
+      	folder2.source_files = 'WBCategoryKit/WBUIComponents/WBUICollectionView/**/*.{h,m}'
+      	folder2.frameworks = 'UIKit'
+      	folder2.dependency 'WBCategoryKit/UIKit/CALayer'
+      	folder2.dependency 'WBCategoryKit/UIKit/UIScrollView'
+      	folder2.dependency 'WBCategoryKit/WBCategoryKitCore'
+      end
+
+      #WBUILabel
+      folder1.subspec 'WBUILabel' do |folder2|
+      	folder2.source_files = 'WBCategoryKit/WBUIComponents/WBUILabel/**/*.{h,m}'
+      	folder2.frameworks = 'UIKit'
+      	folder2.dependency 'WBCategoryKitCore'
+      end
+
+      #WBFileManager
+      folder1.subspec 'WBFileManager' do |folder2|
+      	folder2.source_files = 'WBCategoryKit/WBUIComponents/WBFileManager/**/*.{h,m}'
+      	folder2.frameworks = 'Foundation'
+      end
+
+      #WBCountdownManager
+      folder1.subspec 'WBCountdownManager' do |folder2|
+      	folder2.source_files = 'WBCategoryKit/WBUIComponents/WBCountdownManager/**/*.{h,m}'
+      	folder2.frameworks = 'Foundation', 'UIKit'
+      end
   end
   
   #Foundation
