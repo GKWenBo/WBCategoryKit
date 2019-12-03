@@ -6,7 +6,6 @@
 //
 
 #import "WBPermission.h"
-#import <UIKit/UIKit.h>
 #import <Photos/Photos.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <AddressBook/AddressBook.h>
@@ -16,6 +15,8 @@
 #import <HealthKit/HealthKit.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import <CoreTelephony/CTCellularData.h>
+#import <Speech/Speech.h>
+#import <UserNotifications/UserNotifications.h>
 
 #import <objc/runtime.h>
 #import "objc/message.h"
@@ -73,6 +74,15 @@
         case WBPermissionType_MediaLibrary:
             classStr = @"WBPermissionMediaLibrary";
             break;
+        case WBPermissionType_Speech:
+            classStr = @"WBPermissionSpeech";
+            break;
+        case WBPermissionType_Motion:
+            classStr = @"WBPermissionMotion";
+            break;
+        case WBPermissionType_Notification:
+            classStr = @"WBPermissionNotification";
+            break;
         default:
             break;
     }
@@ -113,6 +123,15 @@
             break;
         case WBPermissionType_MediaLibrary:
             classStr = @"WBPermissionMediaLibrary";
+            break;
+        case WBPermissionType_Speech:
+            classStr = @"WBPermissionSpeech";
+            break;
+        case WBPermissionType_Motion:
+            classStr = @"WBPermissionMotion";
+            break;
+        case WBPermissionType_Notification:
+            classStr = @"WBPermissionNotification";
             break;
         default:
             break;
@@ -1034,6 +1053,155 @@ static NSString *const kHasBeenAskedForMicrophonePermission = @"HasBeenAskedForM
     else
     {
         completion(YES,NO);
+    }
+}
+
+@end
+
+@implementation WBPermissionSpeech
+
++ (NSInteger)wb_authorizationStatus {
+    return SFSpeechRecognizer.authorizationStatus;
+}
+
++ (BOOL)wb_authorized {
+    return [self wb_authorizationStatus] == SFSpeechRecognizerAuthorizationStatusAuthorized;
+}
+
++ (void)wb_authorizeWithCompletion:(void (^)(BOOL, BOOL))completion {
+    SFSpeechRecognizerAuthorizationStatus status = [self wb_authorizationStatus];
+    switch (status) {
+        case SFSpeechRecognizerAuthorizationStatusAuthorized:
+        {
+            completion(YES, NO);
+        }
+            break;
+        case SFSpeechRecognizerAuthorizationStatusDenied:
+        case SFSpeechRecognizerAuthorizationStatusRestricted:
+        {
+            completion(NO, NO);
+        }
+            break;
+        case SFSpeechRecognizerAuthorizationStatusNotDetermined:
+        {
+            [SFSpeechRecognizer requestAuthorization:^(SFSpeechRecognizerAuthorizationStatus status) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completion(status == SFSpeechRecognizerAuthorizationStatusAuthorized, YES);
+                });
+            }];
+        }
+            break;
+        default:
+        {
+            completion(NO, NO);
+        }
+            break;
+    }
+}
+
+@end
+
+@implementation WBPermissionMotion
+
++ (NSInteger)wb_authorizationStatus {
+    return CMMotionActivityManager.authorizationStatus;
+}
+
++ (BOOL)wb_authorized {
+    return [self wb_authorizationStatus] == CMAuthorizationStatusAuthorized;
+}
+
++ (void)wb_authorizeWithCompletion:(void (^)(BOOL, BOOL))completion {
+    CMAuthorizationStatus status = CMMotionActivityManager.authorizationStatus;
+    switch (status) {
+        case CMAuthorizationStatusRestricted:
+        case CMAuthorizationStatusDenied:
+        {
+            completion(NO, NO);
+        }
+            break;
+        case CMAuthorizationStatusNotDetermined:
+        {
+            CMMotionActivityManager *manager = [CMMotionActivityManager new];
+            NSDate *today = [NSDate date];
+            [manager queryActivityStartingFromDate:today
+                                            toDate:today
+                                           toQueue:NSOperationQueue.mainQueue
+                                       withHandler:^(NSArray<CMMotionActivity *> * _Nullable activities, NSError * _Nullable error) {
+                completion(error ? NO : YES, YES);
+                [manager stopActivityUpdates];
+            }];
+        }
+            break;
+        case CMAuthorizationStatusAuthorized:
+            completion(YES, NO);
+            break;
+        default:
+        {
+            completion(NO, NO);
+        }
+            break;
+    }
+}
+
+@end
+
+@implementation WBPermissionNotification
+
++ (NSInteger)wb_authorizationStatus {
+    __block UNNotificationSettings *notificationSettings = nil;
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [UNUserNotificationCenter.currentNotificationCenter getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
+            notificationSettings = settings;
+            dispatch_semaphore_signal(semaphore);
+        }];
+    });
+    
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    return notificationSettings.authorizationStatus;
+}
+
++ (BOOL)wb_authorized {
+    return [self wb_authorizationStatus] == UNAuthorizationStatusAuthorized;
+}
+
++ (void)wb_authorizeWithCompletion:(void (^)(BOOL, BOOL))completion {
+    UNAuthorizationStatus status = [self wb_authorizationStatus];
+    switch (status) {
+        case UNAuthorizationStatusDenied:
+        {
+            completion(NO, NO);
+        }
+            break;
+        case UNAuthorizationStatusNotDetermined:
+        {
+            if (@available(iOS 10.0, *)) {
+                [UNUserNotificationCenter.currentNotificationCenter requestAuthorizationWithOptions:UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        completion(granted, YES);
+                    });
+                }];
+            } else {
+                [UIApplication.sharedApplication registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound
+                                                                                                                    categories:nil]];
+                completion(YES, YES);
+            }
+            
+            [UIApplication.sharedApplication registerForRemoteNotifications];
+        }
+            break;
+        case UNAuthorizationStatusAuthorized:
+        {
+            completion(YES, NO);
+        }
+            break;
+        default:
+        {
+            completion(NO, NO);
+        }
+            break;
     }
 }
 

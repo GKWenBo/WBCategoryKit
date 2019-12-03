@@ -6,6 +6,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <CoreMotion/CoreMotion.h>
 
 typedef NS_ENUM(NSInteger, WBPermissionType)
 {
@@ -13,18 +15,20 @@ typedef NS_ENUM(NSInteger, WBPermissionType)
     WBPermissionType_Camera,        //相机
     WBPermissionType_Photos,        //相册
     WBPermissionType_Contacts,      //联系人
-    WBPermissionType_Reminders,
+    WBPermissionType_Reminders,     //提醒事项
     WBPermissionType_Calendar,      //日历
     WBPermissionType_Microphone,    //麦克风
     WBPermissionType_Health,        //健康
-//    WBPermissionType_DataNetwork,
-    WBPermissionType_MediaLibrary   //媒体库
+    WBPermissionType_MediaLibrary,  //媒体库
+    WBPermissionType_Speech,        //siri
+    WBPermissionType_Motion,        //传感器
+    WBPermissionType_Notification   //通知
 };
 
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol WBPermissionDelegate <NSObject>
+@protocol WBPermissionProtocol <NSObject>
 
 @optional
 /// 定位服务是否可用
@@ -62,7 +66,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// request permission and return status in main thread by block. execute block immediately when permission has been requested,else request permission and waiting for user to choose "Don't allow" or "Allow"
 /// @param type authorization type
 /// @param completion 请求回调
-+ (void)wb_authorizeWithType:(WBPermissionType)type completion:(void(^)(BOOL granted, BOOL firstTime))completion;
++ (void)wb_authorizeWithType:(WBPermissionType)type
+                  completion:(void(^)(BOOL granted, BOOL firstTime))completion;
 
 @end
 
@@ -96,7 +101,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 // MARK: -------- Base
-@interface WBPermissionBase : NSObject <WBPermissionDelegate>
+@interface WBPermissionBase : NSObject <WBPermissionProtocol>
 
 @end
 
@@ -147,6 +152,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 // MARK: -------- Data
 @interface WBPermissionData : WBPermissionBase
+
+@end
+
+// MARK: -------- Speech
+UIKIT_EXTERN API_AVAILABLE(ios(10.0), macos(10.15)) @interface WBPermissionSpeech : WBPermissionBase
+
+@end
+
+// MARK: -------- Motion
+COREMOTION_EXPORT API_AVAILABLE(ios(11.0), watchos(4.0)) API_UNAVAILABLE(macos) @interface WBPermissionMotion : WBPermissionBase
+
+@end
+
+// MARK: -------- Notification
+API_AVAILABLE(ios(10.0), tvos(10.0)) @interface WBPermissionNotification : WBPermissionBase
 
 @end
 
