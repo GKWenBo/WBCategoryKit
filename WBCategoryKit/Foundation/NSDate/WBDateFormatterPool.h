@@ -14,7 +14,6 @@
 
 @interface WBDateFormatterPool : NSObject
 
-
 + (instancetype)new NS_UNAVAILABLE;
 
 /**

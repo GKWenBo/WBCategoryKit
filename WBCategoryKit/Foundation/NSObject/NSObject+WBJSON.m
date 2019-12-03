@@ -17,9 +17,12 @@
     }
     
     NSError *error = nil;
-    NSData *jsonData=[NSJSONSerialization dataWithJSONObject:object options:NSJSONWritingPrettyPrinted error:&error];
+    NSData *jsonData=[NSJSONSerialization dataWithJSONObject:object
+                                                     options:NSJSONWritingPrettyPrinted
+                                                       error:&error];
     if ([jsonData length] > 0 && error == nil) {
-        NSString *jsonString = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
+        NSString *jsonString = [[NSString alloc]initWithData:jsonData
+                                                    encoding:NSUTF8StringEncoding];
         return jsonString;
     }
     return nil;
@@ -42,7 +45,9 @@
     }
     
     NSError *error = nil;
-    id jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&error];
+    id jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                    options:NSJSONReadingAllowFragments
+                                                      error:&error];
     if (jsonObject != nil && error == nil) {
         return jsonObject;
     }
@@ -54,7 +59,9 @@
 }
 
 + (NSData *)wb_jsonDataFromObject:(id)object {
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:object options:NSJSONWritingPrettyPrinted error:NULL];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:object
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:NULL];
     return jsonData;
 }
 
