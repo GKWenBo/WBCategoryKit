@@ -53,7 +53,6 @@
 		80BFE78FE980EFCBB823B84E4CA15C8C /* NSMutableAttributedString+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = CBFD0182C4679312C7624587ADD2BAF9 /* NSMutableAttributedString+WBAdditional.m */; };
 		81EE3B56F16C5AA380CD83F5BC775483 /* UICollectionView+WBReload.m in Sources */ = {isa = PBXBuildFile; fileRef = EB049BBF540F967B568F1C4B42F81B8D /* UICollectionView+WBReload.m */; };
 		8379FF38CC93589FB09580B473FF4CD3 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C847B234E1BC1E742DB0940C43289E /* AssetsLibrary.framework */; };
-		84097798506D0684D78A22FB46413717 /* UIFont+WBAdaptFontSize.m in Sources */ = {isa = PBXBuildFile; fileRef = EB59643C7830FF7432498AF7373A4EC1 /* UIFont+WBAdaptFontSize.m */; };
 		858F7A71EA4AB941DDAB10731234D854 /* UIView+WBConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = B73BD2ED692ED1372EEB9A9C93AFF929 /* UIView+WBConstraints.m */; };
 		85C1CFC410D0E3041357BE7A79A0FA14 /* Pods-WBCategoryKit_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EFB9FD573928FCED987706757B3BF37E /* Pods-WBCategoryKit_Tests-dummy.m */; };
 		869EE15CEAE0A04FC6DF2E47371B7B46 /* WKWebView+WBLoadInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B460C3CDE5B0FF77C0ACD2FF4DA12DB /* WKWebView+WBLoadInfo.m */; };
@@ -137,7 +136,6 @@
 		C504D752237C52B8001BD12B /* UIControl+WBBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 411AB14F6F93BD32FBA8F1B30BF0E659 /* UIControl+WBBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D753237C52B8001BD12B /* UIControl+WBIgnoreMutiple.h in Headers */ = {isa = PBXBuildFile; fileRef = 213D48874547C93BA0756970130FA498 /* UIControl+WBIgnoreMutiple.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D754237C52B8001BD12B /* UIControl+WBSound.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BEC415A9B451D571F954D4E2D01EF82 /* UIControl+WBSound.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C504D755237C52B8001BD12B /* UIFont+WBAdaptFontSize.h in Headers */ = {isa = PBXBuildFile; fileRef = F48458A4F3F923F263FC9304B02C8CF5 /* UIFont+WBAdaptFontSize.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D756237C52B8001BD12B /* UIFont+WBAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A43F9F142F9529B9C54C8555A744B2D /* UIFont+WBAdditional.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D757237C52B8001BD12B /* UIImage+WBAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = 0ABDF56F22E5BB362120E142AA2FE016 /* UIImage+WBAdditional.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D758237C52B8001BD12B /* UIImage+WBCompress.h in Headers */ = {isa = PBXBuildFile; fileRef = CA7249CA1ED99460864541B4A7B2B34B /* UIImage+WBCompress.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -520,7 +518,6 @@
 		E5344E27F5E769FEF7CC50852B719089 /* NSObject+WBJSON.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+WBJSON.m"; path = "WBCategoryKit/Foundation/NSObject/NSObject+WBJSON.m"; sourceTree = "<group>"; };
 		E65FBD38AC9FE6DEA1DE497EE0367895 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		EB049BBF540F967B568F1C4B42F81B8D /* UICollectionView+WBReload.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UICollectionView+WBReload.m"; path = "WBCategoryKit/UIKit/UICollectionView/UICollectionView+WBReload.m"; sourceTree = "<group>"; };
-		EB59643C7830FF7432498AF7373A4EC1 /* UIFont+WBAdaptFontSize.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIFont+WBAdaptFontSize.m"; path = "WBCategoryKit/UIKit/UIFont/UIFont+WBAdaptFontSize.m"; sourceTree = "<group>"; };
 		ED8E0CC3D9A00A923216B34B7A9743ED /* WBNSData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBNSData.h; path = WBCategoryKit/Foundation/NSData/WBNSData.h; sourceTree = "<group>"; };
 		EDD0C0E7155BD4654F32EB695EC7EC8F /* UIButton+WBAdditional.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+WBAdditional.m"; path = "WBCategoryKit/UIKit/UIButton/UIButton+WBAdditional.m"; sourceTree = "<group>"; };
 		EF6AD3C35597A2015B5A06B7F57348A3 /* WBUISearchBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBUISearchBar.h; path = WBCategoryKit/UIKit/UISearchBar/WBUISearchBar.h; sourceTree = "<group>"; };
@@ -530,7 +527,6 @@
 		F2310C8CB45FDDF3A438CD2D556338B5 /* UIBarButtonItem+WBBadge.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+WBBadge.m"; path = "WBCategoryKit/UIKit/UIBarButtonItem/UIBarButtonItem+WBBadge.m"; sourceTree = "<group>"; };
 		F237DAB5F231B9C943D47822CE0C29B5 /* Pods-WBCategoryKit_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-WBCategoryKit_Tests.modulemap"; sourceTree = "<group>"; };
 		F2E85BF93193433949A3BBFB8691029C /* WKWebView+WBJavaScript.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "WKWebView+WBJavaScript.h"; path = "WBCategoryKit/UIKit/WKWebView/WKWebView+WBJavaScript.h"; sourceTree = "<group>"; };
-		F48458A4F3F923F263FC9304B02C8CF5 /* UIFont+WBAdaptFontSize.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIFont+WBAdaptFontSize.h"; path = "WBCategoryKit/UIKit/UIFont/UIFont+WBAdaptFontSize.h"; sourceTree = "<group>"; };
 		F68637EF28A8499001063D3E31346930 /* UIControl+WBBlock.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIControl+WBBlock.m"; path = "WBCategoryKit/UIKit/UIControl/UIControl+WBBlock.m"; sourceTree = "<group>"; };
 		F6F73049A71BD646A6C435A94B4B8119 /* WBNSUserDefaults.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBNSUserDefaults.h; path = WBCategoryKit/Foundation/NSUserDefaults/WBNSUserDefaults.h; sourceTree = "<group>"; };
 		F73EC1F0356E0564382C687FBF84B79E /* WKWebView+WBCapture.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "WKWebView+WBCapture.h"; path = "WBCategoryKit/UIKit/WKWebView/WKWebView+WBCapture.h"; sourceTree = "<group>"; };
@@ -636,8 +632,6 @@
 		07A630925ECAFEE390CC4064A37E79BB /* UIFont */ = {
 			isa = PBXGroup;
 			children = (
-				F48458A4F3F923F263FC9304B02C8CF5 /* UIFont+WBAdaptFontSize.h */,
-				EB59643C7830FF7432498AF7373A4EC1 /* UIFont+WBAdaptFontSize.m */,
 				5A43F9F142F9529B9C54C8555A744B2D /* UIFont+WBAdditional.h */,
 				671182CE0731FEB33C978DD02712D4FB /* UIFont+WBAdditional.m */,
 				4C4806CB88CEBC08279EF487BE7C4F87 /* WBUIFont.h */,
@@ -1376,7 +1370,6 @@
 				C504D752237C52B8001BD12B /* UIControl+WBBlock.h in Headers */,
 				C504D753237C52B8001BD12B /* UIControl+WBIgnoreMutiple.h in Headers */,
 				C504D754237C52B8001BD12B /* UIControl+WBSound.h in Headers */,
-				C504D755237C52B8001BD12B /* UIFont+WBAdaptFontSize.h in Headers */,
 				C504D756237C52B8001BD12B /* UIFont+WBAdditional.h in Headers */,
 				C504D757237C52B8001BD12B /* UIImage+WBAdditional.h in Headers */,
 				C504D758237C52B8001BD12B /* UIImage+WBCompress.h in Headers */,
@@ -1635,7 +1628,6 @@
 				5D638CDB7CAD40C2625389E42437B335 /* UIControl+WBBlock.m in Sources */,
 				1E3B0554C1765AF24CBBF8CFA884156F /* UIControl+WBIgnoreMutiple.m in Sources */,
 				23790DFB9EBAC4740377AD4A2409DD2D /* UIControl+WBSound.m in Sources */,
-				84097798506D0684D78A22FB46413717 /* UIFont+WBAdaptFontSize.m in Sources */,
 				D0B1F8208CE01D80F2FB771BA3FABF7B /* UIFont+WBAdditional.m in Sources */,
 				D0045331238F81BE001A3BA8 /* WBUILabel.m in Sources */,
 				744F1B8CFC6BD2BD54E58B93EB2BEBD4 /* UIImage+WBAdditional.m in Sources */,

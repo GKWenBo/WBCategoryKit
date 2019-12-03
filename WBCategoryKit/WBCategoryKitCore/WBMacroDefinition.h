@@ -541,14 +541,18 @@ wb_setterWithGetter(SEL getter) {
 /// MARK: -------- 设置平方字体PingFangSC
 ///苹方字体常规
 #define WBPFR_FONT_SIZE(s) [UIFont fontWithName:@"PingFangSC-Regular" size:s]
+#define WBPFR_SCALE_FONT_SIZE(s) [UIFont fontWithName:@"PingFangSC-Regular" size:WB_AUTOLAYOUTSIZE(s)]
 ///苹方字体中等
 #define WBPFM_FONT_SIZE(s) [UIFont fontWithName:@"PingFangSC-Medium" size:s]
+#define WBPFM_FONT_SIZE(s) [UIFont fontWithName:@"PingFangSC-Medium" size:s]
 ///平方字体粗体
-#define WBPFB_FONT_SIZE(s) [UIFont fontWithName:@"PingFangSC-Semibold" size:s]
+#define WBPFB_SCALE_FONT_SIZE(s) [UIFont fontWithName:@"PingFangSC-Semibold" size:WB_AUTOLAYOUTSIZE(s)]
 ///系统字体
 #define WBSYS_FONT_SIZE(s) [UIFont systemFontOfSize:s]
+#define WBSYS_SCALE_FONT_SIZE(s) [UIFont systemFontOfSize:WB_AUTOLAYOUTSIZE(s)]
 ///系统字体加粗
 #define WBSYSB_FONT_SIZE(s) [UIFont boldSystemFontOfSize:s]
+#define WBSYSB_SCALE_FONT_SIZE(s) [UIFont boldSystemFontOfSize:WB_AUTOLAYOUTSIZE(s)]
 
 // MARK: -------- 清除警告
 /*
