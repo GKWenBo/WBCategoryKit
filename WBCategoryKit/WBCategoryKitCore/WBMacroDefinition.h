@@ -19,7 +19,7 @@
 #   define NSLog(...)
 #endif
 
-// MARK: --------ABOUT SCREEN & SIZE 屏幕&尺寸
+// MARK: - ABOUT SCREEN & SIZE 屏幕&尺寸
 /**
  iPad Air {{0, 0}, {768, 1024}}
  iphone4s {{0, 0}, {320, 480}}               960*640
@@ -84,7 +84,7 @@
 /// 判断当前是否是处于分屏模式的 iPad
 #define WB_IS_SPLIT_SCREEN_IPAD (WB_IS_IPAD && WB_APPLICATION_WIDTH != WB_SCREEN_WIDTH)
 
-// MARK: -------- 适配宏定义
+// MARK: - 适配宏定义
 /// Adaptive
 #define WB_AdjustsScrollViewInsets_NO(scrollView,vc)\
 do { \
@@ -123,7 +123,7 @@ _Pragma("clang diagnostic pop")\
 ///屏幕像素
 #define WB_SCREEN_SCALE [UIScreen mainScreen].scale
 
-// MARK: --------设备&系统判断
+// MARK: - 设备&系统判断
 ///判断当前的iPhone设备
 #define WB_IS_IPHONE [WBHelper wb_isIPhone]
 //#define WB_IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
@@ -204,7 +204,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 /// 判断 iOS 11 或更高的系统版本
 #define WB_SYSTEM_VERSION_11_OR_LATER WB_SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"11.0")
 
-// MARK: -------- 颜色相关
+// MARK: - 颜色相关
 /// 随机色
 #define WB_RANDOM_COLOR [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
 /// 透明色
@@ -216,7 +216,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 /// HEX Color
 #define WB_COLORFROMHEXRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
-// MARK: -------- 系统单例
+// MARK: - 系统单例
 /// 通知中心
 #define WB_NOTIFICATIONCENTER [NSNotificationCenter defaultCenter]
 /// 系统偏好设置
@@ -226,7 +226,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 #define WB_WEAKSELF(type) __weak typeof(type) weak##type = type;
 #define WB_STRONGSELF(type) __strong typeof(type) type = weak##type;
 
-// MARK: ------- 解决循环引用
+// MARK: - 解决循环引用
 #define WB_WeakObjc(o) autoreleasepool{} __weak typeof(o) o##Weak = o;
 #define WB_StrongObjc(o) autoreleasepool{} __strong typeof(o) o = o##Weak;
 
@@ -271,7 +271,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 /// 协议窗口
 #define WB_APPDELEGATEWINDOW [[UIApplication sharedApplication].delegate window]
 
-// MARK: -------- 加载图片
+// MARK: - 加载图片
 /// 通过文件路径获取图片 文件夹
 #define WB_IMAGEWITHFILE(imageFile) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForAuxiliaryExecutable:imageFile]]
 /// 通过图片名获取图片 Assets
@@ -285,17 +285,17 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 /// 获取当前语言
 #define WB_CURRENTLANGUAGE [[NSLocale preferredLanguages] firstObject]
 
-// MARK: -------- 沙盒路径获取
+// MARK: - 沙盒路径获取
 /// 获取沙盒 Document
 #define WB_DOCUMENT_PATH [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
 /// 获取沙盒 Cache
 #define WB_CACHE_PATH [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
 
-// MARK: --------同步锁
+// MARK: - 同步锁
 #define WB_LOCK(lock) dispatch_semaphore_wait(lock, DISPATCH_TIME_FOREVER);
 #define WB_UNLOCK(lock) dispatch_semaphore_signal(lock);
 
-// MARK: -------- 多线程
+// MARK: - 多线程
 /** < 主线程安全执行 >  */
 #ifndef dispatch_main_async_safe
 #define dispatch_main_async_safe(block) dispatch_queue_async_safe(dispatch_get_main_queue(), block)
@@ -311,7 +311,7 @@ dispatch_async(queue, block);\
 }
 #endif
 
-// MARK: -------- INLINE CGFloat
+// MARK: - INLINE CGFloat
 /**
 *  某些地方可能会将 CGFLOAT_MIN 作为一个数值参与计算（但其实 CGFLOAT_MIN 更应该被视为一个标志位而不是数值），可能导致一些精度问题，所以提供这个方法快速将 CGFLOAT_MIN 转换为 0
 *  issue: https://github.com/Tencent/QMUI_iOS/issues/203
@@ -372,7 +372,7 @@ WBCGFloatGetCenter(CGFloat parent, CGFloat child) {
     return wb_flat((parent - child) / 2.0);
 }
 
-// MARK: -------- INLINE CGSize
+// MARK: - INLINE CGSize
 #define WB_CGSizeMax CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)
 
 CG_INLINE CGRect
@@ -410,7 +410,7 @@ WBCGSizeFlatted(CGSize size) {
     return CGSizeMake(wb_flat(size.width), wb_flat(size.height));
 }
 
-// MARK: -------- INLINE CGRect
+// MARK: - INLINE CGRect
 /// 为给定的rect往内部缩小insets的大小
 CG_INLINE CGRect
 WBCGRectInsetEdges(CGRect rect, UIEdgeInsets insets) {
@@ -481,13 +481,43 @@ WBCGRectFlatMake(CGFloat x, CGFloat y, CGFloat width, CGFloat height) {
     return CGRectMake(wb_flat(x), wb_flat(y), wb_flat(width), wb_flat(height));
 }
 
-// MARK: -------- INLINE UIEdgeInsets
+// MARK: - INLINE UIEdgeInsets
 CG_INLINE UIEdgeInsets
 WBUIEdgeInsetsRemoveFloatMin(UIEdgeInsets insets) {
     UIEdgeInsets result = UIEdgeInsetsMake(wb_removeFloatMin(insets.top), wb_removeFloatMin(insets.left), wb_removeFloatMin(insets.bottom), wb_removeFloatMin(insets.right));
     return result;
 }
 
+// MARK: - INLINE CGPoint
+/// 计算目标点 targetPoint 围绕坐标点 coordinatePoint 通过 transform 之后此点的坐标
+CG_INLINE CGPoint
+WBCGPointApplyAffineTransformWithCoordinatePoint(CGPoint coordinatePoint, CGPoint targetPoint, CGAffineTransform t) {
+    CGPoint p;
+    p.x = (targetPoint.x - coordinatePoint.x) * t.a + (targetPoint.y - coordinatePoint.y) * t.c + coordinatePoint.x;
+    p.y = (targetPoint.x - coordinatePoint.x) * t.b + (targetPoint.y - coordinatePoint.y) * t.d + coordinatePoint.y;
+    p.x += t.tx;
+    p.y += t.ty;
+    return p;
+}
+/// 系统的 CGRectApplyAffineTransform 只会按照 anchorPoint 为 (0, 0) 的方式去计算，但通常情况下我们面对的是 UIView/CALayer，它们默认的 anchorPoint 为 (.5, .5)，所以增加这个函数，在计算 transform 时可以考虑上 anchorPoint 的影响
+CG_INLINE CGRect
+WBCGRectApplyAffineTransformWithAnchorPoint(CGRect rect, CGAffineTransform t, CGPoint anchorPoint) {
+    CGFloat width = CGRectGetWidth(rect);
+    CGFloat height = CGRectGetHeight(rect);
+    CGPoint oPoint = CGPointMake(rect.origin.x + width * anchorPoint.x, rect.origin.y + height * anchorPoint.y);
+    CGPoint top_left = WBCGPointApplyAffineTransformWithCoordinatePoint(oPoint, CGPointMake(rect.origin.x, rect.origin.y), t);
+    CGPoint bottom_left = WBCGPointApplyAffineTransformWithCoordinatePoint(oPoint, CGPointMake(rect.origin.x, rect.origin.y + height), t);
+    CGPoint top_right = WBCGPointApplyAffineTransformWithCoordinatePoint(oPoint, CGPointMake(rect.origin.x + width, rect.origin.y), t);
+    CGPoint bottom_right = WBCGPointApplyAffineTransformWithCoordinatePoint(oPoint, CGPointMake(rect.origin.x + width, rect.origin.y + height), t);
+    CGFloat minX = MIN(MIN(MIN(top_left.x, bottom_left.x), top_right.x), bottom_right.x);
+    CGFloat maxX = MAX(MAX(MAX(top_left.x, bottom_left.x), top_right.x), bottom_right.x);
+    CGFloat minY = MIN(MIN(MIN(top_left.y, bottom_left.y), top_right.y), bottom_right.y);
+    CGFloat maxY = MAX(MAX(MAX(top_left.y, bottom_left.y), top_right.y), bottom_right.y);
+    CGFloat newWidth = maxX - minX;
+    CGFloat newHeight = maxY - minY;
+    CGRect result = CGRectMake(minX, minY, newWidth, newHeight);
+    return result;
+}
 
 #pragma mark - Selector
 /**
@@ -538,7 +568,7 @@ wb_setterWithGetter(SEL getter) {
 #define  WB_IOS13_SDK_ALLOWED YES
 #endif
 
-/// MARK: -------- 设置平方字体PingFangSC
+/// MARK: - 设置平方字体PingFangSC
 ///苹方字体常规
 #define WBPFR_FONT_SIZE(s) [UIFont fontWithName:@"PingFangSC-Regular" size:s]
 #define WBPFR_SCALE_FONT_SIZE(s) [UIFont fontWithName:@"PingFangSC-Regular" size:WB_AUTOLAYOUTSIZE(s)]
@@ -554,7 +584,7 @@ wb_setterWithGetter(SEL getter) {
 #define WBSYSB_FONT_SIZE(s) [UIFont boldSystemFontOfSize:s]
 #define WBSYSB_SCALE_FONT_SIZE(s) [UIFont boldSystemFontOfSize:WB_AUTOLAYOUTSIZE(s)]
 
-// MARK: -------- 清除警告
+// MARK: - 清除警告
 /*
  1、清除警告基本语法
  #pragma clang diagnostic push
@@ -635,7 +665,7 @@ _Pragma("clang diagnostic pop") \
 #define WBBeginIgnoreDeprecatedWarning WBBeginIgnoreClangWarning(-Wdeprecated-declarations)
 #define WBEndIgnoreDeprecatedWarning WBEndIgnoreClangWarning
 
-// MARK: -------- 忽略 iOS 13 KVC 访问私有属性限制
+// MARK: - 忽略 iOS 13 KVC 访问私有属性限制
 #define WBBeginIgnoreUIKVCAccessProhibited if (@available(iOS 13.0, *)) NSThread.currentThread.wb_shouldIgnoreUIKVCAccessProhibited = YES;
 #define WBEndIgnoreUIKVCAccessProhibited if (@available(iOS 13.0, *)) NSThread.currentThread.wb_shouldIgnoreUIKVCAccessProhibited = NO;
 

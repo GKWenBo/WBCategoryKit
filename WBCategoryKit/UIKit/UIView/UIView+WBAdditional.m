@@ -9,9 +9,22 @@
 #import "UIView+WBAdditional.h"
 #import <objc/runtime.h>
 
+#import "WBCategoryKitCore.h"
+
 @implementation UIView (WBAdditional)
 
-// MARK:Property
++ (void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        
+        WBExtendImplementationOfVoidMethodWithSingleArgument([UIView class], @selector(setTintColor:), UIColor *, ^(UIView *selfObject, UIColor *tintColor) {
+            selfObject.wb_tintColorCustomized = !!tintColor;
+        });
+        
+    });
+}
+
+// MARK: - Property
 - (UIEdgeInsets)wb_safeAreaInsets {
     if (@available(iOS 11.0, *)) {
         return self.safeAreaInsets;
@@ -20,11 +33,83 @@
     }
 }
 
+- (void)setWb_frameApplyTransform:(CGRect)wb_frameApplyTransform {
+    self.frame = WBCGRectApplyAffineTransformWithAnchorPoint(wb_frameApplyTransform, self.transform, self.layer.anchorPoint);
+}
+
+- (CGRect)wb_frameApplyTransform {
+    return self.frame;
+}
+
+- (void)setWb_tintColorCustomized:(BOOL)wb_tintColorCustomized {
+    objc_setAssociatedObject(self, @selector(wb_tintColorCustomized), @(wb_tintColorCustomized), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (BOOL)wb_tintColorCustomized {
+    return [objc_getAssociatedObject(self, @selector(wb_tintColorCustomized)) boolValue];
+}
+
+- (void)setWb_frameWillChangeBlock:(CGRect (^)(__kindof UIView * _Nonnull, CGRect))wb_frameWillChangeBlock {
+    objc_setAssociatedObject(self, @selector(wb_frameWillChangeBlock), wb_frameWillChangeBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+- (CGRect (^)(UIView * _Nonnull, CGRect))wb_frameWillChangeBlock {
+    return objc_getAssociatedObject(self, @selector(wb_frameWillChangeBlock));
+}
+
+- (void)setWb_frameDidChangeBlock:(void (^)(__kindof UIView * _Nonnull, CGRect))wb_frameDidChangeBlock {
+    objc_setAssociatedObject(self, @selector(wb_frameDidChangeBlock), wb_frameDidChangeBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+- (void (^)(UIView * _Nonnull, CGRect))wb_frameDidChangeBlock {
+    return objc_getAssociatedObject(self, @selector(wb_frameDidChangeBlock));
+}
+
+- (void)setWb_tintColorDidChangeBlock:(void (^)(__kindof UIView * _Nonnull))wb_tintColorDidChangeBlock {
+    objc_setAssociatedObject(self, @selector(wb_tintColorDidChangeBlock), wb_tintColorDidChangeBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+- (void (^)(UIView * _Nonnull))wb_tintColorDidChangeBlock {
+    return objc_getAssociatedObject(self, @selector(wb_tintColorDidChangeBlock));
+}
+
+- (void)setWb_hitTestBlock:(__kindof UIView * _Nonnull (^)(CGPoint, UIEvent * _Nonnull, __kindof UIView * _Nonnull))wb_hitTestBlock {
+    objc_setAssociatedObject(self, @selector(wb_hitTestBlock), wb_hitTestBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+- (UIView * _Nonnull (^)(CGPoint, UIEvent * _Nonnull, UIView * _Nonnull))wb_hitTestBlock {
+    return objc_getAssociatedObject(self, @selector(wb_hitTestBlock));
+}
+
+static char kAssociatedObjectKey_layoutSubviewsBlock;
+static NSMutableSet *wb_registeredLayoutSubviewsBlockClasses;
+- (void)setWb_layoutSubviewsBlock:(void (^)(__kindof UIView * _Nonnull))wb_layoutSubviewsBlock {
+    objc_setAssociatedObject(self, &kAssociatedObjectKey_layoutSubviewsBlock, wb_layoutSubviewsBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    if (!wb_registeredLayoutSubviewsBlockClasses) wb_registeredLayoutSubviewsBlockClasses = [NSMutableSet set];
+    if (wb_layoutSubviewsBlock) {
+        Class viewClass = self.class;
+        if (![wb_registeredLayoutSubviewsBlockClasses containsObject:viewClass]) {
+            // Extend 每个实例对象的类是为了保证比子类的 layoutSubviews 逻辑要更晚调用
+            WBExtendImplementationOfVoidMethodWithoutArguments(viewClass, @selector(layoutSubviews), ^(__kindof UIView *selfObject) {
+                if (selfObject.wb_layoutSubviewsBlock && [selfObject isMemberOfClass:viewClass]) {
+                    selfObject.wb_layoutSubviewsBlock(selfObject);
+                }
+            });
+            [wb_registeredLayoutSubviewsBlockClasses addObject:viewClass];
+        }
+    }
+}
+
+- (void (^)(UIView * _Nonnull))wb_layoutSubviewsBlock {
+    return objc_getAssociatedObject(self, &kAssociatedObjectKey_layoutSubviewsBlock);
+}
+
+// MARK: - Initializer
 - (instancetype)wb_initWithSize:(CGSize)size {
     return [self initWithFrame:CGRectMake(0, 0, size.width, size.height)];
 }
 
-#pragma mark -- Event
+#pragma mark - Event
 - (void)wb_addTapGestureTarget:(id)target
                         action:(SEL)action {
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:target
@@ -33,7 +118,7 @@
     [self addGestureRecognizer:tap];
 }
 
-#pragma mark -- Border
+#pragma mark - Border
 - (void)wb_addBorderWithColor:(UIColor *)color
                   borderWidth:(CGFloat)borderWidth
                  cornerRadius:(CGFloat)cornerRadius {
@@ -99,7 +184,7 @@
     self.layer.mask = maskLayer;
 }
 
-#pragma mark --------  子视图  --------
+#pragma mark - 子视图
 - (NSArray *)superviews {
     NSMutableArray *superviews = [[NSMutableArray alloc] init];
     
@@ -117,7 +202,7 @@
     return superviews;
 }
 
-#pragma mark --------  添加视图到Window上  --------
+#pragma mark - 添加视图到Window上
 - (void)wb_addToWindow {
     id appDelegate = [[UIApplication sharedApplication] delegate];
     if ([appDelegate respondsToSelector:@selector(window)])
@@ -145,7 +230,7 @@
     }
 }
 
-#pragma mark --------  位置  --------
+#pragma mark - 位置
 - (CGPoint)wb_convertPoint:(CGPoint)point
             toViewOrWindow:(nullable UIView *)view {
     if (!view) {
@@ -223,7 +308,7 @@
     return rect;
 }
 
-#pragma mark --------  绘制虚线  --------
+#pragma mark - 绘制虚线
 + (UIView *)wb_createDashedLineWithFrame:(CGRect)lineFrame
                               lineLength:(int)length
                              lineSpacing:(int)spacing
@@ -247,11 +332,88 @@
     return dashedLine;
 }
 
+// MARK: - Methods
++ (void)wb_animateWithAnimated:(BOOL)animated
+                      duration:(NSTimeInterval)duration
+                         delay:(NSTimeInterval)delay
+                       options:(UIViewAnimationOptions)options
+                    animations:(void (^)(void))animations
+                    completion:(void (^ __nullable)(BOOL finished))completion {
+    if (animated) {
+        [UIView animateWithDuration:duration
+                              delay:delay
+                            options:options
+                         animations:animations
+                         completion:completion];
+    } else {
+        if (animations) {
+            animations();
+        }
+        if (completion) {
+            completion(YES);
+        }
+    }
+}
++ (void)wb_animateWithAnimated:(BOOL)animated
+                      duration:(NSTimeInterval)duration
+                    animations:(void (^ __nullable)(void))animations
+                    completion:(void (^ __nullable)(BOOL finished))completion {
+    if (animated) {
+        [UIView animateWithDuration:duration
+                         animations:animations
+                         completion:completion];
+    } else {
+        if (animations) {
+            animations();
+        }
+        if (completion) {
+            completion(YES);
+        }
+    }
+}
++ (void)wb_animateWithAnimated:(BOOL)animated
+                      duration:(NSTimeInterval)duration
+                    animations:(void (^ __nullable)(void))animations {
+    if (animated) {
+        [UIView animateWithDuration:duration
+                         animations:animations];
+    } else {
+        if (animations) {
+            animations();
+        }
+    }
+}
++ (void)wb_animateWithAnimated:(BOOL)animated
+                      duration:(NSTimeInterval)duration
+                         delay:(NSTimeInterval)delay
+        usingSpringWithDamping:(CGFloat)dampingRatio
+         initialSpringVelocity:(CGFloat)velocity
+                       options:(UIViewAnimationOptions)options
+                    animations:(void (^)(void))animations
+                    completion:(void (^)(BOOL finished))completion {
+    if (animated) {
+        [UIView animateWithDuration:duration
+                              delay:delay
+             usingSpringWithDamping:dampingRatio
+              initialSpringVelocity:velocity
+                            options:options
+                         animations:animations
+                         completion:completion];
+    } else {
+        if (animations) {
+            animations();
+        }
+        if (completion) {
+            completion(YES);
+        }
+    }
+}
+
 @end
 
 @implementation UIView (WBSnapshot)
 
-#pragma mark --------  截屏  --------
+#pragma mark - 截屏
 - (UIImage *)wb_snapshotImage {
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0);
     [self.layer renderInContext:UIGraphicsGetCurrentContext()];
@@ -340,6 +502,126 @@
         return image;
     }
     return nil;
+}
+
+@end
+
+@implementation UIView (WBFrame)
+
+- (CGFloat)wb_left {
+    return self.frame.origin.x;
+}
+
+- (void)setWb_left:(CGFloat)x {
+    CGRect frame = self.frame;
+    frame.origin.x = x;
+    self.frame = frame;
+}
+
+- (CGFloat)wb_top {
+    return self.frame.origin.y;
+}
+
+- (void)setWb_top:(CGFloat)y {
+    CGRect frame = self.frame;
+    frame.origin.y = y;
+    self.frame = frame;
+}
+
+- (CGFloat)wb_right {
+    return self.frame.origin.x + self.frame.size.width;
+}
+
+- (void)setWb_right:(CGFloat)right {
+    CGRect frame = self.frame;
+    frame.origin.x = right - frame.size.width;
+    self.frame = frame;
+}
+
+- (CGFloat)wb_bottom {
+    return self.frame.origin.y + self.frame.size.height;
+}
+
+- (void)setWb_bottom:(CGFloat)bottom {
+    CGRect frame = self.frame;
+    frame.origin.y = bottom - frame.size.height;
+    self.frame = frame;
+}
+
+- (CGFloat)wb_width {
+    return self.frame.size.width;
+}
+
+- (void)setWb_width:(CGFloat)width {
+    CGRect frame = self.frame;
+    frame.size.width = width;
+    self.frame = frame;
+}
+
+- (CGFloat)wb_height {
+    return self.frame.size.height;
+}
+
+- (void)setWb_height:(CGFloat)height {
+    CGRect frame = self.frame;
+    frame.size.height = height;
+    self.frame = frame;
+}
+
+- (CGFloat)wb_centerX {
+    return self.center.x;
+}
+
+- (void)setWb_centerX:(CGFloat)centerX {
+    self.center = CGPointMake(centerX, self.center.y);
+}
+
+- (CGFloat)wb_centerY {
+    return self.center.y;
+}
+
+- (void)setWb_centerY:(CGFloat)centerY {
+    self.center = CGPointMake(self.center.x, centerY);
+}
+
+- (CGPoint)wb_origin {
+    return self.frame.origin;
+}
+
+- (void)setWb_origin:(CGPoint)origin {
+    CGRect frame = self.frame;
+    frame.origin = origin;
+    self.frame = frame;
+}
+
+- (CGSize)wb_size {
+    return self.frame.size;
+}
+
+- (void)setWb_size:(CGSize)size {
+    CGRect frame = self.frame;
+    frame.size = size;
+    self.frame = frame;
+}
+
+- (CGFloat)wb_maxX {
+    return CGRectGetMaxX(self.frame);
+}
+
+- (void)setWb_maxX:(CGFloat)maxX {
+    CGRect frame = self.frame;
+    frame.origin.x = maxX - frame.size.width;
+    self.frame = frame;
+}
+
+- (CGFloat)wb_maxY {
+    return CGRectGetMaxY(self.frame);
+}
+
+- (void)setWb_maxY:(CGFloat)maxY {
+    CGRect frame = self.frame;
+    frame.origin.y = maxY - frame.size.height;
+    self.frame = frame;
 }
 
 @end

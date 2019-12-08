@@ -19,7 +19,7 @@ typedef void(^WBSuperviewBlock)(UIView *spuerview);
  @param recurse call back block
  @return UIView
  */
-- (UIView *)wb_findViewRecursively:(BOOL(^)(UIView *subView,BOOL *stop))recurse;
+- (UIView *)wb_findViewRecursively:(BOOL(^)(UIView *subView, BOOL *stop))recurse;
 
 /**
  Find all subviews.

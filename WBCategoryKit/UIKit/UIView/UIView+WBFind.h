@@ -10,12 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 @interface UIView (WBFind)
-/**
- *  当前视图控制器
- *
- *  @return 控制器或nil
- */
-@property (nonatomic,readonly,nullable) UIViewController * viewController;
+
+/// 当前视图控制器
+@property (nonatomic, readonly, nullable) UIViewController *wb_viewController;
 
 /**
  According to Class find subview.

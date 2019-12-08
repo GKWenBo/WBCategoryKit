@@ -17,7 +17,6 @@
 #import <WBCategoryKit/UIView+WBConstraints.h>
 #import <WBCategoryKit/UIView+WBBlockGesture.h>
 #import <WBCategoryKit/UIView+WBFind.h>
-#import <WBCategoryKit/UIView+WBFrame.h>
 #import <WBCategoryKit/UIView+WBDismissKeyboard.h>
 #import <WBCategoryKit/UIView+WBAnimation.h>
 
@@ -30,7 +29,6 @@
 #import "UIView+WBConstraints.h"
 #import "UIView+WBBlockGesture.h"
 #import "UIView+WBFind.h"
-#import "UIView+WBFrame.h"
 #import "UIView+WBDismissKeyboard.h"
 #import "UIView+WBAnimation.h"
 
