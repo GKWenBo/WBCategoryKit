@@ -7,21 +7,11 @@
 //
 
 #import "NSString+WBPredicate.h"
+#import "NSString+WBAdditional.h"
 
 @implementation NSString (WBPredicate)
-#pragma mark -- 字符串处理
-- (NSString *)wb_trim {
-    NSCharacterSet *set = [NSCharacterSet whitespaceCharacterSet];
-    return [self stringByTrimmingCharactersInSet:set];
-}
 
-- (NSString *)wb_removeWhiteSpacesFromString {
-    NSString *trimmedString = [self stringByTrimmingCharactersInSet:
-                               [NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    return trimmedString;
-}
-
-#pragma mark -- 字符串判断
+#pragma mark - 字符串判断
 - (BOOL)wb_isBlank {
     return ([[self wb_removeWhiteSpacesFromString] isEqualToString:@""]) ? YES : NO;
 }
@@ -50,7 +40,7 @@
     return [self rangeOfString:string].location != NSNotFound;
 }
 
-#pragma mark -- 字符串验证
+#pragma mark - 字符串验证
 - (BOOL)wb_isValidEmail
 {
     NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
@@ -165,8 +155,8 @@
     return [identityCardPredicate evaluateWithObject:identityCard];
 }
 
-- (BOOL)wb_isValidVerifyCode {
-    NSString *pattern = @"^[0-9]{4}";
+- (BOOL)wb_isValidVerifyCode:(NSUInteger)length {
+    NSString *pattern = [NSString stringWithFormat:@"^[0-9]{%ld}", length > 0 ? length : 4];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
     return [predicate evaluateWithObject:self];
 }

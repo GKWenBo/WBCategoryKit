@@ -10,7 +10,7 @@
 
 #import "WBDateHeaderFile.h"
 
-@interface NSDate (WBAddtional)
+@interface NSDate (WBAdditional)
 
 #pragma mark -- DateString
 /**

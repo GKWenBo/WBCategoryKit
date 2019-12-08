@@ -6,10 +6,10 @@
 //  Copyright © 2017年 文波. All rights reserved.
 //
 
-#import "NSDate+WBAddtional.h"
+#import "NSDate+WBAdditional.h"
 #import "WBDateFormatterPool.h"
 
-@implementation NSDate (WBAddtional)
+@implementation NSDate (WBAdditional)
 
 #pragma mark -- DateString
 + (NSString *)wb_currentDateWithFormat:(NSString *)format {

@@ -14,7 +14,7 @@
 #import <WBCategoryKit/NSDate+WBTimePredicate.h>
 #import <WBCategoryKit/NSDate+WBDisplayTime.h>
 #import <WBCategoryKit/WBDateFormatterPool.h>
-#import <WBCategoryKit/NSDate+WBAddtional.h>
+#import <WBCategoryKit/NSDate+WBAdditional.h>
 
 #else
 
@@ -22,6 +22,6 @@
 #import "NSDate+WBTimePredicate.h"
 #import "NSDate+WBDisplayTime.h"
 #import "WBDateFormatterPool.h"
-#import "NSDate+WBAddtional.h"
+#import "NSDate+WBAdditional.h"
 
 #endif

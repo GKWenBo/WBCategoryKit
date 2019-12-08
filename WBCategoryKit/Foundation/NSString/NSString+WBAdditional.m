@@ -6,12 +6,27 @@
 //  Copyright © 2017年 文波. All rights reserved.
 //
 
-#import "NSString+WBAddtional.h"
+#import "NSString+WBAdditional.h"
 #import <CommonCrypto/CommonDigest.h>
+
 #import "NSString+WBDeviceInfo.h"
 #import "NSString+WBPredicate.h"
+#import "WBNSArray.h"
+#import "NSCharacterSet+WBAdditional.h"
 
-@implementation NSString (WBAddtional)
+@implementation NSString (WBAdditional)
+
+#pragma mark - 字符串处理
+- (NSString *)wb_trim {
+    NSCharacterSet *set = [NSCharacterSet whitespaceCharacterSet];
+    return [self stringByTrimmingCharactersInSet:set];
+}
+
+- (NSString *)wb_removeWhiteSpacesFromString {
+    NSString *trimmedString = [self stringByTrimmingCharactersInSet:
+                               [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    return trimmedString;
+}
 
 - (NSString *)wb_md5 {
     const char *cStr = [self UTF8String];
@@ -31,7 +46,147 @@
     return nil;
 }
 
-#pragma mark --------  计算文字大小  --------
+- (NSArray<NSString *> *)wb_toArray {
+    if (!self.length) {
+        return nil;
+    }
+    
+    NSMutableArray<NSString *> *array = [[NSMutableArray alloc] init];
+    for (NSInteger i = 0; i < self.length; i++) {
+        NSString *stringItem = [self substringWithRange:NSMakeRange(i, 1)];
+        [array addObject:stringItem];
+    }
+    return [array copy];
+}
+
+- (NSArray<NSString *> *)wb_toTrimmedArray {
+    return [[self wb_toArray] wb_filterWithBlock:^BOOL(NSString * _Nonnull item) {
+        return item.wb_trim.length > 0;
+    }];
+}
+
+- (NSString *)wb_trimAllWhiteSpace {
+    return [self stringByReplacingOccurrencesOfString:@"\\s" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, self.length)];
+}
+
+- (NSString *)wb_trimLineBreakCharacter {
+    return [self stringByReplacingOccurrencesOfString:@"[\r\n]" withString:@" " options:NSRegularExpressionSearch range:NSMakeRange(0, self.length)];
+}
+
+- (NSString *)wb_stringByEncodingUserInputQuery {
+    return [self stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet wb_URLUserInputQueryAllowedCharacterSet]];
+}
+
+- (NSString *)wb_removeMagicalChar {
+    if (self.length == 0) {
+        return self;
+    }
+    
+    NSError *error = nil;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[\u0300-\u036F]"
+                                                                           options:NSRegularExpressionCaseInsensitive
+                                                                             error:&error];
+    NSString *modifiedString = [regex stringByReplacingMatchesInString:self
+                                                               options:NSMatchingReportProgress
+                                                                 range:NSMakeRange(0, self.length)
+                                                          withTemplate:@""];
+    return modifiedString;
+}
+
+- (NSUInteger)wb_lengthWhenCountingNonASCIICharacterAsTwo {
+    NSUInteger length = 0;
+    for (NSUInteger i = 0, l = self.length; i < l; i++) {
+        unichar character = [self characterAtIndex:i];
+        if (isascii(character)) {
+            length += 1;
+        } else {
+            length += 2;
+        }
+    }
+    return length;
+}
+
+- (NSString *)wb_substringAvoidBreakingUpCharacterSequencesFromIndex:(NSUInteger)index
+                                                           lessValue:(BOOL)lessValue
+                                      countingNonASCIICharacterAsTwo:(BOOL)countingNonASCIICharacterAsTwo {
+    index = countingNonASCIICharacterAsTwo ? [self transformIndexToDefaultModeWithIndex:index] : index;
+    NSRange range = [self rangeOfComposedCharacterSequenceAtIndex:index];
+    return [self substringFromIndex:lessValue ? NSMaxRange(range) : range.location];
+}
+
+- (NSString *)wb_substringAvoidBreakingUpCharacterSequencesFromIndex:(NSUInteger)index {
+    return [self wb_substringAvoidBreakingUpCharacterSequencesFromIndex:index
+                                                              lessValue:YES
+                                         countingNonASCIICharacterAsTwo:NO];
+}
+
+- (NSString *)wb_substringAvoidBreakingUpCharacterSequencesToIndex:(NSUInteger)index
+                                                         lessValue:(BOOL)lessValue
+                                    countingNonASCIICharacterAsTwo:(BOOL)countingNonASCIICharacterAsTwo {
+    index = countingNonASCIICharacterAsTwo ? [self transformIndexToDefaultModeWithIndex:index] : index;
+    NSRange range = [self rangeOfComposedCharacterSequenceAtIndex:index];
+    return [self substringToIndex:lessValue ? range.location : NSMaxRange(range)];
+}
+
+- (NSString *)wb_substringAvoidBreakingUpCharacterSequencesToIndex:(NSUInteger)index {
+    return [self wb_substringAvoidBreakingUpCharacterSequencesToIndex:index
+                                                            lessValue:YES
+                                       countingNonASCIICharacterAsTwo:NO];
+}
+
+- (NSString *)wb_substringAvoidBreakingUpCharacterSequencesWithRange:(NSRange)range
+                                                           lessValue:(BOOL)lessValue
+                                      countingNonASCIICharacterAsTwo:(BOOL)countingNonASCIICharacterAsTwo {
+    range = countingNonASCIICharacterAsTwo ? [self transformRangeToDefaultModeWithRange:range] : range;
+    NSRange characterSequencesRange = lessValue ? [self downRoundRangeOfComposedCharacterSequencesForRange:range] : [self rangeOfComposedCharacterSequencesForRange:range];
+    NSString *resultString = [self substringWithRange:characterSequencesRange];
+    return resultString;
+}
+
+- (NSString *)wb_substringAvoidBreakingUpCharacterSequencesWithRange:(NSRange)range {
+    return [self wb_substringAvoidBreakingUpCharacterSequencesWithRange:range
+                                                              lessValue:YES
+                                         countingNonASCIICharacterAsTwo:NO];
+}
+
+- (NSString *)wb_stringByRemoveCharacterAtIndex:(NSUInteger)index {
+    NSRange rangeForRemove = [self rangeOfComposedCharacterSequenceAtIndex:index];
+    NSString *resultString = [self stringByReplacingCharactersInRange:rangeForRemove withString:@""];
+    return resultString;
+}
+
+- (NSString *)wb_stringByRemoveLastCharacter {
+    return [self wb_stringByRemoveCharacterAtIndex:self.length - 1];
+}
+
+- (NSString *)wb_stringMatchedByPattern:(NSString *)pattern {
+    NSRange range = [self rangeOfString:pattern options:NSRegularExpressionSearch|NSCaseInsensitiveSearch];
+    if (range.location != NSNotFound) {
+        return [self substringWithRange:range];
+    }
+    return nil;
+}
+
+- (NSString *)wb_stringByReplacingPattern:(NSString *)pattern
+                               withString:(NSString *)replacement {
+    NSError *error = nil;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:&error];
+    if (error) {
+        return self;
+    }
+    return [regex stringByReplacingMatchesInString:self
+                                           options:NSMatchingReportCompletion
+                                             range:NSMakeRange(0, self.length)
+                                      withTemplate:replacement];
+}
+
++ (NSString *)wb_timeStringWithMinsAndSecsFromSecs:(double)seconds {
+    NSUInteger min = floor(seconds / 60);
+    NSUInteger sec = floor(seconds - min * 60);
+    return [NSString stringWithFormat:@"%02ld:%02ld", (long)min, (long)sec];
+}
+
+#pragma mark - 计算文字大小
 - (CGSize)wb_sizeForFont:(UIFont *)font
                     size:(CGSize)size
                     mode:(NSLineBreakMode)lineBreakMode {
@@ -70,7 +225,7 @@
     return [self wb_sizeForFont:font size:CGSizeMake(width, HUGE) mode:NSLineBreakByWordWrapping].height;
 }
 
-#pragma mark --------  隐藏部分文字  --------
+#pragma mark - 隐藏部分文字
 + (NSString *)wb_hidePartCharacterWithNumberStr:(NSString *)number
                                    headerLength:(NSInteger)headerLength
                                    footerLength:(NSInteger)footerLength {
@@ -105,7 +260,7 @@
     return IDCardNumber;
 }
 
-#pragma mark --------  Transform  --------
+#pragma mark - Transform
 + (NSString *)wb_digitUppercaseWithMoney:(NSString *)money {
     NSMutableString *moneyStr = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"%.2f",[money doubleValue]]];
     NSArray *MyScale= @[@"分",
@@ -225,7 +380,7 @@
     return dn.stringValue;
 }
 
-#pragma mark --------  Common Method  --------
+#pragma mark - Common Method
 /**
  Returns NSMakeRange(0, self.length).
  */
@@ -256,7 +411,7 @@
     return sum;
 }
 
-#pragma mark --------  Private Method  --------
+#pragma mark - Private Method
 - (NSNumber *)wb_numberWithString:(NSString *)string  {
     NSString *str = [[string wb_trim] lowercaseString];
     if (!str || !str.length) {
@@ -308,7 +463,59 @@
     return value;
 }
 
-#pragma mark ------ < File Path > ------
+- (NSRange)downRoundRangeOfComposedCharacterSequencesForRange:(NSRange)range {
+    if (range.length == 0) {
+        return range;
+    }
+    
+    NSRange resultRange = [self rangeOfComposedCharacterSequencesForRange:range];
+    if (NSMaxRange(resultRange) > NSMaxRange(range)) {
+        return [self downRoundRangeOfComposedCharacterSequencesForRange:NSMakeRange(range.location, range.length - 1)];
+    }
+    return resultRange;
+}
+
+- (NSUInteger)transformIndexToDefaultModeWithIndex:(NSUInteger)index {
+    CGFloat strlength = 0.f;
+    NSUInteger i = 0;
+    for (i = 0; i < self.length; i++) {
+        unichar character = [self characterAtIndex:i];
+        if (isascii(character)) {
+            strlength += 1;
+        } else {
+            strlength += 2;
+        }
+        if (strlength >= index + 1) return i;
+    }
+    return 0;
+}
+
+- (NSRange)transformRangeToDefaultModeWithRange:(NSRange)range {
+    CGFloat strlength = 0.f;
+    NSRange resultRange = NSMakeRange(NSNotFound, 0);
+    NSUInteger i = 0;
+    for (i = 0; i < self.length; i++) {
+        unichar character = [self characterAtIndex:i];
+        if (isascii(character)) {
+            strlength += 1;
+        } else {
+            strlength += 2;
+        }
+        if (strlength >= range.location + 1) {
+            if (resultRange.location == NSNotFound) {
+                resultRange.location = i;
+            }
+            
+            if (range.length > 0 && strlength >= NSMaxRange(range)) {
+                resultRange.length = i - resultRange.location + (strlength == NSMaxRange(range) ? 1 : 0);
+                return resultRange;
+            }
+        }
+    }
+    return resultRange;
+}
+
+#pragma mark - File Path
 /**
  *  获取Document文件夹
  *  @return Document路径
@@ -387,6 +594,23 @@
     NSString *str = [NSString stringWithFormat:@"%ld%@%@%@%@%@%@",
                      (unsigned long)year,strMonth,strDay,strHour,strMinute,strSecond,[NSString wb_stringWithUUID]];
     return str;
+}
+
+@end
+
+@implementation NSString (WBStringFormat)
+
++ (instancetype)wb_stringWithNSInteger:(NSInteger)integerValue {
+    return @(integerValue).stringValue;
+}
+
++ (instancetype)wb_stringWithCGFloat:(CGFloat)floatValue {
+    return [NSString wb_stringWithCGFloat:floatValue decimal:2];
+}
+
++ (instancetype)wb_stringWithCGFloat:(CGFloat)floatValue decimal:(NSUInteger)decimal {
+    NSString *formatString = [NSString stringWithFormat:@"%%.%@f", @(decimal)];
+    return [NSString stringWithFormat:formatString, floatValue];
 }
 
 @end

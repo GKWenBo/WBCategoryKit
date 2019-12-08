@@ -9,7 +9,7 @@
 #ifndef WB_MacroDefinition_h
 #define WB_MacroDefinition_h
 
-#import "NSString+WBAddtional.h"
+#import "NSString+WBAdditional.h"
 #import "WBHelper.h"
 
 /// 自定义高效率log

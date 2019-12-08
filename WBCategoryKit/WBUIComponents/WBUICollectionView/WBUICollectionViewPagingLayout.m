@@ -162,7 +162,7 @@ const CGFloat WBUICollectionViewPagingLayoutRotationRadiusAutomatic = -1.0;
 }
 
 - (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect {
-    if (self.style ==WBUICollectionViewPagingLayoutStyleDefault) {
+    if (self.style == WBUICollectionViewPagingLayoutStyleDefault) {
         return [super layoutAttributesForElementsInRect:rect];
     }
     
@@ -170,7 +170,7 @@ const CGFloat WBUICollectionViewPagingLayoutRotationRadiusAutomatic = -1.0;
     CGFloat offset = CGRectGetMidX(self.collectionView.bounds);// 当前滚动位置的可视区域的中心点
     CGSize itemSize = _finalItemSize;
     
-    if (self.style ==WBUICollectionViewPagingLayoutStyleScale) {
+    if (self.style == WBUICollectionViewPagingLayoutStyleScale) {
         
         CGFloat distanceForMinimumScale = itemSize.width + self.minimumLineSpacing;
         CGFloat distanceForMaximumScale = 0.0;
@@ -191,8 +191,8 @@ const CGFloat WBUICollectionViewPagingLayoutRotationRadiusAutomatic = -1.0;
         return resultAttributes;
     }
     
-    if (self.style ==WBUICollectionViewPagingLayoutStyleRotation) {
-        if (self.rotationRadius ==WBUICollectionViewPagingLayoutRotationRadiusAutomatic) {
+    if (self.style == WBUICollectionViewPagingLayoutStyleRotation) {
+        if (self.rotationRadius == WBUICollectionViewPagingLayoutRotationRadiusAutomatic) {
             self.rotationRadius = itemSize.height;
         }
         UICollectionViewLayoutAttributes *centerAttribute = nil;

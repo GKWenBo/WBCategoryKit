@@ -7,39 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface NSString (WBPredicate)
 
-#pragma mark -- 字符串处理
-/**
- *  remove white spaces
- *
- */
-- (NSString *)wb_trim;
+#pragma mark - 字符串判断
 
-/**
- *  remove white spaces
- *
- */
-- (NSString *)wb_removeWhiteSpacesFromString;
-
-#pragma mark -- 字符串判断
-/**
- *  判断字符串是否为空
- *
- */
+/// 判断字符串是否为空
 - (BOOL)wb_isBlank;
 
-/**
- *  判断字符串是否为NULL
- *
- */
+/// 判断字符串是否为NULL
 - (BOOL)wb_isNull;
 
-/**
- *  判断是否为空字符串
- *
- */
+
+/// 判断是否为空字符串
+/// @param object 判断对象
 + (BOOL)wb_isNull:(NSString *)object;
 
 /**
@@ -50,84 +32,50 @@
  */
 - (BOOL)wb_containsString:(NSString *)string;
 
-#pragma mark -- 字符串验证
-/**
- *  验证邮箱是否正确
- *
- */
+#pragma mark - 字符串验证
+
+/// 验证邮箱是否正确
 - (BOOL)wb_isValidEmail;
-/**
- *  验证手机号是否正确
- *
- 移动：134[0-8],135,136,137,138,139,150,151,157,158,159,182,187,188
- 联通：130,131,132,152,155,156,185,186
- 电信：133,1349,153,180,189,181(增加)
- */
+
+/// 验证手机号是否正确
+/// 移动：134[0-8],135,136,137,138,139,150,151,157,158,159,182,187,188
+/// 联通：130,131,132,152,155,156,185,186
+/// 电信：133,1349,153,180,189,181(增加)
 - (BOOL)wb_isValidMobile;
 //- (BOOL)wb_isValidMobile;
 
-/**
- *  身份证是否正确
- *
- */
+/// 身份证是否正确
 - (BOOL)wb_isValidIdentityCard;
 + (BOOL)wb_validateIdentityCard:(NSString *)identityCard;
 
-/**
- *  验证码是否正确，位数可自行制定
- *
- */
-- (BOOL)wb_isValidVerifyCode;
+/// 验证码是否正确，位数可自行制定
+/// @param length 验证码位数
+- (BOOL)wb_isValidVerifyCode:(NSUInteger)length;
 
-/**
- *  有效中文姓名
- *
- */
+/// 有效中文姓名
 - (BOOL)wb_isValidRealName;
 
-/**
- *  有效密码（6-12位）
- *
- */
+/// 有效密码（6-12位）
 - (BOOL)wb_isValidAlphaNumberPassword;
 
-/**
- *  是否只有中文
- *
- */
+/// 是否只有中文
 - (BOOL)wb_isOnlyChinese;
 
-/**
- *  验证银行卡号
- *
- *  @param cardNo 银行卡
- *  @return YES OR NO
- */
+/// 验证银行卡号
+/// @param cardNo 银行卡号
 + (BOOL)wb_checkCardNo:(NSString *)cardNo;
 
-/**
- *  验证微信号
- *
- *  @param wxNumber 微信号
- *  @return YES OR NO
- */
+/// 验证微信号
+/// @param wxNumber 微信号
 + (BOOL)wb_isValidWXNumber:(NSString * )wxNumber;
 
-/**
- *  判断邮编是否正确
- *
- *  @param str 邮编
- *  @return YES/NO
- */
+/// 判断邮编是否正确
+/// @param str 邮编
 + (BOOL)wb_checkPostCode:(NSString *)str;
 
-/**
- 字符串比较
-
- @param str 要比较的字符串
- @param result 比较类型
- @return YES/NO
- */
+/// 字符串比较
+/// @param str 要比较的字符串
+/// @param result 比较类型
 - (BOOL)wb_compare:(NSString *)str
         withResult:(NSComparisonResult)result;
 

@@ -7,7 +7,7 @@
 //
 
 #import "NSDictionary+WBAdditional.h"
-#import "NSString+WBPredicate.h"
+#import "NSString+WBAdditional.h"
 
 @interface WB_XMLDictionaryParser : NSObject <NSXMLParserDelegate>
 

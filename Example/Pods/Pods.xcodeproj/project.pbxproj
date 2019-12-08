@@ -43,7 +43,6 @@
 		6D27A43EC0BB0338EA689963279664FC /* NSString+WBDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE598E9F42EB1900C144E6F89975121 /* NSString+WBDeviceInfo.m */; };
 		6F2223EB5E1EE25C8871C3FB8764DDC2 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9206D490D3AECFCFA523F3E36A870349 /* Photos.framework */; };
 		744F1B8CFC6BD2BD54E58B93EB2BEBD4 /* UIImage+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = DED5C290652F9CEF48FF7AA78C3ABCA3 /* UIImage+WBAdditional.m */; };
-		771E0016D390E548ED4AB76E24E88B46 /* NSString+WBAddtional.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C7C6820EF0DD13A0D49DEDFBD84FB0 /* NSString+WBAddtional.m */; };
 		793D87A0BE18F01575F6044EF4DB9822 /* UIScrollView+WBScrollDirection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CDCAD42C470B4A903B9BAB7B3DF2112 /* UIScrollView+WBScrollDirection.m */; };
 		798CAE13A02B416367AF26A952A2C263 /* WKWebView+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = E446A4BE746AB8291B5F38886807E2CB /* WKWebView+WBAdditional.m */; };
 		7BC61C6DF69B83863DCC54012E9EDAE0 /* UIView+WBRecursion.m in Sources */ = {isa = PBXBuildFile; fileRef = 846370C4BCA74C918899D48D8456354F /* UIView+WBRecursion.m */; };
@@ -69,7 +68,6 @@
 		B5EA71B3DF3E96C35761607BC3E9DEE9 /* NSArray+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC474DEE26F65F0E1AD468921E4604A /* NSArray+WBAdditional.m */; };
 		B68FE795BEC0D63BFE41ECC51DC3DE9F /* UIView+WBDismissKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8839788821CC14F99E500520AE81D6 /* UIView+WBDismissKeyboard.m */; };
 		B95EEC5193371576B47B74AA19D07935 /* UIApplication+WBApplicationSize.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3248FE3F14182DF9EEC5EB77645B96 /* UIApplication+WBApplicationSize.m */; };
-		B9ED8605487F61DF1C433617910C202B /* NSDate+WBAddtional.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8C1E3D8D419D899CAE96269AC8FCDC /* NSDate+WBAddtional.m */; };
 		BAEF41B3FA1E93A904EE9D3884D5EE86 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08896C4C1A1384BB120828C549C9147C /* MobileCoreServices.framework */; };
 		BF57F908E915DE618A4FFA2E6A95E250 /* UIView+WBBlurEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = D07766B3446B4C0F13DE96A378F19C9B /* UIView+WBBlurEffect.m */; };
 		C029E1741ABEED3C1EF223C34F301D63 /* UIView+WBFind.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDA6A775DE9A4A0FDF804FBF6FA9BD1 /* UIView+WBFind.m */; };
@@ -104,7 +102,7 @@
 		C504D72D237C51C8001BD12B /* WBWKWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 64F64316206A0718E0FEB038EEE0F857 /* WBWKWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D72E237C52B7001BD12B /* NSArray+WBAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A6FD3AE8B29D63AFD35A23A2D1AEE8D /* NSArray+WBAdditional.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D72F237C52B7001BD12B /* NSData+WBFragment.h in Headers */ = {isa = PBXBuildFile; fileRef = 7196A920BCFAF5D284DE8C237B43332D /* NSData+WBFragment.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C504D730237C52B7001BD12B /* NSDate+WBAddtional.h in Headers */ = {isa = PBXBuildFile; fileRef = B5C31FE3ADA1FFDB83A2FEC634AAC7F0 /* NSDate+WBAddtional.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C504D730237C52B7001BD12B /* NSDate+WBAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = B5C31FE3ADA1FFDB83A2FEC634AAC7F0 /* NSDate+WBAdditional.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D731237C52B7001BD12B /* NSDate+WBDisplayTime.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DF0006D6DA85DB392F0B0E8B7C658CB /* NSDate+WBDisplayTime.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D732237C52B7001BD12B /* NSDate+WBTimePredicate.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AFF8215F4B430B722D5033328BC0064 /* NSDate+WBTimePredicate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D733237C52B7001BD12B /* WBDateFormatterPool.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF99793A00A2E38F089B7B979C94D9 /* WBDateFormatterPool.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -112,7 +110,7 @@
 		C504D735237C52B8001BD12B /* NSMutableAttributedString+WBAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = 958F0F4C8EE271B19B165B6E4866A5A4 /* NSMutableAttributedString+WBAdditional.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D736237C52B8001BD12B /* NSObject+WBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = C52732E6D0C736CFD99CC160CFFA9E28 /* NSObject+WBJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D737237C52B8001BD12B /* NSString+HTML.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F9674B85295373597D5085FC1C84149 /* NSString+HTML.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C504D738237C52B8001BD12B /* NSString+WBAddtional.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F3D339EE997DAEFCBED61AC6B67BD66 /* NSString+WBAddtional.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C504D738237C52B8001BD12B /* NSString+WBAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F3D339EE997DAEFCBED61AC6B67BD66 /* NSString+WBAdditional.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D739237C52B8001BD12B /* NSString+WBDeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 42EDE11A4A1FEBB6CAA5F168401F546B /* NSString+WBDeviceInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D73A237C52B8001BD12B /* NSString+WBJavaScript.h in Headers */ = {isa = PBXBuildFile; fileRef = 31CA6F8B0B6C3D2A10F8E924C1BD2462 /* NSString+WBJavaScript.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C504D73B237C52B8001BD12B /* NSUserDefaults+WBAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = AE92B2E00555BF34F444CAA6ABB71926 /* NSUserDefaults+WBAdditional.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -206,6 +204,24 @@
 		C575B939238EB97200CA4E50 /* WBUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C575B935238EB97200CA4E50 /* WBUIButton.m */; };
 		C5E16DBB23956516005904C5 /* WBPermission.h in Headers */ = {isa = PBXBuildFile; fileRef = D0A058B72394F69F00843A94 /* WBPermission.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C5E16DBC239565B4005904C5 /* WBPermission.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A058B82394F69F00843A94 /* WBPermission.m */; };
+		C5E16E67239CF29B005904C5 /* NSDictionary+WBLogUnicode.h in Headers */ = {isa = PBXBuildFile; fileRef = C5E16E61239CF29B005904C5 /* NSDictionary+WBLogUnicode.h */; };
+		C5E16E68239CF29B005904C5 /* NSDictionary+WBLogUnicode.h in Headers */ = {isa = PBXBuildFile; fileRef = C5E16E61239CF29B005904C5 /* NSDictionary+WBLogUnicode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C5E16E69239CF29B005904C5 /* NSArray+WBLogUnicode.h in Headers */ = {isa = PBXBuildFile; fileRef = C5E16E62239CF29B005904C5 /* NSArray+WBLogUnicode.h */; };
+		C5E16E6A239CF29B005904C5 /* NSArray+WBLogUnicode.h in Headers */ = {isa = PBXBuildFile; fileRef = C5E16E62239CF29B005904C5 /* NSArray+WBLogUnicode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C5E16E6B239CF29B005904C5 /* NSDictionary+WBLogUnicode.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E16E63239CF29B005904C5 /* NSDictionary+WBLogUnicode.m */; };
+		C5E16E6C239CF29B005904C5 /* NSDictionary+WBLogUnicode.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E16E63239CF29B005904C5 /* NSDictionary+WBLogUnicode.m */; };
+		C5E16E6D239CF29B005904C5 /* NSArray+WBLogUnicode.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E16E64239CF29B005904C5 /* NSArray+WBLogUnicode.m */; };
+		C5E16E6E239CF29B005904C5 /* NSArray+WBLogUnicode.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E16E64239CF29B005904C5 /* NSArray+WBLogUnicode.m */; };
+		C5E16E6F239CF29B005904C5 /* NSSet+WBLogUnicode.h in Headers */ = {isa = PBXBuildFile; fileRef = C5E16E65239CF29B005904C5 /* NSSet+WBLogUnicode.h */; };
+		C5E16E70239CF29B005904C5 /* NSSet+WBLogUnicode.h in Headers */ = {isa = PBXBuildFile; fileRef = C5E16E65239CF29B005904C5 /* NSSet+WBLogUnicode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C5E16E71239CF29B005904C5 /* NSSet+WBLogUnicode.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E16E66239CF29B005904C5 /* NSSet+WBLogUnicode.m */; };
+		C5E16E72239CF29B005904C5 /* NSSet+WBLogUnicode.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E16E66239CF29B005904C5 /* NSSet+WBLogUnicode.m */; };
+		C5E16E74239CF9BC005904C5 /* NSString+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C7C6820EF0DD13A0D49DEDFBD84FB0 /* NSString+WBAdditional.m */; };
+		C5E16E78239CFB74005904C5 /* NSCharacterSet+WBAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = C5E16E76239CFB74005904C5 /* NSCharacterSet+WBAdditional.h */; };
+		C5E16E79239CFB74005904C5 /* NSCharacterSet+WBAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = C5E16E76239CFB74005904C5 /* NSCharacterSet+WBAdditional.h */; };
+		C5E16E7A239CFB74005904C5 /* NSCharacterSet+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E16E77239CFB74005904C5 /* NSCharacterSet+WBAdditional.m */; };
+		C5E16E7B239CFB74005904C5 /* NSCharacterSet+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E16E77239CFB74005904C5 /* NSCharacterSet+WBAdditional.m */; };
+		C5E16E7C239D047B005904C5 /* NSDate+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8C1E3D8D419D899CAE96269AC8FCDC /* NSDate+WBAdditional.m */; };
 		C6E033F547046D17D3D951AC9CE555A0 /* NSDate+WBDisplayTime.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2BD24AD636706791D49A4D2F08F1DA /* NSDate+WBDisplayTime.m */; };
 		C7504743D6B8F347BBEB278E0377A4C2 /* UIButton+WBAdjustPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A8063B5CBD04B42B1FF70E49C2774 /* UIButton+WBAdjustPosition.m */; };
 		D0045326238F7495001A3BA8 /* WBCountdownButton.h in Headers */ = {isa = PBXBuildFile; fileRef = D0045324238F7495001A3BA8 /* WBCountdownButton.h */; };
@@ -292,7 +308,7 @@
 
 /* Begin PBXFileReference section */
 		05B119FDD18DB47CAAF64A1BE2B73AFE /* WBUIView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBUIView.h; path = WBCategoryKit/UIKit/UIView/WBUIView.h; sourceTree = "<group>"; };
-		06C7C6820EF0DD13A0D49DEDFBD84FB0 /* NSString+WBAddtional.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+WBAddtional.m"; path = "WBCategoryKit/Foundation/NSString/NSString+WBAddtional.m"; sourceTree = "<group>"; };
+		06C7C6820EF0DD13A0D49DEDFBD84FB0 /* NSString+WBAdditional.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+WBAdditional.m"; path = "WBCategoryKit/Foundation/NSString/NSString+WBAdditional.m"; sourceTree = "<group>"; };
 		08896C4C1A1384BB120828C549C9147C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		0968E5FDA1F6D3B1C00CABB9592CC378 /* UISearchBar+WBAddition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UISearchBar+WBAddition.h"; path = "WBCategoryKit/UIKit/UISearchBar/UISearchBar+WBAddition.h"; sourceTree = "<group>"; };
 		0A8839788821CC14F99E500520AE81D6 /* UIView+WBDismissKeyboard.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WBDismissKeyboard.m"; path = "WBCategoryKit/UIKit/UIView/UIView+WBDismissKeyboard.m"; sourceTree = "<group>"; };
@@ -363,7 +379,7 @@
 		5B65B456CD9F7B885F18ED205DB56E2A /* WBCategoryKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "WBCategoryKit-Info.plist"; sourceTree = "<group>"; };
 		5D3DA7F28BB4A53D0769FABC33083B26 /* WBUICollectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBUICollectionView.h; path = WBCategoryKit/UIKit/UICollectionView/WBUICollectionView.h; sourceTree = "<group>"; };
 		5EDA6A775DE9A4A0FDF804FBF6FA9BD1 /* UIView+WBFind.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WBFind.m"; path = "WBCategoryKit/UIKit/UIView/UIView+WBFind.m"; sourceTree = "<group>"; };
-		5F3D339EE997DAEFCBED61AC6B67BD66 /* NSString+WBAddtional.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+WBAddtional.h"; path = "WBCategoryKit/Foundation/NSString/NSString+WBAddtional.h"; sourceTree = "<group>"; };
+		5F3D339EE997DAEFCBED61AC6B67BD66 /* NSString+WBAdditional.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+WBAdditional.h"; path = "WBCategoryKit/Foundation/NSString/NSString+WBAdditional.h"; sourceTree = "<group>"; };
 		60945582A3124A0DE1DCFBB4B179188C /* NSString+HTML.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+HTML.m"; path = "WBCategoryKit/Foundation/NSString/NSString+HTML.m"; sourceTree = "<group>"; };
 		62370097E612E90E9703903BF45A61F3 /* WBFoundation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBFoundation.h; path = WBCategoryKit/Foundation/WBFoundation.h; sourceTree = "<group>"; };
 		645651DAD22ABEB81696E9BE88092D09 /* UIView+WBFrame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+WBFrame.h"; path = "WBCategoryKit/UIKit/UIView/UIView+WBFrame.h"; sourceTree = "<group>"; };
@@ -435,7 +451,7 @@
 		B1D326D77C13CE6ED4F9782500984100 /* UIApplication+WBNetworkActivityIndicator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+WBNetworkActivityIndicator.m"; path = "WBCategoryKit/UIKit/UIApplication/UIApplication+WBNetworkActivityIndicator.m"; sourceTree = "<group>"; };
 		B227574C6050062428ADE70DEE89A738 /* WBCategoryKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = WBCategoryKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B28A934F883976BFC2FC5623529B38F7 /* WBUIButtonHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBUIButtonHeader.h; path = WBCategoryKit/UIKit/UIButton/WBUIButtonHeader.h; sourceTree = "<group>"; };
-		B5C31FE3ADA1FFDB83A2FEC634AAC7F0 /* NSDate+WBAddtional.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDate+WBAddtional.h"; path = "WBCategoryKit/Foundation/NSDate/NSDate+WBAddtional.h"; sourceTree = "<group>"; };
+		B5C31FE3ADA1FFDB83A2FEC634AAC7F0 /* NSDate+WBAdditional.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDate+WBAdditional.h"; path = "WBCategoryKit/Foundation/NSDate/NSDate+WBAdditional.h"; sourceTree = "<group>"; };
 		B73BD2ED692ED1372EEB9A9C93AFF929 /* UIView+WBConstraints.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WBConstraints.m"; path = "WBCategoryKit/UIKit/UIView/UIView+WBConstraints.m"; sourceTree = "<group>"; };
 		B79202AF73BEC6D5FD1EA57CDA25160D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
 		B7EBA992146B762E677865A36F564BD3 /* UITableViewCell+WBAdditional.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITableViewCell+WBAdditional.h"; path = "WBCategoryKit/UIKit/UITableViewCell/UITableViewCell+WBAdditional.h"; sourceTree = "<group>"; };
@@ -472,6 +488,14 @@
 		C575B92D238D682200CA4E50 /* WBKeyboardManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBKeyboardManager.m; sourceTree = "<group>"; };
 		C575B934238EB97200CA4E50 /* WBUIButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBUIButton.h; sourceTree = "<group>"; };
 		C575B935238EB97200CA4E50 /* WBUIButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBUIButton.m; sourceTree = "<group>"; };
+		C5E16E61239CF29B005904C5 /* NSDictionary+WBLogUnicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+WBLogUnicode.h"; sourceTree = "<group>"; };
+		C5E16E62239CF29B005904C5 /* NSArray+WBLogUnicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+WBLogUnicode.h"; sourceTree = "<group>"; };
+		C5E16E63239CF29B005904C5 /* NSDictionary+WBLogUnicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+WBLogUnicode.m"; sourceTree = "<group>"; };
+		C5E16E64239CF29B005904C5 /* NSArray+WBLogUnicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+WBLogUnicode.m"; sourceTree = "<group>"; };
+		C5E16E65239CF29B005904C5 /* NSSet+WBLogUnicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+WBLogUnicode.h"; sourceTree = "<group>"; };
+		C5E16E66239CF29B005904C5 /* NSSet+WBLogUnicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+WBLogUnicode.m"; sourceTree = "<group>"; };
+		C5E16E76239CFB74005904C5 /* NSCharacterSet+WBAdditional.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSCharacterSet+WBAdditional.h"; sourceTree = "<group>"; };
+		C5E16E77239CFB74005904C5 /* NSCharacterSet+WBAdditional.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSCharacterSet+WBAdditional.m"; sourceTree = "<group>"; };
 		C915B3B8772D67CD3132F3353FBD35F3 /* NSUserDefaults+WBAdditional.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSUserDefaults+WBAdditional.m"; path = "WBCategoryKit/Foundation/NSUserDefaults/NSUserDefaults+WBAdditional.m"; sourceTree = "<group>"; };
 		CA7249CA1ED99460864541B4A7B2B34B /* UIImage+WBCompress.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+WBCompress.h"; path = "WBCategoryKit/UIKit/UIImage/UIImage+WBCompress.h"; sourceTree = "<group>"; };
 		CAD4AB7662057F68E56B8EB09ABD9C64 /* WKWebView+WBAdditional.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "WKWebView+WBAdditional.h"; path = "WBCategoryKit/UIKit/WKWebView/WKWebView+WBAdditional.h"; sourceTree = "<group>"; };
@@ -508,7 +532,7 @@
 		D893FE5B5EA2945BCBF467F3DE8A1C6B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		DACDF6920783E292072E8E30840C0203 /* WBUIWindow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBUIWindow.h; path = WBCategoryKit/UIKit/UIWindow/WBUIWindow.h; sourceTree = "<group>"; };
 		DD188B9A2A48E3BDD1FFF09628793D85 /* Pods-WBCategoryKit_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WBCategoryKit_Example-Info.plist"; sourceTree = "<group>"; };
-		DD8C1E3D8D419D899CAE96269AC8FCDC /* NSDate+WBAddtional.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDate+WBAddtional.m"; path = "WBCategoryKit/Foundation/NSDate/NSDate+WBAddtional.m"; sourceTree = "<group>"; };
+		DD8C1E3D8D419D899CAE96269AC8FCDC /* NSDate+WBAdditional.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDate+WBAdditional.m"; path = "WBCategoryKit/Foundation/NSDate/NSDate+WBAdditional.m"; sourceTree = "<group>"; };
 		DED5C290652F9CEF48FF7AA78C3ABCA3 /* UIImage+WBAdditional.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+WBAdditional.m"; path = "WBCategoryKit/UIKit/UIImage/UIImage+WBAdditional.m"; sourceTree = "<group>"; };
 		E0783C9E19E448D6A87230E29766508D /* UIApplication+WBApplicationSize.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIApplication+WBApplicationSize.h"; path = "WBCategoryKit/UIKit/UIApplication/UIApplication+WBApplicationSize.h"; sourceTree = "<group>"; };
 		E13186B411CD6EA21EF44EC453F647BE /* WBCategoryKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WBCategoryKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -890,8 +914,8 @@
 		B2B5D175911CE5382A7202B53D755A99 /* NSDate */ = {
 			isa = PBXGroup;
 			children = (
-				B5C31FE3ADA1FFDB83A2FEC634AAC7F0 /* NSDate+WBAddtional.h */,
-				DD8C1E3D8D419D899CAE96269AC8FCDC /* NSDate+WBAddtional.m */,
+				B5C31FE3ADA1FFDB83A2FEC634AAC7F0 /* NSDate+WBAdditional.h */,
+				DD8C1E3D8D419D899CAE96269AC8FCDC /* NSDate+WBAdditional.m */,
 				0DF0006D6DA85DB392F0B0E8B7C658CB /* NSDate+WBDisplayTime.h */,
 				CD2BD24AD636706791D49A4D2F08F1DA /* NSDate+WBDisplayTime.m */,
 				8AFF8215F4B430B722D5033328BC0064 /* NSDate+WBTimePredicate.h */,
@@ -989,8 +1013,8 @@
 			children = (
 				2F9674B85295373597D5085FC1C84149 /* NSString+HTML.h */,
 				60945582A3124A0DE1DCFBB4B179188C /* NSString+HTML.m */,
-				5F3D339EE997DAEFCBED61AC6B67BD66 /* NSString+WBAddtional.h */,
-				06C7C6820EF0DD13A0D49DEDFBD84FB0 /* NSString+WBAddtional.m */,
+				5F3D339EE997DAEFCBED61AC6B67BD66 /* NSString+WBAdditional.h */,
+				06C7C6820EF0DD13A0D49DEDFBD84FB0 /* NSString+WBAdditional.m */,
 				42EDE11A4A1FEBB6CAA5F168401F546B /* NSString+WBDeviceInfo.h */,
 				FEE598E9F42EB1900C144E6F89975121 /* NSString+WBDeviceInfo.m */,
 				31CA6F8B0B6C3D2A10F8E924C1BD2462 /* NSString+WBJavaScript.h */,
@@ -1077,6 +1101,7 @@
 		C575B928238D673C00CA4E50 /* WBUIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				C5E16E60239CF283005904C5 /* WBLogUnicode */,
 				D0A058282394E89D00843A94 /* WBPermission */,
 				D0045333238F9B00001A3BA8 /* WBUICollectionView */,
 				D004532B238F81AC001A3BA8 /* WBUILabel */,
@@ -1108,6 +1133,29 @@
 				D0045325238F7495001A3BA8 /* WBCountdownButton.m */,
 			);
 			path = WBUIButton;
+			sourceTree = "<group>";
+		};
+		C5E16E60239CF283005904C5 /* WBLogUnicode */ = {
+			isa = PBXGroup;
+			children = (
+				C5E16E62239CF29B005904C5 /* NSArray+WBLogUnicode.h */,
+				C5E16E64239CF29B005904C5 /* NSArray+WBLogUnicode.m */,
+				C5E16E61239CF29B005904C5 /* NSDictionary+WBLogUnicode.h */,
+				C5E16E63239CF29B005904C5 /* NSDictionary+WBLogUnicode.m */,
+				C5E16E65239CF29B005904C5 /* NSSet+WBLogUnicode.h */,
+				C5E16E66239CF29B005904C5 /* NSSet+WBLogUnicode.m */,
+			);
+			path = WBLogUnicode;
+			sourceTree = "<group>";
+		};
+		C5E16E75239CFB32005904C5 /* NSCharacterSet */ = {
+			isa = PBXGroup;
+			children = (
+				C5E16E76239CFB74005904C5 /* NSCharacterSet+WBAdditional.h */,
+				C5E16E77239CFB74005904C5 /* NSCharacterSet+WBAdditional.m */,
+			);
+			name = NSCharacterSet;
+			path = WBCategoryKit/Foundation/NSCharacterSet;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -1252,6 +1300,7 @@
 		F6B672266B9310499156C4CD1EA9D05E /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				C5E16E75239CFB32005904C5 /* NSCharacterSet */,
 				62370097E612E90E9703903BF45A61F3 /* WBFoundation.h */,
 				BB48BFFA438E594E3445F18D6FB4BFB4 /* NSArray */,
 				A84C682DEE39CAD6CF45D98DC3B37ABF /* NSData */,
@@ -1282,11 +1331,14 @@
 			files = (
 				D042E4FD2386832F00A8BAF0 /* UITabBar+WBAdditional.h in Headers */,
 				C575B91C2386EB7D00CA4E50 /* NSObject+WBAdditional.h in Headers */,
+				C5E16E6F239CF29B005904C5 /* NSSet+WBLogUnicode.h in Headers */,
 				C575B9222386F48D00CA4E50 /* NSMethodSignature+WBAdditional.h in Headers */,
 				C56B48A32386C56400310A17 /* WBUIBarItem.h in Headers */,
 				D0EE494323852F2300EE1603 /* UIImageView+WBAdditional.h in Headers */,
+				C5E16E69239CF29B005904C5 /* NSArray+WBLogUnicode.h in Headers */,
 				C575B9072386E3DA00CA4E50 /* WBSingletonMacro.h in Headers */,
 				D0045336238F9BD2001A3BA8 /* WBUICollectionViewPagingLayout.h in Headers */,
+				C5E16E67239CF29B005904C5 /* NSDictionary+WBLogUnicode.h in Headers */,
 				C504D70B237C3FFA001BD12B /* WBUILabelHeader.h in Headers */,
 				C575B936238EB97200CA4E50 /* WBUIButton.h in Headers */,
 				C56B489523843AE200310A17 /* CALayer+WBAdditional.h in Headers */,
@@ -1299,6 +1351,7 @@
 				D042E4F92386832F00A8BAF0 /* UITabBarItem+WBAdditional.h in Headers */,
 				C575B9182386E5AE00CA4E50 /* WBHelper.h in Headers */,
 				C504D709237C3FFA001BD12B /* UILabel+WBAdditional.h in Headers */,
+				C5E16E78239CFB74005904C5 /* NSCharacterSet+WBAdditional.h in Headers */,
 				C575B92E238D682200CA4E50 /* WBKeyboardManager.h in Headers */,
 				C575B9032386E3DA00CA4E50 /* WBMacroDefinition.h in Headers */,
 				D0045326238F7495001A3BA8 /* WBCountdownButton.h in Headers */,
@@ -1336,9 +1389,10 @@
 				C504D72B237C51C8001BD12B /* WBUIViewController.h in Headers */,
 				C504D72C237C51C8001BD12B /* WBUIWindow.h in Headers */,
 				C504D72D237C51C8001BD12B /* WBWKWebView.h in Headers */,
+				C5E16E79239CFB74005904C5 /* NSCharacterSet+WBAdditional.h in Headers */,
 				C504D72E237C52B7001BD12B /* NSArray+WBAdditional.h in Headers */,
 				C504D72F237C52B7001BD12B /* NSData+WBFragment.h in Headers */,
-				C504D730237C52B7001BD12B /* NSDate+WBAddtional.h in Headers */,
+				C504D730237C52B7001BD12B /* NSDate+WBAdditional.h in Headers */,
 				C504D731237C52B7001BD12B /* NSDate+WBDisplayTime.h in Headers */,
 				C504D732237C52B7001BD12B /* NSDate+WBTimePredicate.h in Headers */,
 				C504D733237C52B7001BD12B /* WBDateFormatterPool.h in Headers */,
@@ -1346,7 +1400,7 @@
 				C504D735237C52B8001BD12B /* NSMutableAttributedString+WBAdditional.h in Headers */,
 				C504D736237C52B8001BD12B /* NSObject+WBJSON.h in Headers */,
 				C504D737237C52B8001BD12B /* NSString+HTML.h in Headers */,
-				C504D738237C52B8001BD12B /* NSString+WBAddtional.h in Headers */,
+				C504D738237C52B8001BD12B /* NSString+WBAdditional.h in Headers */,
 				C504D739237C52B8001BD12B /* NSString+WBDeviceInfo.h in Headers */,
 				C504D73A237C52B8001BD12B /* NSString+WBJavaScript.h in Headers */,
 				C504D73B237C52B8001BD12B /* NSUserDefaults+WBAdditional.h in Headers */,
@@ -1428,6 +1482,9 @@
 				D0A05A6223962BD900843A94 /* WBDateHeaderFile.h in Headers */,
 				D0A05A6323962BD900843A94 /* NSString+WBPredicate.h in Headers */,
 				D0A05A6423962BD900843A94 /* WBUINavigationItem.h in Headers */,
+				C5E16E6A239CF29B005904C5 /* NSArray+WBLogUnicode.h in Headers */,
+				C5E16E68239CF29B005904C5 /* NSDictionary+WBLogUnicode.h in Headers */,
+				C5E16E70239CF29B005904C5 /* NSSet+WBLogUnicode.h in Headers */,
 				D0A05A6523962BFB00843A94 /* WBCategoryKit.h in Headers */,
 				D0A05A6623962C1B00843A94 /* WBUICollectionView.h in Headers */,
 			);
@@ -1562,17 +1619,21 @@
 				D0045330238F81BE001A3BA8 /* WBUILabel.m in Sources */,
 				D042E505238683AF00A8BAF0 /* UIBarItem+WBAdditional.m in Sources */,
 				D0A058BA2394F69F00843A94 /* WBPermission.m in Sources */,
+				C5E16E6D239CF29B005904C5 /* NSArray+WBLogUnicode.m in Sources */,
 				C575B9102386E53A00CA4E50 /* NSObject+WBRuntime.m in Sources */,
 				D042E4FF2386832F00A8BAF0 /* UITabBarItem+WBAdditional.m in Sources */,
+				C5E16E7A239CFB74005904C5 /* NSCharacterSet+WBAdditional.m in Sources */,
 				C575B938238EB97200CA4E50 /* WBUIButton.m in Sources */,
 				D042E4FB2386832F00A8BAF0 /* UITabBar+WBAdditional.m in Sources */,
 				C575B9242386F48D00CA4E50 /* NSMethodSignature+WBAdditional.m in Sources */,
 				C504D785237C5514001BD12B /* UIView+WBAnimation.m in Sources */,
+				C5E16E6B239CF29B005904C5 /* NSDictionary+WBLogUnicode.m in Sources */,
 				4FCCFF0F395ECDBDADBDA2282BE2FA0F /* Pods-WBCategoryKit_Example-dummy.m in Sources */,
 				D07567CB238F6984008BD4DD /* WBCountdownManager.m in Sources */,
 				D0EE494523852F2300EE1603 /* UIImageView+WBAdditional.m in Sources */,
 				D0045338238F9BD2001A3BA8 /* WBUICollectionViewPagingLayout.m in Sources */,
 				C575B9162386E5AE00CA4E50 /* WBHelper.m in Sources */,
+				C5E16E71239CF29B005904C5 /* NSSet+WBLogUnicode.m in Sources */,
 				C575B930238D682200CA4E50 /* WBKeyboardManager.m in Sources */,
 				C504D70D237C3FFA001BD12B /* UILabel+WBAdditional.m in Sources */,
 				D0045328238F7495001A3BA8 /* WBCountdownButton.m in Sources */,
@@ -1585,6 +1646,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5E16E7C239D047B005904C5 /* NSDate+WBAdditional.m in Sources */,
+				C5E16E74239CF9BC005904C5 /* NSString+WBAdditional.m in Sources */,
 				C5E16DBC239565B4005904C5 /* WBPermission.m in Sources */,
 				B5EA71B3DF3E96C35761607BC3E9DEE9 /* NSArray+WBAdditional.m in Sources */,
 				4AD4878E3F75F08C154850CE16D91091 /* NSData+WBFragment.m in Sources */,
@@ -1592,16 +1655,17 @@
 				C504D70E237C3FFA001BD12B /* UILabel+WBAdditional.m in Sources */,
 				D07567CC238F6984008BD4DD /* WBCountdownManager.m in Sources */,
 				D042E4FC2386832F00A8BAF0 /* UITabBar+WBAdditional.m in Sources */,
-				B9ED8605487F61DF1C433617910C202B /* NSDate+WBAddtional.m in Sources */,
+				C5E16E6E239CF29B005904C5 /* NSArray+WBLogUnicode.m in Sources */,
 				C575B9252386F48D00CA4E50 /* NSMethodSignature+WBAdditional.m in Sources */,
 				C6E033F547046D17D3D951AC9CE555A0 /* NSDate+WBDisplayTime.m in Sources */,
 				E163EC7A6AD3762010131936DBA3C942 /* NSDate+WBTimePredicate.m in Sources */,
 				556782583537D2F3A0D5A2D349AEB582 /* NSDictionary+WBAdditional.m in Sources */,
+				C5E16E6C239CF29B005904C5 /* NSDictionary+WBLogUnicode.m in Sources */,
+				C5E16E7B239CFB74005904C5 /* NSCharacterSet+WBAdditional.m in Sources */,
 				D0756859238F6F28008BD4DD /* WBFileManager.m in Sources */,
 				80BFE78FE980EFCBB823B84E4CA15C8C /* NSMutableAttributedString+WBAdditional.m in Sources */,
 				E88DB508BACFE9A94CBB34197509E710 /* NSObject+WBJSON.m in Sources */,
 				07FF2AF9A822F83CA37E8113D364FA59 /* NSString+HTML.m in Sources */,
-				771E0016D390E548ED4AB76E24E88B46 /* NSString+WBAddtional.m in Sources */,
 				6D27A43EC0BB0338EA689963279664FC /* NSString+WBDeviceInfo.m in Sources */,
 				91404E5043727CD21BAE2F915BED3808 /* NSString+WBJavaScript.m in Sources */,
 				5602B53359BDDE332CB3F385B3BC6EAE /* NSString+WBPredicate.m in Sources */,
@@ -1655,6 +1719,7 @@
 				C575B91F2386EB7D00CA4E50 /* NSObject+WBAdditional.m in Sources */,
 				C029E1741ABEED3C1EF223C34F301D63 /* UIView+WBFind.m in Sources */,
 				D57D38D109CB4E541D5FCEB01B1353B5 /* UIView+WBFrame.m in Sources */,
+				C5E16E72239CF29B005904C5 /* NSSet+WBLogUnicode.m in Sources */,
 				C575B939238EB97200CA4E50 /* WBUIButton.m in Sources */,
 				7BC61C6DF69B83863DCC54012E9EDAE0 /* UIView+WBRecursion.m in Sources */,
 				D0EDA931E7269C79D9A1A9992DE7EDBC /* UIViewController+WBAdditional.m in Sources */,

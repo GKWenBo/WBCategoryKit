@@ -7,7 +7,7 @@
 //
 
 #import "NSDate+WBDisplayTime.h"
-#import "NSDate+WBAddtional.h"
+#import "NSDate+WBAdditional.h"
 #import "WBDateFormatterPool.h"
 
 @implementation NSDate (WBDisplayTime)

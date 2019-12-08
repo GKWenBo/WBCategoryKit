@@ -10,7 +10,7 @@
 
 #if __has_include(<WBCategoryKit/WBNSString.h>)
 
-#import <WBCategoryKit/NSString+WBAddtional.h>
+#import <WBCategoryKit/NSString+WBAdditional.h>
 #import <WBCategoryKit/NSString+WBPredicate.h>
 #import <WBCategoryKit/NSString+WBJavaScript.h>
 #import <WBCategoryKit/NSString+WBDeviceInfo.h>
@@ -18,7 +18,7 @@
 
 #else
 
-#import "NSString+WBAddtional.h"
+#import "NSString+WBAdditional.h"
 #import "NSString+WBPredicate.h"
 #import "NSString+WBJavaScript.h"
 #import "NSString+WBDeviceInfo.h"

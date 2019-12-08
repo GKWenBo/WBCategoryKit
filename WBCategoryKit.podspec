@@ -66,6 +66,12 @@ Pod::Spec.new do |s|
       	folder2.source_files = 'WBCategoryKit/WBUIComponents/WBCountdownManager/**/*.{h,m}'
       	folder2.frameworks = 'Foundation', 'UIKit'
       end
+
+      #WBLogUnicode
+      folder1.subspec 'WBLogUnicode' do |folder2|
+        folder2.source_files = 'WBCategoryKit/WBUIComponents/WBLogUnicode/**/*.{h,m}'
+        folder2.frameworks = 'Foundation'
+      end
   end
   
   #Foundation
@@ -90,6 +96,8 @@ Pod::Spec.new do |s|
       folder1.subspec 'NSString' do |folder2|
           folder2.source_files = 'WBCategoryKit/Foundation/NSString/**/*.{h,m}'
           folder2.frameworks = 'Foundation', 'UIKit', 'CoreTelephony'
+          folder2.dependency 'WBCategoryKit/Foundation/NSArray'
+          folder2.dependency 'WBCategoryKit/Foundation/NSCharacterSet'
       end
       
       #NSArray
@@ -120,6 +128,12 @@ Pod::Spec.new do |s|
       folder1.subspec 'NSMutableAttributedString' do |folder2|
           folder2.source_files = 'WBCategoryKit/Foundation/NSMutableAttributedString/**/*.{h,m}'
           folder2.frameworks = 'Foundation','UIKit'
+      end
+
+      #NSCharacterSet
+      folder1.subspec 'NSCharacterSet' do |folder2|
+        folder2.source_files = 'WBCategoryKit/Foundation/NSCharacterSet/**/*.{h,m}'
+        folder2.frameworks = 'Foundation','UIKit'
       end
 
   end
