@@ -285,14 +285,48 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat wb_centerX;
 ///< Shortcut for center.y
 @property (nonatomic, assign) CGFloat wb_centerY;
-///< Shortcut for frame.origin.
+/// Shortcut for frame.origin.
 @property (nonatomic, assign) CGPoint wb_origin;
-///< Shortcut for frame.size.
+/// Shortcut for frame.size.
 @property (nonatomic, assign) CGSize  wb_size;
 /// 最大x值
 @property (nonatomic, assign) CGFloat wb_maxX;
 /// 最大值
 @property (nonatomic, assign) CGFloat wb_maxY;
+
+/// 保持其他三个边缘的位置不变的情况下，将顶边缘拓展到某个指定的位置，注意高度会跟随变化。
+@property(nonatomic, assign) CGFloat wb_extendToTop;
+
+/// 保持其他三个边缘的位置不变的情况下，将左边缘拓展到某个指定的位置，注意宽度会跟随变化。
+@property(nonatomic, assign) CGFloat wb_extendToLeft;
+
+/// 保持其他三个边缘的位置不变的情况下，将底边缘拓展到某个指定的位置，注意高度会跟随变化。
+@property(nonatomic, assign) CGFloat wb_extendToBottom;
+
+/// 保持其他三个边缘的位置不变的情况下，将右边缘拓展到某个指定的位置，注意宽度会跟随变化。
+@property(nonatomic, assign) CGFloat wb_extendToRight;
+
+/// 获取当前 view 在 superview 内水平居中时的 left
+@property(nonatomic, assign, readonly) CGFloat wb_leftWhenCenterInSuperview;
+
+/// 获取当前 view 在 superview 内垂直居中时的 top
+@property(nonatomic, assign, readonly) CGFloat wb_topWhenCenterInSuperview;
+
+@end
+
+@interface UIView (WBCGAffineTransform)
+
+/// 获取当前 view 的 transform scale x
+@property(nonatomic, assign, readonly) CGFloat wb_scaleX;
+
+/// 获取当前 view 的 transform scale y
+@property(nonatomic, assign, readonly) CGFloat wb_scaleY;
+
+/// 获取当前 view 的 transform translation x
+@property(nonatomic, assign, readonly) CGFloat wb_translationX;
+
+/// 获取当前 view 的 transform translation y
+@property(nonatomic, assign, readonly) CGFloat wb_translationY;
 
 @end
 

@@ -10,9 +10,7 @@
 
 @interface UIViewController (WBAdditional)
 
-/**
- Hide navigaiton back button.
- */
+/// Hide navigaiton back button.
 - (void)wb_hideBackButton;
 
 /// 获取class存在的控制器
@@ -38,70 +36,41 @@
 
 @interface UIViewController (WBTransition)
 
-/**
- Check if view controller is presented modally, or pushed on a navigation stack
-
- @return YES/NO
- */
+/// Check if view controller is presented modally, or pushed on a navigation stack
 - (BOOL)wb_isModal;
 
-/**
- Check if have navigationcontroller
-
- @return YES/NO
- */
+/// Check if have navigationcontroller
 - (BOOL)wb_haveNavigationVc;
 
-/**
- Push to vc with animation
-
- @param vc target vc
- */
+/// Push to vc with animation
+/// @param vc target vc
 - (void)wb_pushVcAnimated:(UIViewController *)vc;
 
-/**
- Returns the popped controller
- */
+/// Returns the popped controller
 - (void)wb_popVcAnimated;
 
-/**
- Pops view controllers until the one specified is on top. Returns the popped controllers
-
- @param vc vc description
- */
+/// Pops view controllers until the one specified is on top. Returns the popped controllers
+/// @param vc vc description
 - (void)wb_popToVcAnimated:(UIViewController *)vc;
 
-/**
- ops until there's only a single view controller left on the stack. Returns the popped controllers.
- */
+/// ops until there's only a single view controller left on the stack. Returns the popped controllers.
 - (void)wb_popToRootVcAnimated;
 
-/**
- 模态切换
-
- @param vc vc description
- */
+/// 模态切换
+/// @param vc vc description
 - (void)wb_presentVcAnimated:(UIViewController *)vc;
 
-/**
- 模态切换
-
- @param vc target vc
- @param completion 完成回调
- */
+/// 模态切换
+/// @param vc target vc
+/// @param completion 完成回调
 - (void)wb_presentVcAnimated:(UIViewController *)vc
                   completion:(void (^) (void))completion;
 
-/**
- Modal dismiss.
- */
+/// Modal dismiss.
 - (void)wb_dismissVcAnimated;
 
-/**
- Modal dismiss.
-
- @param completion 完成回调
- */
+/// Modal dismiss.
+/// @param completion 完成回调
 - (void)wb_dismissVcAnimatedCompletion:(void (^) (void))completion;
 
 @end

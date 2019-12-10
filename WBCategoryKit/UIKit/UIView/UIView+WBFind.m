@@ -11,7 +11,7 @@
 @implementation UIView (WBFind)
 
 #pragma mark ------ < Getter > ------
-- (UIViewController *)viewController {
+- (UIViewController *)wb_viewController {
     for (UIView *view = self; view; view = view.superview) {
         UIResponder *nextResponder = [view nextResponder];
         if ([nextResponder isKindOfClass:[UIViewController class]]) {

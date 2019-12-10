@@ -10,12 +10,13 @@
 
 @interface UITableViewCell (WBAdditional)
 
-/**
- Register cell.
- 
- @param tableView target tableView.
- @return UITableViewCell.
- */
+// MARK: - Methods
+/// Register cell.
+/// @param tableView target tableView.
 + (instancetype)wb_dequeueReusableCellWithTableView:(UITableView *)tableView;
 
+/// Find parentTableView
+- (UITableView *)wb_parentTableView;
+
 @end
+

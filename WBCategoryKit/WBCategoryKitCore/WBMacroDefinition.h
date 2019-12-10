@@ -372,6 +372,12 @@ WBCGFloatGetCenter(CGFloat parent, CGFloat child) {
     return wb_flat((parent - child) / 2.0);
 }
 
+/// 检测某个数值如果为 NaN 则将其转换为 0，避免布局中出现 crash
+CG_INLINE CGFloat
+WBCGFloatSafeValue(CGFloat value) {
+    return isnan(value) ? 0 : value;
+}
+
 // MARK: - INLINE CGSize
 #define WB_CGSizeMax CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)
 
@@ -479,6 +485,25 @@ WBCGRectSetHeight(CGRect rect, CGFloat height) {
 CG_INLINE CGRect
 WBCGRectFlatMake(CGFloat x, CGFloat y, CGFloat width, CGFloat height) {
     return CGRectMake(wb_flat(x), wb_flat(y), wb_flat(width), wb_flat(height));
+}
+
+/// 检测某个 CGRect 如果存在数值为 NaN 的则将其转换为 0，避免布局中出现 crash
+CG_INLINE CGRect
+WBCGRectSafeValue(CGRect rect) {
+    return CGRectMake(WBCGFloatSafeValue(CGRectGetMinX(rect)), WBCGFloatSafeValue(CGRectGetMinY(rect)), WBCGFloatSafeValue(CGRectGetWidth(rect)), WBCGFloatSafeValue(CGRectGetHeight(rect)));
+}
+
+CG_INLINE CGRect
+WBCGRectSetSize(CGRect rect, CGSize size) {
+    rect.size = WBCGSizeFlatted(size);
+    return rect;
+}
+
+CG_INLINE CGRect
+WBCGRectSetXY(CGRect rect, CGFloat x, CGFloat y) {
+    rect.origin.x = wb_flat(x);
+    rect.origin.y = wb_flat(y);
+    return rect;
 }
 
 // MARK: - INLINE UIEdgeInsets

@@ -21,6 +21,105 @@
             selfObject.wb_tintColorCustomized = !!tintColor;
         });
         
+        ///setFrame:
+        WBOverrideImplementation([UIView class], @selector(setFrame:), ^id _Nonnull(__unsafe_unretained Class  _Nonnull originClass, SEL  _Nonnull originCMD, IMP  _Nonnull (^ _Nonnull originalIMPProvider)(void)) {
+            return ^(UIView *selfObject, CGRect frame) {
+                // QMUIViewSelfSizingHeight 的功能
+                if (CGRectGetWidth(frame) > 0 && isinf(CGRectGetHeight(frame))) {
+                    CGFloat height = wb_flat([selfObject sizeThatFits:CGSizeMake(CGRectGetWidth(frame), CGFLOAT_MAX)].height);
+                    frame = WBCGRectSetHeight(frame, height);
+                }
+                
+                // 对非法的 frame，Debug 下中 assert，Release 下会将其中的 NaN 改为 0，避免 crash
+                if (WBCGRectIsNaN(frame)) {
+                    if (!WB_IS_DEBUG) {
+                        frame = WBCGRectSafeValue(frame);
+                    }
+                }
+                
+                CGRect precedingFrame = selfObject.frame;
+                BOOL valueChange = !CGRectEqualToRect(frame, precedingFrame);
+                if (selfObject.wb_frameWillChangeBlock && valueChange) {
+                    frame = selfObject.wb_frameWillChangeBlock(selfObject, frame);
+                }
+                
+                // call super
+                void (*originSelectorIMP)(id, SEL, CGRect);
+                originSelectorIMP = (void (*)(id, SEL, CGRect))originalIMPProvider();
+                originSelectorIMP(selfObject, originCMD, frame);
+                
+                if (selfObject.wb_frameDidChangeBlock && valueChange) {
+                    selfObject.wb_frameDidChangeBlock(selfObject, precedingFrame);
+                }
+            };
+        });
+        
+        ///setBounds:
+        WBOverrideImplementation([UIView class], @selector(setBounds:), ^id _Nonnull(__unsafe_unretained Class  _Nonnull originClass, SEL  _Nonnull originCMD, IMP  _Nonnull (^ _Nonnull originalIMPProvider)(void)) {
+            return ^(UIView *selfObject, CGRect bounds) {
+                CGRect precedingFrame = selfObject.frame;
+                CGRect precedingBounds = selfObject.bounds;
+                BOOL valueChange = !CGSizeEqualToSize(bounds.size, precedingBounds.size);// bounds 只有 size 发生变化才会影响 frame
+                if (selfObject.wb_frameWillChangeBlock && valueChange) {
+                    CGRect followingFrame = CGRectMake(CGRectGetMinX(precedingFrame) + WBCGFloatGetCenter(CGRectGetWidth(bounds), CGRectGetWidth(precedingFrame)), CGRectGetMinY(precedingFrame) + WBCGFloatGetCenter(CGRectGetHeight(bounds), CGRectGetHeight(precedingFrame)), bounds.size.width, bounds.size.height);
+                    followingFrame = selfObject.wb_frameWillChangeBlock(selfObject, followingFrame);
+                    bounds = WBCGRectSetSize(bounds, followingFrame.size);
+                }
+                
+                // call super
+                void (*originSelectorIMP)(id, SEL, CGRect);
+                originSelectorIMP = (void (*)(id, SEL, CGRect))originalIMPProvider();
+                originSelectorIMP(selfObject, originCMD, bounds);
+                
+                if (selfObject.wb_frameDidChangeBlock && valueChange) {
+                    selfObject.wb_frameDidChangeBlock(selfObject, precedingFrame);
+                }
+            };
+        });
+        
+        WBOverrideImplementation([UIView class], @selector(setCenter:), ^id _Nonnull(__unsafe_unretained Class  _Nonnull originClass, SEL  _Nonnull originCMD, IMP  _Nonnull (^ _Nonnull originalIMPProvider)(void)) {
+            return ^(UIView *selfObject, CGPoint center) {
+                CGRect precedingFrame = selfObject.frame;
+                CGPoint precedingCenter = selfObject.center;
+                BOOL valueChange = !CGPointEqualToPoint(center, precedingCenter);
+                if (selfObject.wb_frameWillChangeBlock && valueChange) {
+                    CGRect followingFrame = WBCGRectSetXY(precedingFrame, center.x - CGRectGetWidth(selfObject.frame) / 2, center.y - CGRectGetHeight(selfObject.frame) / 2);
+                    followingFrame = selfObject.wb_frameWillChangeBlock(selfObject, followingFrame);
+                    center = CGPointMake(CGRectGetMidX(followingFrame), CGRectGetMidY(followingFrame));
+                }
+                
+                // call super
+                void (*originSelectorIMP)(id, SEL, CGPoint);
+                originSelectorIMP = (void (*)(id, SEL, CGPoint))originalIMPProvider();
+                originSelectorIMP(selfObject, originCMD, center);
+                
+                if (selfObject.wb_frameDidChangeBlock && valueChange) {
+                    selfObject.wb_frameDidChangeBlock(selfObject, precedingFrame);
+                }
+            };
+        });
+        
+        WBOverrideImplementation([UIView class], @selector(setTransform:), ^id _Nonnull(__unsafe_unretained Class  _Nonnull originClass, SEL  _Nonnull originCMD, IMP  _Nonnull (^ _Nonnull originalIMPProvider)(void)) {
+            return ^(UIView *selfObject, CGAffineTransform transform) {
+                CGRect precedingFrame = selfObject.frame;
+                CGAffineTransform precedingTransform = selfObject.transform;
+                BOOL valueChange = !CGAffineTransformEqualToTransform(transform, precedingTransform);
+                if (selfObject.wb_frameWillChangeBlock && valueChange) {
+                    CGRect followingFrame = WBCGRectApplyAffineTransformWithAnchorPoint(precedingFrame, transform, selfObject.layer.anchorPoint);
+                    selfObject.wb_frameWillChangeBlock(selfObject, followingFrame);// 对于 CGAffineTransform，无法根据修改后的 rect 来算出新的 transform，所以就不修改 transform 的值了
+                }
+                
+                // call super
+                void (*originSelectorIMP)(id, SEL, CGAffineTransform);
+                originSelectorIMP = (void (*)(id, SEL, CGAffineTransform))originalIMPProvider();
+                originSelectorIMP(selfObject, originCMD, transform);
+                
+                if (selfObject.wb_frameDidChangeBlock && valueChange) {
+                    selfObject.wb_frameDidChangeBlock(selfObject, precedingFrame);
+                }
+            };
+        });
+        
     });
 }
 
@@ -221,7 +320,6 @@ static NSMutableSet *wb_registeredLayoutSubviewsBlockClasses;
     self.layer.shadowOpacity = 1;
     self.layer.shouldRasterize = YES;
     self.layer.rasterizationScale = [UIScreen mainScreen].scale;
-
 }
 
 - (void)wb_removeAllSubviews {
@@ -624,5 +722,69 @@ static NSMutableSet *wb_registeredLayoutSubviewsBlockClasses;
     self.frame = frame;
 }
 
+- (CGFloat)wb_extendToTop {
+    return self.wb_top;
+}
+
+- (void)setWb_extendToTop:(CGFloat)wb_extendToTop {
+    self.wb_height = self.wb_bottom - wb_extendToTop;
+    self.wb_top = wb_extendToTop;
+}
+
+- (CGFloat)wb_extendToLeft {
+    return self.wb_left;
+}
+
+- (void)setWb_extendToLeft:(CGFloat)wb_extendToLeft {
+    self.wb_width = self.wb_right - wb_extendToLeft;
+    self.wb_left = wb_extendToLeft;
+}
+
+- (CGFloat)wb_extendToBottom {
+    return self.wb_bottom;
+}
+
+- (void)setWb_extendToBottom:(CGFloat)wb_extendToBottom {
+    self.wb_height = wb_extendToBottom - self.wb_top;
+    self.wb_bottom = wb_extendToBottom;
+}
+
+- (CGFloat)wb_extendToRight {
+    return self.wb_right;
+}
+
+- (void)setWb_extendToRight:(CGFloat)wb_extendToRight {
+    self.wb_width = wb_extendToRight - self.wb_left;
+    self.wb_right = wb_extendToRight;
+}
+
+- (CGFloat)wb_leftWhenCenterInSuperview {
+    return WBCGFloatGetCenter(CGRectGetWidth(self.superview.bounds), CGRectGetWidth(self.frame));
+}
+
+- (CGFloat)wb_topWhenCenterInSuperview {
+    return WBCGFloatGetCenter(CGRectGetHeight(self.superview.bounds), CGRectGetHeight(self.frame));
+}
+
 @end
 
+
+@implementation UIView (WBCGAffineTransform)
+
+- (CGFloat)wb_scaleX {
+    return self.transform.a;
+}
+
+- (CGFloat)wb_scaleY {
+    return self.transform.d;
+}
+
+- (CGFloat)wb_translationX {
+    return self.transform.tx;
+}
+
+- (CGFloat)wb_translationY {
+    return self.transform.ty;
+}
+
+@end

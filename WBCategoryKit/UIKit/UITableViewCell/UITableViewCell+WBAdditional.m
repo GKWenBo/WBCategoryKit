@@ -20,4 +20,15 @@
     return cell;
 }
 
+- (UITableView *)wb_parentTableView {
+    UIView *aView = self.superview;
+    while (aView != nil) {
+        if ([aView isKindOfClass:[UITableView class]]) {
+            return (UITableView *)aView;
+        }
+        aView = aView.superview;
+    }
+    return nil;
+}
+
 @end

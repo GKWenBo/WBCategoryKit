@@ -10,12 +10,10 @@
 
 #if __has_include(<WBCategoryKit/WBUITableViewCell.h>)
 
-#import <WBCategoryKit/UITableViewCell+FindUITableView.h>
 #import <WBCategoryKit/UITableViewCell+WBAdditional.h>
 
 #else
 
-#import "UITableViewCell+FindUITableView.h"
 #import "UITableViewCell+WBAdditional.h"
 
 #endif
