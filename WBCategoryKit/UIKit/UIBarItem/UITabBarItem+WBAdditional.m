@@ -11,7 +11,7 @@
 
 @implementation UITabBarItem (WBAdditional)
 
-// MARK:setter && getter
+// MARK: - setter && getter
 
 - (void)setWb_tabbarItemDoubleTapBlock:(void (^)(UITabBarItem *, NSInteger))wb_tabbarItemDoubleTapBlock {
     objc_setAssociatedObject(self, @selector(wb_tabbarItemDoubleTapBlock), wb_tabbarItemDoubleTapBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);

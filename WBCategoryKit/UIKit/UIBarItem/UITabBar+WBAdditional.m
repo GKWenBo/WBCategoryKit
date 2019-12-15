@@ -29,7 +29,7 @@ static NSInteger const kLastTouchedTabBarItemIndexNone = -1;
 @end
 
 @implementation UITabBar (WBAdditional)
-// MARK:getter && setter
+// MARK: - getter && setter
 - (void)setCanItemRespondDoubleTouch:(BOOL)canItemRespondDoubleTouch {
     objc_setAssociatedObject(self, @selector(canItemRespondDoubleTouch), @(canItemRespondDoubleTouch), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
@@ -54,7 +54,7 @@ static NSInteger const kLastTouchedTabBarItemIndexNone = -1;
     return [objc_getAssociatedObject(self, @selector(tabBarItemViewTouchCount)) integerValue];
 }
 
-// MARK: Configuration Property
+// MARK: - Configuration Property
 #ifdef WB_IOS13_SDK_ALLOWED
 - (UITabBarAppearance *)wb_tabBarAppearance {
     UITabBarAppearance *wb_tabBarAppearance = objc_getAssociatedObject(self, @selector(wb_tabBarAppearance));
@@ -501,7 +501,7 @@ static NSInteger const kLastTouchedTabBarItemIndexNone = -1;
     return shadowView;
 }
 
-// MARK:Event Response
+// MARK: - Event Response
 - (void)handleTabBarItemViewEvent:(UIControl *)itemView {
     if (!self.canItemRespondDoubleTouch) {
         return;

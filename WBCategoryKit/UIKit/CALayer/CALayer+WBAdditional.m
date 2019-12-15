@@ -128,7 +128,7 @@
     [CATransaction commit];
 }
 
-// MARK:setter
+// MARK: - setter
 static char kWBAssociatedObjectKey_maskedCorners;
 - (void)setWb_maskedCorners:(WBUICornerMask)wb_maskedCorners {
     BOOL maskedCornersChanged = wb_maskedCorners != self.wb_maskedCorners;
@@ -410,7 +410,6 @@ static NSString *kMaskName = @"WBUI_CornerRadius_Mask";
 
 - (void)wb_setDefaultStyle {
     self.wb_borderWidth = [WBHelper wb_pixelOne];
-    
 #ifdef WB_IOS13_SDK_ALLOWED
     if (@available(iOS 13.0, *)) {
         self.wb_borderColor = [UIColor separatorColor];
@@ -423,7 +422,7 @@ static NSString *kMaskName = @"WBUI_CornerRadius_Mask";
 #endif
 }
 
-// MARK: setter && getter
+// MARK: - setter && getter
 - (void)setWb_borderLayer:(CAShapeLayer *)wb_borderLayer {
     objc_setAssociatedObject(self, @selector(wb_borderLayer), wb_borderLayer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
