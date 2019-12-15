@@ -410,12 +410,17 @@ static NSString *kMaskName = @"WBUI_CornerRadius_Mask";
 
 - (void)wb_setDefaultStyle {
     self.wb_borderWidth = [WBHelper wb_pixelOne];
+    
+#ifdef WB_IOS13_SDK_ALLOWED
     if (@available(iOS 13.0, *)) {
         self.wb_borderColor = [UIColor separatorColor];
     } else {
+#endif
         // Fallback on earlier versions
         self.wb_borderColor = [UIColor lightGrayColor];
+#ifdef WB_IOS13_SDK_ALLOWED
     }
+#endif
 }
 
 // MARK: setter && getter
