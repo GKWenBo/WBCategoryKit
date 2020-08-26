@@ -123,7 +123,7 @@ shakeDirection:(ShakeDirection)shakeDirection
 /**
  Animation complete callback.
  */
-@property(nonatomic, copy)void(^completeBlock)(void);
+@property(nonatomic, copy) void(^completeBlock)(void);
 
 /**
  *  淡出动画

@@ -64,13 +64,13 @@
 /// @param vc target vc
 /// @param completion 完成回调
 - (void)wb_presentVcAnimated:(UIViewController *)vc
-                  completion:(void (^) (void))completion;
+                  completion:(void (^)(void))completion;
 
 /// Modal dismiss.
 - (void)wb_dismissVcAnimated;
 
 /// Modal dismiss.
 /// @param completion 完成回调
-- (void)wb_dismissVcAnimatedCompletion:(void (^) (void))completion;
+- (void)wb_dismissVcAnimatedCompletion:(void (^)(void))completion;
 
 @end
