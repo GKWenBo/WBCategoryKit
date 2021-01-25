@@ -76,6 +76,21 @@
     }];
 }
 
+- (void)wb_getMaxDocumentBodyScrollHeight:(void (^)(CGFloat height))completedHandler {
+    [self evaluateJavaScript:@"document.readyState" completionHandler:^(id _Nullable complete, NSError * _Nullable error) {
+        if (complete) {
+            /// 获取最大高度
+            [self evaluateJavaScript:@"Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight)" completionHandler:^(id _Nullable height, NSError * _Nullable error) {
+                if (height) {
+                    !completedHandler ?: completedHandler([height floatValue]);
+                } else {
+                    !completedHandler ?: completedHandler(0);
+                }
+            }];
+        }
+    }];
+}
+
 - (void)wb_chnageFontSize:(int)fontSize {
     NSString *jsString = [NSString stringWithFormat:@"document.querySelectorAll('.wrap')[0].style.fontSize= '%dpx'",fontSize];
     [self evaluateJavaScript:jsString

@@ -283,6 +283,8 @@
 		F6503CBE6A6FA2469DC4EF186F30CCD3 /* UIButton+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD0C0E7155BD4654F32EB695EC7EC8F /* UIButton+WBAdditional.m */; };
 		F6C2C6DDCBBE8A0042DA3F5BF9EDDDFD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15976B3D4FF9CCE5EBF3524D5BC6E962 /* AVFoundation.framework */; };
 		FAFB9EAF41C5FAA963647A04EB42B250 /* WKWebView+WBCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7C586BEB6F760A544ACFD0A214CDC7 /* WKWebView+WBCapture.m */; };
+		FD40313125BEBC45000588ED /* UIProgressView+WBWebKit.m in Sources */ = {isa = PBXBuildFile; fileRef = FD40312F25BEBC45000588ED /* UIProgressView+WBWebKit.m */; };
+		FD40313225BEBC45000588ED /* UIProgressView+WBWebKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FD40313025BEBC45000588ED /* UIProgressView+WBWebKit.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -550,6 +552,8 @@
 		FA3248FE3F14182DF9EEC5EB77645B96 /* UIApplication+WBApplicationSize.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+WBApplicationSize.m"; path = "WBCategoryKit/UIKit/UIApplication/UIApplication+WBApplicationSize.m"; sourceTree = "<group>"; };
 		FA765CFF072352D2EC47EAD92A3DB2A1 /* NSDictionary+WBAdditional.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+WBAdditional.m"; path = "WBCategoryKit/Foundation/NSDictionary/NSDictionary+WBAdditional.m"; sourceTree = "<group>"; };
 		FC2D7AE32E2F6D61BB7A192470208070 /* WBNSObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBNSObject.h; path = WBCategoryKit/Foundation/NSObject/WBNSObject.h; sourceTree = "<group>"; };
+		FD40312F25BEBC45000588ED /* UIProgressView+WBWebKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+WBWebKit.m"; sourceTree = "<group>"; };
+		FD40313025BEBC45000588ED /* UIProgressView+WBWebKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+WBWebKit.h"; sourceTree = "<group>"; };
 		FEDDA7794EDBB85B55F8F832F3CF974D /* UIScreen+WBFrame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScreen+WBFrame.h"; path = "WBCategoryKit/UIKit/UIScreen/UIScreen+WBFrame.h"; sourceTree = "<group>"; };
 		FEE598E9F42EB1900C144E6F89975121 /* NSString+WBDeviceInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+WBDeviceInfo.m"; path = "WBCategoryKit/Foundation/NSString/NSString+WBDeviceInfo.m"; sourceTree = "<group>"; };
 		FFE0582A03868E8E07171B7AA7B387E1 /* Pods-WBCategoryKit_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WBCategoryKit_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -641,6 +645,8 @@
 				5B460C3CDE5B0FF77C0ACD2FF4DA12DB /* WKWebView+WBLoadInfo.m */,
 				70748EBA9ADB246FCD8FCD061A428D2A /* WKWebView+WBMetaParser.h */,
 				A78DB43CF062AD8F9BA1997DE0FAE00D /* WKWebView+WBMetaParser.m */,
+				FD40313025BEBC45000588ED /* UIProgressView+WBWebKit.h */,
+				FD40312F25BEBC45000588ED /* UIProgressView+WBWebKit.m */,
 			);
 			name = WKWebView;
 			sourceTree = "<group>";
@@ -1393,6 +1399,7 @@
 				C504D73A237C52B8001BD12B /* NSString+WBJavaScript.h in Headers */,
 				C504D73B237C52B8001BD12B /* NSUserDefaults+WBAdditional.h in Headers */,
 				C504D741237C52B8001BD12B /* UILabel+WBAdditional.h in Headers */,
+				FD40313225BEBC45000588ED /* UIProgressView+WBWebKit.h in Headers */,
 				C504D742237C52B8001BD12B /* UIAlertController+WBAdditional.h in Headers */,
 				C504D743237C52B8001BD12B /* UIApplication+WBApplicationSize.h in Headers */,
 				C504D744237C52B8001BD12B /* UIApplication+WBNetworkActivityIndicator.h in Headers */,
@@ -1689,6 +1696,7 @@
 				9414AE1D105EC6C73A9AE0F7471C38DD /* UINavigationItem+WBLoading.m in Sources */,
 				285825C0B0D0B68CDEFBC9F82C7C63FA /* UINavigationItem+WBLock.m in Sources */,
 				6317A59D092876DAAA631BB3049D61FE /* UIScreen+WBFrame.m in Sources */,
+				FD40313125BEBC45000588ED /* UIProgressView+WBWebKit.m in Sources */,
 				C575B931238D682200CA4E50 /* WBKeyboardManager.m in Sources */,
 				7E0AC7A4755FFD1D34E623B48DB975EE /* UIScrollView+WBAdditional.m in Sources */,
 				793D87A0BE18F01575F6044EF4DB9822 /* UIScrollView+WBScrollDirection.m in Sources */,
