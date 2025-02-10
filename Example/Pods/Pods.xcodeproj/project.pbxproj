@@ -71,6 +71,13 @@
 		BAEF41B3FA1E93A904EE9D3884D5EE86 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08896C4C1A1384BB120828C549C9147C /* MobileCoreServices.framework */; };
 		BF57F908E915DE618A4FFA2E6A95E250 /* UIView+WBBlurEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = D07766B3446B4C0F13DE96A378F19C9B /* UIView+WBBlurEffect.m */; };
 		C029E1741ABEED3C1EF223C34F301D63 /* UIView+WBFind.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDA6A775DE9A4A0FDF804FBF6FA9BD1 /* UIView+WBFind.m */; };
+		C232D3802D5A3FDE00DDC6FE /* UIBezierPath+WBInterpolation.h in Headers */ = {isa = PBXBuildFile; fileRef = C232D37E2D5A3FDE00DDC6FE /* UIBezierPath+WBInterpolation.h */; };
+		C232D3812D5A3FDE00DDC6FE /* UIBezierPath+WBInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = C232D37F2D5A3FDE00DDC6FE /* UIBezierPath+WBInterpolation.m */; };
+		C232D3822D5A3FEE00DDC6FE /* UIBezierPath+WBInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = C232D37F2D5A3FDE00DDC6FE /* UIBezierPath+WBInterpolation.m */; };
+		C232D3852D5A454C00DDC6FE /* UIBezierPath+WBFindCoordinates.h in Headers */ = {isa = PBXBuildFile; fileRef = C232D3832D5A454C00DDC6FE /* UIBezierPath+WBFindCoordinates.h */; };
+		C232D3862D5A454C00DDC6FE /* UIBezierPath+WBFindCoordinates.m in Sources */ = {isa = PBXBuildFile; fileRef = C232D3842D5A454C00DDC6FE /* UIBezierPath+WBFindCoordinates.m */; };
+		C232D3872D5A454C00DDC6FE /* UIBezierPath+WBFindCoordinates.h in Headers */ = {isa = PBXBuildFile; fileRef = C232D3832D5A454C00DDC6FE /* UIBezierPath+WBFindCoordinates.h */; };
+		C232D3882D5A454C00DDC6FE /* UIBezierPath+WBFindCoordinates.m in Sources */ = {isa = PBXBuildFile; fileRef = C232D3842D5A454C00DDC6FE /* UIBezierPath+WBFindCoordinates.m */; };
 		C504D709237C3FFA001BD12B /* UILabel+WBAdditional.h in Headers */ = {isa = PBXBuildFile; fileRef = C504D706237C3FFA001BD12B /* UILabel+WBAdditional.h */; };
 		C504D70B237C3FFA001BD12B /* WBUILabelHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = C504D707237C3FFA001BD12B /* WBUILabelHeader.h */; };
 		C504D70D237C3FFA001BD12B /* UILabel+WBAdditional.m in Sources */ = {isa = PBXBuildFile; fileRef = C504D708237C3FFA001BD12B /* UILabel+WBAdditional.m */; };
@@ -454,6 +461,10 @@
 		BD368FC7492C413AE2DCEB03A2EEE873 /* WBUIScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBUIScrollView.h; path = WBCategoryKit/UIKit/UIScrollView/WBUIScrollView.h; sourceTree = "<group>"; };
 		C0527BB378BD0F1590A5FD36A74D640E /* Pods-WBCategoryKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WBCategoryKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		C206F9A0049031A77924A47C69B4C0CB /* WBUIViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBUIViewController.h; path = WBCategoryKit/UIKit/UIViewController/WBUIViewController.h; sourceTree = "<group>"; };
+		C232D37E2D5A3FDE00DDC6FE /* UIBezierPath+WBInterpolation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+WBInterpolation.h"; sourceTree = "<group>"; };
+		C232D37F2D5A3FDE00DDC6FE /* UIBezierPath+WBInterpolation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+WBInterpolation.m"; sourceTree = "<group>"; };
+		C232D3832D5A454C00DDC6FE /* UIBezierPath+WBFindCoordinates.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+WBFindCoordinates.h"; sourceTree = "<group>"; };
+		C232D3842D5A454C00DDC6FE /* UIBezierPath+WBFindCoordinates.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+WBFindCoordinates.m"; sourceTree = "<group>"; };
 		C2E6A3CC441212A3244B824A45F6EB06 /* WBUITableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBUITableViewCell.h; path = WBCategoryKit/UIKit/UITableViewCell/WBUITableViewCell.h; sourceTree = "<group>"; };
 		C3C847B234E1BC1E742DB0940C43289E /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/AssetsLibrary.framework; sourceTree = DEVELOPER_DIR; };
 		C448D1030FB236F0B2D4E55A414A6AB0 /* WBUIImagePickerController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBUIImagePickerController.h; path = WBCategoryKit/UIKit/UIImagePickerController/WBUIImagePickerController.h; sourceTree = "<group>"; };
@@ -1025,6 +1036,7 @@
 		C13B42E44099CFC9002503626817B527 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				C232D37D2D5A3ECE00DDC6FE /* UIBezierPath */,
 				D042E4F42386832F00A8BAF0 /* UIBarItem */,
 				D0EE494023852EFD00EE1603 /* UIImageView */,
 				2ADBF146839D6C9CE03514AC014547D6 /* WBUIKit.h */,
@@ -1052,6 +1064,17 @@
 				05056D67CC682F228EC2702BAC6550BF /* WKWebView */,
 			);
 			name = UIKit;
+			sourceTree = "<group>";
+		};
+		C232D37D2D5A3ECE00DDC6FE /* UIBezierPath */ = {
+			isa = PBXGroup;
+			children = (
+				C232D37E2D5A3FDE00DDC6FE /* UIBezierPath+WBInterpolation.h */,
+				C232D37F2D5A3FDE00DDC6FE /* UIBezierPath+WBInterpolation.m */,
+				C232D3832D5A454C00DDC6FE /* UIBezierPath+WBFindCoordinates.h */,
+				C232D3842D5A454C00DDC6FE /* UIBezierPath+WBFindCoordinates.m */,
+			);
+			path = UIBezierPath;
 			sourceTree = "<group>";
 		};
 		C504D705237C3FFA001BD12B /* UILabel */ = {
@@ -1343,6 +1366,7 @@
 				D0A058B92394F69F00843A94 /* WBPermission.h in Headers */,
 				D042E503238683AF00A8BAF0 /* UIBarItem+WBAdditional.h in Headers */,
 				D042E4F92386832F00A8BAF0 /* UITabBarItem+WBAdditional.h in Headers */,
+				C232D3852D5A454C00DDC6FE /* UIBezierPath+WBFindCoordinates.h in Headers */,
 				C575B9182386E5AE00CA4E50 /* WBHelper.h in Headers */,
 				C504D709237C3FFA001BD12B /* UILabel+WBAdditional.h in Headers */,
 				C5E16E78239CFB74005904C5 /* NSCharacterSet+WBAdditional.h in Headers */,
@@ -1362,6 +1386,7 @@
 				C504D712237C51C8001BD12B /* WBNSData.h in Headers */,
 				C504D713237C51C8001BD12B /* WBNSDate.h in Headers */,
 				C504D714237C51C8001BD12B /* WBNSDictionary.h in Headers */,
+				C232D3872D5A454C00DDC6FE /* UIBezierPath+WBFindCoordinates.h in Headers */,
 				C504D715237C51C8001BD12B /* WBNSObject.h in Headers */,
 				C504D716237C51C8001BD12B /* WBNSString.h in Headers */,
 				C504D717237C51C8001BD12B /* WBNSUserDefaults.h in Headers */,
@@ -1369,6 +1394,7 @@
 				C504D71C237C51C8001BD12B /* WBUIAlertController.h in Headers */,
 				C504D71D237C51C8001BD12B /* WBUIApplication.h in Headers */,
 				C504D71E237C51C8001BD12B /* WBUIBarButtonItem.h in Headers */,
+				C232D3802D5A3FDE00DDC6FE /* UIBezierPath+WBInterpolation.h in Headers */,
 				C504D71F237C51C8001BD12B /* WBUIButtonHeader.h in Headers */,
 				C504D720237C51C8001BD12B /* WBUIColor.h in Headers */,
 				C504D721237C51C8001BD12B /* WBUIControl.h in Headers */,
@@ -1612,7 +1638,9 @@
 				D0045330238F81BE001A3BA8 /* WBUILabel.m in Sources */,
 				D042E505238683AF00A8BAF0 /* UIBarItem+WBAdditional.m in Sources */,
 				D0A058BA2394F69F00843A94 /* WBPermission.m in Sources */,
+				C232D3862D5A454C00DDC6FE /* UIBezierPath+WBFindCoordinates.m in Sources */,
 				C5E16E6D239CF29B005904C5 /* NSArray+WBLogUnicode.m in Sources */,
+				C232D3822D5A3FEE00DDC6FE /* UIBezierPath+WBInterpolation.m in Sources */,
 				C575B9102386E53A00CA4E50 /* NSObject+WBRuntime.m in Sources */,
 				D042E4FF2386832F00A8BAF0 /* UITabBarItem+WBAdditional.m in Sources */,
 				C5E16E7A239CFB74005904C5 /* NSCharacterSet+WBAdditional.m in Sources */,
@@ -1673,6 +1701,7 @@
 				F6503CBE6A6FA2469DC4EF186F30CCD3 /* UIButton+WBAdditional.m in Sources */,
 				C7504743D6B8F347BBEB278E0377A4C2 /* UIButton+WBAdjustPosition.m in Sources */,
 				AFA4B0C401B682B3B320203B429554B7 /* UIButton+WBBlock.m in Sources */,
+				C232D3882D5A454C00DDC6FE /* UIBezierPath+WBFindCoordinates.m in Sources */,
 				F4FC1001A1A12046810345642B632DFE /* UIButton+WBEnlargeTouchAreas.m in Sources */,
 				0A0CA3458979D5CAF72592D5850FA122 /* UIButton+WBImagePosition.m in Sources */,
 				38325861EF3B8EED5109FDDE55AFC10D /* UIButton+WBMiddleAlign.m in Sources */,
@@ -1704,6 +1733,7 @@
 				C575B9112386E53A00CA4E50 /* NSObject+WBRuntime.m in Sources */,
 				8C8AB97C0BDACD68B975F43F0B13D133 /* UITableViewCell+WBAdditional.m in Sources */,
 				9AD3489D361175ECEC9D620D26A86C00 /* UIView+WBAdditional.m in Sources */,
+				C232D3812D5A3FDE00DDC6FE /* UIBezierPath+WBInterpolation.m in Sources */,
 				9AC9133B7958599DF500B7522038C453 /* UIView+WBBlockGesture.m in Sources */,
 				BF57F908E915DE618A4FFA2E6A95E250 /* UIView+WBBlurEffect.m in Sources */,
 				858F7A71EA4AB941DDAB10731234D854 /* UIView+WBConstraints.m in Sources */,
@@ -1763,7 +1793,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-WBCategoryKit_Tests/Pods-WBCategoryKit_Tests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-WBCategoryKit_Tests/Pods-WBCategoryKit_Tests.modulemap";
@@ -1796,7 +1826,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-WBCategoryKit_Example/Pods-WBCategoryKit_Example-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-WBCategoryKit_Example/Pods-WBCategoryKit_Example.modulemap";
@@ -1830,7 +1860,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/WBCategoryKit/WBCategoryKit-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/WBCategoryKit/WBCategoryKit-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/WBCategoryKit/WBCategoryKit.modulemap";
 				PRODUCT_MODULE_NAME = WBCategoryKit;
@@ -1861,7 +1891,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-WBCategoryKit_Tests/Pods-WBCategoryKit_Tests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-WBCategoryKit_Tests/Pods-WBCategoryKit_Tests.modulemap";
@@ -1895,7 +1925,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/WBCategoryKit/WBCategoryKit-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/WBCategoryKit/WBCategoryKit-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/WBCategoryKit/WBCategoryKit.modulemap";
 				PRODUCT_MODULE_NAME = WBCategoryKit;
@@ -1984,7 +2014,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-WBCategoryKit_Example/Pods-WBCategoryKit_Example-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-WBCategoryKit_Example/Pods-WBCategoryKit_Example.modulemap";
