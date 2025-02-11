@@ -12,8 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIBezierPath (WBFindCoordinates)
 
 /// 贝塞尔曲线根据X求y坐标
-/// - Parameter xValue: x坐标
-- (CGFloat)wb_yValueForXValue:(CGFloat)xValue;
+/// - Parameter x: x坐标
+- (CGFloat)wb_yValueForX:(CGFloat)x;
 
 @end
 

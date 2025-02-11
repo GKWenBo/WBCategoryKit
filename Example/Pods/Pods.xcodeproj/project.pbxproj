@@ -292,6 +292,10 @@
 		FAFB9EAF41C5FAA963647A04EB42B250 /* WKWebView+WBCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7C586BEB6F760A544ACFD0A214CDC7 /* WKWebView+WBCapture.m */; };
 		FD40313125BEBC45000588ED /* UIProgressView+WBWebKit.m in Sources */ = {isa = PBXBuildFile; fileRef = FD40312F25BEBC45000588ED /* UIProgressView+WBWebKit.m */; };
 		FD40313225BEBC45000588ED /* UIProgressView+WBWebKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FD40313025BEBC45000588ED /* UIProgressView+WBWebKit.h */; };
+		FD67B88E2D5B4DAD005D4258 /* WBBezierCurveHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = FD67B88C2D5B4DAD005D4258 /* WBBezierCurveHelper.h */; };
+		FD67B88F2D5B4DAD005D4258 /* WBBezierCurveHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FD67B88D2D5B4DAD005D4258 /* WBBezierCurveHelper.m */; };
+		FD67B8902D5B4DAD005D4258 /* WBBezierCurveHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FD67B88D2D5B4DAD005D4258 /* WBBezierCurveHelper.m */; };
+		FD67B8912D5B4DAD005D4258 /* WBBezierCurveHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = FD67B88C2D5B4DAD005D4258 /* WBBezierCurveHelper.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -565,6 +569,8 @@
 		FC2D7AE32E2F6D61BB7A192470208070 /* WBNSObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBNSObject.h; path = WBCategoryKit/Foundation/NSObject/WBNSObject.h; sourceTree = "<group>"; };
 		FD40312F25BEBC45000588ED /* UIProgressView+WBWebKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+WBWebKit.m"; sourceTree = "<group>"; };
 		FD40313025BEBC45000588ED /* UIProgressView+WBWebKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+WBWebKit.h"; sourceTree = "<group>"; };
+		FD67B88C2D5B4DAD005D4258 /* WBBezierCurveHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBBezierCurveHelper.h; sourceTree = "<group>"; };
+		FD67B88D2D5B4DAD005D4258 /* WBBezierCurveHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBBezierCurveHelper.m; sourceTree = "<group>"; };
 		FEDDA7794EDBB85B55F8F832F3CF974D /* UIScreen+WBFrame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScreen+WBFrame.h"; path = "WBCategoryKit/UIKit/UIScreen/UIScreen+WBFrame.h"; sourceTree = "<group>"; };
 		FEE598E9F42EB1900C144E6F89975121 /* NSString+WBDeviceInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+WBDeviceInfo.m"; path = "WBCategoryKit/Foundation/NSString/NSString+WBDeviceInfo.m"; sourceTree = "<group>"; };
 		FFE0582A03868E8E07171B7AA7B387E1 /* Pods-WBCategoryKit_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WBCategoryKit_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -1071,6 +1077,8 @@
 			children = (
 				C232D37E2D5A3FDE00DDC6FE /* UIBezierPath+WBInterpolation.h */,
 				C232D37F2D5A3FDE00DDC6FE /* UIBezierPath+WBInterpolation.m */,
+				FD67B88C2D5B4DAD005D4258 /* WBBezierCurveHelper.h */,
+				FD67B88D2D5B4DAD005D4258 /* WBBezierCurveHelper.m */,
 				C232D3832D5A454C00DDC6FE /* UIBezierPath+WBFindCoordinates.h */,
 				C232D3842D5A454C00DDC6FE /* UIBezierPath+WBFindCoordinates.m */,
 			);
@@ -1360,6 +1368,7 @@
 				C575B936238EB97200CA4E50 /* WBUIButton.h in Headers */,
 				C56B489523843AE200310A17 /* CALayer+WBAdditional.h in Headers */,
 				D0756856238F6F28008BD4DD /* WBFileManager.h in Headers */,
+				FD67B88E2D5B4DAD005D4258 /* WBBezierCurveHelper.h in Headers */,
 				D14966FFBA00B9F231B86671A1751086 /* Pods-WBCategoryKit_Example-umbrella.h in Headers */,
 				C575B9122386E53A00CA4E50 /* NSObject+WBRuntime.h in Headers */,
 				D004532E238F81BE001A3BA8 /* WBUILabel.h in Headers */,
@@ -1456,6 +1465,7 @@
 				C504D75E237C52B8001BD12B /* UINavigationItem+WBLock.h in Headers */,
 				C504D75F237C52B8001BD12B /* UIScreen+WBFrame.h in Headers */,
 				C504D760237C52B8001BD12B /* UIScrollView+WBAdditional.h in Headers */,
+				FD67B8912D5B4DAD005D4258 /* WBBezierCurveHelper.h in Headers */,
 				C504D761237C52B8001BD12B /* UIScrollView+WBScrollDirection.h in Headers */,
 				C504D762237C52B8001BD12B /* UISearchBar+WBAddition.h in Headers */,
 				C504D764237C52B8001BD12B /* UITableViewCell+WBAdditional.h in Headers */,
@@ -1651,6 +1661,7 @@
 				C5E16E6B239CF29B005904C5 /* NSDictionary+WBLogUnicode.m in Sources */,
 				4FCCFF0F395ECDBDADBDA2282BE2FA0F /* Pods-WBCategoryKit_Example-dummy.m in Sources */,
 				D07567CB238F6984008BD4DD /* WBCountdownManager.m in Sources */,
+				FD67B88F2D5B4DAD005D4258 /* WBBezierCurveHelper.m in Sources */,
 				D0EE494523852F2300EE1603 /* UIImageView+WBAdditional.m in Sources */,
 				D0045338238F9BD2001A3BA8 /* WBUICollectionViewPagingLayout.m in Sources */,
 				C575B9162386E5AE00CA4E50 /* WBHelper.m in Sources */,
@@ -1756,6 +1767,7 @@
 				869EE15CEAE0A04FC6DF2E47371B7B46 /* WKWebView+WBLoadInfo.m in Sources */,
 				D042E506238683AF00A8BAF0 /* UIBarItem+WBAdditional.m in Sources */,
 				569EB0F2138B1C65B45382EDDAAC20B6 /* WKWebView+WBMetaParser.m in Sources */,
+				FD67B8902D5B4DAD005D4258 /* WBBezierCurveHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
